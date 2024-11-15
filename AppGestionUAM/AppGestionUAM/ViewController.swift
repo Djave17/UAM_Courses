@@ -9,11 +9,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var courseListButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        title = "App Gestion UAM"
+        
+        
+        
     }
-
+    
+    @IBAction func tapOnCourseList(_ sender: Any) {
+        
+       
+    }
+    
 
 }
 

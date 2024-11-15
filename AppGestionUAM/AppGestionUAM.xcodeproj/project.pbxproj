@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		51CD465F2CD3CAAB000D24BF /* Exceptions for "AppGestionUAM" folder in "AppGestionUAM" target */ = {
+		51E6B7DF2CE6E944004D9184 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAM" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -40,14 +40,6 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		51CD46392CD3CAAA000D24BF /* AppGestionUAM */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				51CD465F2CD3CAAB000D24BF /* Exceptions for "AppGestionUAM" folder in "AppGestionUAM" target */,
-			);
-			path = AppGestionUAM;
-			sourceTree = "<group>";
-		};
 		51CD46502CD3CAAB000D24BF /* AppGestionUAMTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AppGestionUAMTests;
@@ -56,6 +48,14 @@
 		51CD465A2CD3CAAB000D24BF /* AppGestionUAMUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AppGestionUAMUITests;
+			sourceTree = "<group>";
+		};
+		51E6B7CE2CE6E944004D9184 /* AppGestionUAM */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				51E6B7DF2CE6E944004D9184 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAM" target */,
+			);
+			path = AppGestionUAM;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -88,7 +88,7 @@
 		51CD462E2CD3CAAA000D24BF = {
 			isa = PBXGroup;
 			children = (
-				51CD46392CD3CAAA000D24BF /* AppGestionUAM */,
+				51E6B7CE2CE6E944004D9184 /* AppGestionUAM */,
 				51CD46502CD3CAAB000D24BF /* AppGestionUAMTests */,
 				51CD465A2CD3CAAB000D24BF /* AppGestionUAMUITests */,
 				51CD46382CD3CAAA000D24BF /* Products */,
@@ -121,7 +121,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				51CD46392CD3CAAA000D24BF /* AppGestionUAM */,
+				51E6B7CE2CE6E944004D9184 /* AppGestionUAM */,
 			);
 			name = AppGestionUAM;
 			packageProductDependencies = (
