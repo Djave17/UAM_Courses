@@ -8,22 +8,45 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    
+    //MARK: OUTLETS
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    //View
+    @IBOutlet var viewH: UIView!
+    @IBOutlet weak var bodyView: UIView!
 
+    //Botones
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var logInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
 
-        // Do any additional setup after loading the view.
+       
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    //MARK: Tap On Log in
+    
+    @IBAction func tapOnLogin(_ sender: Any) {
+        
+        let courseListViewController = CourseListViewController()
+        navigationController?.pushViewController(courseListViewController, animated: true)
     }
-    */
+    
+    
+    //MARK: Tap On Register
+    @IBAction func tapOnRegister(_ sender: Any) {
+
+        let registerViewController = RegisterViewController()
+        navigationController?.pushViewController(registerViewController, animated: true)
+
+    }
+    
+
+    
 
 }

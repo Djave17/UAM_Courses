@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         // Establecer CourseListViewController como el controlador raíz
-        let courseListViewController = CourseListViewController()
+        let courseListViewController = LoginViewController()
         let navigationController = UINavigationController(rootViewController: courseListViewController)
         window.rootViewController = navigationController
         

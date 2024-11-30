@@ -8,9 +8,9 @@
 import Foundation
 
 class CourseDetailViewModel: ObservableObject {
-    @Published var course: Course
+    @Published var course: CourseModel
     
-    init(course: Course) {
+    init(course: CourseModel) {
         self.course = course
     }
     

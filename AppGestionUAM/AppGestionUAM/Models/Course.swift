@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct Course: Codable, Identifiable {
+struct CoursesResponse: Decodable {
+    let courses: [CourseModel]
+}
+
+
+struct CourseModel: Codable, Hashable {
     let id: String
     let name: String
     let description: String

@@ -7,42 +7,96 @@
 
 import Foundation
 
+import Foundation
+
 class CourseListViewModel: ObservableObject {
-    @Published var courses: [Course] = []
-    @Published var favorites: [Course] = []
+    @Published var courses: [CourseModel] = []
+    @Published var errorMessage: String?
     
-    func fetchCourses() {
-        APIClient.shared.fetchCourses { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let courses):
-                    self.courses = courses
-                case .failure(let error):
-                    print("Error fetching courses: \(error)")
+    private let courseListController = CourseListController()
+    
+    func fetchCourses(query: String = "") {
+        // Initialize with dummy data for local testing
+        self.courses = [
+            CourseModel(id: "1", name: "Curso de Swift", description: "Aprende Swift", learningObjectives: "Dominar Swift", schedule: "Lunes y Miércoles", prerequisites: "Ninguno", materials: [], imageUrl: "", isFavorite: false),
+            CourseModel(id: "2", name: "Curso de UI/UX", description: "Diseño moderno", learningObjectives: "Dominar UI", schedule: "Martes y Jueves", prerequisites: "Conocimientos básicos", materials: [], imageUrl: "", isFavorite: true)
+        ]
+        
+        // Fetch from API
+        Task {
+            do {
+                if let fetchedCourses = await courseListController.fetchCourses(query: query) {
+                    DispatchQueue.main.async {
+                        self.courses = fetchedCourses
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.errorMessage = "No se pudieron cargar los cursos. Inténtalo de nuevo más tarde."
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.errorMessage = "Error al obtener los cursos: \(error.localizedDescription)"
                 }
             }
         }
     }
-    
-    func toggleFavorite(courseID: String) {
-        // Busca el índice del curso en el array
-        if let index = courses.firstIndex(where: { $0.id == courseID }) {
-            
-            var updatedCourse = courses[index]
-            updatedCourse.isFavorite.toggle()
-            
-            // Guarda o elimina de favoritos según el nuevo estado
-            if updatedCourse.isFavorite {
-                FavoritesManager().saveFavorite(course: updatedCourse)
-            } else {
-                FavoritesManager().removeFavorite(courseID: updatedCourse.id)
-            }
-            
-            // Reemplaza el curso en el array con el curso modificado
-            courses[index] = updatedCourse
-        }
-    }
 }
+
+
+
+
+
+
+
+
+
+//import Foundation
+//
+//class CourseListViewModel: ObservableObject {
+//
+//    @Published var courses: [CourseModel] = []
+//    @Published var favorites: [CourseModel] = []
+//
+//    func fetchCourses() {
+//        // Inicialización con datos predeterminados
+//        self.courses = [
+//            CourseModel(id: "1", name: "Curso de Swift", description: "Aprende Swift", learningObjectives: "Dominar Swift", schedule: "Lunes y Miércoles", prerequisites: "Ninguno", materials: [], imageUrl: "", isFavorite: false),
+//            CourseModel(id: "2", name: "Curso de Diseño UI", description: "Diseña interfaces", learningObjectives: "Dominar UI/UX", schedule: "Martes y Jueves", prerequisites: "Conocimientos básicos", materials: [], imageUrl: "", isFavorite: true)
+//        ]
+//
+//        // Llamada al cliente API
+//        Task {
+//            let result = await APIClient.shared.fetchCourses()
+//            DispatchQueue.main.async {
+//                if let courses = result {
+//                    self.courses = courses
+//                } else {
+//                    print("Error fetching courses or no data available.")
+//                }
+//            }
+//        }
+//    }
+//
+//    func toggleFavorite(courseID: String) {
+//        // Busca el índice del curso en el array
+//        if let index = courses.firstIndex(where: { $0.id == courseID }) {
+//
+//            var updatedCourse = courses[index]
+//            updatedCourse.isFavorite.toggle()
+//
+//            // Guarda o elimina de favoritos según el nuevo estado
+//            if updatedCourse.isFavorite {
+//                FavoritesManager().saveFavorite(course: updatedCourse)
+//            } else {
+//                FavoritesManager().removeFavorite(courseID: updatedCourse.id)
+//            }
+//
+//            // Reemplaza el curso en el array con el curso modificado
+//            courses[index] = updatedCourse
+//        }
+//    }
+//}
 
 //
 //eres un experto. Revisa

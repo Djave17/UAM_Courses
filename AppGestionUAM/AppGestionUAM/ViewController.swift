@@ -21,7 +21,9 @@ class ViewController: UIViewController {
     
     @IBAction func tapOnCourseList(_ sender: Any) {
         
-       
+        let courseListViewController = CourseListViewController()
+        
+        navigationController?.pushViewController(courseListViewController, animated: true)
     }
     
 

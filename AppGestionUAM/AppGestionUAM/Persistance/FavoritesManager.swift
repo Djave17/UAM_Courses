@@ -10,7 +10,7 @@ import Foundation
 class FavoritesManager {
     private let favoritesKey = "favoriteCourses"
     
-    func saveFavorite(course: Course) {
+    func saveFavorite(course: CourseModel) {
         var favorites = fetchFavorites()
         favorites.append(course)
         saveFavorites(favorites)
@@ -22,15 +22,15 @@ class FavoritesManager {
         saveFavorites(favorites)
     }
     
-    func fetchFavorites() -> [Course] {
+    func fetchFavorites() -> [CourseModel] {
         guard let data = UserDefaults.standard.data(forKey: favoritesKey),
-              let favorites = try? JSONDecoder().decode([Course].self, from: data) else {
+              let favorites = try? JSONDecoder().decode([CourseModel].self, from: data) else {
             return []
         }
         return favorites
     }
     
-    private func saveFavorites(_ favorites: [Course]) {
+    private func saveFavorites(_ favorites: [CourseModel]) {
         let data = try? JSONEncoder().encode(favorites)
         UserDefaults.standard.set(data, forKey: favoritesKey)
     }
