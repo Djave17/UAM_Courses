@@ -10,9 +10,9 @@ import UIKit
 final class CourseListController {
     private let apiClient = APIClient.shared
     
-    func fetchCourses(query: String = "") async -> [CourseModel]? {
-        await apiClient.fetchCourses(search: query)
-    }
+//    func fetchCourses(query: String = "") async -> [CourseModel]? {
+//        await apiClient.fetchCourses(search: query)
+//    }
     
     func loadImage(url: String) async -> UIImage? {
         guard let imageUrl = URL(string: url) else { return nil }

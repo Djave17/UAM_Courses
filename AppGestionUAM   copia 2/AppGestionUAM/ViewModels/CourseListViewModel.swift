@@ -1,46 +1,46 @@
+////
+////  CourseListViewModel.swift
+////  AppGestionUAM
+////
+////  Created by David Sanchez on 14/11/24.
+////
 //
-//  CourseListViewModel.swift
-//  AppGestionUAM
+//import Foundation
 //
-//  Created by David Sanchez on 14/11/24.
+//class CourseListViewModel: ObservableObject {
+//    @Published var courses: [CourseModel] = []
+//    @Published var errorMessage: String?
+//    
+//    private let courseListController = CourseListController()
+//    
+//    func fetchCourses(query: String = "") {
+//        // Initialize with dummy data for local testing
+//        self.courses = [
+//            CourseModel(id: "1", name: "Curso de Swift", description: "Aprende Swift", learningObjectives: "Dominar Swift", schedule: "Lunes y Miércoles", prerequisites: "Ninguno", materials: [], imageUrl: "", isFavorite: false),
+//            CourseModel(id: "2", name: "Curso de UI/UX", description: "Diseño moderno", learningObjectives: "Dominar UI", schedule: "Martes y Jueves", prerequisites: "Conocimientos básicos", materials: [], imageUrl: "", isFavorite: true)
+//        ]
+//        
+//        // Fetch from API
+//        Task {
+//            do {
+//                if let fetchedCourses = await courseListController.fetchCourses(query: query) {
+//                    DispatchQueue.main.async {
+//                        self.courses = fetchedCourses
+//                    }
+//                } else {
+//                    DispatchQueue.main.async {
+//                        self.errorMessage = "No se pudieron cargar los cursos. Inténtalo de nuevo más tarde."
+//                    }
+//                }
+//            } catch {
+//                DispatchQueue.main.async {
+//                    self.errorMessage = "Error al obtener los cursos: \(error.localizedDescription)"
+//                }
+//            }
+//        }
+//    }
+//}
 //
-
-import Foundation
-
-class CourseListViewModel: ObservableObject {
-    @Published var courses: [CourseModel] = []
-    @Published var errorMessage: String?
-    
-    private let courseListController = CourseListController()
-    
-    func fetchCourses(query: String = "") {
-        // Initialize with dummy data for local testing
-        self.courses = [
-            CourseModel(id: "1", name: "Curso de Swift", description: "Aprende Swift", learningObjectives: "Dominar Swift", schedule: "Lunes y Miércoles", prerequisites: "Ninguno", materials: [], imageUrl: "", isFavorite: false),
-            CourseModel(id: "2", name: "Curso de UI/UX", description: "Diseño moderno", learningObjectives: "Dominar UI", schedule: "Martes y Jueves", prerequisites: "Conocimientos básicos", materials: [], imageUrl: "", isFavorite: true)
-        ]
-        
-        // Fetch from API
-        Task {
-            do {
-                if let fetchedCourses = await courseListController.fetchCourses(query: query) {
-                    DispatchQueue.main.async {
-                        self.courses = fetchedCourses
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.errorMessage = "No se pudieron cargar los cursos. Inténtalo de nuevo más tarde."
-                    }
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    self.errorMessage = "Error al obtener los cursos: \(error.localizedDescription)"
-                }
-            }
-        }
-    }
-}
-
 
 
 

@@ -110,47 +110,52 @@ final class APIClient {
     
     // MARK: - Course Management
     
-    func fetchCourses(search: String? = nil) async -> [CourseModel]? {
-        var urlString = "\(host)/course_management"
-        if let search = search {
-            urlString += "?search=\(search)"
-        }
-        
-        guard let url = URL(string: urlString) else { return nil }
-        
-        do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { return nil }
-            
-            return try JSONDecoder().decode(CoursesResponse.self, from: data).courses
-        } catch {
-            print("Fetch Courses Error: \(error)")
-            return nil
-        }
-    }
+//    func fetchCourses(search: String? = nil) async -> [CourseModel]? {
+//        var urlString = "\(host)/course_management"
+//        if let search = search {
+//            urlString += "?search=\(search)"
+//        }
+//
+//        guard let url = URL(string: urlString) else { return nil }
+//
+//        do {
+//            let (data, response) = try await URLSession.shared.data(from: url)
+//
+//            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { return nil }
+//
+//            return try JSONDecoder().decode(CoursesResponse.self, from: data).courses
+//        } catch {
+//            print("Fetch Courses Error: \(error)")
+//            return nil
+//        }
+//    }
     
     //MARK: Create courses
     func createCourse(course: CourseModel) async -> CourseModel? {
-        guard let url = URL(string: "\(host)/course_management") else { return nil }
-        
-        do {
-            var urlRequest = URLRequest(url: url)
-            urlRequest.httpMethod = "POST"
-            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            
-            urlRequest.httpBody = try JSONEncoder().encode(course)
-            
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { return nil }
-            
-            return try JSONDecoder().decode(CourseModel.self, from: data)
-        } catch {
-            print("Create Course Error: \(error)")
-            return nil
+            guard let url = URL(string: "\(host)/course_management"),
+                  let token = getToken() else { return nil }
+
+            do {
+                var urlRequest = URLRequest(url: url)
+                urlRequest.httpMethod = "POST"
+                urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+                urlRequest.httpBody = try JSONEncoder().encode(course)
+
+                let (data, response) = try await URLSession.shared.data(for: urlRequest)
+
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    print("Failed to create course, status code: \((response as? HTTPURLResponse)?.statusCode ?? 0)")
+                    return nil
+                }
+
+                return try JSONDecoder().decode(CourseModel.self, from: data)
+            } catch {
+                print("Create Course Error: \(error)")
+                return nil
+            }
         }
-    }
     
     //MARK: Update Courses
     func updateCourse(courseID: String, updatedCourse: CourseModel) async -> CourseModel? {
@@ -195,40 +200,41 @@ final class APIClient {
     
     // MARK: - Image Upload
     
-    func uploadImage(imageData: Data) async -> String? {
-        guard let url = URL(string: "\(host)/upload_image") else { return nil }
-        
-        do {
-            var urlRequest = URLRequest(url: url)
-            urlRequest.httpMethod = "POST"
-            urlRequest.addValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+    func uploadImage(image: UIImage) async throws -> String {
+            guard let url = URL(string: "\(host)/upload_image") else {
+                throw APIError.invalidURL
+            }
             
-            let boundary = UUID().uuidString
-            let fieldName = "image"
-            let fileName = "image.jpg"
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
             
-            let body = NSMutableData()
+            let boundary = "Boundary-\(UUID().uuidString)"
+            request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            
+            let imageData = image.jpegData(compressionQuality: 0.8)
+            guard let data = imageData else { throw APIError.encodingFailed }
+            
+            var body = Data()
             body.append("--\(boundary)\r\n".data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"\(fieldName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
             body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
-            body.append(imageData)
+            body.append(data)
             body.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
             
-            urlRequest.httpBody = body as Data
+            request.httpBody = body
             
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let (responseData, response) = try await URLSession.shared.data(for: request)
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw APIError.invalidResponse
+            }
             
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { return nil }
+            guard let json = try? JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
+                  let url = json["url"] as? String else {
+                throw APIError.decodingFailed
+            }
             
-            guard let urlResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: String],
-                  let imageUrl = urlResponse["url"] else { return nil }
-            
-            return imageUrl
-        } catch {
-            print("Upload Image Error: \(error)")
-            return nil
+            return url
         }
-    }
     
     func loadImage(url: String) async -> UIImage? {
         guard let url = URL(string: url) else {return nil}

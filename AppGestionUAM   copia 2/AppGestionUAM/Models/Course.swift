@@ -7,19 +7,36 @@
 
 import Foundation
 
-struct CoursesResponse: Decodable {
-    let courses: [CourseModel]
-}
-
-
 struct CourseModel: Codable, Hashable {
-    let id: String
-    let name: String
-    let description: String
-    let learningObjectives: String
-    let schedule: String
-    let prerequisites: String
-    let materials: [String]
-    let imageUrl: String
-    var isFavorite: Bool = false
+    let id: String?
+    var name: String
+    var description: String
+    var learningObjectives: String
+    var schedule: String
+    var prerequisites: String
+    var materials: [String]
+    var imageURL: String
+    var isFavorite: Bool?
+
+    init(id: String? = nil,
+         name: String = "",
+         description: String = "",
+         learningObjectives: String = "",
+         schedule: String = "",
+         prerequisites: String = "",
+         materials: [String] = [],
+         imageURL: String = "",
+         isFavorite: Bool? = nil) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.learningObjectives = learningObjectives
+        self.schedule = schedule
+        self.prerequisites = prerequisites
+        self.materials = materials
+        self.imageURL = imageURL
+        self.isFavorite = isFavorite
+    }
 }
+
+

@@ -72,10 +72,9 @@ class RegisterViewController: UIViewController {
         }
     // MARK: - Navegación
     private func navigateToCourseList() {
-        guard let courseListViewController = storyboard?.instantiateViewController(withIdentifier: "CourseListViewController") as? CourseListViewController else {
-            return
-        }
-        navigationController?.pushViewController(courseListViewController, animated: true)
+        
+        
+       // navigationController?.pushViewController(courseListViewController, animated: true)
     }
     @IBAction func tapOnLogin(_ sender: Any) {
         navigateToLogin()
