@@ -109,7 +109,7 @@ class LoginViewController: UIViewController {
     
     // MARK: - Navegación
     private func navigateToCourseList() {
-        let courseListViewController = CreateViewController()
+        let courseListViewController = CourseListViewController()
         navigationController?.pushViewController(courseListViewController, animated: true)
     }
     

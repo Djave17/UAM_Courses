@@ -15,7 +15,7 @@ struct CourseModel: Codable, Hashable {
     var schedule: String
     var prerequisites: String
     var materials: [String]
-    var imageURL: String
+    var imageUrl: String
     var isFavorite: Bool?
 
     init(id: String? = nil,
@@ -34,7 +34,7 @@ struct CourseModel: Codable, Hashable {
         self.schedule = schedule
         self.prerequisites = prerequisites
         self.materials = materials
-        self.imageURL = imageURL
+        self.imageUrl = imageURL
         self.isFavorite = isFavorite
     }
 }

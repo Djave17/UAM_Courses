@@ -106,7 +106,9 @@ class RegisterViewController: UIViewController {
         nameTextField.clipsToBounds = true
         
         //Login Button
-        logInButton.layer.cornerRadius = 15
-        logInButton.clipsToBounds = true
+        registerButton.layer.cornerRadius = 15
+        registerButton.clipsToBounds = true
+        
+        
     }
 }
