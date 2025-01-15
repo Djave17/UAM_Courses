@@ -99,7 +99,7 @@ final class APIClient {
         case 500:
             throw APIError.serverError("Error interno del servidor.")
         default:
-            throw APIError.unknownError
+            throw APIError.unknownError("Error desconocido. Código de estado: \(httpResponse.statusCode)")
         }
     }
     
@@ -110,25 +110,66 @@ final class APIClient {
     
     // MARK: - Course Management
     
-//    func fetchCourses(search: String? = nil) async -> [CourseModel]? {
-//        var urlString = "\(host)/course_management"
-//        if let search = search {
-//            urlString += "?search=\(search)"
-//        }
-//
-//        guard let url = URL(string: urlString) else { return nil }
-//
-//        do {
-//            let (data, response) = try await URLSession.shared.data(from: url)
-//
-//            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { return nil }
-//
-//            return try JSONDecoder().decode(CoursesResponse.self, from: data).courses
-//        } catch {
-//            print("Fetch Courses Error: \(error)")
-//            return nil
-//        }
-//    }
+    func fetchCourses(search: String? = nil) async throws -> [CourseModel] {
+        // Construcción de la URL
+        var urlString = "\(host)/course_management"
+        if let search = search {
+            urlString += "?search=\(search)"
+        }
+
+        guard let url = URL(string: urlString) else {
+            throw APIError.invalidURL
+        }
+
+        // Verificación del token de autenticación
+        guard let token = getToken() else {
+            throw APIError.unauthenticated
+        }
+
+        do {
+            // Configuración de la solicitud
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "GET"
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+            // Llamada a la API
+            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw APIError.invalidResponse
+            }
+
+            // Manejo de códigos de estado HTTP
+            switch httpResponse.statusCode {
+            case 200:
+                do {
+                    // Decodificación de la respuesta
+                    let coursesResponse = try JSONDecoder().decode(CourseResponse.self, from: data)
+                    return coursesResponse.courses
+                } catch {
+                    throw APIError.decodingFailed
+                }
+            case 401:
+                throw APIError.unauthorized("No autorizado. Por favor, verifique sus credenciales.")
+            case 403:
+                throw APIError.forbidden("Acceso denegado. No tiene permisos para acceder a este recurso.")
+            case 404:
+                throw APIError.notFound("Recurso no encontrado.")
+            case 422:
+                throw APIError.validationError("Error en la validación de los datos enviados.")
+            case 500:
+                throw APIError.serverError("Error interno del servidor.")
+            default:
+                throw APIError.unknownError("Error desconocido. Código de estado: \(httpResponse.statusCode)")
+            }
+        } catch let error as APIError {
+            throw error
+        } catch {
+            throw APIError.networkError("Error de red: \(error.localizedDescription)")
+        }
+    }
+
     
     //MARK: Create courses
     func createCourse(course: CourseModel) async -> CourseModel? {

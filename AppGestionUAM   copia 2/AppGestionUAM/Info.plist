@@ -21,5 +21,19 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Mulish-VariableFont_wght.ttf</string>
+		<string>Mulish-Italic-VariableFont_wght.ttf</string>
+		<string>Mulish-SemiBoldItalic.ttf</string>
+		<string>Mulish-SemiBold.ttf</string>
+		<string>Mulish-Regular.ttf</string>
+		<string>Mulish-MediumItalic.ttf</string>
+		<string>Mulish-Medium.ttf</string>
+		<string>Mulish-Light.ttf</string>
+		<string>Mulish-ExtraLight.ttf</string>
+		<string>Mulish-ExtraBold.ttf</string>
+		<string>Mulish-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

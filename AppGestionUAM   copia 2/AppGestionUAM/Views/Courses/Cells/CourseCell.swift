@@ -94,10 +94,10 @@ class CourseCell: UICollectionViewCell {
     }
     
     // MARK: - Configuration
-    func configure(with course: CourseList) {
+    func configure(with course: CourseModel) {
         titleLabel.text = course.name
         imageView.image = UIImage(systemName: course.imageUrl) // En producción, usar SDWebImage o similar
         scheduleLabel.text = course.schedule
-        favoriteButton.setImage(UIImage(systemName: course.isFavorite ? "heart.fill" : "heart"), for: .normal)
+        favoriteButton.setImage(UIImage(systemName: course.isFavorite! ? "heart.fill" : "heart"), for: .normal)
     }
 }

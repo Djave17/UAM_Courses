@@ -21,20 +21,7 @@ class CourseListViewController: UIViewController {
     @IBOutlet weak var addCourse: UIButton!
     
     // MARK: - Properties
-    private var courses: [CourseList] = [
-           CourseList(id: "1", name: "Curso de iOS", imageUrl: "book", schedule: "Lunes y Miércoles", isFavorite: false),
-           CourseList(id: "2", name: "Curso de Swift", imageUrl: "hammer", schedule: "Martes y Jueves", isFavorite: false),
-           CourseList(id: "3", name: "Diseño UI/UX", imageUrl: "paintbrush", schedule: "Viernes", isFavorite: false),
-           CourseList(id: "1", name: "Curso de iOS", imageUrl: "book", schedule: "Lunes y Miércoles", isFavorite: false),
-           CourseList(id: "2", name: "Curso de Swift", imageUrl: "hammer", schedule: "Martes y Jueves", isFavorite: false),
-           CourseList(id: "3", name: "Diseño UI/UX", imageUrl: "paintbrush", schedule: "Viernes", isFavorite: false),
-           CourseList(id: "1", name: "Curso de iOS", imageUrl: "book", schedule: "Lunes y Miércoles", isFavorite: false),
-           CourseList(id: "2", name: "Curso de Swift", imageUrl: "hammer", schedule: "Martes y Jueves", isFavorite: false),
-           CourseList(id: "3", name: "Diseño UI/UX", imageUrl: "paintbrush", schedule: "Viernes", isFavorite: false)
-           
-       ]
-    
-    private var filteredCourses: [CourseList] = []
+    private let viewModel = CourseListViewModel()
     private let filters = ["Derecho", "Inteligencia Artificial", "Idiomas", "Salud", "Publicidad", "Tecnología"]
     private var selectedFilterIndex: Int?
     
@@ -43,9 +30,14 @@ class CourseListViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupCollectionViews()
+        setupBindings()
+        viewModel.fetchCourses()
+        
+        
         
     }
-    
+        
+    //MARK: - UI
     func setupUI() {
         // Setup SearchBar
         searchBar.delegate = self
@@ -138,25 +130,46 @@ class CourseListViewController: UIViewController {
         
         
     }
+    //MARK: - Modelo de negocio
+    // MARK: - Bindings
+    func setupBindings() {
+        viewModel.onCoursesUpdated = { [weak self] in
+            DispatchQueue.main.async {
+                self?.coursesCollectionView.reloadData()
+            }
+        }
+        
+        viewModel.onError = { [weak self] errorMessage in
+            DispatchQueue.main.async {
+                self?.showErrorAlert(message: errorMessage)
+            }
+        }
+    }
+    
+    // MARK: - Error Handling
+    private func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+    }
     
     
 }
 
 // MARK: - UICollectionViewDataSource
 extension CourseListViewController: UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == coursesCollectionView {
-            return filteredCourses.isEmpty ? courses.count : filteredCourses.count
+            return viewModel.courses.count
         } else {
             return filters.count
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == coursesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseCell", for: indexPath) as! CourseCell
-            let course = filteredCourses.isEmpty ? courses[indexPath.item] : filteredCourses[indexPath.item]
+            let course = viewModel.courses[indexPath.item]
             cell.configure(with: course)
             return cell
         } else {
@@ -168,33 +181,27 @@ extension CourseListViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
+// MARK: - UICollectionViewDelegate
 extension CourseListViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == filtersCollectionView {
             selectedFilterIndex = indexPath.item
-            filterCourses(with: filters[indexPath.item])
+            let filteredCourses = viewModel.filterCourses(by: filters[indexPath.item])
+            // actualizar la vista si es necesario
         } else {
             // Navegar al detalle del curso
-            let course = filteredCourses.isEmpty ? courses[indexPath.item] : filteredCourses[indexPath.item]
+            let course = viewModel.courses[indexPath.item]
             //navigateToCourseDetail(course)
         }
     }
 }
 
 // MARK: - UISearchBarDelegate
+// MARK: - UISearchBarDelegate
 extension CourseListViewController: UISearchBarDelegate {
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterCourses(searchText: searchText)
-    }
-    
-    private func filterCourses(searchText: String = "", with filter: String? = nil) {
-        filteredCourses = courses.filter { course in
-            let matchesSearch = searchText.isEmpty || course.name.lowercased().contains(searchText.lowercased())
-//            let matchesFilter = filter == nil || course.category == filter
-            return matchesSearch /*&& matchesFilter*/
-        }
+        let filteredCourses = viewModel.filterCourses(by: searchText)
+        // Actualizar la vista con los cursos filtrados
         coursesCollectionView.reloadData()
     }
 }
