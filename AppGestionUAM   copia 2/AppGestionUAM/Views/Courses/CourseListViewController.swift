@@ -33,7 +33,7 @@ class CourseListViewController: UIViewController {
         setupCollectionViews()
         setupBindings()
         viewModel.fetchCourses()
-        
+        gestosKeyboard()
         
         
     }
@@ -43,6 +43,16 @@ class CourseListViewController: UIViewController {
         viewModel.fetchCourses()
     }
         
+    func gestosKeyboard(){
+        //Gesto para quitar
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
     //MARK: - UI
     func setupUI() {
         // Setup SearchBar
@@ -204,7 +214,7 @@ extension CourseListViewController: UICollectionViewDelegate {
 extension CourseListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            filteredCourses = viewModel.courses
+            
         } else {
             filteredCourses = viewModel.courses.filter {
                 $0.name.localizedCaseInsensitiveContains(searchText)

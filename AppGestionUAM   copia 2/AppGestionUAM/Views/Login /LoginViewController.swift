@@ -34,6 +34,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         setAllElements()
+        
+        //Gesto para quitar 
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +46,10 @@ class LoginViewController: UIViewController {
             emailTextField.text = ""
             passwordTextField.text = ""
        }
-    
+    //MARK: - Hide keyboard
+    @objc func hideKeyboard() {
+           view.endEditing(true)
+    }
     // MARK: - Configurar Enlaces con el ViewModel
     
     
@@ -140,6 +147,18 @@ class LoginViewController: UIViewController {
         logInButton.clipsToBounds = true
         navigationItem.hidesBackButton = true
     }
+    @IBAction func forgottenTapped(_ sender: Any) {
+        
+        let changePasswordViewControler = ChangePasswordViewController()
+        navigationController?.pushViewController(changePasswordViewControler, animated: true)
+    }
+    @IBAction func queHacerTapped(_ sender: Any) {
+        let questionLogInViewController = QuestionLogInViewController()
+        navigationController?.pushViewController(questionLogInViewController, animated: true)
+        
+    }
+    
+    
 }
 
 

@@ -72,6 +72,9 @@
                             <color key="tintColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="¿Olvidaste tu contraseña?"/>
+                            <connections>
+                                <action selector="forgottenTapped:" destination="-1" eventType="touchUpInside" id="B0p-oq-akF"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿No tienes una cuenta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ear-89-qLa">
                             <rect key="frame" x="85" y="690" width="178" height="21"/>
@@ -85,7 +88,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Créala"/>
                             <connections>
-                                <action selector="tapOnRegister:" destination="-1" eventType="touchUpInside" id="xZq-bO-dkW"/>
+                                <action selector="tapOnRegister:" destination="-1" eventType="touchUpInside" id="UMQ-dr-Ojm"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHE-Mk-dE6">
@@ -93,6 +96,9 @@
                             <color key="tintColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="¿Que hacer si no puedes acceder?"/>
+                            <connections>
+                                <action selector="queHacerTapped:" destination="-1" eventType="touchUpInside" id="hEd-AA-T1b"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inicia Sesión" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKH-1K-csL">
                             <rect key="frame" x="91" y="340" width="211" height="43"/>

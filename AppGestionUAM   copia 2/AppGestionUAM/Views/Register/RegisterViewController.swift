@@ -28,6 +28,18 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         configureBindings()
         setAllElements()
+        gestosKeyboard()
+        
+    }
+    
+    func gestosKeyboard(){
+        //Gesto para quitar
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
     }
 
     // MARK: - Configuración de bindings

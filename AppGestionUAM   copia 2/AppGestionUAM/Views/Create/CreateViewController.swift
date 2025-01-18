@@ -53,6 +53,17 @@ class CreateViewController: UIViewController {
         setupImageView()
         setupBindings()
         setUpHeaderView()
+        gestosKeyboard()
+    }
+    
+    func gestosKeyboard(){
+        //Gesto para quitar
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
     }
 
     private func setupHeaderView() {
