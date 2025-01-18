@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CourseModel: Codable, Hashable {
+struct CourseModel: Codable, Hashable{
     let id: String?
     var name: String
     var description: String
@@ -17,6 +17,7 @@ struct CourseModel: Codable, Hashable {
     var materials: [String]
     var imageUrl: String
     var isFavorite: Bool?
+    
 
     init(id: String? = nil,
          name: String = "",
@@ -25,8 +26,9 @@ struct CourseModel: Codable, Hashable {
          schedule: String = "",
          prerequisites: String = "",
          materials: [String] = [],
-         imageURL: String = "",
-         isFavorite: Bool? = nil) {
+         imageURL: String = ""
+         
+         ) {
         self.id = id
         self.name = name
         self.description = description
@@ -35,8 +37,9 @@ struct CourseModel: Codable, Hashable {
         self.prerequisites = prerequisites
         self.materials = materials
         self.imageUrl = imageURL
-        self.isFavorite = isFavorite
+        
     }
 }
+
 
 

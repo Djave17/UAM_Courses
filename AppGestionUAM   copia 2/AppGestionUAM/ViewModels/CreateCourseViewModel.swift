@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+@MainActor
 class CreateCourseViewModel {
     // MARK: - Properties
     var name: String = ""
@@ -17,10 +18,10 @@ class CreateCourseViewModel {
     var prerequisites: String = ""
     var materials: [String] = []
     var selectedImage: UIImage?
-    
+
     var onError: ((String) -> Void)?
     var onSuccess: (() -> Void)?
-    
+
     // MARK: - Methods
     func validateFields() -> Bool {
         guard !name.isEmpty, !description.isEmpty, !learningObjectives.isEmpty, !schedule.isEmpty, !prerequisites.isEmpty else {
@@ -29,10 +30,10 @@ class CreateCourseViewModel {
         }
         return true
     }
-    
+
     func createCourse() {
         guard validateFields() else { return }
-        
+
         Task {
             do {
                 var imageUrl: String = ""
@@ -50,10 +51,9 @@ class CreateCourseViewModel {
                     imageURL: imageUrl
                 )
 
-                let response = try await APIClient.shared.createCourse(course: course)
-                if response != nil {
-                    onSuccess?()
-                }
+
+                try await APIClient.shared.createCourse(course: course)
+                onSuccess?()
             } catch let apiError as APIError {
                 onError?(apiError.localizedDescription)
             } catch {

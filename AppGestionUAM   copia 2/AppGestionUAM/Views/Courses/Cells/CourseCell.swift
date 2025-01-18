@@ -96,8 +96,22 @@ class CourseCell: UICollectionViewCell {
     // MARK: - Configuration
     func configure(with course: CourseModel) {
         titleLabel.text = course.name
-        imageView.image = UIImage(systemName: course.imageUrl) // En producción, usar SDWebImage o similar
+        if let imageUrl = URL(string: course.imageUrl) {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: imageUrl), let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.imageView.image = image
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.imageView.image = UIImage(systemName: "photo")
+                    }
+                }
+            }
+        } else {
+            imageView.image = UIImage(systemName: "photo")
+        }
         scheduleLabel.text = course.schedule
-        favoriteButton.setImage(UIImage(systemName: course.isFavorite! ? "heart.fill" : "heart"), for: .normal)
+        favoriteButton.setImage(UIImage(systemName: course.isFavorite ?? false ? "heart.fill" : "heart"), for: .normal)
     }
 }

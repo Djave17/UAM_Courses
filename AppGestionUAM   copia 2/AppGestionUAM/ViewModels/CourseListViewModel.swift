@@ -6,7 +6,7 @@
 ////
 //
 import Foundation
-
+@MainActor
 final class CourseListViewModel {
     // MARK: - Properties
     private var apiClient: APIClient

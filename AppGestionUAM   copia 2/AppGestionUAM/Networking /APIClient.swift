@@ -134,7 +134,7 @@ final class APIClient {
             urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
             // Llamada a la API
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let (datas, response) = try await URLSession.shared.data(for: urlRequest)
 
             guard let httpResponse = response as? HTTPURLResponse else {
                 throw APIError.invalidResponse
@@ -145,8 +145,8 @@ final class APIClient {
             case 200:
                 do {
                     // Decodificación de la respuesta
-                    let coursesResponse = try JSONDecoder().decode(CourseResponse.self, from: data)
-                    return coursesResponse.courses
+                    let coursesResponse = try JSONDecoder().decode(CourseResponse.self, from: datas)
+                    return coursesResponse.data
                 } catch {
                     throw APIError.decodingFailed
                 }
@@ -157,6 +157,7 @@ final class APIClient {
             case 404:
                 throw APIError.notFound("Recurso no encontrado.")
             case 422:
+                let validationError = try JSONDecoder().decode(ValidationError.self, from: datas)
                 throw APIError.validationError("Error en la validación de los datos enviados.")
             case 500:
                 throw APIError.serverError("Error interno del servidor.")
@@ -242,40 +243,58 @@ final class APIClient {
     // MARK: - Image Upload
     
     func uploadImage(image: UIImage) async throws -> String {
-            guard let url = URL(string: "\(host)/upload_image") else {
+            guard let url = URL(string: "https://uam-server.up.railway.app/api/v1/upload_image") else {
                 throw APIError.invalidURL
             }
-            
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            
+
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "POST"
+
             let boundary = "Boundary-\(UUID().uuidString)"
-            request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-            
-            let imageData = image.jpegData(compressionQuality: 0.8)
-            guard let data = imageData else { throw APIError.encodingFailed }
-            
+            urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
             var body = Data()
-            body.append("--\(boundary)\r\n".data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
-            body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
-            body.append(data)
-            body.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
-            
-            request.httpBody = body
-            
-            let (responseData, response) = try await URLSession.shared.data(for: request)
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                throw APIError.invalidResponse
+
+            if let imageData = image.pngData() ?? image.jpegData(compressionQuality: 0.8) {
+                body.append("--\(boundary)\r\n".data(using: .utf8)!)
+                body.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
+                body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
+                body.append(imageData)
+                body.append("\r\n".data(using: .utf8)!)
+            } else {
+                throw APIError.noData
             }
-            
-            guard let json = try? JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
-                  let url = json["url"] as? String else {
-                throw APIError.decodingFailed
+
+            body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+            urlRequest.httpBody = body
+
+            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw APIError.unknownError("Error al obtener la respuesta del servidor.")
             }
-            
-            return url
+
+            switch httpResponse.statusCode {
+            case 200:
+                
+                let decodedResponse = try JSONDecoder().decode(ImageResponse.self, from: data)
+                return decodedResponse.image
+            case 401:
+                throw APIError.unauthorized("No autorizado. Por favor, verifique sus credenciales.")
+            case 403:
+                throw APIError.forbidden("Acceso denegado. No tiene permisos para acceder a este recurso.")
+            case 404:
+                throw APIError.notFound("Recurso no encontrado.")
+            case 422:
+                let validationError = try JSONDecoder().decode(ValidationError.self, from: data)
+                throw APIError.validationError(validationError.msg)
+            case 500:
+                throw APIError.serverError("Error interno del servidor.")
+            default:
+                throw APIError.unknownError("Error desconocido. Código de estado: \(httpResponse.statusCode)")
+            }
         }
+
     
     func loadImage(url: String) async -> UIImage? {
         guard let url = URL(string: url) else {return nil}

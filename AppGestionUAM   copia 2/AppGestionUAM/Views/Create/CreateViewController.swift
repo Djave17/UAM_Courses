@@ -152,6 +152,7 @@ class CreateViewController: UIViewController {
         viewModel.prerequisites = prerequisitesTextView.text
         viewModel.materials = materialsTextView.text.components(separatedBy: "\n").filter { !$0.isEmpty }
         
+        
         viewModel.createCourse()
     }
     
