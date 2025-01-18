@@ -72,7 +72,7 @@ class CourseCell: UICollectionViewCell {
         
         // Add constraints
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.50),

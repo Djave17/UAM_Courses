@@ -34,6 +34,7 @@ class CourseListViewController: UIViewController {
         setupBindings()
         viewModel.fetchCourses()
         gestosKeyboard()
+        setupLongPressGesture()
         
         
     }
@@ -72,6 +73,20 @@ class CourseListViewController: UIViewController {
         
         
     }
+    
+    func setupLongPressGesture() {
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        coursesCollectionView.addGestureRecognizer(longPressGesture)
+    }
+    
+    @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
+        let point = gesture.location(in: coursesCollectionView)
+        guard let indexPath = coursesCollectionView.indexPathForItem(at: point), gesture.state == .began else { return }
+        
+        let selectedCourse = filteredCourses[indexPath.item]
+        navigateToCourseDetail(with: selectedCourse)
+    }
+    
     // MARK: - CollectionView Setup
     func setupCollectionViews() {
         // Courses CollectionView Setup
@@ -168,6 +183,11 @@ class CourseListViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
     }
+    func navigateToCourseDetail(with course: CourseModel) {
+        let detailsVC = DetailsViewController()
+        // Pasar información del curso seleccionado
+        navigationController?.pushViewController(detailsVC, animated: true)
+    }
     
     
 }
@@ -206,20 +226,22 @@ extension CourseListViewController: UICollectionViewDelegate {
         } else {
             let course = filteredCourses[indexPath.item]
             //navigateToCourseDetail(course)
+            
+            
         }
     }
 }
-
 // MARK: - UISearchBarDelegate
 extension CourseListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            
+        if searchBar.text == "" {
+            viewModel.fetchCourses()// Restaurar todos los cursos
         } else {
             filteredCourses = viewModel.courses.filter {
-                $0.name.localizedCaseInsensitiveContains(searchText)
+                $0.name.localizedCaseInsensitiveContains(searchText) ||
+                $0.description.localizedCaseInsensitiveContains(searchText)
             }
         }
-        coursesCollectionView.reloadData()
+//        coursesCollectionView.reloadData()
     }
 }
