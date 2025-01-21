@@ -170,7 +170,51 @@ final class APIClient {
             throw APIError.networkError("Error de red: \(error.localizedDescription)")
         }
     }
-
+    
+    // MARK: - Fetch Course by name
+    func fetchCourseById(name: String) async throws -> CourseModel? {
+        guard let url = URL(string: "\(host)/course_management?search=\(name)"), let token = getToken() else {
+            throw APIError.invalidURL
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        
+        let (datas, response) = try await URLSession.shared.data(for: urlRequest)
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIError.invalidResponse
+        }
+        
+        switch httpResponse.statusCode {
+        case 200:
+            do {
+                // Decodificación de la respuesta
+                let courseResponse = try JSONDecoder().decode(CourseResponse.self, from: datas)
+                return courseResponse.data.first
+            } catch {
+                print("Error decoding response: \(error.localizedDescription)")
+                print("Raw JSON: \(String(data: datas, encoding: .utf8) ?? "No data")")
+                throw APIError.decodingFailed
+            }
+        case 401:
+            throw APIError.unauthorized("No autorizado. Por favor, verifique sus credenciales.")
+        case 403:
+            throw APIError.forbidden("Acceso denegado. No tiene permisos para acceder a este recurso.")
+        case 404:
+            throw APIError.notFound("Recurso no encontrado.")
+        case 422:
+            let validationError = try JSONDecoder().decode(ValidationError.self, from: datas)
+            throw APIError.validationError("Error en la validación de los datos enviados.")
+        case 500:
+            throw APIError.serverError("Error interno del servidor.")
+        default:
+            throw APIError.unknownError("Error desconocido. Código de estado: \(httpResponse.statusCode)")
+        }
+    }
     
     //MARK: Create courses
     func createCourse(course: CourseModel) async -> CourseModel? {
@@ -296,23 +340,24 @@ final class APIClient {
         }
 
     
-    func loadImage(url: String) async -> UIImage? {
-        guard let url = URL(string: url) else {return nil}
-        do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            
-            guard
-                let urlResponse = response as? HTTPURLResponse,
-                urlResponse.statusCode == 200
-            else { return nil }
-            
-            let image = UIImage(data: data)
-            
-            return image
-        } catch {
-            return nil
+    // MARK: - Load Image
+    func loadImage(from url: String) async throws -> UIImage? {
+        guard let imageUrl = URL(string: url) else {
+            throw APIError.invalidURL
         }
         
+        let (data, response) = try await URLSession.shared.data(from: imageUrl)
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIError.invalidResponse
+        }
+        
+        switch httpResponse.statusCode {
+        case 200:
+            return UIImage(data: data)
+        default:
+            throw APIError.unknownError("Image loading failed with code \(httpResponse.statusCode)")
+        }
     }
     
     

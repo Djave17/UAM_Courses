@@ -24,7 +24,7 @@ final class CourseListViewModel {
     }
 
     // MARK: - Fetch Courses
-    func fetchCourses(search: String? = nil) {
+    func fetchCourses(search: String? = "") {
         Task {
             do {
                 let fetchedCourses = try await apiClient.fetchCourses(search: search)
@@ -50,6 +50,9 @@ final class CourseListViewModel {
             $0.description.localizedCaseInsensitiveContains(keyword)
         }
     }
+    
+    
+    
 }
 
 

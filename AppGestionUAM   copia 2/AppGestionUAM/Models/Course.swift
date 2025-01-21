@@ -8,7 +8,7 @@
 import Foundation
 
 struct CourseModel: Codable, Hashable{
-    let id: String?
+    let id: String
     var name: String
     var description: String
     var learningObjectives: String
@@ -19,7 +19,7 @@ struct CourseModel: Codable, Hashable{
     var isFavorite: Bool?
     
 
-    init(id: String? = nil,
+    init(id: String = "",
          name: String = "",
          description: String = "",
          learningObjectives: String = "",

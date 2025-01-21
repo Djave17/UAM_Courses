@@ -7,8 +7,16 @@
 
 import UIKit
 
+enum Section {
+    case main
+}
+
 
 class CourseListViewController: UIViewController {
+    
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, CourseModel>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, CourseModel>
+
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var coursesCollectionView: UICollectionView!
@@ -22,7 +30,9 @@ class CourseListViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel = CourseListViewModel()
+    private lazy var dataSource: DataSource = makeDataSource()
     var filteredCourses: [CourseModel] = []
+    private var snapshot = Snapshot()
     private let filters = ["Derecho", "Inteligencia Artificial", "Idiomas", "Salud", "Publicidad", "Tecnología"]
     private var selectedFilterIndex: Int?
     
@@ -84,19 +94,19 @@ class CourseListViewController: UIViewController {
         guard let indexPath = coursesCollectionView.indexPathForItem(at: point), gesture.state == .began else { return }
         
         let selectedCourse = filteredCourses[indexPath.item]
-        navigateToCourseDetail(with: selectedCourse)
+        navigateToCourseDetail(with: selectedCourse.id)
     }
     
     // MARK: - CollectionView Setup
     func setupCollectionViews() {
         // Courses CollectionView Setup
         coursesCollectionView.delegate = self
-        coursesCollectionView.dataSource = self
+        //coursesCollectionView.dataSource = self
         coursesCollectionView.register(CourseCell.self, forCellWithReuseIdentifier: "CourseCell")
         
         // Filters CollectionView Setup
         filtersCollectionView.delegate = self
-        filtersCollectionView.dataSource = self
+        //filtersCollectionView.dataSource = self
         filtersCollectionView.register(FilterCell.self, forCellWithReuseIdentifier: "FilterCell")
         
         // Layout Setup
@@ -161,21 +171,39 @@ class CourseListViewController: UIViewController {
         
         
     }
-    //MARK: - Modelo de negocio
+    // MARK: - Diffable Data Source
+    private func makeDataSource() -> DataSource {
+        return DataSource(collectionView: coursesCollectionView) { collectionView, indexPath, course in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseCell", for: indexPath) as? CourseCell else {
+                return UICollectionViewCell()
+            }
+            cell.configure(with: course)
+            return cell
+        }
+    }
+    
+    private func applySnapshot() {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(filteredCourses)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
     // MARK: - Bindings
     func setupBindings() {
-        viewModel.onCoursesUpdated = { [weak self] in
-            DispatchQueue.main.async {
-                self?.coursesCollectionView.reloadData()
+            viewModel.onCoursesUpdated = { [weak self] in
+                guard let self = self else { return }
+                self.filteredCourses = self.viewModel.courses
+                self.applySnapshot()
+            }
+            
+            viewModel.onError = { [weak self] errorMessage in
+                DispatchQueue.main.async {
+                    self?.showErrorAlert(message: errorMessage)
+                }
             }
         }
         
-        viewModel.onError = { [weak self] errorMessage in
-            DispatchQueue.main.async {
-                self?.showErrorAlert(message: errorMessage)
-            }
-        }
-    }
     
     // MARK: - Error Handling
     private func showErrorAlert(message: String) {
@@ -183,65 +211,65 @@ class CourseListViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
     }
-    func navigateToCourseDetail(with course: CourseModel) {
+    func navigateToCourseDetail(with name: String) {
         let detailsVC = DetailsViewController()
-        // Pasar información del curso seleccionado
+        detailsVC.name = name
         navigationController?.pushViewController(detailsVC, animated: true)
     }
     
     
 }
 
-// MARK: - UICollectionViewDataSource
-extension CourseListViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == coursesCollectionView {
-            return filteredCourses.count
-        } else {
-            return filters.count
-        }
-    }
+//// MARK: - UICollectionViewDataSource
+//extension CourseListViewController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        if collectionView == coursesCollectionView {
+//            return filteredCourses.count
+//        } else {
+//            return filters.count
+//        }
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        if collectionView == coursesCollectionView {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseCell", for: indexPath) as! CourseCell
+//            let course = filteredCourses[indexPath.item]
+//            cell.configure(with: course)
+//            return cell
+//        } else {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
+//            cell.configure(with: filters[indexPath.item])
+//            return cell
+//        }
+//        
+//    }
+//    
+//}
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == coursesCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseCell", for: indexPath) as! CourseCell
-            let course = filteredCourses[indexPath.item]
-            cell.configure(with: course)
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
-            cell.configure(with: filters[indexPath.item])
-            return cell
-        }
-    }
-}
-
-// MARK: - UICollectionViewDelegate
 extension CourseListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == filtersCollectionView {
-            selectedFilterIndex = indexPath.item
-            filteredCourses = viewModel.filterCourses(by: filters[indexPath.item])
-            coursesCollectionView.reloadData()
-        } else {
-            let course = filteredCourses[indexPath.item]
-            //navigateToCourseDetail(course)
-            
-            
-        }
+        let course = filteredCourses[indexPath.item]
+        navigateToCourseDetail(with: course.id)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        // Acción al mantener presionado
+        let course = filteredCourses[indexPath.item]
+        navigateToCourseDetail(with: course.name)
     }
 }
 // MARK: - UISearchBarDelegate
 extension CourseListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == "" {
-            viewModel.fetchCourses()// Restaurar todos los cursos
-        } else {
-            filteredCourses = viewModel.courses.filter {
-                $0.name.localizedCaseInsensitiveContains(searchText) ||
-                $0.description.localizedCaseInsensitiveContains(searchText)
-            }
+        guard !searchText.isEmpty else {
+            filteredCourses = viewModel.courses
+            applySnapshot()
+            return
         }
-//        coursesCollectionView.reloadData()
+        filteredCourses = viewModel.courses.filter {
+            $0.name.localizedCaseInsensitiveContains(searchText) ||
+            $0.description.localizedCaseInsensitiveContains(searchText)
+        }
+        applySnapshot()
     }
 }
