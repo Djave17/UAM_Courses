@@ -51,7 +51,7 @@ final class CourseDetailViewModel {
     
     func loadImage(for url: String) async -> UIImage? {
         do {
-            return try await apiClient.loadImage(from: url)
+            return try await apiClient.loadImage(url: url)
         } catch {
             onError?(error.localizedDescription)
             return nil

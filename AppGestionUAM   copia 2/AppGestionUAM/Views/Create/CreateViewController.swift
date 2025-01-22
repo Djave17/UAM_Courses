@@ -23,6 +23,15 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var materialsTextView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     
+    
+    //MARK: - Activity indicator (Carga)
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+    
     // MARK: - Image View for Selected Image
     private let courseImageView: UIImageView = {
         let imageView = UIImageView()
@@ -54,6 +63,14 @@ class CreateViewController: UIViewController {
         setupBindings()
         setUpHeaderView()
         gestosKeyboard()
+        
+        view.addSubview(activityIndicator)
+        
+        // Constraints para centrar el indicador de carga
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     func gestosKeyboard(){
@@ -143,13 +160,20 @@ class CreateViewController: UIViewController {
     private func setupBindings() {
         viewModel.onError = { [weak self] error in
             DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.enableSaveButton()
                 self?.showAlert(message: error)
             }
         }
         
         viewModel.onSuccess = { [weak self] in
             DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.enableSaveButton()
                 self?.showAlert(message: "Curso creado con éxito.")
+                
+                
+                
             }
         }
     }
@@ -160,9 +184,9 @@ class CreateViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        sender.isEnabled = false
+        activityIndicator.startAnimating()
         
-        guard viewModel.validateFields() else { return showAlert(message: "Completa todos los campos obligatorios.")
-        }
         viewModel.name = nameTextField.text ?? ""
         viewModel.description = descriptionTextView.text
         viewModel.learningObjectives = objectivesTextView.text
@@ -172,21 +196,26 @@ class CreateViewController: UIViewController {
         
         
         viewModel.createCourse()
-        showAlert(message: "Curso creado correctamente")
-        navegateToCourseList()
+
         
         
     }
     
     private func showAlert(message: String) {
         let alert = UIAlertController(title: "Crear Curso", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.navegateToCourseList()
+        }))
         present(alert, animated: true)
     }
     
     private func navegateToCourseList(){
         let courseVC = CourseListViewController()
         navigationController?.pushViewController(courseVC, animated: true)
+    }
+    
+    private func enableSaveButton() {
+        saveButton.isEnabled = true
     }
 }
 

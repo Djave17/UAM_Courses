@@ -32,7 +32,7 @@
                     <color key="highlightedColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="shadowColor" red="0.40703098780000002" green="0.67418047049999996" blue="0.79266672039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
-                <searchBar clipsSubviews="YES" contentMode="redraw" barStyle="blackTranslucent" searchBarStyle="minimal" placeholder="Busca un curso" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-Sz-7FU">
+                <searchBar clipsSubviews="YES" contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Busca un curso" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-Sz-7FU">
                     <rect key="frame" x="0.0" y="95.333333333333329" width="393" height="55.999999999999986"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

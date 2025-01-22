@@ -96,22 +96,35 @@ class CourseCell: UICollectionViewCell {
     // MARK: - Configuration
     func configure(with course: CourseModel) {
         titleLabel.text = course.name
-        if let imageUrl = URL(string: course.imageUrl) {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: imageUrl), let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.imageView.image = image
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.imageView.image = UIImage(systemName: "photo")
-                    }
+        // Imagen Placeholder
+        imageView.image = UIImage(systemName: "photo")
+        
+        // Carga de imagen asíncrona con caché
+        Task {
+            if let image = await APIClient.shared.loadImage(url: course.imageUrl) {
+                DispatchQueue.main.async {
+                    self.imageView.image = image
                 }
             }
-        } else {
-            imageView.image = UIImage(systemName: "photo")
+            //LoadImage
+            
+            //        if let imageUrl = URL(string: course.imageUrl) {
+            //            DispatchQueue.global().async {
+            //                if let data = try? Data(contentsOf: imageUrl), let image = UIImage(data: data) {
+            //                    DispatchQueue.main.async {
+            //                        self.imageView.image = image
+            //                    }
+            //                } else {
+            //                    DispatchQueue.main.async {
+            //                        self.imageView.image = UIImage(systemName: "photo")
+            //                    }
+            //                }
+            //            }
+            //        } else {
+            //            imageView.image = UIImage(systemName: "photo")
+            //        }
+            scheduleLabel.text = course.schedule
+            favoriteButton.setImage(UIImage(systemName: course.isFavorite ?? false ? "heart.fill" : "heart"), for: .normal)
         }
-        scheduleLabel.text = course.schedule
-        favoriteButton.setImage(UIImage(systemName: course.isFavorite ?? false ? "heart.fill" : "heart"), for: .normal)
     }
 }

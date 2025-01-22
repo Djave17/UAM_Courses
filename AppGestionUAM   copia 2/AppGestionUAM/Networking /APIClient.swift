@@ -18,6 +18,7 @@ import UIKit
 final class APIClient {
     static let shared = APIClient()
     let host = "https://uam-server.up.railway.app/api/v1"
+    private let imageCache = NSCache<NSString, UIImage>() //CACHE DE IMAGEN
     
     // MARK: - User Authentication
     
@@ -245,20 +246,46 @@ final class APIClient {
     
     //MARK: Update Courses
     func updateCourse(courseID: String, updatedCourse: CourseModel) async -> CourseModel? {
-        guard let url = URL(string: "\(host)/course_management/\(courseID)") else { return nil }
+        guard let url = URL(string: "\(host)/course_management"),
+              let token = getToken() else { return nil }
         
         do {
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "PUT"
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             
             urlRequest.httpBody = try JSONEncoder().encode(updatedCourse)
             
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let (datas, response) = try await URLSession.shared.data(for: urlRequest)
             
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { return nil }
-            
-            return try JSONDecoder().decode(CourseModel.self, from: data)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw APIError.invalidResponse
+            }
+
+            // Manejo de códigos de estado HTTP
+            switch httpResponse.statusCode {
+            case 200:
+                do {
+                    // Decodificación de la respuesta
+                    return try JSONDecoder().decode(CourseModel.self, from: datas)
+                } catch {
+                    throw APIError.decodingFailed
+                }
+            case 401:
+                throw APIError.unauthorized("No autorizado. Por favor, verifique sus credenciales.")
+            case 403:
+                throw APIError.forbidden("Acceso denegado. No tiene permisos para acceder a este recurso.")
+            case 404:
+                throw APIError.notFound("Recurso no encontrado.")
+            case 422:
+                let validationError = try JSONDecoder().decode(ValidationError.self, from: datas)
+                throw APIError.validationError("Error en la validación de los datos enviados.")
+            case 500:
+                throw APIError.serverError("Error interno del servidor.")
+            default:
+                throw APIError.unknownError("Error desconocido. Código de estado: \(httpResponse.statusCode)")
+            }
         } catch {
             print("Update Course Error: \(error)")
             return nil
@@ -370,24 +397,32 @@ final class APIClient {
 
     
     // MARK: - Load Image
-    func loadImage(from url: String) async throws -> UIImage? {
-        guard let imageUrl = URL(string: url) else {
-            throw APIError.invalidURL
+    func loadImage(url: String) async -> UIImage? {
+            let cacheKey = url as NSString // Convertir la URL a NSString para usarla como clave
+            
+            // Intentar recuperar la imagen de la caché
+            if let cachedImage = imageCache.object(forKey: cacheKey) {
+                return cachedImage
+            }
+            
+            // Descargar la imagen si no está en la caché
+            guard let imageURL = URL(string: url) else { return nil }
+            do {
+                let (data, response) = try await URLSession.shared.data(from: imageURL)
+                guard
+                    let httpResponse = response as? HTTPURLResponse,
+                    httpResponse.statusCode == 200
+                else { return nil }
+                
+                if let image = UIImage(data: data) {
+                    imageCache.setObject(image, forKey: cacheKey) // Guardar en la caché
+                    return image
+                }
+                return nil
+            } catch {
+                return nil
+            }
         }
-        
-        let (data, response) = try await URLSession.shared.data(from: imageUrl)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw APIError.invalidResponse
-        }
-        
-        switch httpResponse.statusCode {
-        case 200:
-            return UIImage(data: data)
-        default:
-            throw APIError.unknownError("Image loading failed with code \(httpResponse.statusCode)")
-        }
-    }
     
     
     
