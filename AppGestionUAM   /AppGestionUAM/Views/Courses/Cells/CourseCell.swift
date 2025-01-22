@@ -13,7 +13,7 @@ class CourseCell: UICollectionViewCell {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
-        iv.layer.cornerRadius = 12
+        iv.layer.cornerRadius = 20
         return iv
     }()
     
@@ -72,7 +72,7 @@ class CourseCell: UICollectionViewCell {
         
         // Add constraints
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.50),
