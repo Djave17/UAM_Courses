@@ -20,7 +20,7 @@ class CourseListViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var coursesCollectionView: UICollectionView!
-    @IBOutlet weak var filtersCollectionView: UICollectionView!
+    
     @IBOutlet weak var stackViewButtons: UIStackView!
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var favoritesButton: UIButton!
@@ -94,7 +94,7 @@ class CourseListViewController: UIViewController {
         guard let indexPath = coursesCollectionView.indexPathForItem(at: point), gesture.state == .began else { return }
         
         let selectedCourse = filteredCourses[indexPath.item]
-        navigateToCourseDetail(with: selectedCourse.id)
+        navigateToCourseDetail(with: selectedCourse.name, with: selectedCourse.id)
     }
     
     // MARK: - CollectionView Setup
@@ -105,13 +105,13 @@ class CourseListViewController: UIViewController {
         coursesCollectionView.register(CourseCell.self, forCellWithReuseIdentifier: "CourseCell")
         
         // Filters CollectionView Setup
-        filtersCollectionView.delegate = self
-        //filtersCollectionView.dataSource = self
-        filtersCollectionView.register(FilterCell.self, forCellWithReuseIdentifier: "FilterCell")
+//        filtersCollectionView.delegate = self
+//        //filtersCollectionView.dataSource = self
+//        filtersCollectionView.register(FilterCell.self, forCellWithReuseIdentifier: "FilterCell")
         
         // Layout Setup
         setupCoursesLayout()
-        setupFiltersLayout()
+        //setupFiltersLayout()
     }
     
     private func setupCoursesLayout() {
@@ -126,14 +126,14 @@ class CourseListViewController: UIViewController {
         coursesCollectionView.setCollectionViewLayout(layout, animated: false)
     }
     
-    private func setupFiltersLayout() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 10
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        
-        filtersCollectionView.setCollectionViewLayout(layout, animated: false)
-    }
+//    private func setupFiltersLayout() {
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        layout.minimumInteritemSpacing = 10
+//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//        
+//        filtersCollectionView.setCollectionViewLayout(layout, animated: false)
+//    }
     
     // MARK: - Button Actions
     @IBAction func homeButtonTapped(_ sender: UIButton) {
@@ -211,7 +211,7 @@ class CourseListViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
     }
-    func navigateToCourseDetail(with name: String) {
+    func navigateToCourseDetail(with name: String, with id: String) {
         let detailsVC = DetailsViewController()
         detailsVC.name = name
         navigationController?.pushViewController(detailsVC, animated: true)
@@ -249,13 +249,13 @@ class CourseListViewController: UIViewController {
 extension CourseListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let course = filteredCourses[indexPath.item]
-        navigateToCourseDetail(with: course.id)
+        navigateToCourseDetail(with: course.name, with: course.id )
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         // Acción al mantener presionado
         let course = filteredCourses[indexPath.item]
-        navigateToCourseDetail(with: course.name)
+        navigateToCourseDetail(with: course.name, with: course.id )
     }
 }
 // MARK: - UISearchBarDelegate

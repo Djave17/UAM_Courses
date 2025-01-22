@@ -192,6 +192,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <keyboardLayoutGuide key="keyboard" id="zv7-yc-D7k"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="qKQ-W6-km1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5TR-ih-oy1"/>

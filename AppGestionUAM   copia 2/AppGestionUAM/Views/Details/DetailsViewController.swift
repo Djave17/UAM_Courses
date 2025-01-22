@@ -27,16 +27,20 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var objetivesTextView: UITextView!
     @IBOutlet weak var recursosButton: UIButton! //materiales
     @IBOutlet weak var materialesTextField: UITextView!
+    @IBOutlet weak var deleteButton: UIButton!
     
-    var viewModel: CourseDetailViewModel?
+    var viewModel: CourseDetailViewModel!
     var name: String?
+    var courseID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let name = name else { return }
+        
         setButtons()
         viewModel = CourseDetailViewModel()
         loadCourseDetails(name: name)
+        setupBindings()
     }
     
     private func loadCourseDetails(name: String) {
@@ -56,7 +60,7 @@ class DetailsViewController: UIViewController {
                 self.objetivesTextView.text = course.learningObjectives
                 self.scheduleLabel.text = course.schedule
                 self.txtRequierements.text = course.prerequisites
-                self.materialesTextField.text = course.materials.joined(separator: ", ")
+                self.materialesTextField.text = course.materials.joined(separator: " ")
                 
                 Task {
                     print("Loading course image from URL: \(course.imageUrl)")
@@ -86,6 +90,9 @@ class DetailsViewController: UIViewController {
         materialesTextField.isEditable = false
         materialesTextField.isScrollEnabled = true
         
+        objetivesTextView.isEditable = false
+        objetivesTextView.isScrollEnabled = true
+        
         // Personalización del título del curso
         lblNameCourse.numberOfLines = 3
         lblNameCourse.textAlignment = .center
@@ -94,6 +101,46 @@ class DetailsViewController: UIViewController {
         courseImage.layer.cornerRadius = 20
         
     }
+    
+    
+    
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        guard let course = viewModel.course else {
+            print("Course not found")
+            return
+        }
+        let alert = UIAlertController(title: "Confirmar", message: "¿Estás seguro de eliminar este curso?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Eliminar", style: .destructive, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.viewModel.deleteCourse(withID: course.id)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showAlerts(title: String, message: String, completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            completion?()
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    private func setupBindings() {
+        viewModel.onDeleteSuccess = { [weak self] in
+            DispatchQueue.main.async {
+                self?.showAlert(title: "Éxito", message: "Curso eliminado exitosamente.") {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+        
+        viewModel.onDeleteError = { [weak self] error in
+            DispatchQueue.main.async {
+                self?.showAlert(title: "Error", message: error.localizedDescription)
+            }
+        }
+    }
+    
     
 }
     

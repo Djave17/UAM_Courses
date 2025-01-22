@@ -266,23 +266,52 @@ final class APIClient {
     }
     
     //MARK: DeleteCourse
-    func deleteCourse(courseID: String) async -> Bool {
-        guard let url = URL(string: "\(host)/course_management/\(courseID)") else { return false }
-        
-        do {
-            var urlRequest = URLRequest(url: url)
-            urlRequest.httpMethod = "DELETE"
-            
-            let (_, response) = try await URLSession.shared.data(for: urlRequest)
-            
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { return false }
-            
-            return true
-        } catch {
-            print("Delete Course Error: \(error)")
-            return false
+    func deleteCourse(courseID: String) async throws {
+            // Construir el endpoint
+            let endpoint = "\(host)/course_management/\(courseID)"
+            guard let url = URL(string: endpoint) else {
+                throw APIError.invalidURL
+            }
+
+            // Crear la solicitud
+            var request = URLRequest(url: url)
+            request.httpMethod = "DELETE"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            // Verificar y agregar el token
+            guard let token = getToken() else {
+                throw APIError.unauthenticated
+            }
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+            // Realizar la solicitud
+            let (datas, response) = try await URLSession.shared.data(for: request)
+
+            // Verificar la respuesta HTTP
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw APIError.invalidResponse
+            }
+
+            switch httpResponse.statusCode {
+            case 200:
+                    print("Curso eliminado con exito")
+                break
+            case 401:
+                throw APIError.unauthorized("No autorizado. Por favor, verifique sus credenciales.")
+            case 403:
+                throw APIError.forbidden("Acceso denegado. No tiene permisos para acceder a este recurso.")
+            case 404:
+                throw APIError.notFound("Recurso no encontrado.")
+            case 422:
+                let validationError = try JSONDecoder().decode(ValidationError.self, from: datas)
+                throw APIError.validationError("Error en la validación de los datos enviados.")
+            case 500:
+                throw APIError.serverError("Error interno del servidor.")
+            default:
+                throw APIError.unknownError("Error desconocido. Código de estado: \(httpResponse.statusCode)")
+            }
         }
-    }
+
     
     // MARK: - Image Upload
     

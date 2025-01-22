@@ -62,6 +62,10 @@ class CreateViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
     }
     
+    func esconderKeyboard(){
+        
+    }
+    
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
@@ -156,6 +160,9 @@ class CreateViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        
+        guard viewModel.validateFields() else { return showAlert(message: "Completa todos los campos obligatorios.")
+        }
         viewModel.name = nameTextField.text ?? ""
         viewModel.description = descriptionTextView.text
         viewModel.learningObjectives = objectivesTextView.text
@@ -165,12 +172,21 @@ class CreateViewController: UIViewController {
         
         
         viewModel.createCourse()
+        showAlert(message: "Curso creado correctamente")
+        navegateToCourseList()
+        
+        
     }
     
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Crear Curso", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
+    }
+    
+    private func navegateToCourseList(){
+        let courseVC = CourseListViewController()
+        navigationController?.pushViewController(courseVC, animated: true)
     }
 }
 

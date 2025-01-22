@@ -24,7 +24,7 @@ class CreateCourseViewModel {
 
     // MARK: - Methods
     func validateFields() -> Bool {
-        guard !name.isEmpty, !description.isEmpty, !learningObjectives.isEmpty, !schedule.isEmpty, !prerequisites.isEmpty else {
+        guard !name.isEmpty, !description.isEmpty, !learningObjectives.isEmpty, !schedule.isEmpty, !prerequisites.isEmpty, !materials.isEmpty else {
             onError?("Todos los campos son obligatorios.")
             return false
         }

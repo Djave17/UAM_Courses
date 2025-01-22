@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51E1359C2D4070E300739D12 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 51E1359B2D4070E300739D12 /* IQKeyboardManagerSwift */; };
 		51F00EAF2D3C411900E87253 /* CollectionViewPagingLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 51F00EAE2D3C411900E87253 /* CollectionViewPagingLayout */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +35,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		51E6B7DF2CE6E944004D9184 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		51E6B7DF2CE6E944004D9184 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAM" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -44,9 +45,24 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		51CD46502CD3CAAB000D24BF /* AppGestionUAMTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppGestionUAMTests; sourceTree = "<group>"; };
-		51CD465A2CD3CAAB000D24BF /* AppGestionUAMUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppGestionUAMUITests; sourceTree = "<group>"; };
-		51E6B7CE2CE6E944004D9184 /* AppGestionUAM */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (51E6B7DF2CE6E944004D9184 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = AppGestionUAM; sourceTree = "<group>"; };
+		51CD46502CD3CAAB000D24BF /* AppGestionUAMTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AppGestionUAMTests;
+			sourceTree = "<group>";
+		};
+		51CD465A2CD3CAAB000D24BF /* AppGestionUAMUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AppGestionUAMUITests;
+			sourceTree = "<group>";
+		};
+		51E6B7CE2CE6E944004D9184 /* AppGestionUAM */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				51E6B7DF2CE6E944004D9184 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAM" target */,
+			);
+			path = AppGestionUAM;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51F00EAF2D3C411900E87253 /* CollectionViewPagingLayout in Frameworks */,
+				51E1359C2D4070E300739D12 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +133,7 @@
 			name = AppGestionUAM;
 			packageProductDependencies = (
 				51F00EAE2D3C411900E87253 /* CollectionViewPagingLayout */,
+				51E1359B2D4070E300739D12 /* IQKeyboardManagerSwift */,
 			);
 			productName = AppGestionUAM;
 			productReference = 51CD46372CD3CAAA000D24BF /* AppGestionUAM.app */;
@@ -191,7 +209,6 @@
 				};
 			};
 			buildConfigurationList = 51CD46322CD3CAAA000D24BF /* Build configuration list for PBXProject "AppGestionUAM" */;
-			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -202,7 +219,9 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				51F00EAD2D3C411900E87253 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */,
+				51E1359A2D4070E300739D12 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 51CD46382CD3CAAA000D24BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -291,12 +310,12 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.allwinsolutions.uam-demo-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -323,12 +342,12 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.allwinsolutions.uam-demo-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -569,6 +588,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		51E1359A2D4070E300739D12 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 		51F00EAD2D3C411900E87253 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/amirdew/CollectionViewPagingLayout";
@@ -580,6 +607,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		51E1359B2D4070E300739D12 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51E1359A2D4070E300739D12 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		51F00EAE2D3C411900E87253 /* CollectionViewPagingLayout */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 51F00EAD2D3C411900E87253 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */;
