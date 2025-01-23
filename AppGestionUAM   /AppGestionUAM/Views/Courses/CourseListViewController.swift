@@ -86,10 +86,14 @@ class CourseListViewController: UIViewController {
     
     func setupLongPressGesture() {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        longPressGesture.minimumPressDuration = 4.0
         coursesCollectionView.addGestureRecognizer(longPressGesture)
     }
     
     @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
+        print("Tiempo de presión: \(gesture.state.rawValue)") // Depuración
+        longPressGesture.delegate = self
+        guard gesture.state == .began else { return }
         let point = gesture.location(in: coursesCollectionView)
         guard let indexPath = coursesCollectionView.indexPathForItem(at: point), gesture.state == .began else { return }
         
@@ -212,7 +216,7 @@ class CourseListViewController: UIViewController {
         present(alert, animated: true)
     }
     func navigateToCourseDetail(with name: String, with id: String) {
-        let detailsVC = DetailsViewController()
+        let detailsVC = DetailViewController()
         detailsVC.name = name
         navigationController?.pushViewController(detailsVC, animated: true)
     }
@@ -271,5 +275,11 @@ extension CourseListViewController: UISearchBarDelegate {
             $0.description.localizedCaseInsensitiveContains(searchText)
         }
         applySnapshot()
+    }
+}
+
+extension CourseListViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false // Esto es para veridficar los gestos y su tiempo
     }
 }
