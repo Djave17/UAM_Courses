@@ -402,6 +402,7 @@ final class APIClient {
             
             // Intentar recuperar la imagen de la caché
             if let cachedImage = imageCache.object(forKey: cacheKey) {
+                print("Imagen \(url) TOMADA en caché:")
                 return cachedImage
             }
             
@@ -426,7 +427,7 @@ final class APIClient {
                 }
                 return nil
             } catch {
-                print("fallo al cargar imagen: APIClient")
+                //print("fallo al cargar imagen: APIClient")
                 return nil
             }
         }
