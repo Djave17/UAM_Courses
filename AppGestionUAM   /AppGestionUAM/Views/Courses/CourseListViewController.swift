@@ -70,7 +70,7 @@ class CourseListViewController: UIViewController {
         searchBar.delegate = self
         searchBar.tintColor = .black
         if let textField = searchBar.value(forKey: "searchField") as? UITextField {
-            textField.textColor = UIColor.black // Cambia "blue" por el color que desees
+            textField.textColor = UIColor.black
         }
         
         
@@ -210,6 +210,7 @@ class CourseListViewController: UIViewController {
             viewModel.onError = { [weak self] errorMessage in
                 DispatchQueue.main.async {
                     self?.showErrorAlert(message: errorMessage)
+                    print("fallo al cargar imagen")
                 }
             }
         }

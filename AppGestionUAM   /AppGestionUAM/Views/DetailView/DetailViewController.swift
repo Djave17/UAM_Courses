@@ -56,7 +56,7 @@ class DetailViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                print("Updating UI with course details")
+                print("Cargando...")
                 self.courseNameTextView.text = course.name
                 self.descripcionTextView.text = course.description
                 self.objetivesTextView.text = course.learningObjectives
@@ -71,7 +71,7 @@ class DetailViewController: UIViewController {
                             self.courseImage.image = image
                         }
                     } else {
-                        print("Failed to load course image")
+                        print("Fallo al cargar la imagen")
                     }
                 }
             }

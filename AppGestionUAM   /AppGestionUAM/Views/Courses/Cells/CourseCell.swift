@@ -105,6 +105,8 @@ class CourseCell: UICollectionViewCell {
                 DispatchQueue.main.async {
                     self.imageView.image = image
                 }
+                
+            
             }
             //LoadImage
             

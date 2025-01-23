@@ -412,14 +412,21 @@ final class APIClient {
                 guard
                     let httpResponse = response as? HTTPURLResponse,
                     httpResponse.statusCode == 200
-                else { return nil }
+                   
+                else {  print("Imagen no descargada: \(url)")
+                    return nil }
+                
+                print("Imagen descargada: \(url)")
                 
                 if let image = UIImage(data: data) {
-                    imageCache.setObject(image, forKey: cacheKey) // Guardar en la caché
+                    imageCache.setObject(image, forKey: cacheKey)
+                    print("Imagen \(url) guardada en caché:")// Guardar en la caché
+                                                                   
                     return image
                 }
                 return nil
             } catch {
+                print("fallo al cargar imagen: APIClient")
                 return nil
             }
         }
