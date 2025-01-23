@@ -322,36 +322,6 @@
             endingLineNumber = "199"
             landmarkName = "fetchCourseById(name:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5397EB48-6DE8-483F-8228-2208D71A7E80 - 3cfaad73f88bf846"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for AppGestionUAM.APIClient.fetchCourseById(name: Swift.String) async throws -&gt; Swift.Optional&lt;AppGestionUAM.CourseModel&gt;"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Networking%20/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "199"
-                  endingLineNumber = "199">
-               </Location>
-               <Location
-                  uuid = "5397EB48-6DE8-483F-8228-2208D71A7E80 - 3cfaad73f88bf846"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for AppGestionUAM.APIClient.fetchCourseById(name: Swift.String) async throws -&gt; Swift.Optional&lt;AppGestionUAM.CourseModel&gt;"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Networking%20/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "199"
-                  endingLineNumber = "199">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -384,50 +354,6 @@
             endingLineNumber = "50"
             landmarkName = "loadCourseDetails(name:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4D6544EF-AEA0-42AD-BCB9-489149ABEAB4 - 705d6444dae687dd"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 () async -&gt; () in AppGestionUAM.DetailsViewController.loadCourseDetails(name: Swift.String) -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Views/Details/DetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50">
-               </Location>
-               <Location
-                  uuid = "4D6544EF-AEA0-42AD-BCB9-489149ABEAB4 - bb3565b61243a6f3"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 () async -&gt; () in AppGestionUAM.DetailsViewController.loadCourseDetails(name: Swift.String) -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Views/Details/DetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50">
-               </Location>
-               <Location
-                  uuid = "4D6544EF-AEA0-42AD-BCB9-489149ABEAB4 - 9adc1af5e42143df"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 () async -&gt; () in AppGestionUAM.DetailsViewController.loadCourseDetails(name: Swift.String) -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Views/Details/DetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -460,36 +386,6 @@
             endingLineNumber = "55"
             landmarkName = "loadCourseDetails(name:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "45809488-9528-4C67-BFA0-56D35C836168 - 9adc1af5e4214299"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 () async -&gt; () in AppGestionUAM.DetailsViewController.loadCourseDetails(name: Swift.String) -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Views/Details/DetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56">
-               </Location>
-               <Location
-                  uuid = "45809488-9528-4C67-BFA0-56D35C836168 - 6b780d12bcf1bf4d"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 () async -&gt; () in AppGestionUAM.DetailsViewController.loadCourseDetails(name: Swift.String) -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Views/Details/DetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -506,64 +402,6 @@
             endingLineNumber = "27"
             landmarkName = "fetchCourseDetails(name:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6D75355D-CEC2-4A4C-B1D2-603C8801DA9D - 7be0d331a2e58e44"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for AppGestionUAM.CourseDetailViewModel.fetchCourseDetails(name: Swift.String) async -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/ViewModels/CourseDetailViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27">
-               </Location>
-               <Location
-                  uuid = "6D75355D-CEC2-4A4C-B1D2-603C8801DA9D - 34b8c53c699e7a79"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for AppGestionUAM.CourseDetailViewModel.fetchCourseDetails(name: Swift.String) async -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/ViewModels/CourseDetailViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27">
-               </Location>
-               <Location
-                  uuid = "6D75355D-CEC2-4A4C-B1D2-603C8801DA9D - 7ccf8c55c4cf4a46"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for AppGestionUAM.CourseDetailViewModel.fetchCourseDetails(name: Swift.String) async -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/ViewModels/CourseDetailViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27">
-               </Location>
-               <Location
-                  uuid = "6D75355D-CEC2-4A4C-B1D2-603C8801DA9D - fda4d3cbd9a3b447"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for AppGestionUAM.CourseDetailViewModel.fetchCourseDetails(name: Swift.String) async -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/ViewModels/CourseDetailViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -660,36 +498,6 @@
             endingLineNumber = "131"
             landmarkName = "setupBindings()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BE19C229-832B-4E1F-A652-57407C7BDA12 - 513b26b671850908"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in AppGestionUAM.DetailsViewController.setupBindings() -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Views/Details/DetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "131"
-                  endingLineNumber = "131">
-               </Location>
-               <Location
-                  uuid = "BE19C229-832B-4E1F-A652-57407C7BDA12 - 32490f29ec0941ab"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in AppGestionUAM.DetailsViewController.setupBindings() -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Views/Details/DetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -722,50 +530,6 @@
             endingLineNumber = "309"
             landmarkName = "deleteCourse(courseID:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FCE02C18-3A86-4BAC-939E-F00BC34D0AC1 - bb300db74e4bf254"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for AppGestionUAM.APIClient.deleteCourse(courseID: Swift.String) async throws -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Networking%20/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "309"
-                  endingLineNumber = "309">
-               </Location>
-               <Location
-                  uuid = "FCE02C18-3A86-4BAC-939E-F00BC34D0AC1 - f13a1d36eaa2be56"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for AppGestionUAM.APIClient.deleteCourse(courseID: Swift.String) async throws -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Networking%20/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "309"
-                  endingLineNumber = "309">
-               </Location>
-               <Location
-                  uuid = "FCE02C18-3A86-4BAC-939E-F00BC34D0AC1 - 1227257959311859"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for AppGestionUAM.APIClient.deleteCourse(courseID: Swift.String) async throws -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Networking%20/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "309"
-                  endingLineNumber = "309">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -846,64 +610,6 @@
             endingLineNumber = "232"
             landmarkName = "createCourse(course:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "16B102D3-CD04-4355-A797-575370AB9D12 - 4dd41d1fb0b7efb2"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for AppGestionUAM.APIClient.createCourse(course: AppGestionUAM.CourseModel) async -&gt; Swift.Optional&lt;AppGestionUAM.CourseModel&gt;"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Networking%20/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233">
-               </Location>
-               <Location
-                  uuid = "16B102D3-CD04-4355-A797-575370AB9D12 - 6cad9f20d32a290f"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for AppGestionUAM.APIClient.createCourse(course: AppGestionUAM.CourseModel) async -&gt; Swift.Optional&lt;AppGestionUAM.CourseModel&gt;"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Networking%20/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233">
-               </Location>
-               <Location
-                  uuid = "16B102D3-CD04-4355-A797-575370AB9D12 - 334701ae727583a4"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for AppGestionUAM.APIClient.createCourse(course: AppGestionUAM.CourseModel) async -&gt; Swift.Optional&lt;AppGestionUAM.CourseModel&gt;"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Networking%20/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233">
-               </Location>
-               <Location
-                  uuid = "16B102D3-CD04-4355-A797-575370AB9D12 - 9c08fa06949569a3"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for AppGestionUAM.APIClient.createCourse(course: AppGestionUAM.CourseModel) async -&gt; Swift.Optional&lt;AppGestionUAM.CourseModel&gt;"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/Networking%20/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -936,36 +642,6 @@
             endingLineNumber = "44"
             landmarkName = "createCourse()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C0426922-BCA9-4A59-9FF2-502DD85A5556 - a18ab2b8f3c429d0"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 () async -&gt; () in AppGestionUAM.CreateCourseViewModel.createCourse() -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/ViewModels/CreateCourseViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44">
-               </Location>
-               <Location
-                  uuid = "C0426922-BCA9-4A59-9FF2-502DD85A5556 - d1c655769efedd6"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 () async -&gt; () in AppGestionUAM.CreateCourseViewModel.createCourse() -&gt; ()"
-                  moduleName = "AppGestionUAM.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidsanchez/Proyecto%20final%20/Proyecto_Final_iOS/AppGestionUAM%20%20%20/AppGestionUAM/ViewModels/CreateCourseViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

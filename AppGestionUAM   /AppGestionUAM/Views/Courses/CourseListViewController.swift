@@ -68,8 +68,13 @@ class CourseListViewController: UIViewController {
     func setupUI() {
         // Setup SearchBar
         searchBar.delegate = self
+        searchBar.tintColor = .black
+        if let textField = searchBar.value(forKey: "searchField") as? UITextField {
+            textField.textColor = UIColor.black // Cambia "blue" por el color que desees
+        }
         
-        searchBar.searchBarStyle = .minimal
+        
+    
         
         // Setup StackView
         stackViewButtons.layer.cornerRadius = 25
@@ -86,13 +91,14 @@ class CourseListViewController: UIViewController {
     
     func setupLongPressGesture() {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
-        longPressGesture.minimumPressDuration = 4.0
+        longPressGesture.minimumPressDuration = 0.4
+        longPressGesture.delegate = self
         coursesCollectionView.addGestureRecognizer(longPressGesture)
     }
     
     @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
         print("Tiempo de presión: \(gesture.state.rawValue)") // Depuración
-        longPressGesture.delegate = self
+       
         guard gesture.state == .began else { return }
         let point = gesture.location(in: coursesCollectionView)
         guard let indexPath = coursesCollectionView.indexPathForItem(at: point), gesture.state == .began else { return }
@@ -256,11 +262,11 @@ extension CourseListViewController: UICollectionViewDelegate {
         navigateToCourseDetail(with: course.name, with: course.id )
     }
     
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        // Acción al mantener presionado
-        let course = filteredCourses[indexPath.item]
-        navigateToCourseDetail(with: course.name, with: course.id )
-    }
+//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        // Acción al mantener presionado
+//        let course = filteredCourses[indexPath.item]
+//        navigateToCourseDetail(with: course.name, with: course.id )
+//    }
 }
 // MARK: - UISearchBarDelegate
 extension CourseListViewController: UISearchBarDelegate {
@@ -280,6 +286,13 @@ extension CourseListViewController: UISearchBarDelegate {
 
 extension CourseListViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return false // Esto es para veridficar los gestos y su tiempo
+        return true // Esto es para veridficar los gestos y su tiempo
+    }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        // Da prioridad al gesto de presión prolongada
+        if otherGestureRecognizer.view is UICollectionView {
+            return true
+        }
+        return false
     }
 }

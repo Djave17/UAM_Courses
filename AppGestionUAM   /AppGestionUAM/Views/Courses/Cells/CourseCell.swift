@@ -11,9 +11,9 @@ class CourseCell: UICollectionViewCell {
     // MARK: - UI Elements
     private let imageView: UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        iv.layer.cornerRadius = 20
+        iv.layer.cornerRadius = 12
         return iv
     }()
     
@@ -56,8 +56,8 @@ class CourseCell: UICollectionViewCell {
         layer.cornerRadius = 12
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.1
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowRadius = 6
         
         // Add subviews to contentView
         contentView.addSubview(imageView)
@@ -72,7 +72,7 @@ class CourseCell: UICollectionViewCell {
         
         // Add constraints
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.50),
