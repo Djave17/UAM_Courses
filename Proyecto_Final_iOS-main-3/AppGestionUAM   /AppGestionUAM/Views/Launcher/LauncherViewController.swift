@@ -11,15 +11,19 @@ class LauncherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mostrarAnimación()
         rotateImage() // Comienza la rotación
-        playSound()
+        AudioManager.shared.playSound(resourceName: "agua", fileExtension: "mp3") // Reproduce el sonido
         navigateToOnboarding() // Navega a la siguiente vista después de 6 segundos
                                 // Reproduce el sonido
+        hideBackButton()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Pausar el audio al salir
+        AudioManager.shared.pauseSound()
+        
         audioPlayer?.pause()
     }
 
@@ -67,5 +71,18 @@ class LauncherViewController: UIViewController {
             self.navigationController?.pushViewController(onboarding1, animated: true)
         }
     }
+    
+    func mostrarAnimación(){
+        let fadeView = UIView(frame: self.view.bounds)
+        fadeView.backgroundColor = UIColor.white
+        self.view.addSubview(fadeView)
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            fadeView.alpha = 0
+        }) { _ in
+            fadeView.removeFromSuperview()
+        }
+    }
+    
 }
 
