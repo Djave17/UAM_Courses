@@ -48,7 +48,7 @@ class CreateCourseViewModel {
                     schedule: schedule,
                     prerequisites: prerequisites,
                     materials: materials,
-                    imageURL: imageUrl
+                    imageUrl: imageUrl
                 )
 
 

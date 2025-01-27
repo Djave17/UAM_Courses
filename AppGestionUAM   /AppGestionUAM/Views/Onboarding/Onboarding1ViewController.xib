@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Onboarding1ViewController" customModule="AppGestionUAM" customModuleProvider="target">
             <connections>
+                <outlet property="btnNext" destination="gpm-Du-uiN" id="DEo-4l-l7i"/>
+                <outlet property="txtvwOb1" destination="xXp-mY-xV6" id="m8L-F4-ZPI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,73 +21,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvr-As-emV">
-                    <rect key="frame" x="309" y="59" width="68" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="c9p-BL-VwX"/>
-                    </constraints>
+                    <rect key="frame" x="309" y="85" width="68" height="35"/>
                     <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Saltar"/>
+                    <connections>
+                        <action selector="saltarTapped:" destination="-1" eventType="touchUpInside" id="SIZ-G4-nfM"/>
+                    </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="gfm-wd-pge">
-                    <rect key="frame" x="74" y="102" width="275" height="348"/>
+                    <rect key="frame" x="82" y="128" width="248" height="289"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="248" id="Wh8-1y-YlL"/>
+                        <constraint firstAttribute="height" constant="289" id="kCn-sb-2uA"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conectate con la" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNk-kX-Ce6">
-                    <rect key="frame" x="42" y="463" width="209" height="22"/>
-                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="22" id="EAm-Mv-fyG"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                    <color key="textColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excelencia Académica" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mth-fM-9AI">
-                    <rect key="frame" x="42" y="493" width="275" height="22"/>
-                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="22" id="Khp-md-AiE"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                    <color key="textColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvP-Kf-2gP">
-                    <rect key="frame" x="42" y="560" width="245" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="73s-m3-hF6"/>
-                    </constraints>
-                    <string key="text">Accede a programas educativos 
-</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fk1-qC-aVr">
-                    <rect key="frame" x="42" y="583" width="236" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="AhB-VN-vDj"/>
-                    </constraints>
-                    <string key="text">respaldados por el prestigio de 
-la Universidad Americana.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="la Universidad Americana." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zo-Qt-pSv">
-                    <rect key="frame" x="42" y="605" width="198" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="gWB-tO-CIu"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpm-Du-uiN">
-                    <rect key="frame" x="42" y="684" width="307" height="45"/>
+                    <rect key="frame" x="40" y="684.66666666666663" width="313" height="45"/>
                     <color key="backgroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="45" id="7Wl-aX-hOY"/>
+                        <constraint firstAttribute="height" constant="45" id="2un-Dl-hYO"/>
                     </constraints>
                     <color key="tintColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Button"/>
@@ -93,38 +48,57 @@ la Universidad Americana.</string>
                         <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                         <color key="baseBackgroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="btnNav:" destination="-1" eventType="touchUpInside" id="nhq-uT-S7k"/>
+                    </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Accede a programas educativos respaldados por el prestigio de la Universidad Americana." translatesAutoresizingMaskIntoConstraints="NO" id="xXp-mY-xV6">
+                    <rect key="frame" x="40" y="536.66666666666663" width="313" height="93"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="93" id="L8t-tu-1D8"/>
+                    </constraints>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conectate con la Excelencia Académica" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNk-kX-Ce6">
+                    <rect key="frame" x="40" y="422" width="313" height="59.666666666666686"/>
+                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="59.670000000000002" id="KvY-Tw-UPA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                    <color key="textColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gfm-wd-pge" secondAttribute="trailing" constant="44" id="2BJ-dk-Abs"/>
-                <constraint firstItem="HvP-Kf-2gP" firstAttribute="top" secondItem="Mth-fM-9AI" secondAttribute="bottom" constant="45" id="37z-ax-yK5"/>
-                <constraint firstItem="Kvr-As-emV" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="3k0-HD-Hzx"/>
-                <constraint firstItem="Kvr-As-emV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="8Pu-fk-7Nd"/>
-                <constraint firstItem="fk1-qC-aVr" firstAttribute="top" secondItem="HvP-Kf-2gP" secondAttribute="bottom" constant="2" id="EFY-XM-RdJ"/>
-                <constraint firstItem="1Zo-Qt-pSv" firstAttribute="top" secondItem="fk1-qC-aVr" secondAttribute="bottom" constant="1" id="Euo-yW-TVn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gpm-Du-uiN" secondAttribute="bottom" constant="89" id="Fyb-VU-SFE"/>
-                <constraint firstItem="eNk-kX-Ce6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="42" id="Gua-pS-8cF"/>
-                <constraint firstItem="gfm-wd-pge" firstAttribute="top" secondItem="Kvr-As-emV" secondAttribute="bottom" constant="8" id="Gux-KY-bF8"/>
-                <constraint firstItem="eNk-kX-Ce6" firstAttribute="top" secondItem="gfm-wd-pge" secondAttribute="bottom" constant="13" id="IA9-wD-L8E"/>
-                <constraint firstItem="gfm-wd-pge" firstAttribute="trailing" secondItem="gpm-Du-uiN" secondAttribute="trailing" id="Jh1-LD-dSz"/>
-                <constraint firstItem="Mth-fM-9AI" firstAttribute="top" secondItem="eNk-kX-Ce6" secondAttribute="bottom" constant="8" id="KWz-Zh-sZd"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eNk-kX-Ce6" secondAttribute="trailing" constant="142" id="MLa-63-x1Y"/>
-                <constraint firstItem="Mth-fM-9AI" firstAttribute="leading" secondItem="HvP-Kf-2gP" secondAttribute="leading" id="PW5-Sf-bIU"/>
-                <constraint firstItem="eNk-kX-Ce6" firstAttribute="leading" secondItem="Mth-fM-9AI" secondAttribute="leading" id="SLk-gA-3Ei"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mth-fM-9AI" secondAttribute="trailing" constant="76" id="VFI-PG-8uc"/>
-                <constraint firstItem="gfm-wd-pge" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="74" id="e8F-dr-Tb0"/>
-                <constraint firstItem="HvP-Kf-2gP" firstAttribute="leading" secondItem="fk1-qC-aVr" secondAttribute="leading" id="gGr-Xr-dlm"/>
-                <constraint firstItem="gpm-Du-uiN" firstAttribute="top" secondItem="1Zo-Qt-pSv" secondAttribute="bottom" constant="58" id="oTw-Jh-m2E"/>
-                <constraint firstItem="1Zo-Qt-pSv" firstAttribute="leading" secondItem="gpm-Du-uiN" secondAttribute="leading" id="uWh-U5-y5H"/>
-                <constraint firstItem="fk1-qC-aVr" firstAttribute="leading" secondItem="1Zo-Qt-pSv" secondAttribute="leading" id="xit-Ws-yyo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gfm-wd-pge" secondAttribute="trailing" constant="63" id="5ZC-al-ljF"/>
+                <constraint firstItem="xXp-mY-xV6" firstAttribute="top" secondItem="eNk-kX-Ce6" secondAttribute="bottom" constant="55" id="6Kc-bM-n8p"/>
+                <constraint firstItem="eNk-kX-Ce6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="FHF-Vl-xFR"/>
+                <constraint firstItem="gpm-Du-uiN" firstAttribute="top" secondItem="xXp-mY-xV6" secondAttribute="bottom" constant="55" id="HRZ-JM-9Qb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xXp-mY-xV6" secondAttribute="trailing" constant="40" id="Hr2-c3-5aH"/>
+                <constraint firstItem="gpm-Du-uiN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="I3H-mJ-xkf"/>
+                <constraint firstItem="xXp-mY-xV6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="ZAo-Xr-r3V"/>
+                <constraint firstItem="gfm-wd-pge" firstAttribute="top" secondItem="Kvr-As-emV" secondAttribute="bottom" constant="8" symbolic="YES" id="aRR-5s-9tg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eNk-kX-Ce6" secondAttribute="trailing" constant="40" id="bdY-s2-pQO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gpm-Du-uiN" secondAttribute="trailing" constant="40" id="c7T-1k-I4d"/>
+                <constraint firstItem="gfm-wd-pge" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="82" id="cTG-jc-9Yi"/>
+                <constraint firstItem="Kvr-As-emV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="26" id="f9Y-YF-Ga5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kvr-As-emV" secondAttribute="trailing" constant="16" id="uRA-8y-6ic"/>
+                <constraint firstItem="eNk-kX-Ce6" firstAttribute="top" secondItem="gfm-wd-pge" secondAttribute="bottom" constant="5" id="y7E-UT-Cox"/>
             </constraints>
-            <point key="canvasLocation" x="56" y="20"/>
+            <point key="canvasLocation" x="55.725190839694655" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
         <image name="Onboarding1" width="560" height="578"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,22 +8,39 @@
 import UIKit
 
 class Onboarding1ViewController: UIViewController {
-
+    
+    //Outlets Botones
+    @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var txtvwOb1: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //Design
+        btnNext.layer.cornerRadius = 10
+        
+        //Desactivando interaccion con Text View
+        //Scroll View
+        txtvwOb1.isScrollEnabled = false
+        //Edicion
+        txtvwOb1.isEditable = false
+        //Seleccion
+        txtvwOb1.isSelectable = false
+        
+        hideBackButton()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //Navegacion
+    @IBAction func btnNav(_ sender: Any) {
+        let onboarding2 = Onboarding2ViewController()
+        
+        navigationController?.pushViewController(onboarding2, animated: true)
     }
-    */
-
+    
+    
+    @IBAction func saltarTapped(_ sender: Any) {
+        
+        let loginButton = LoginViewController()
+        navigationController?.pushViewController(loginButton, animated: true)
+        
+    }
 }
+

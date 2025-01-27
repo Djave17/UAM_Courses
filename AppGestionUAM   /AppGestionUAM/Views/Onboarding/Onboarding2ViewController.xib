@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Onboarding2ViewController" customModule="AppGestionUAM" customModuleProvider="target">
             <connections>
+                <outlet property="btnSig" destination="Wmc-Yx-I0X" id="heO-7e-Kj7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,6 +31,9 @@
                         <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                         <color key="baseBackgroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="buttonContinueTapped:" destination="-1" eventType="touchUpInside" id="9nZ-JG-j7w"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVa-YA-weg">
                     <rect key="frame" x="308" y="59" width="68" height="35"/>
@@ -39,6 +43,9 @@
                     <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Saltar"/>
+                    <connections>
+                        <action selector="saltarTapped:" destination="-1" eventType="touchUpInside" id="KaM-uQ-0Am"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Certifica tu éxito " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcI-XJ-h2z">
                     <rect key="frame" x="41" y="509" width="209" height="30"/>

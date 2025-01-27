@@ -26,7 +26,7 @@ struct CourseModel: Codable, Hashable{
          schedule: String = "",
          prerequisites: String = "",
          materials: [String] = [],
-         imageURL: String = ""
+         imageUrl: String = ""
          
          ) {
         self.id = id
@@ -36,7 +36,7 @@ struct CourseModel: Codable, Hashable{
         self.schedule = schedule
         self.prerequisites = prerequisites
         self.materials = materials
-        self.imageUrl = imageURL
+        self.imageUrl = imageUrl
         
     }
 }

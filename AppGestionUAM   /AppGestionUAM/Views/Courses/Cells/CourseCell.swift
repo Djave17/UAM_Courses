@@ -97,7 +97,7 @@ class CourseCell: UICollectionViewCell {
     func configure(with course: CourseModel) {
         titleLabel.text = course.name
         // Imagen Placeholder
-        imageView.image = UIImage(systemName: "photo")
+        //imageView.image = UIImage(systemName: "photo")
         
         // Carga de imagen asíncrona con caché
         Task {
@@ -106,27 +106,34 @@ class CourseCell: UICollectionViewCell {
                     self.imageView.image = image
                 }
                 
-            
+                    
+                    
             }
-            //LoadImage
+            else{
+                print("error en course cel al cargar imagen, \(course.name)")
+                
+            }
             
-            //        if let imageUrl = URL(string: course.imageUrl) {
-            //            DispatchQueue.global().async {
-            //                if let data = try? Data(contentsOf: imageUrl), let image = UIImage(data: data) {
-            //                    DispatchQueue.main.async {
-            //                        self.imageView.image = image
-            //                    }
-            //                } else {
-            //                    DispatchQueue.main.async {
-            //                        self.imageView.image = UIImage(systemName: "photo")
-            //                    }
-            //                }
-            //            }
-            //        } else {
-            //            imageView.image = UIImage(systemName: "photo")
-            //        }
-            scheduleLabel.text = course.schedule
-            favoriteButton.setImage(UIImage(systemName: course.isFavorite ?? false ? "heart.fill" : "heart"), for: .normal)
+                //LoadImage}
+                
+                //        if let imageUrl = URL(string: course.imageUrl) {
+                //            DispatchQueue.global().async {
+                //                if let data = try? Data(contentsOf: imageUrl), let image = UIImage(data: data) {
+                //                    DispatchQueue.main.async {
+                //                        self.imageView.image = image
+                //                    }
+                //                } else {
+                //                    DispatchQueue.main.async {
+                //                        self.imageView.image = UIImage(systemName: "photo")
+                //                    }
+                //                }
+                //            }
+                //        } else {
+                //            imageView.image = UIImage(systemName: "photo")
+                //        }
+                scheduleLabel.text = course.schedule
+                favoriteButton.setImage(UIImage(systemName: course.isFavorite ?? false ? "heart.fill" : "heart"), for: .normal)
+            }
         }
     }
-}
+

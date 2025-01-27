@@ -153,8 +153,10 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(changePasswordViewControler, animated: true)
     }
     @IBAction func queHacerTapped(_ sender: Any) {
-        let questionLogInViewController = QuestionLogInViewController()
-        navigationController?.pushViewController(questionLogInViewController, animated: true)
+//        let questionLogInViewController = QuestionLogInViewController()
+//        navigationController?.pushViewController(questionLogInViewController, animated: true)
+        let viewQuestion = QuestionLogInViewController(nibName: String?("QuestionLogInViewController"), bundle: nil)
+        present(viewQuestion, animated: true, completion: nil)
         
     }
     

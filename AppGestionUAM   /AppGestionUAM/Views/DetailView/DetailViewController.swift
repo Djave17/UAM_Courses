@@ -10,18 +10,13 @@ import UIKit
 class DetailViewController: UIViewController {
     
     //Referencia de Componentes
-    
-    @IBOutlet weak var btnContactanos: UIButton!
-    
-    
+    //MARK: - OUTLETs
     @IBOutlet weak var views: UIView!
-    
-    
     //Modelo de los cursos
     @IBOutlet weak var courseImage: UIImageView!
     @IBOutlet weak var btnMarkFavorite: UIButton!
     @IBOutlet weak var descripcionTextView: UITextView!
-
+    
     @IBOutlet weak var courseNameTextView: UITextView!
     @IBOutlet weak var scheduleTextView: UITextView!
     @IBOutlet weak var txtRequierements: UITextView!
@@ -29,11 +24,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var recursosButton: UIButton! //materiales
     @IBOutlet weak var materialesTextField: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
-    
     @IBOutlet weak var editButton: UIButton!
+    
+    //MARK: - Modelos
     var viewModel: CourseDetailViewModel!
     var name: String?
     var courseID: String?
+    var selectedImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +39,8 @@ class DetailViewController: UIViewController {
         setButtons()
         viewModel = CourseDetailViewModel()
         loadCourseDetails(name: name)
-        setupBindings()
+        setupDeleteBindings()
+        setupUpdateBindings()
     }
     
     private func loadCourseDetails(name: String) {
@@ -134,7 +132,20 @@ class DetailViewController: UIViewController {
         }))
         present(alert, animated: true, completion: nil)
     }
-    private func setupBindings() {
+    
+    // MARK: - Configurar bindings
+    private func setupUpdateBindings() {
+        viewModel.onError = { [weak self] error in
+            self?.showAlert(title: "Error", message: error)
+        }
+        viewModel.onUpdateSuccess = { [weak self] in
+            self?.showAlert(title: "Éxito", message: "El curso se actualizó correctamente.")
+            self?.updateUIWithCourseDetails()
+        }
+    }
+    
+    
+    private func setupDeleteBindings() {
         viewModel.onDeleteSuccess = { [weak self] in
             DispatchQueue.main.async {
                 self?.showAlert(title: "Éxito", message: "Curso eliminado exitosamente.") {
@@ -149,7 +160,91 @@ class DetailViewController: UIViewController {
             }
         }
     }
+//    descripcionTextView.isEditable.toggle()
+//    txtRequierements.isEditable.toggle()
+//    objetivesTextView.isEditable.toggle()
+//    materialesTextField.isEditable.toggle()
+//    courseNameTextView.isEditable.toggle()
+//    scheduleTextView.isEditable.toggle()
     
+    /// MARK: - Toggle Edit Mode
+    @IBAction func toggleEditMode(_ sender: UIButton) {
+        descripcionTextView.isEditable.toggle()
+        txtRequierements.isEditable.toggle()
+        objetivesTextView.isEditable.toggle()
+        materialesTextField.isEditable.toggle()
+        courseNameTextView.isEditable.toggle()
+        scheduleTextView.isEditable.toggle()
+
+        if descripcionTextView.isEditable {
+            sender.setTitle("Guardar", for: .normal)
+        } else {
+            sender.setTitle("Editar", for: .normal)
+            guard let courseID = courseID else { return }
+
+            let name = courseNameTextView.text ?? viewModel.course?.name ?? ""
+            let description = descripcionTextView.text.isEmpty ? viewModel.course?.description ?? "" : descripcionTextView.text
+            let learningObjectives = objetivesTextView.text.isEmpty ? viewModel.course?.learningObjectives ?? "" : objetivesTextView.text
+            let schedule = scheduleTextView.text ?? viewModel.course?.schedule ?? ""
+            let prerequisites = txtRequierements.text.isEmpty ? viewModel.course?.prerequisites ?? "" : txtRequierements.text
+            let materials = materialesTextField.text.isEmpty ? viewModel.course?.materials ?? [] : materialesTextField.text.split(separator: ",").map(String.init)
+            let imageUrl = viewModel.course?.imageUrl ?? ""
+
+            let updatedCourse = CourseModel(
+                id: courseID,
+                name: name,
+                description: description!,
+                learningObjectives: learningObjectives!,
+                schedule: schedule,
+                prerequisites: prerequisites!,
+                materials: materials,
+                imageUrl: imageUrl
+            )
+
+            Task {
+                await viewModel.updateCourse(courseID: courseID, updatedCourse: updatedCourse, image: selectedImage)
+            }
+        }
+    }
+    
+    // MARK: - Actualizar la interfaz de usuario
+    private func updateUIWithCourseDetails() {
+        guard let course = viewModel.course else { return }
+        courseNameTextView.text = course.name
+        descripcionTextView.text = course.description
+        scheduleTextView.text = course.schedule
+        txtRequierements.text = course.prerequisites
+        objetivesTextView.text = course.learningObjectives
+        materialesTextField.text = course.materials.joined(separator: ", ")
+        
+        Task {
+            courseImage.image = await viewModel.loadImage(for: course.imageUrl)
+        }
+    }
+    
+    // MARK: - Image Picker
+    @IBAction func selectImage(_ sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
     
 }
+
+
+extension DetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            courseImage.image = image
+            selectedImage = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+

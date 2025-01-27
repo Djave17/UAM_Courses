@@ -16,7 +16,7 @@ class CourseListViewController: UIViewController {
     
     typealias DataSource = UICollectionViewDiffableDataSource<Section, CourseModel>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, CourseModel>
-
+    
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var coursesCollectionView: UICollectionView!
@@ -53,7 +53,7 @@ class CourseListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         viewModel.fetchCourses()
     }
-        
+    
     func gestosKeyboard(){
         //Gesto para quitar
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -74,7 +74,7 @@ class CourseListViewController: UIViewController {
         }
         
         
-    
+        
         
         // Setup StackView
         stackViewButtons.layer.cornerRadius = 25
@@ -98,7 +98,7 @@ class CourseListViewController: UIViewController {
     
     @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
         print("Tiempo de presión: \(gesture.state.rawValue)") // Depuración
-       
+        
         guard gesture.state == .began else { return }
         let point = gesture.location(in: coursesCollectionView)
         guard let indexPath = coursesCollectionView.indexPathForItem(at: point), gesture.state == .began else { return }
@@ -115,9 +115,9 @@ class CourseListViewController: UIViewController {
         coursesCollectionView.register(CourseCell.self, forCellWithReuseIdentifier: "CourseCell")
         
         // Filters CollectionView Setup
-//        filtersCollectionView.delegate = self
-//        //filtersCollectionView.dataSource = self
-//        filtersCollectionView.register(FilterCell.self, forCellWithReuseIdentifier: "FilterCell")
+        //        filtersCollectionView.delegate = self
+        //        //filtersCollectionView.dataSource = self
+        //        filtersCollectionView.register(FilterCell.self, forCellWithReuseIdentifier: "FilterCell")
         
         // Layout Setup
         setupCoursesLayout()
@@ -136,14 +136,14 @@ class CourseListViewController: UIViewController {
         coursesCollectionView.setCollectionViewLayout(layout, animated: false)
     }
     
-//    private func setupFiltersLayout() {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        layout.minimumInteritemSpacing = 10
-//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        
-//        filtersCollectionView.setCollectionViewLayout(layout, animated: false)
-//    }
+    //    private func setupFiltersLayout() {
+    //        let layout = UICollectionViewFlowLayout()
+    //        layout.scrollDirection = .horizontal
+    //        layout.minimumInteritemSpacing = 10
+    //        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+    //
+    //        filtersCollectionView.setCollectionViewLayout(layout, animated: false)
+    //    }
     
     // MARK: - Button Actions
     @IBAction func homeButtonTapped(_ sender: UIButton) {
@@ -201,20 +201,21 @@ class CourseListViewController: UIViewController {
     
     // MARK: - Bindings
     func setupBindings() {
-            viewModel.onCoursesUpdated = { [weak self] in
-                guard let self = self else { return }
-                self.filteredCourses = self.viewModel.courses
-                self.applySnapshot()
-            }
-            
-            viewModel.onError = { [weak self] errorMessage in
-                DispatchQueue.main.async {
-                    self?.showErrorAlert(message: errorMessage)
-                    print("fallo al cargar imagen")
-                }
-            }
+        viewModel.onCoursesUpdated = { [weak self] in
+            guard let self = self else { return }
+            self.filteredCourses = self.viewModel.courses
+            self.applySnapshot()
         }
         
+        viewModel.onError = { [weak self] errorMessage in
+            DispatchQueue.main.async {
+                self?.showErrorAlert(message: errorMessage)
+                print("fallo al cargar imagen")
+            }
+        }
+    }
+    
+    
     
     // MARK: - Error Handling
     private func showErrorAlert(message: String) {
@@ -252,9 +253,9 @@ class CourseListViewController: UIViewController {
 //            cell.configure(with: filters[indexPath.item])
 //            return cell
 //        }
-//        
+//
 //    }
-//    
+//
 //}
 
 extension CourseListViewController: UICollectionViewDelegate {
@@ -263,11 +264,11 @@ extension CourseListViewController: UICollectionViewDelegate {
         navigateToCourseDetail(with: course.name, with: course.id )
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-//        // Acción al mantener presionado
-//        let course = filteredCourses[indexPath.item]
-//        navigateToCourseDetail(with: course.name, with: course.id )
-//    }
+    //    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+    //        // Acción al mantener presionado
+    //        let course = filteredCourses[indexPath.item]
+    //        navigateToCourseDetail(with: course.name, with: course.id )
+    //    }
 }
 // MARK: - UISearchBarDelegate
 extension CourseListViewController: UISearchBarDelegate {

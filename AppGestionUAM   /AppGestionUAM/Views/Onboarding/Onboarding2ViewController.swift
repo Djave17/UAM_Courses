@@ -8,22 +8,27 @@
 import UIKit
 
 class Onboarding2ViewController: UIViewController {
-
+    
+    //Outlets
+    @IBOutlet weak var btnSig: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        hideBackButton()
+        
+        
+        //Borde Circular
+        btnSig.layer.cornerRadius = 10
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func buttonContinueTapped(_ sender: Any) {
+        let onBoarding2 = Onboarding3ViewController()
+         // Oculta el botón de "Back"
+        navigationController?.pushViewController(onBoarding2, animated: true)
     }
-    */
-
+    
+    @IBAction func saltarTapped(_ sender: Any) {
+        let loginButton = LoginViewController()
+        navigationController?.pushViewController(loginButton, animated: true)
+    }
 }

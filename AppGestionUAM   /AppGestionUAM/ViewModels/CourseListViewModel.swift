@@ -15,6 +15,8 @@ final class CourseListViewModel {
             onCoursesUpdated?()
         }
     }
+    
+    
     var onCoursesUpdated: (() -> Void)?
     var onError: ((String) -> Void)?
 

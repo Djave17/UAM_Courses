@@ -16,6 +16,7 @@ final class CourseDetailViewModel {
     var onError: ((String) -> Void)?
     var onDeleteSuccess: (() -> Void)?
     var onDeleteError: ((Error) -> Void)?
+    var onUpdateSuccess: (() -> Void)?
     
     
     init(apiClient: APIClient = .shared) {
@@ -57,4 +58,34 @@ final class CourseDetailViewModel {
             return nil
         }
     }
+    
+    // MARK: - Update Course
+    /// Actualiza la información de un curso en el servidor
+    /// - Parameters:
+    ///   - courseID: ID único del curso a actualizar
+    ///   - updatedCourse: Objeto con los datos actualizados del curso
+    ///   - image: Imagen opcional del curso
+    func updateCourse(courseID: String, updatedCourse: CourseModel, image: UIImage?) async {
+            do {
+                var updatedCourseWithImage = updatedCourse
+                if let image = image {
+                    let imageURL = try await apiClient.uploadImage(image: image)
+                    updatedCourseWithImage.imageUrl = imageURL
+                }
+                if let updated = try await apiClient.updateCourse(courseID: courseID, updatedCourse: updatedCourseWithImage) {
+                    self.course = updated
+                    DispatchQueue.main.async {
+                        self.onUpdateSuccess?()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.onError?("No se pudo actualizar el curso.")
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.onError?("Error al actualizar el curso: \(error.localizedDescription)")
+                }
+            }
+        }
 }

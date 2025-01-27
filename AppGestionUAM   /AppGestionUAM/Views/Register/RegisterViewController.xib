@@ -92,9 +92,12 @@
                             <color key="tintColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Inicia Sesión"/>
+                            <connections>
+                                <action selector="tapOnLogin:" destination="-1" eventType="touchUpInside" id="bms-bD-BiY"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Tienes una cuenta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgA-YY-1WI">
-                            <rect key="frame" x="68" y="692" width="156" height="21"/>
+                            <rect key="frame" x="57" y="692" width="156" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -107,8 +110,9 @@
                         <constraint firstItem="oA9-fN-Hi5" firstAttribute="leading" secondItem="7tt-jM-DLZ" secondAttribute="leading" constant="30" id="0at-kh-CMQ"/>
                         <constraint firstItem="8Vl-WF-ET8" firstAttribute="top" secondItem="th5-9z-0eM" secondAttribute="bottom" constant="20" id="1aq-xb-vzq"/>
                         <constraint firstItem="Nxz-at-nd6" firstAttribute="leading" secondItem="7tt-jM-DLZ" secondAttribute="leading" constant="221" id="9eF-Zv-8HZ"/>
-                        <constraint firstItem="EgA-YY-1WI" firstAttribute="leading" secondItem="7tt-jM-DLZ" secondAttribute="leading" constant="68" id="H0C-PB-v27"/>
+                        <constraint firstItem="EgA-YY-1WI" firstAttribute="leading" secondItem="7tt-jM-DLZ" secondAttribute="leading" constant="57" id="BYN-H0-lEY"/>
                         <constraint firstItem="Nxz-at-nd6" firstAttribute="top" secondItem="XZM-tx-VNk" secondAttribute="bottom" constant="43" id="HwB-sj-fWX"/>
+                        <constraint firstItem="Nxz-at-nd6" firstAttribute="leading" secondItem="EgA-YY-1WI" secondAttribute="trailing" constant="8" symbolic="YES" id="KTL-VO-1bJ"/>
                         <constraint firstItem="th5-9z-0eM" firstAttribute="leading" secondItem="7tt-jM-DLZ" secondAttribute="leading" constant="30" id="MmX-zP-pJc"/>
                         <constraint firstItem="8Vl-WF-ET8" firstAttribute="leading" secondItem="7tt-jM-DLZ" secondAttribute="leading" constant="30" id="NG3-DV-RXF"/>
                         <constraint firstItem="th5-9z-0eM" firstAttribute="top" secondItem="Cns-3N-dXe" secondAttribute="bottom" constant="30" id="Ppz-7V-Xo8"/>
@@ -119,7 +123,7 @@
                         <constraint firstItem="oA9-fN-Hi5" firstAttribute="top" secondItem="8Vl-WF-ET8" secondAttribute="bottom" constant="20" id="azV-MA-jA1"/>
                         <constraint firstItem="kNf-KK-2xz" firstAttribute="top" secondItem="7tt-jM-DLZ" secondAttribute="top" constant="40" id="ePQ-6R-9oG"/>
                         <constraint firstItem="7tt-jM-DLZ" firstAttribute="trailing" secondItem="oA9-fN-Hi5" secondAttribute="trailing" constant="30" id="g0o-Vo-gdf"/>
-                        <constraint firstItem="EgA-YY-1WI" firstAttribute="centerY" secondItem="Nxz-at-nd6" secondAttribute="centerY" id="isg-t8-piU"/>
+                        <constraint firstItem="EgA-YY-1WI" firstAttribute="top" secondItem="XZM-tx-VNk" secondAttribute="bottom" constant="50" id="jEo-Xl-isD"/>
                         <constraint firstItem="XZM-tx-VNk" firstAttribute="leading" secondItem="7tt-jM-DLZ" secondAttribute="leading" constant="30" id="lQP-9P-hE7"/>
                         <constraint firstItem="7tt-jM-DLZ" firstAttribute="trailing" secondItem="XZM-tx-VNk" secondAttribute="trailing" constant="30" id="qx6-T5-hdE"/>
                         <constraint firstItem="7tt-jM-DLZ" firstAttribute="trailing" secondItem="8Vl-WF-ET8" secondAttribute="trailing" constant="30" id="u6h-9b-dF1"/>
