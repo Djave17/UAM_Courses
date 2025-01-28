@@ -246,7 +246,7 @@ final class APIClient {
     
     //MARK: Update Courses
     func updateCourse(courseID: String, updatedCourse: CourseModel) async -> CourseModel? {
-        guard let url = URL(string: "\(host)/course_management"),
+        guard let url = URL(string: "\(host)/course_management/\(courseID)"),
               let token = getToken() else { return nil }
         
         do {

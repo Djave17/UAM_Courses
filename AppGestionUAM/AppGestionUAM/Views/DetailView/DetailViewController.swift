@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var btnMarkFavorite: UIButton!
     @IBOutlet weak var descripcionTextView: UITextView!
     
+    @IBOutlet weak var imagePickerButton: UIButton!
     @IBOutlet weak var courseNameTextView: UITextView!
     @IBOutlet weak var scheduleTextView: UITextView!
     @IBOutlet weak var txtRequierements: UITextView!
@@ -25,6 +26,17 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var materialesTextField: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
+    
+    @IBOutlet weak var saveButton: UIButton!
+    
+    
+    //MARK: - Activity indicator (Carga)
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
     
     //MARK: - Modelos
     var viewModel: CourseDetailViewModel!
@@ -35,12 +47,15 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let name = name else { return }
-        
+       
+        print("DetailViewController cargado, courseID: \(courseID ?? "nil")")
         setButtons()
         viewModel = CourseDetailViewModel()
         loadCourseDetails(name: name)
         setupDeleteBindings()
         setupUpdateBindings()
+        
+        
     }
     
     private func loadCourseDetails(name: String) {
@@ -55,6 +70,7 @@ class DetailViewController: UIViewController {
             
             DispatchQueue.main.async {
                 print("Cargando...")
+                self.courseID = course.id
                 self.courseNameTextView.text = course.name
                 self.descripcionTextView.text = course.description
                 self.objetivesTextView.text = course.learningObjectives
@@ -107,6 +123,23 @@ class DetailViewController: UIViewController {
         courseImage.clipsToBounds = true
         courseImage.layer.cornerRadius = 20
         
+        saveButton.isEnabled = false
+        saveButton.isHidden = true
+        
+        imagePickerButton.isHidden = true
+        imagePickerButton.isEnabled = false
+        
+        view.addSubview(activityIndicator)
+        
+        // Constraints para centrar el indicador de carga
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        
+        
+        
     }
     
     
@@ -136,11 +169,20 @@ class DetailViewController: UIViewController {
     // MARK: - Configurar bindings
     private func setupUpdateBindings() {
         viewModel.onError = { [weak self] error in
-            self?.showAlert(title: "Error", message: error)
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.showAlert(title: "Error", message: error)
+               
+            }
+            
         }
         viewModel.onUpdateSuccess = { [weak self] in
-            self?.showAlert(title: "Éxito", message: "El curso se actualizó correctamente.")
-            self?.updateUIWithCourseDetails()
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.showAlert(title: "Éxito", message: "El curso se actualizó correctamente.")
+                self?.updateUIWithCourseDetails()
+            }
+           
         }
     }
     
@@ -167,44 +209,76 @@ class DetailViewController: UIViewController {
 //    courseNameTextView.isEditable.toggle()
 //    scheduleTextView.isEditable.toggle()
     
-    /// MARK: - Toggle Edit Mode
-    @IBAction func toggleEditMode(_ sender: UIButton) {
+    
+    func cambiarEstados(){
         descripcionTextView.isEditable.toggle()
         txtRequierements.isEditable.toggle()
         objetivesTextView.isEditable.toggle()
         materialesTextField.isEditable.toggle()
         courseNameTextView.isEditable.toggle()
         scheduleTextView.isEditable.toggle()
+        saveButton.isHidden.toggle()
+        saveButton.isEnabled.toggle()
+        imagePickerButton.isHidden.toggle()
+        imagePickerButton.isEnabled.toggle()
+        
+    }
+    
+    /// MARK: - Toggle Edit Mode
+    @IBAction func toggleEditMode(_ sender: UIButton) {
+        cambiarEstados()
+        
+        showAlerts(title: "Modo editar", message: "Presione guardar luego de realizar los cambios. Puede cambiarlo en cualquier momento")
+        
 
-        if descripcionTextView.isEditable {
-            sender.setTitle("Guardar", for: .normal)
-        } else {
-            sender.setTitle("Editar", for: .normal)
-            guard let courseID = courseID else { return }
-
-            let name = courseNameTextView.text ?? viewModel.course?.name ?? ""
-            let description = descripcionTextView.text.isEmpty ? viewModel.course?.description ?? "" : descripcionTextView.text
-            let learningObjectives = objetivesTextView.text.isEmpty ? viewModel.course?.learningObjectives ?? "" : objetivesTextView.text
-            let schedule = scheduleTextView.text ?? viewModel.course?.schedule ?? ""
-            let prerequisites = txtRequierements.text.isEmpty ? viewModel.course?.prerequisites ?? "" : txtRequierements.text
-            let materials = materialesTextField.text.isEmpty ? viewModel.course?.materials ?? [] : materialesTextField.text.split(separator: ",").map(String.init)
-            let imageUrl = viewModel.course?.imageUrl ?? ""
-
-            let updatedCourse = CourseModel(
-                id: courseID,
-                name: name,
-                description: description!,
-                learningObjectives: learningObjectives!,
-                schedule: schedule,
-                prerequisites: prerequisites!,
-                materials: materials,
-                imageUrl: imageUrl
-            )
-
-            Task {
-                await viewModel.updateCourse(courseID: courseID, updatedCourse: updatedCourse, image: selectedImage)
-            }
+        
+    }
+    
+    //MARK: - BOTON DE GUARDAR
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        sender.isEnabled = false
+        activityIndicator.startAnimating()
+        cambiarEstados()
+        
+        
+        
+        print("saveButtonTapped ejecutado")
+        //let course = viewModel.course.id
+        
+        guard let courseID = courseID else {
+               print("courseID es nil")
+               return
         }
+
+        let name = courseNameTextView.text ?? viewModel.course?.name ?? ""
+        let description = descripcionTextView.text.isEmpty ? viewModel.course?.description ?? "" : descripcionTextView.text
+        let learningObjectives = objetivesTextView.text.isEmpty ? viewModel.course?.learningObjectives ?? "" : objetivesTextView.text
+        let schedule = scheduleTextView.text ?? viewModel.course?.schedule ?? ""
+        let prerequisites = txtRequierements.text
+        let materials = materialesTextField.text.isEmpty ? viewModel.course?.materials ?? [] : materialesTextField.text.split(separator: ",").map(String.init)
+        let imageUrl = viewModel.course?.imageUrl ?? ""
+
+        let updatedCourse = CourseModel(
+            id: courseID,
+            name: name,
+            description: description!,
+            learningObjectives: learningObjectives!,
+            schedule: schedule,
+            prerequisites: prerequisites!,
+            materials: materials,
+            imageUrl: imageUrl
+        )
+        print("Intentando actualizar curso: \(updatedCourse)")
+
+        Task {
+            print("Ejecutandose actualizacion") //Este print no se ejecuta
+            await viewModel.updateCourse(courseID: courseID, updatedCourse: updatedCourse, image: selectedImage)
+            print("Task Actualizada")
+        }
+        
+        
+        
+        
     }
     
     // MARK: - Actualizar la interfaz de usuario

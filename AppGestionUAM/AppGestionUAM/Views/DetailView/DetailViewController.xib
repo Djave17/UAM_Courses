@@ -22,9 +22,11 @@
                 <outlet property="deleteButton" destination="hUN-WC-qHw" id="75t-z7-0M7"/>
                 <outlet property="descripcionTextView" destination="YBj-RO-p0S" id="xlK-6f-Y2m"/>
                 <outlet property="editButton" destination="0jd-Vg-BmR" id="goj-MB-6Ll"/>
+                <outlet property="imagePickerButton" destination="ux5-3S-9Ut" id="Q5W-WF-ide"/>
                 <outlet property="materialesTextField" destination="7Kq-9f-7g9" id="cZc-uF-yaU"/>
                 <outlet property="objetivesTextView" destination="wOM-SN-N7g" id="FJp-Gw-E1s"/>
                 <outlet property="recursosButton" destination="VjN-ga-NQ8" id="XL7-Tj-cuZ"/>
+                <outlet property="saveButton" destination="E8P-A7-iVd" id="zy9-eb-M7S"/>
                 <outlet property="scheduleTextView" destination="qeQ-XF-Op5" id="Jxd-GL-7hS"/>
                 <outlet property="txtRequierements" destination="VyD-0E-OcT" id="EAM-Ay-Xpo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -175,8 +177,24 @@
                                     <color key="textColor" red="0.0" green="0.44037383419999998" blue="0.51810469390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jd-Vg-BmR">
+                                    <rect key="frame" x="142" y="1188" width="118" height="35"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Editar Curso"/>
+                                    <connections>
+                                        <action selector="toggleEditMode:" destination="-1" eventType="touchUpInside" id="W54-Wr-eCH"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8P-A7-iVd">
+                                    <rect key="frame" x="156" y="1231" width="90" height="35"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Guardar "/>
+                                    <connections>
+                                        <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="mjX-Gv-qMr"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUN-WC-qHw">
-                                    <rect key="frame" x="134" y="1258" width="134" height="35"/>
+                                    <rect key="frame" x="134" y="1316" width="134" height="35"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Eliminar Curso">
                                         <color key="baseForegroundColor" name="cherry"/>
@@ -185,12 +203,16 @@
                                         <action selector="deleteButtonTapped:" destination="-1" eventType="touchUpInside" id="jRH-bV-SON"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jd-Vg-BmR">
-                                    <rect key="frame" x="142" y="1188" width="118" height="35"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ux5-3S-9Ut">
+                                    <rect key="frame" x="290.33333333333331" y="422" width="54.666666666666686" height="34.333333333333314"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" red="0.0" green="0.44037383419999998" blue="0.51810469390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Editar Curso"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="photo.fill" catalog="system">
+                                        <color key="baseForegroundColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </buttonConfiguration>
                                     <connections>
-                                        <action selector="toggleEditMode:" destination="-1" eventType="touchUpInside" id="q9h-WG-r81"/>
+                                        <action selector="selectImage:" destination="-1" eventType="touchUpInside" id="uab-gN-HAw"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -205,27 +227,32 @@
                                 <constraint firstItem="VyD-0E-OcT" firstAttribute="leading" secondItem="Y2Y-Uy-uvq" secondAttribute="leading" constant="20" id="Da2-82-4sU"/>
                                 <constraint firstItem="b4E-Sn-Mea" firstAttribute="top" secondItem="VjN-ga-NQ8" secondAttribute="bottom" constant="23.670000000000002" id="FaM-WW-Pfb"/>
                                 <constraint firstAttribute="trailing" secondItem="c39-Rf-Oh2" secondAttribute="trailing" constant="20" id="GcX-dj-h5F"/>
+                                <constraint firstItem="ux5-3S-9Ut" firstAttribute="top" secondItem="VjN-ga-NQ8" secondAttribute="bottom" constant="17" id="HiJ-2j-TbY"/>
+                                <constraint firstItem="E8P-A7-iVd" firstAttribute="centerX" secondItem="Y2Y-Uy-uvq" secondAttribute="centerX" id="HrC-nf-Q4D"/>
                                 <constraint firstItem="b4E-Sn-Mea" firstAttribute="leading" secondItem="Y2Y-Uy-uvq" secondAttribute="leading" constant="20" id="I6L-VK-dbC"/>
                                 <constraint firstAttribute="trailing" secondItem="wOM-SN-N7g" secondAttribute="trailing" constant="20" id="IT1-wD-2Av"/>
                                 <constraint firstItem="0jd-Vg-BmR" firstAttribute="top" secondItem="7Kq-9f-7g9" secondAttribute="bottom" constant="35" id="J9R-zt-pWf"/>
                                 <constraint firstItem="jA8-1I-kwH" firstAttribute="leading" secondItem="Y2Y-Uy-uvq" secondAttribute="leading" constant="20" id="JAO-xY-Mmr"/>
+                                <constraint firstItem="Iig-kk-GhQ" firstAttribute="leading" secondItem="ux5-3S-9Ut" secondAttribute="trailing" constant="4" id="JdV-O1-q1v"/>
                                 <constraint firstItem="7Kq-9f-7g9" firstAttribute="leading" secondItem="Y2Y-Uy-uvq" secondAttribute="leading" constant="20" id="NJP-m3-tkA"/>
                                 <constraint firstAttribute="trailing" secondItem="Iig-kk-GhQ" secondAttribute="trailing" constant="20" id="OiY-BQ-jUx"/>
                                 <constraint firstItem="LLl-z0-5yu" firstAttribute="top" secondItem="b4E-Sn-Mea" secondAttribute="bottom" constant="20" id="Pwd-jj-mkw"/>
                                 <constraint firstItem="VjN-ga-NQ8" firstAttribute="leading" secondItem="Y2Y-Uy-uvq" secondAttribute="leading" constant="20" id="Qhg-QO-Jx0"/>
                                 <constraint firstItem="7Kq-9f-7g9" firstAttribute="top" secondItem="EkW-e1-p1K" secondAttribute="bottom" constant="10" id="RLb-b4-Gcm"/>
                                 <constraint firstItem="qeQ-XF-Op5" firstAttribute="top" secondItem="VjN-ga-NQ8" secondAttribute="bottom" constant="17" id="Rkz-9e-qqs"/>
+                                <constraint firstItem="E8P-A7-iVd" firstAttribute="top" secondItem="0jd-Vg-BmR" secondAttribute="bottom" constant="8" symbolic="YES" id="Shm-5o-Xsg"/>
                                 <constraint firstItem="wOM-SN-N7g" firstAttribute="leading" secondItem="Y2Y-Uy-uvq" secondAttribute="leading" constant="20" id="VBr-J7-1hA"/>
                                 <constraint firstItem="wOM-SN-N7g" firstAttribute="leading" secondItem="Y2Y-Uy-uvq" secondAttribute="leading" constant="20" id="WkO-j1-lyV"/>
                                 <constraint firstItem="Iig-kk-GhQ" firstAttribute="leading" secondItem="qeQ-XF-Op5" secondAttribute="trailing" constant="55.329999999999998" id="X97-YN-kck"/>
+                                <constraint firstItem="hUN-WC-qHw" firstAttribute="top" secondItem="E8P-A7-iVd" secondAttribute="bottom" constant="50" id="XZN-5o-1dP"/>
                                 <constraint firstItem="0jd-Vg-BmR" firstAttribute="centerX" secondItem="Y2Y-Uy-uvq" secondAttribute="centerX" id="Za8-1L-wJw"/>
                                 <constraint firstItem="tW8-Mr-o5i" firstAttribute="top" secondItem="c39-Rf-Oh2" secondAttribute="bottom" constant="10" id="Zkg-Xj-ngY"/>
                                 <constraint firstItem="YBj-RO-p0S" firstAttribute="top" secondItem="LLl-z0-5yu" secondAttribute="bottom" constant="10" id="Zvm-Lv-Zbe"/>
                                 <constraint firstItem="jA8-1I-kwH" firstAttribute="top" secondItem="YBj-RO-p0S" secondAttribute="bottom" constant="15" id="Zyh-MF-728"/>
                                 <constraint firstAttribute="trailing" secondItem="tW8-Mr-o5i" secondAttribute="trailing" constant="60" id="bmJ-F9-JaR"/>
+                                <constraint firstItem="hUN-WC-qHw" firstAttribute="centerX" secondItem="Y2Y-Uy-uvq" secondAttribute="centerX" id="cpa-0L-sh8"/>
                                 <constraint firstAttribute="trailing" secondItem="wOM-SN-N7g" secondAttribute="trailing" constant="20" id="dkH-0U-TDz"/>
                                 <constraint firstItem="Iig-kk-GhQ" firstAttribute="top" secondItem="VjN-ga-NQ8" secondAttribute="bottom" constant="17" id="eHC-Fx-jGs"/>
-                                <constraint firstItem="hUN-WC-qHw" firstAttribute="centerX" secondItem="Y2Y-Uy-uvq" secondAttribute="centerX" id="gVy-Eg-0PW"/>
                                 <constraint firstItem="VjN-ga-NQ8" firstAttribute="top" secondItem="tW8-Mr-o5i" secondAttribute="bottom" constant="10" id="hGT-Wb-87G"/>
                                 <constraint firstAttribute="trailing" secondItem="VjN-ga-NQ8" secondAttribute="trailing" constant="20" id="jXd-Jy-8Bi"/>
                                 <constraint firstItem="c39-Rf-Oh2" firstAttribute="leading" secondItem="Y2Y-Uy-uvq" secondAttribute="leading" constant="20" id="k2A-fY-4dB"/>
@@ -236,7 +263,6 @@
                                 <constraint firstAttribute="trailing" secondItem="YBj-RO-p0S" secondAttribute="trailing" constant="20" id="pPQ-6S-1fM"/>
                                 <constraint firstAttribute="trailing" secondItem="VyD-0E-OcT" secondAttribute="trailing" constant="20" id="sNA-Nv-1RD"/>
                                 <constraint firstItem="c39-Rf-Oh2" firstAttribute="top" secondItem="Y2Y-Uy-uvq" secondAttribute="top" constant="70" id="tUE-sA-G2z"/>
-                                <constraint firstItem="hUN-WC-qHw" firstAttribute="top" secondItem="0jd-Vg-BmR" secondAttribute="bottom" constant="35" id="wRf-4N-XLU"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -268,6 +294,7 @@
     <resources>
         <image name="backgroundEnviroment2" width="1200" height="800"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
         <namedColor name="cherry">
             <color red="0.88627450980392153" green="0.078431372549019607" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

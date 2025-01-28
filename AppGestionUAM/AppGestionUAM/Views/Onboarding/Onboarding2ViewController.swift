@@ -15,6 +15,8 @@ class Onboarding2ViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var txtvwDesc: UITextView!
     
+    var playerLayer: AVPlayerLayer?
+    
     // Reproductor de video
     var player: AVPlayer?
     
@@ -52,11 +54,17 @@ class Onboarding2ViewController: UIViewController {
         hideBackButton()
     }
     
-    // Configurar el reproductor de video
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopVideo() // Detener el video al salir de la vista
+    }
+    
+    
+    
     private func setupVideoPlayer() {
         // Ruta del video en el bundle
         guard let videoPath = Bundle.main.path(forResource: "vd_Onb2", ofType: "mov") else {
-            print("Error: No se encontró el video vd_Onb2.mov en el bundle.")
+            print("Error: No se encontró el video vd_Onb3.mov en el bundle.")
             return
         }
         
@@ -67,22 +75,24 @@ class Onboarding2ViewController: UIViewController {
         player = AVPlayer(url: videoURL)
         player?.actionAtItemEnd = .none // Evitar detener la reproducción al terminar
         
-        // Crear un AVPlayerLayer para mostrar el video
-        let playerLayer = AVPlayerLayer(player: player)
+        // Inicializar el playerLayer antes de usarlo
+        playerLayer = AVPlayerLayer(player: player)
         
         // Tamaño ajustado (reducir ancho, aumentar altura)
-        let videoWidth = view.frame.width * 0.4 // 30% del ancho de la pantalla
-        let videoHeight = videoWidth * 12 / 9 // Relación ajustada (más alto)
+        let videoWidth = view.frame.width * 0.4 // 40% del ancho de la pantalla
+        let videoHeight = videoWidth * 12 / 9   // Relación ajustada (más alto)
         
         // Posicionar el video al centro pero más arriba
         let centerX = (view.frame.width - videoWidth) / 2
         let centerY = (view.frame.height - videoHeight) / 3 // Ajuste para que esté más arriba
         
-        playerLayer.frame = CGRect(x: centerX, y: centerY, width: videoWidth, height: videoHeight)
-        playerLayer.videoGravity = .resizeAspectFill
+        playerLayer?.frame = CGRect(x: centerX, y: centerY, width: videoWidth, height: videoHeight)
+        playerLayer?.videoGravity = .resizeAspectFill
         
         // Añadir el video como subcapa
-        view.layer.insertSublayer(playerLayer, at: 0)
+        if let playerLayer = playerLayer {
+            view.layer.insertSublayer(playerLayer, at: 0)
+        }
         
         // Reiniciar el video cuando termine
         NotificationCenter.default.addObserver(self, selector: #selector(restartVideo), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
@@ -101,4 +111,14 @@ class Onboarding2ViewController: UIViewController {
         // Eliminar el observador para evitar problemas de memoria
         NotificationCenter.default.removeObserver(self)
     }
+    func stopVideo() {
+        player?.pause()
+        player?.replaceCurrentItem(with: nil) // Libera el video cargado
+        playerLayer?.removeFromSuperlayer() // Elimina el layer del video
+        
+        // Asigna nil para liberar memoria
+        player = nil
+        playerLayer = nil
+    }
+    
 }

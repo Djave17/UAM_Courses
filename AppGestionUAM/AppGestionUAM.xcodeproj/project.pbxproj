@@ -34,6 +34,16 @@
 		51CD46572CD3CAAB000D24BF /* AppGestionUAMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppGestionUAMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		51E6B7DF2CE6E944004D9184 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAM" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 51CD46362CD3CAAA000D24BF /* AppGestionUAM */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		51CD46502CD3CAAB000D24BF /* AppGestionUAMTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -47,6 +57,9 @@
 		};
 		51E6B7CE2CE6E944004D9184 /* AppGestionUAM */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				51E6B7DF2CE6E944004D9184 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAM" target */,
+			);
 			path = AppGestionUAM;
 			sourceTree = "<group>";
 		};
