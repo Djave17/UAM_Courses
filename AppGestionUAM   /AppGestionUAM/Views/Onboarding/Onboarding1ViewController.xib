@@ -7,11 +7,20 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mulish-Bold.ttf">
+            <string>Mulish-Bold</string>
+        </array>
+        <array key="Mulish-Regular.ttf">
+            <string>Mulish-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Onboarding1ViewController" customModule="AppGestionUAM" customModuleProvider="target">
             <connections>
-                <outlet property="btnNext" destination="gpm-Du-uiN" id="DEo-4l-l7i"/>
-                <outlet property="txtvwOb1" destination="xXp-mY-xV6" id="m8L-F4-ZPI"/>
+                <outlet property="continueButton" destination="5CN-BA-R9R" id="RK8-h1-0kB"/>
+                <outlet property="txtvwOb1" destination="xXp-mY-xV6" id="nx4-Hz-yPN"/>
+                <outlet property="txtvwTitle" destination="0e4-Zy-HKC" id="f2O-Xu-6HM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,82 +29,73 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvr-As-emV">
-                    <rect key="frame" x="309" y="85" width="68" height="35"/>
-                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Saltar"/>
-                    <connections>
-                        <action selector="saltarTapped:" destination="-1" eventType="touchUpInside" id="SIZ-G4-nfM"/>
-                    </connections>
-                </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="gfm-wd-pge">
-                    <rect key="frame" x="82" y="128" width="248" height="289"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Accede a programas educativos respaldados por el prestigio de la Universidad Americana." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xXp-mY-xV6">
+                    <rect key="frame" x="50" y="532" width="293" height="93"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="248" id="Wh8-1y-YlL"/>
-                        <constraint firstAttribute="height" constant="289" id="kCn-sb-2uA"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpm-Du-uiN">
-                    <rect key="frame" x="40" y="684.66666666666663" width="313" height="45"/>
-                    <color key="backgroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="2un-Dl-hYO"/>
-                    </constraints>
-                    <color key="tintColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="Continuar">
-                        <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                        <color key="baseBackgroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </buttonConfiguration>
-                    <connections>
-                        <action selector="btnNav:" destination="-1" eventType="touchUpInside" id="nhq-uT-S7k"/>
-                    </connections>
-                </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Accede a programas educativos respaldados por el prestigio de la Universidad Americana." translatesAutoresizingMaskIntoConstraints="NO" id="xXp-mY-xV6">
-                    <rect key="frame" x="40" y="536.66666666666663" width="313" height="93"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="93" id="L8t-tu-1D8"/>
+                        <constraint firstAttribute="height" constant="93" id="6Uh-YG-32X"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="iu4-sp-mEp"/>
                     </constraints>
                     <color key="textColor" systemColor="labelColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conectate con la Excelencia Académica" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNk-kX-Ce6">
-                    <rect key="frame" x="40" y="422" width="313" height="59.666666666666686"/>
-                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Conectate con la Excelencia Académica" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0e4-Zy-HKC">
+                    <rect key="frame" x="50" y="434" width="293" height="90"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="59.670000000000002" id="KvY-Tw-UPA"/>
+                        <constraint firstAttribute="height" constant="90" id="7Fk-U1-sTe"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                     <color key="textColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="25"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5CN-BA-R9R" userLabel="Continue">
+                    <rect key="frame" x="293" y="733" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Dy8-P4-M3g"/>
+                        <constraint firstAttribute="width" constant="60" id="Lte-5b-0aA"/>
+                    </constraints>
+                    <color key="tintColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="forward.end.circle.fill" catalog="system">
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="baseBackgroundColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="nav:" destination="-1" eventType="touchUpInside" id="y7l-cL-1RE"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvr-As-emV">
+                    <rect key="frame" x="306.66666666666669" y="59" width="66.333333333333314" height="33"/>
+                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Saltar">
+                        <fontDescription key="titleFontDescription" name="Mulish-Medium" family="Mulish" pointSize="15"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="saltarTapped:" destination="-1" eventType="touchUpInside" id="hIQ-lB-4qI"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gfm-wd-pge" secondAttribute="trailing" constant="63" id="5ZC-al-ljF"/>
-                <constraint firstItem="xXp-mY-xV6" firstAttribute="top" secondItem="eNk-kX-Ce6" secondAttribute="bottom" constant="55" id="6Kc-bM-n8p"/>
-                <constraint firstItem="eNk-kX-Ce6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="FHF-Vl-xFR"/>
-                <constraint firstItem="gpm-Du-uiN" firstAttribute="top" secondItem="xXp-mY-xV6" secondAttribute="bottom" constant="55" id="HRZ-JM-9Qb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xXp-mY-xV6" secondAttribute="trailing" constant="40" id="Hr2-c3-5aH"/>
-                <constraint firstItem="gpm-Du-uiN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="I3H-mJ-xkf"/>
-                <constraint firstItem="xXp-mY-xV6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="ZAo-Xr-r3V"/>
-                <constraint firstItem="gfm-wd-pge" firstAttribute="top" secondItem="Kvr-As-emV" secondAttribute="bottom" constant="8" symbolic="YES" id="aRR-5s-9tg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eNk-kX-Ce6" secondAttribute="trailing" constant="40" id="bdY-s2-pQO"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gpm-Du-uiN" secondAttribute="trailing" constant="40" id="c7T-1k-I4d"/>
-                <constraint firstItem="gfm-wd-pge" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="82" id="cTG-jc-9Yi"/>
-                <constraint firstItem="Kvr-As-emV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="26" id="f9Y-YF-Ga5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kvr-As-emV" secondAttribute="trailing" constant="16" id="uRA-8y-6ic"/>
-                <constraint firstItem="eNk-kX-Ce6" firstAttribute="top" secondItem="gfm-wd-pge" secondAttribute="bottom" constant="5" id="y7E-UT-Cox"/>
+                <constraint firstItem="xXp-mY-xV6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="850-3V-Mil"/>
+                <constraint firstAttribute="bottom" secondItem="xXp-mY-xV6" secondAttribute="bottom" constant="227" id="MoK-oV-vRG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5CN-BA-R9R" secondAttribute="bottom" constant="25" id="QX0-i9-KLw"/>
+                <constraint firstItem="Kvr-As-emV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SSD-sz-HOd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xXp-mY-xV6" secondAttribute="trailing" constant="50" id="blL-bp-icY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5CN-BA-R9R" secondAttribute="trailing" constant="40" id="cGB-X6-YsJ"/>
+                <constraint firstItem="xXp-mY-xV6" firstAttribute="top" secondItem="0e4-Zy-HKC" secondAttribute="bottom" constant="8" symbolic="YES" id="kZ7-d9-8Nj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kvr-As-emV" secondAttribute="trailing" constant="20" id="sgP-vC-1tp"/>
+                <constraint firstItem="0e4-Zy-HKC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="vDy-zx-CjA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0e4-Zy-HKC" secondAttribute="trailing" constant="50" id="xd4-6n-X7j"/>
+                <constraint firstItem="xXp-mY-xV6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zbo-IV-472"/>
             </constraints>
             <point key="canvasLocation" x="55.725190839694655" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
-        <image name="Onboarding1" width="560" height="578"/>
+        <image name="forward.end.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
