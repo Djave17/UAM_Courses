@@ -1,77 +1,69 @@
-//
-//  Onboarding3ViewController.swift
-//  AppGestionUAM
-//
-//  Created by Kristel Geraldine Villalta Porras on 13/1/25.
-//
-
 import UIKit
 import AVFoundation
 
 class Onboarding3ViewController: UIViewController {
     
-    //Outlets botones
+    // Outlets botones
     @IBOutlet weak var btnSig: UIButton!
     
-    //Outlets txtview
+    // Outlets txtview
     @IBOutlet weak var txtvwDesc: UITextView!
     
     // Crear un AVPlayerLayer para mostrar el video
     var playerLayer: AVPlayerLayer?
     
-    
     // Reproductor de video
     var player: AVPlayer?
     
+    // Barra de progreso circular
+    let progressBar = CircularProgressBar(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Configuración del video
         setupVideoPlayer()
         
-        //Borde Circular
-        btnSig.layer.cornerRadius = 13.5
         
-        // Desactivando interacción con Text View Descripcion
-        txtvwDesc.isScrollEnabled = false
-        txtvwDesc.isEditable = false
-        txtvwDesc.isSelectable = false
-        
-        // Desactivando interacción con Text View Title
+        //Desactivando interacción con Text View Descripción
         txtvwDesc.isScrollEnabled = false
         txtvwDesc.isEditable = false
         txtvwDesc.isSelectable = false
         
         hideBackButton()
+        setupProgressBar() // Configurar la barra de progreso
         
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            stopVideo() // Detener el video al salir de la vista
+        // Iniciar la barra de progreso en 66% y animarla a 100%
+        progressBar.setProgress(0.6666, animated: false) // Inicia en 66.66%
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.progressBar.setProgress(1.0, animated: true) // Avanza a 100%
         }
-        
-    
-    @IBAction func btnLogIn(_ sender: Any) {
-        
-        let loginButton = LoginViewController()
-        navigationController?.pushViewController(loginButton, animated: true)
     }
     
-    @IBAction func continueButtonTapped(_ sender: Any) {
+    private func setupProgressBar() {
+        let screenHeight = view.bounds.height
+        let yOffset = screenHeight * 0.90 // más abajo
         
-        let loginButton = RegisterViewController()
-        navigationController?.pushViewController(loginButton, animated: true)
+        progressBar.center = CGPoint(x: view.center.x, y: yOffset)
+        view.addSubview(progressBar)
         
+        // Crear y configurar el botón
+        let button = UIButton(frame: progressBar.frame)
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(navigateToRegister), for: .touchUpInside)
+        view.addSubview(button)
     }
     
-    //    @IBAction func saltarButtonTapped(_ sender: Any) {
-    //        let loginButton = LoginViewController()
-    //        navigationController?.pushViewController(loginButton, animated: true)
-    //    }
+    @objc private func navigateToRegister() {
+        let registerVC = RegisterViewController()
+        navigationController?.pushViewController(registerVC, animated: true)
+    }
     
-    // MARK: - Configuration of Video
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopVideo() // Detener el video al salir de la vista
+    }
     
-    // Configurar el reproductor de video
     private func setupVideoPlayer() {
         // Ruta del video en el bundle
         guard let videoPath = Bundle.main.path(forResource: "vd_Onb3", ofType: "mov") else {
@@ -90,12 +82,12 @@ class Onboarding3ViewController: UIViewController {
         playerLayer = AVPlayerLayer(player: player)
         
         // Tamaño ajustado (reducir ancho, aumentar altura)
-        let videoWidth = view.frame.width * 0.4 // 40% del ancho de la pantalla
-        let videoHeight = videoWidth * 12 / 9   // Relación ajustada (más alto)
+        let videoWidth = view.frame.width * 0.4
+        let videoHeight = videoWidth * 12 / 9
         
         // Posicionar el video al centro pero más arriba
         let centerX = (view.frame.width - videoWidth) / 2
-        let centerY = (view.frame.height - videoHeight) / 3 // Ajuste para que esté más arriba
+        let centerY = (view.frame.height - videoHeight) / 3
         
         playerLayer?.frame = CGRect(x: centerX, y: centerY, width: videoWidth, height: videoHeight)
         playerLayer?.videoGravity = .resizeAspectFill
@@ -112,19 +104,15 @@ class Onboarding3ViewController: UIViewController {
         player?.play()
     }
     
-    // Reiniciar el video cuando termine
     @objc private func restartVideo() {
         player?.seek(to: .zero)
         player?.play()
     }
     
     deinit {
-        // Eliminar el observador para evitar problemas de memoria
         NotificationCenter.default.removeObserver(self)
     }
     
-    /// Detiene y elimina el reproductor de video para liberar recursos
-    // Detiene y elimina el reproductor de video para liberar recursos
     func stopVideo() {
         player?.pause()
         player?.replaceCurrentItem(with: nil) // Libera el video cargado
@@ -134,5 +122,4 @@ class Onboarding3ViewController: UIViewController {
         player = nil
         playerLayer = nil
     }
-    
 }

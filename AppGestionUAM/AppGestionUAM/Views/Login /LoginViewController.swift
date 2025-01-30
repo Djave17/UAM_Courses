@@ -33,6 +33,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Ocultar texto al inicio
+        passwordTextField.isSecureTextEntry = true
+        emailTextField.isSecureTextEntry = true
+        
         setAllElements()
         
         //Gesto para quitar 
@@ -161,6 +165,13 @@ class LoginViewController: UIViewController {
     }
     
     
+    @IBAction func hideEmail(_ sender: Any) {
+        emailTextField.isSecureTextEntry.toggle()
+    }
+    @IBAction func hidePassword(_ sender: Any) {
+        // Cambiar el estado de isSecureTextEntry
+        passwordTextField.isSecureTextEntry.toggle()
+    }
 }
 
 

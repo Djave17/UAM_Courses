@@ -1,17 +1,9 @@
-//
-//  Onboarding2ViewController.swift
-//  AppGestionUAM
-//
-//  Created by Kristel Geraldine Villalta Porras on 13/1/25.
-//
-
 import UIKit
 import AVFoundation
 
 class Onboarding2ViewController: UIViewController {
     
-    //Outlets txtViews
-    
+    // Outlets txtViews
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var txtvwDesc: UITextView!
     
@@ -20,13 +12,9 @@ class Onboarding2ViewController: UIViewController {
     // Reproductor de video
     var player: AVPlayer?
     
-    @IBAction func btnNext(_ sender: Any) {
-        let onBoarding2 = Onboarding3ViewController()
-        onBoarding2.navigationItem.hidesBackButton = true // Oculta el botón de "Back"
-        navigationController?.pushViewController(onBoarding2, animated: true)
-    }
-    
-    
+    // Barra de progreso circular
+    let progressBar = CircularProgressBar(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+
     @IBAction func btnSkip(_ sender: Any) {
         let loginButton = LoginViewController()
         navigationController?.pushViewController(loginButton, animated: true)
@@ -43,15 +31,33 @@ class Onboarding2ViewController: UIViewController {
         txtvwDesc.isEditable = false
         txtvwDesc.isSelectable = false
         
-        // Desactivando interacción con Text View Title
-        txtvwDesc.isScrollEnabled = false
-        txtvwDesc.isEditable = false
-        txtvwDesc.isSelectable = false
-        
-        continueButton.layer.cornerRadius = 30
-        continueButton.clipsToBounds = true
-        
         hideBackButton()
+        setupProgressBar() // Configurar la barra de progreso
+        
+        // Iniciar la barra de progreso en 33% y animarla a 66%
+        progressBar.setProgress(0.3333, animated: false) // Inicia en 33.33%
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.progressBar.setProgress(0.6666, animated: true) // Avanza a 66.66%
+        }
+    }
+    
+    private func setupProgressBar() {
+        let screenHeight = view.bounds.height
+        let yOffset = screenHeight * 0.90 // más abajo
+        
+        progressBar.center = CGPoint(x: view.center.x, y: yOffset)
+        view.addSubview(progressBar)
+        
+        // Crear y configurar el botón
+        let button = UIButton(frame: progressBar.frame)
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(navigateToNextScreen), for: .touchUpInside)
+        view.addSubview(button)
+    }
+    
+    @objc private func navigateToNextScreen() {
+        let onboarding3 = Onboarding3ViewController()
+        navigationController?.pushViewController(onboarding3, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,12 +65,10 @@ class Onboarding2ViewController: UIViewController {
         stopVideo() // Detener el video al salir de la vista
     }
     
-    
-    
     private func setupVideoPlayer() {
         // Ruta del video en el bundle
         guard let videoPath = Bundle.main.path(forResource: "vd_Onb2", ofType: "mov") else {
-            print("Error: No se encontró el video vd_Onb3.mov en el bundle.")
+            print("Error: No se encontró el video vd_Onb2.mov en el bundle.")
             return
         }
         
@@ -101,16 +105,15 @@ class Onboarding2ViewController: UIViewController {
         player?.play()
     }
     
-    // Reiniciar el video cuando termine
     @objc private func restartVideo() {
         player?.seek(to: .zero)
         player?.play()
     }
     
     deinit {
-        // Eliminar el observador para evitar problemas de memoria
         NotificationCenter.default.removeObserver(self)
     }
+    
     func stopVideo() {
         player?.pause()
         player?.replaceCurrentItem(with: nil) // Libera el video cargado
@@ -120,5 +123,4 @@ class Onboarding2ViewController: UIViewController {
         player = nil
         playerLayer = nil
     }
-    
 }

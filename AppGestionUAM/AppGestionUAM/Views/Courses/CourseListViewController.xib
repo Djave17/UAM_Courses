@@ -49,10 +49,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-0n-fVf">
-                    <rect key="frame" x="20" y="191.66666666666663" width="353" height="515"/>
+                    <rect key="frame" x="20" y="191.66666666666663" width="353" height="530"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="515" id="l2e-vY-qfa"/>
+                        <constraint firstAttribute="height" constant="530" id="l2e-vY-qfa"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fsd-eW-jp0">
                         <size key="itemSize" width="128" height="128"/>
@@ -72,10 +72,10 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="595-wU-mg8">
-                    <rect key="frame" x="19.666666666666657" y="726.66666666666663" width="353.33333333333337" height="50"/>
+                    <rect key="frame" x="19.666666666666657" y="741.66666666666663" width="353.33333333333337" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faW-Er-TF9" userLabel="Lista de cursos ">
-                            <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="60"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="house.fill" catalog="system">
@@ -86,7 +86,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZR-8L-xep">
-                            <rect key="frame" x="154.66666666666669" y="0.0" width="50.666666666666657" height="50"/>
+                            <rect key="frame" x="154.66666666666669" y="0.0" width="50.666666666666657" height="60"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
@@ -97,7 +97,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7F-fg-7OE">
-                            <rect key="frame" x="305.33333333333331" y="0.0" width="48" height="50"/>
+                            <rect key="frame" x="305.33333333333331" y="0.0" width="48" height="60"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="person" catalog="system">
@@ -111,7 +111,7 @@
                     <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="RUh-6E-KYE"/>
+                        <constraint firstAttribute="height" constant="60" id="RUh-6E-KYE"/>
                     </constraints>
                 </stackView>
             </subviews>

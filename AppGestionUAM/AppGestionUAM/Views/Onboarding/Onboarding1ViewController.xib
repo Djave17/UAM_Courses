@@ -18,7 +18,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Onboarding1ViewController" customModule="AppGestionUAM" customModuleProvider="target">
             <connections>
-                <outlet property="continueButton" destination="5CN-BA-R9R" id="RK8-h1-0kB"/>
                 <outlet property="txtvwOb1" destination="xXp-mY-xV6" id="nx4-Hz-yPN"/>
                 <outlet property="txtvwTitle" destination="0e4-Zy-HKC" id="f2O-Xu-6HM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -32,8 +31,7 @@
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Accede a programas educativos respaldados por el prestigio de la Universidad Americana." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xXp-mY-xV6">
                     <rect key="frame" x="50" y="532" width="293" height="93"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="93" id="6Uh-YG-32X"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="iu4-sp-mEp"/>
+                        <constraint firstAttribute="height" constant="93" id="T1u-Rj-4xb"/>
                     </constraints>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
@@ -42,30 +40,17 @@
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Conectate con la Excelencia Académica" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0e4-Zy-HKC">
                     <rect key="frame" x="50" y="434" width="293" height="90"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="90" id="7Fk-U1-sTe"/>
+                        <constraint firstAttribute="height" constant="90" id="2cK-UO-kod"/>
                     </constraints>
                     <color key="textColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="25"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5CN-BA-R9R" userLabel="Continue">
-                    <rect key="frame" x="293" y="733" width="60" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="Dy8-P4-M3g"/>
-                        <constraint firstAttribute="width" constant="60" id="Lte-5b-0aA"/>
-                    </constraints>
-                    <color key="tintColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" image="forward.end.circle.fill" catalog="system">
-                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="baseBackgroundColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </buttonConfiguration>
-                    <connections>
-                        <action selector="nav:" destination="-1" eventType="touchUpInside" id="y7l-cL-1RE"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvr-As-emV">
-                    <rect key="frame" x="306.66666666666669" y="59" width="66.333333333333314" height="33"/>
+                    <rect key="frame" x="301" y="59" width="72" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="Vcu-AA-PFk"/>
+                    </constraints>
                     <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Saltar">
@@ -75,27 +60,34 @@
                         <action selector="saltarTapped:" destination="-1" eventType="touchUpInside" id="hIQ-lB-4qI"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buttonNav" translatesAutoresizingMaskIntoConstraints="NO" id="Zdk-yS-2gm">
+                    <rect key="frame" x="159" y="715" width="63" height="59"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="59" id="Hn5-jx-dHg"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="xXp-mY-xV6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="850-3V-Mil"/>
-                <constraint firstAttribute="bottom" secondItem="xXp-mY-xV6" secondAttribute="bottom" constant="227" id="MoK-oV-vRG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5CN-BA-R9R" secondAttribute="bottom" constant="25" id="QX0-i9-KLw"/>
-                <constraint firstItem="Kvr-As-emV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SSD-sz-HOd"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xXp-mY-xV6" secondAttribute="trailing" constant="50" id="blL-bp-icY"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5CN-BA-R9R" secondAttribute="trailing" constant="40" id="cGB-X6-YsJ"/>
-                <constraint firstItem="xXp-mY-xV6" firstAttribute="top" secondItem="0e4-Zy-HKC" secondAttribute="bottom" constant="8" symbolic="YES" id="kZ7-d9-8Nj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kvr-As-emV" secondAttribute="trailing" constant="20" id="sgP-vC-1tp"/>
-                <constraint firstItem="0e4-Zy-HKC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="vDy-zx-CjA"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0e4-Zy-HKC" secondAttribute="trailing" constant="50" id="xd4-6n-X7j"/>
-                <constraint firstItem="xXp-mY-xV6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zbo-IV-472"/>
+                <constraint firstItem="Kvr-As-emV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2en-wF-rUC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kvr-As-emV" secondAttribute="trailing" constant="20" id="Gsv-hl-mtu"/>
+                <constraint firstItem="Zdk-yS-2gm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="159" id="Zu1-Gf-js9"/>
+                <constraint firstItem="xXp-mY-xV6" firstAttribute="top" secondItem="0e4-Zy-HKC" secondAttribute="bottom" constant="8" symbolic="YES" id="agN-es-rV6"/>
+                <constraint firstItem="Zdk-yS-2gm" firstAttribute="top" secondItem="xXp-mY-xV6" secondAttribute="bottom" constant="90" id="btD-GU-b3J"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zdk-yS-2gm" secondAttribute="trailing" constant="171" id="etY-9F-kWb"/>
+                <constraint firstItem="0e4-Zy-HKC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="k9y-gX-ZO2"/>
+                <constraint firstItem="Kvr-As-emV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="301" id="non-gF-JLL"/>
+                <constraint firstItem="0e4-Zy-HKC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pSn-Pg-fN2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Zdk-yS-2gm" secondAttribute="bottom" constant="44" id="tQx-lf-VtP"/>
+                <constraint firstItem="0e4-Zy-HKC" firstAttribute="leading" secondItem="xXp-mY-xV6" secondAttribute="leading" id="uTz-hk-zJw"/>
+                <constraint firstItem="0e4-Zy-HKC" firstAttribute="trailing" secondItem="xXp-mY-xV6" secondAttribute="trailing" id="zI7-nN-38h"/>
             </constraints>
             <point key="canvasLocation" x="55.725190839694655" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
-        <image name="forward.end.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="buttonNav" width="338" height="302"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LauncherViewController" customModule="AppGestionUAM" customModuleProvider="target">
             <connections>
-                <outlet property="rotatingImageView" destination="mpF-30-UYP" id="b3a-V9-T6c"/>
+                <outlet property="image" destination="uTD-tp-2aX" id="9P4-g9-sg0"/>
+                <outlet property="lblCourses" destination="CSI-zG-Eaa" id="V3i-Kj-cx2"/>
+                <outlet property="lblUAM" destination="k4P-cE-zBa" id="6M2-rL-qiy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,23 +21,39 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundEnviroment2" translatesAutoresizingMaskIntoConstraints="NO" id="mpF-30-UYP">
-                    <rect key="frame" x="74" y="289" width="245" height="274"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UAM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4P-cE-zBa">
+                    <rect key="frame" x="101" y="418" width="73" height="37"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="31"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSI-zG-Eaa">
+                    <rect key="frame" x="177" y="418" width="115" height="37"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="31"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconapp 1" translatesAutoresizingMaskIntoConstraints="NO" id="uTD-tp-2aX">
+                    <rect key="frame" x="119" y="297" width="155" height="113"/>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="mpF-30-UYP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Uia-3S-5KQ"/>
-                <constraint firstItem="mpF-30-UYP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="74" id="bwc-u6-bSa"/>
-                <constraint firstItem="mpF-30-UYP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="230" id="dZh-RT-dr1"/>
-                <constraint firstItem="mpF-30-UYP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rkS-FW-NMd"/>
+                <constraint firstItem="k4P-cE-zBa" firstAttribute="top" secondItem="CSI-zG-Eaa" secondAttribute="top" id="2lr-cL-uyL"/>
+                <constraint firstItem="k4P-cE-zBa" firstAttribute="top" secondItem="uTD-tp-2aX" secondAttribute="bottom" constant="8" id="Mn4-og-mEa"/>
+                <constraint firstItem="uTD-tp-2aX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="238" id="R54-Fg-pzc"/>
+                <constraint firstItem="CSI-zG-Eaa" firstAttribute="leading" secondItem="k4P-cE-zBa" secondAttribute="trailing" constant="3" id="ZeS-lk-9wZ"/>
+                <constraint firstItem="uTD-tp-2aX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="119" id="cda-0s-k0k"/>
+                <constraint firstItem="k4P-cE-zBa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="101" id="fTI-0f-OVh"/>
+                <constraint firstItem="uTD-tp-2aX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jKX-uF-ZxH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uTD-tp-2aX" secondAttribute="bottom" constant="408" id="vFy-O9-vxO"/>
             </constraints>
             <point key="canvasLocation" x="136.64122137404578" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
-        <image name="backgroundEnviroment2" width="1200" height="800"/>
+        <image name="iconapp 1" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

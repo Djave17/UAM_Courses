@@ -4,15 +4,27 @@ import AVFoundation // AVFoundation para poder usar AVAudioPlayer
 class LauncherViewController: UIViewController {
     
     // Outlets
-    @IBOutlet weak var rotatingImageView: UIImageView!
+    
+    @IBOutlet weak var image: UIImageView!
+    
+    //Outlets de labels
+    @IBOutlet weak var lblCourses: UILabel!
+    
+    @IBOutlet weak var lblUAM: UILabel!
     
     // Reproductor de audio
     var audioPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
         mostrarAnimación()
         rotateImage() // Comienza la rotación
+        */
+        animateImagePulse()
+        
+        animateLabels()
+        
         AudioManager.shared.playSound(resourceName: "agua", fileExtension: "mp3") // Reproduce el sonido
         navigateToOnboarding() // Navega a la siguiente vista después de 6 segundos
                                 // Reproduce el sonido
@@ -50,7 +62,18 @@ class LauncherViewController: UIViewController {
             print("Error al configurar o reproducir el sonido: \(error.localizedDescription)")
         }
     }
-
+    
+    func navigateToOnboarding() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            // Carga la vista de Onboarding1 desde un archivo XIB
+            let onboarding1 = Onboarding1ViewController()
+            self.navigationController?.pushViewController(onboarding1, animated: true)
+        }
+    }
+    
+    //MARK: - Animations
+    
+    /*
     func rotateImage() {
         // Realiza una rotación completa de 360 grados en 2 segundos
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -63,15 +86,10 @@ class LauncherViewController: UIViewController {
         // Animación de Giro
         rotatingImageView.layer.add(rotationAnimation, forKey: "rotateAnimation")
     }
+    */
     
-    func navigateToOnboarding() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            // Carga la vista de Onboarding1 desde un archivo XIB
-            let onboarding1 = Onboarding1ViewController()
-            self.navigationController?.pushViewController(onboarding1, animated: true)
-        }
-    }
     
+    /*
     func mostrarAnimación(){
         let fadeView = UIView(frame: self.view.bounds)
         fadeView.backgroundColor = UIColor.white
@@ -82,7 +100,31 @@ class LauncherViewController: UIViewController {
         }) { _ in
             fadeView.removeFromSuperview()
         }
+     */
+    
+    func animateLabels() {
+        // Animación para el label de Courses (desliza desde la izquierda a la derecha)
+        lblUAM.transform = CGAffineTransform(translationX: -self.view.bounds.width, y: 0) // Inicia fuera de la vista a la izquierda
+        UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.lblUAM.transform = CGAffineTransform.identity // Vuelve a la posición original
+        })
+        
+        // Animación para el label de UAM (desliza desde la derecha a la izquierda)
+        lblCourses.transform = CGAffineTransform(translationX: self.view.bounds.width, y: 0) // Inicia fuera de la vista a la derecha
+        UIView.animate(withDuration: 1.0, delay: 1.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.lblCourses.transform = CGAffineTransform.identity // Vuelve a la posición original
+        })
     }
     
-}
+    func animateImagePulse() {
+        // Primero, la imagen debe ser más pequeña para iniciar el pulso
+        image.transform = CGAffineTransform(scaleX: 0.5, y: 0.5) // Escala inicial más pequeña
+        
+        // Animación para el "pulso" (crecer y encoger)
+        UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: [.repeat, .autoreverse], animations: {
+            self.image.transform = CGAffineTransform.identity // Escala normal
+        })
+    }
+    
+    }
 

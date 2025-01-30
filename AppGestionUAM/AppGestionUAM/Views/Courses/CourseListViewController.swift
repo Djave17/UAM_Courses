@@ -166,8 +166,8 @@ class CourseListViewController: UIViewController {
     @IBAction func addCourseTapped(_ sender: UIButton) {
         animateButtonSelection(sender)
         // Lógica para mostrar perfil
-        let createCourseViewController = CreateViewController()
-        navigationController?.pushViewController(createCourseViewController, animated: true)
+        let createsCourseViewController = CreatesViewController()
+        navigationController?.pushViewController(createsCourseViewController, animated: true)
     }
     
     private func animateButtonSelection(_ button: UIButton) {
