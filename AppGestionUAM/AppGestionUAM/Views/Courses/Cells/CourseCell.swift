@@ -6,6 +6,10 @@
 //
 import UIKit
 
+protocol CourseCellDelegate: AnyObject {
+    func didToggleFavorite(course: CourseModel)
+}
+
 class CourseCell: UICollectionViewCell {
     
     // MARK: - UI Elements
@@ -39,15 +43,21 @@ class CourseCell: UICollectionViewCell {
         button.tintColor = .systemBlue
         return button
     }()
+    //MARK: - Propiedades
+    private var course: CourseModel?
+    
+    weak var delegate: CourseCellDelegate?
+    
     
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) No se ha implementado el init")
     }
     
     // MARK: - UI Setup
@@ -95,10 +105,11 @@ class CourseCell: UICollectionViewCell {
     
     // MARK: - Configuration
     func configure(with course: CourseModel) {
+        self.course = course
         titleLabel.text = course.name
-        // Imagen Placeholder
-        //imageView.image = UIImage(systemName: "photo")
-        
+        scheduleLabel.text = course.schedule
+        //favoriteButton.setImage(UIImage(systemName: course.isFavorite ?? false ? "heart.fill" : "heart"), for: .normal)
+        updateFavoriteButton()
         // Carga de imagen asíncrona con caché
         Task {
             if let image = await APIClient.shared.loadImage(url: course.imageUrl) {
@@ -106,34 +117,35 @@ class CourseCell: UICollectionViewCell {
                     self.imageView.image = image
                 }
                 
-                    
-                    
+                
             }
             else{
                 print("error en course cel al cargar imagen, \(course.name)")
                 
             }
             
-                //LoadImage}
-                
-                //        if let imageUrl = URL(string: course.imageUrl) {
-                //            DispatchQueue.global().async {
-                //                if let data = try? Data(contentsOf: imageUrl), let image = UIImage(data: data) {
-                //                    DispatchQueue.main.async {
-                //                        self.imageView.image = image
-                //                    }
-                //                } else {
-                //                    DispatchQueue.main.async {
-                //                        self.imageView.image = UIImage(systemName: "photo")
-                //                    }
-                //                }
-                //            }
-                //        } else {
-                //            imageView.image = UIImage(systemName: "photo")
-                //        }
-                scheduleLabel.text = course.schedule
-                favoriteButton.setImage(UIImage(systemName: course.isFavorite ?? false ? "heart.fill" : "heart"), for: .normal)
-            }
         }
     }
+    
+    // MARK: - Favorite button
+    @objc private func favoriteButtonTapped() {
+        guard let course = course else { return }
+        // Creamos un course actualizado para notificar
+        var updatedCourse = course
+        updatedCourse.isFavorite = !(course.isFavorite ?? true)
+        self.course = updatedCourse
+        
+        // Actualizamos UI inmediatamente
+        updateFavoriteButton()
+        
+        // Notificamos al delegado
+        delegate?.didToggleFavorite(course: updatedCourse)
+    }
+    
+    private func updateFavoriteButton() {
+        guard let course = self.course else { return }
+        let imageName = course.isFavorite == true ? "heart.fill" : "heart"
+        favoriteButton.setImage(UIImage(systemName: imageName), for: .normal)
+    }
+}
 

@@ -39,15 +39,22 @@ final class APIClient {
                 "password": password
             ]
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: loginData, options: [])
+    
             
             let (data, response) = try await URLSession.shared.data(for: urlRequest)
             
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {throw APIError.invalidResponse}
             
+            print(httpResponse)
+            
             
             let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
             
             saveToken(loginResponse.token)
+            saveUserId(loginResponse.user.id)
+            print("User ID guardado: \(loginResponse.user.id)")
+            
+            
             
             return loginResponse
             
@@ -58,7 +65,7 @@ final class APIClient {
     
     
     
-    //MARK: Register
+    //MARK: - Register
     
     
     
@@ -104,6 +111,42 @@ final class APIClient {
         }
     }
     
+    // MARK: - Fetch user by ID
+    func getUserById(_ userId: String) async throws -> User? {
+        // Asegúrate de cambiar la ruta si tu backend difiere
+        let endpoint = "\(host)/user/\(userId)"
+        guard let url = URL(string: endpoint) else {
+            throw APIError.invalidURL
+        }
+
+        guard let token = getToken() else {
+            throw APIError.unauthenticated
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        let (data, response) = try await URLSession.shared.data(for: request)
+
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIError.invalidResponse
+        }
+
+        switch httpResponse.statusCode {
+        case 200:
+            let user = try JSONDecoder().decode(User.self, from: data)
+            return user
+        case 404:
+            throw APIError.notFound("Usuario con ID \(userId) no encontrado.")
+        case 401:
+            throw APIError.unauthorized("No autorizado.")
+        default:
+            throw APIError.unknownError("Error desconocido. Status: \(httpResponse.statusCode)")
+        }
+    }
+
     
     
     
@@ -436,6 +479,17 @@ final class APIClient {
     
     private func saveToken(_ token: String) {
         UserDefaults.standard.set(token, forKey: "token")
+    }
+    
+    private func saveUserId(_ userID: String) {
+        UserDefaults.standard.set(userID, forKey: "id")
+        print("Guardando ID de usuario \(userID)")
+    }
+    
+    func getUserId() -> String? {
+        UserDefaults.standard.string(forKey: "id")
+        
+
     }
     
     private func getToken() -> String? {

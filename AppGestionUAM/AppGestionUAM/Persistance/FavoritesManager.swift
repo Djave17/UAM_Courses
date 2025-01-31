@@ -5,33 +5,34 @@
 //  Created by David Sanchez on 14/11/24.
 //
 
+
 import Foundation
 
 class FavoritesManager {
-    private let favoritesKey = "favoriteCourses"
-    
-    func saveFavorite(course: CourseModel) {
-        var favorites = fetchFavorites()
-        favorites.append(course)
-        saveFavorites(favorites)
+    private func key(for userId: String) -> String {
+        return "favoriteCoursesIDs_\(userId)"
     }
     
-    func removeFavorite(courseID: String) {
-        var favorites = fetchFavorites()
-        favorites.removeAll { $0.id == courseID }
-        saveFavorites(favorites)
-    }
-    
-    func fetchFavorites() -> [CourseModel] {
-        guard let data = UserDefaults.standard.data(forKey: favoritesKey),
-              let favorites = try? JSONDecoder().decode([CourseModel].self, from: data) else {
-            return []
+    // MARK: - Guardar un favorito (por ID)
+    func saveFavorite(courseID: String, userId: String) {
+        print("DEBUG: saveFavorite(\(courseID)) for userId \(userId)")
+        var favorites = fetchFavoriteIDs(userId: userId)
+        if !favorites.contains(courseID) {
+            favorites.append(courseID)
+            UserDefaults.standard.set(favorites, forKey: key(for: userId))
         }
-        return favorites
     }
     
-    private func saveFavorites(_ favorites: [CourseModel]) {
-        let data = try? JSONEncoder().encode(favorites)
-        UserDefaults.standard.set(data, forKey: favoritesKey)
+    // MARK: - Eliminar un favorito (por ID)
+    func removeFavorite(courseID: String, userId: String) {
+        print("DEBUG: removeFavorite(\(courseID)) for userId \(userId)")
+        var favorites = fetchFavoriteIDs(userId: userId)
+        favorites.removeAll { $0 == courseID }
+        UserDefaults.standard.set(favorites, forKey: key(for: userId))
+    }
+    
+    // MARK: - Obtener todos los IDs favoritos
+    func fetchFavoriteIDs(userId: String) -> [String] {
+        UserDefaults.standard.stringArray(forKey: key(for: userId)) ?? []
     }
 }

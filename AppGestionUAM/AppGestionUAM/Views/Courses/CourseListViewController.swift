@@ -33,8 +33,7 @@ class CourseListViewController: UIViewController {
     private lazy var dataSource: DataSource = makeDataSource()
     var filteredCourses: [CourseModel] = []
     private var snapshot = Snapshot()
-    private let filters = ["Derecho", "Inteligencia Artificial", "Idiomas", "Salud", "Publicidad", "Tecnología"]
-    private var selectedFilterIndex: Int?
+    
     
     
     override func viewDidLoad() {
@@ -42,17 +41,27 @@ class CourseListViewController: UIViewController {
         setupUI()
         setupCollectionViews()
         setupBindings()
-        viewModel.fetchCourses()
+        //viewModel.fetchCourses()
         gestosKeyboard()
         setupLongPressGesture()
+        loadCourses()
+        //refreshFavorites()
         
         
     }
     
     //Cargar los cursos si se navega hacia atras:
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applySnapshot(filteredCourses)
+    }
+    
+    
+    // MARK: - Cargar cursos
+    private func loadCourses() {
         viewModel.fetchCourses()
     }
+    
     
     func gestosKeyboard(){
         //Gesto para quitar
@@ -109,19 +118,11 @@ class CourseListViewController: UIViewController {
     
     // MARK: - CollectionView Setup
     func setupCollectionViews() {
-        // Courses CollectionView Setup
         coursesCollectionView.delegate = self
-        //coursesCollectionView.dataSource = self
+        // La dataSource real la administra el DiffableDataSource
         coursesCollectionView.register(CourseCell.self, forCellWithReuseIdentifier: "CourseCell")
         
-        // Filters CollectionView Setup
-        //        filtersCollectionView.delegate = self
-        //        //filtersCollectionView.dataSource = self
-        //        filtersCollectionView.register(FilterCell.self, forCellWithReuseIdentifier: "FilterCell")
-        
-        // Layout Setup
         setupCoursesLayout()
-        //setupFiltersLayout()
     }
     
     private func setupCoursesLayout() {
@@ -160,7 +161,7 @@ class CourseListViewController: UIViewController {
     @IBAction func profileButtonTapped(_ sender: UIButton) {
         animateButtonSelection(sender)
         // Lógica para mostrar perfil
-        let createCourseViewController = CreateViewController()
+        let createCourseViewController = CreatesViewController()
         navigationController?.pushViewController(createCourseViewController, animated: true)
     }
     @IBAction func addCourseTapped(_ sender: UIButton) {
@@ -181,30 +182,35 @@ class CourseListViewController: UIViewController {
         
         
     }
-    // MARK: - Diffable Data Source
+    
+    // MARK: - Diffable DataSource
     private func makeDataSource() -> DataSource {
         return DataSource(collectionView: coursesCollectionView) { collectionView, indexPath, course in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseCell", for: indexPath) as? CourseCell else {
                 return UICollectionViewCell()
             }
             cell.configure(with: course)
+            cell.delegate = self  // Para toggleFavorite
             return cell
         }
     }
     
-    private func applySnapshot() {
-        var snapshot = Snapshot()
+    private func applySnapshot(_ courses: [CourseModel]) {
+        snapshot = NSDiffableDataSourceSnapshot<Section, CourseModel>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(filteredCourses)
+        snapshot.appendItems(courses)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
+    
     
     // MARK: - Bindings
     func setupBindings() {
         viewModel.onCoursesUpdated = { [weak self] in
             guard let self = self else { return }
+            // Cada vez que se actualicen los cursos en el viewModel,
+            // sincronizamos el array local filteredCourses
             self.filteredCourses = self.viewModel.courses
-            self.applySnapshot()
+            self.applySnapshot(self.filteredCourses)
         }
         
         viewModel.onError = { [weak self] errorMessage in
@@ -232,57 +238,39 @@ class CourseListViewController: UIViewController {
     
 }
 
-//// MARK: - UICollectionViewDataSource
-//extension CourseListViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if collectionView == coursesCollectionView {
-//            return filteredCourses.count
-//        } else {
-//            return filters.count
-//        }
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        if collectionView == coursesCollectionView {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseCell", for: indexPath) as! CourseCell
-//            let course = filteredCourses[indexPath.item]
-//            cell.configure(with: course)
-//            return cell
-//        } else {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
-//            cell.configure(with: filters[indexPath.item])
-//            return cell
-//        }
-//
-//    }
-//
-//}
 
+//MARK: -Delegates
 extension CourseListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let course = filteredCourses[indexPath.item]
         navigateToCourseDetail(with: course.name, with: course.id )
     }
-    
-    //    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-    //        // Acción al mantener presionado
-    //        let course = filteredCourses[indexPath.item]
-    //        navigateToCourseDetail(with: course.name, with: course.id )
-    //    }
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseCell", for: indexPath) as? CourseCell else {
+//            return UICollectionViewCell()
+//        }
+//        let course = viewModel.courses[indexPath.row]
+//        cell.configure(with: course)
+//        cell.delegate = self
+//        return cell
+//    }
+   
 }
 // MARK: - UISearchBarDelegate
 extension CourseListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
+            
             filteredCourses = viewModel.courses
-            applySnapshot()
+            applySnapshot(filteredCourses)
             return
         }
+        // Filtramos localmente
         filteredCourses = viewModel.courses.filter {
-            $0.name.localizedCaseInsensitiveContains(searchText) ||
-            $0.description.localizedCaseInsensitiveContains(searchText)
+            $0.name.localizedCaseInsensitiveContains(searchText)
+            || $0.description.localizedCaseInsensitiveContains(searchText)
         }
-        applySnapshot()
+        applySnapshot(filteredCourses)
     }
 }
 
@@ -298,3 +286,11 @@ extension CourseListViewController: UIGestureRecognizerDelegate {
         return false
     }
 }
+
+extension CourseListViewController: CourseCellDelegate {
+    func didToggleFavorite(course: CourseModel) {
+        viewModel.toggleFavorite(for: course)
+        
+    }
+}
+
