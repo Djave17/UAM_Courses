@@ -54,6 +54,7 @@ class CourseListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applySnapshot(filteredCourses)
+        loadCourses()
     }
     
     
@@ -161,8 +162,8 @@ class CourseListViewController: UIViewController {
     @IBAction func profileButtonTapped(_ sender: UIButton) {
         animateButtonSelection(sender)
         // Lógica para mostrar perfil
-        let createCourseViewController = CreatesViewController()
-        navigationController?.pushViewController(createCourseViewController, animated: true)
+        let profileVC = SettingsViewController()
+        navigationController?.pushViewController(profileVC, animated: true)
     }
     @IBAction func addCourseTapped(_ sender: UIButton) {
         animateButtonSelection(sender)

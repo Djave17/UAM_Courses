@@ -32,7 +32,7 @@
                     <color key="highlightedColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="shadowColor" red="0.40703098780000002" green="0.67418047049999996" blue="0.79266672039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
-                <searchBar clipsSubviews="YES" contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Busca un curso" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-Sz-7FU">
+                <searchBar clipsSubviews="YES" contentMode="redraw" verticalHuggingPriority="251" barStyle="black" searchBarStyle="minimal" placeholder="Busca un curso" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-Sz-7FU">
                     <rect key="frame" x="0.0" y="95.333333333333329" width="393" height="55.999999999999986"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -129,6 +129,7 @@
                 <constraint firstItem="ekO-Xn-8t8" firstAttribute="top" secondItem="dFq-j0-WFq" secondAttribute="top" id="ZMD-2C-GmR"/>
                 <constraint firstItem="WRH-WX-bR3" firstAttribute="top" secondItem="3vw-Sz-7FU" secondAttribute="bottom" constant="10" id="dUa-nT-n2F"/>
                 <constraint firstItem="dFq-j0-WFq" firstAttribute="trailing" secondItem="Gz2-0n-fVf" secondAttribute="trailing" constant="20" id="emy-Ij-7l6"/>
+                <constraint firstItem="dof-GC-GCh" firstAttribute="top" secondItem="595-wU-mg8" secondAttribute="bottom" constant="16.329999999999998" id="jwR-IJ-FZX"/>
                 <constraint firstItem="dFq-j0-WFq" firstAttribute="trailing" secondItem="ekO-Xn-8t8" secondAttribute="trailing" constant="8" id="qHg-UU-cY3"/>
                 <constraint firstItem="3vw-Sz-7FU" firstAttribute="trailing" secondItem="dFq-j0-WFq" secondAttribute="trailing" id="tVh-AL-8br"/>
                 <constraint firstItem="Gz2-0n-fVf" firstAttribute="leading" secondItem="dFq-j0-WFq" secondAttribute="leading" constant="20" id="v0q-nx-En8"/>

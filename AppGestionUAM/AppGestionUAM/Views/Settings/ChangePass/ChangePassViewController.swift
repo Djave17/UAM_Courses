@@ -8,22 +8,26 @@
 import UIKit
 
 class ChangePassViewController: UIViewController {
-
+    
+    //Outlet TextView
+    
+    @IBOutlet weak var txtvwDesc: UITextView!
+    
+    //Outlet Button
+    
+    @IBOutlet weak var btnChange: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Desactivando interacción con Text View Descripcion
+        txtvwDesc.isScrollEnabled = false
+        txtvwDesc.isEditable = false
+        txtvwDesc.isSelectable = false
+        
+        //Custom Button
+        
+        btnChange.layer.cornerRadius = 10
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

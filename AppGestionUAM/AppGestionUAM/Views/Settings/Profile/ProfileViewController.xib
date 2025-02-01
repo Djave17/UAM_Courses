@@ -18,33 +18,64 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="UAM" translatesAutoresizingMaskIntoConstraints="NO" id="9kB-RH-85b">
-                    <rect key="frame" x="121" y="156" width="150" height="150"/>
-                </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.line" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wRN-sN-vkl">
-                    <rect key="frame" x="253" y="305" width="39" height="44"/>
-                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                </imageView>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ingresa tu nombre" borderStyle="roundedRect" placeholder="Ingrese su correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mhk-pB-VRE">
-                    <rect key="frame" x="30" y="381" width="333" height="45"/>
-                    <color key="backgroundColor" red="0.92941176889999999" green="0.94117647410000005" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="mEH-yj-vVm"/>
-                    </constraints>
-                    <color key="textColor" red="0.2588235438" green="0.27450981740000002" blue="0.2941176593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="        Nombre Completo" borderStyle="roundedRect" placeholder="Ingrese su correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mhk-pB-VRE">
+                    <rect key="frame" x="42" y="384" width="311" height="45"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-mF-3ak">
-                    <rect key="frame" x="96" y="486" width="201" height="45"/>
-                    <color key="backgroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="        Correo Institucional" borderStyle="roundedRect" placeholder="Ingrese su correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="slk-P5-tag">
+                    <rect key="frame" x="42" y="453" width="311" height="45"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-Gn-mD4">
+                    <rect key="frame" x="-10" y="0.0" width="412" height="240"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pencil.line" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wRN-sN-vkl">
+                            <rect key="frame" x="348" y="186.33333333333331" width="39" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UAM" translatesAutoresizingMaskIntoConstraints="NO" id="9kB-RH-85b">
+                            <rect key="frame" x="131" y="169" width="150" height="150"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.line" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Lx-zf-6Ru">
+                    <rect key="frame" x="265" y="298.33333333333331" width="39" height="44"/>
+                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="45" id="lqp-pc-SI6"/>
+                        <constraint firstAttribute="height" constant="46.333333333333314" id="J4A-AB-nMV"/>
                     </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jeg-nz-IFz">
+                    <rect key="frame" x="55" y="392" width="22" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="oxJ-LY-Fsr"/>
+                    </constraints>
+                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="person" catalog="system"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73k-1g-7te">
+                    <rect key="frame" x="55" y="461" width="22" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="Dbq-50-MtJ"/>
+                    </constraints>
+                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="envelope" catalog="system"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-mF-3ak">
+                    <rect key="frame" x="160" y="560" width="73" height="54"/>
+                    <color key="backgroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="Guardar">
-                        <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                    <buttonConfiguration key="configuration" style="filled" image="checkmark" catalog="system">
                         <color key="baseBackgroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </buttonConfiguration>
                 </button>
@@ -52,27 +83,41 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Mhk-pB-VRE" firstAttribute="centerX" secondItem="zVf-mF-3ak" secondAttribute="centerX" id="0Xm-nc-FqN"/>
-                <constraint firstItem="9kB-RH-85b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="121" id="4go-8o-YHG"/>
-                <constraint firstItem="wRN-sN-vkl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="244.66666666666669" id="5lF-tR-WXW"/>
-                <constraint firstItem="Mhk-pB-VRE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="8l7-6q-xaF"/>
-                <constraint firstItem="Mhk-pB-VRE" firstAttribute="top" secondItem="wRN-sN-vkl" secondAttribute="bottom" constant="31" id="BCI-VM-w9m"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wRN-sN-vkl" secondAttribute="trailing" constant="101" id="GyC-aa-Did"/>
-                <constraint firstItem="zVf-mF-3ak" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="96" id="Qgl-wx-7ao"/>
-                <constraint firstItem="9kB-RH-85b" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="T7j-Js-7r0"/>
-                <constraint firstItem="zVf-mF-3ak" firstAttribute="top" secondItem="Mhk-pB-VRE" secondAttribute="bottom" constant="60" id="TKx-MK-6aE"/>
-                <constraint firstItem="9kB-RH-85b" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="97" id="VCr-gO-ijR"/>
-                <constraint firstItem="9kB-RH-85b" firstAttribute="centerX" secondItem="Mhk-pB-VRE" secondAttribute="centerX" id="bdN-ne-RpI"/>
-                <constraint firstItem="wRN-sN-vkl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="253" id="cq5-Oc-FS7"/>
-                <constraint firstItem="Mhk-pB-VRE" firstAttribute="top" secondItem="9kB-RH-85b" secondAttribute="bottom" constant="75" id="jfK-Bj-bTY"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zVf-mF-3ak" secondAttribute="bottom" constant="287" id="opx-ad-sp5"/>
+                <constraint firstItem="Jeg-nz-IFz" firstAttribute="trailing" secondItem="73k-1g-7te" secondAttribute="trailing" id="1aF-tm-PHU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zVf-mF-3ak" secondAttribute="bottom" constant="204" id="2Sx-Sn-DIg"/>
+                <constraint firstItem="9Lx-zf-6Ru" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="265" id="2hl-PS-Kcs"/>
+                <constraint firstItem="slk-P5-tag" firstAttribute="top" secondItem="Jeg-nz-IFz" secondAttribute="bottom" constant="32" id="54O-7X-R8u"/>
+                <constraint firstItem="Jeg-nz-IFz" firstAttribute="leading" secondItem="73k-1g-7te" secondAttribute="leading" id="Dxr-0K-wOF"/>
+                <constraint firstItem="zVf-mF-3ak" firstAttribute="top" secondItem="slk-P5-tag" secondAttribute="bottom" constant="62" id="I6k-j9-z7O"/>
+                <constraint firstItem="Mhk-pB-VRE" firstAttribute="trailing" secondItem="slk-P5-tag" secondAttribute="trailing" id="KWW-TT-0Pq"/>
+                <constraint firstItem="9Lx-zf-6Ru" firstAttribute="top" secondItem="vXb-Gn-mD4" secondAttribute="bottom" constant="57" id="LbV-pt-4CL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="73k-1g-7te" secondAttribute="bottom" constant="328" id="Lfq-qN-pdG"/>
+                <constraint firstItem="zVf-mF-3ak" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="160" id="ORU-yr-0Pn"/>
+                <constraint firstItem="vXb-Gn-mD4" firstAttribute="centerX" secondItem="zVf-mF-3ak" secondAttribute="centerX" id="U5A-67-lh0"/>
+                <constraint firstItem="slk-P5-tag" firstAttribute="centerY" secondItem="73k-1g-7te" secondAttribute="centerY" id="Y8f-lS-5zX"/>
+                <constraint firstItem="73k-1g-7te" firstAttribute="top" secondItem="Mhk-pB-VRE" secondAttribute="bottom" constant="32" id="e27-mQ-TQj"/>
+                <constraint firstItem="slk-P5-tag" firstAttribute="top" secondItem="Mhk-pB-VRE" secondAttribute="bottom" constant="24" id="ejM-wQ-Knp"/>
+                <constraint firstItem="vXb-Gn-mD4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iTI-Y9-Ffd"/>
+                <constraint firstItem="vXb-Gn-mD4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-10" id="jVh-St-DKt"/>
+                <constraint firstItem="Mhk-pB-VRE" firstAttribute="top" secondItem="9Lx-zf-6Ru" secondAttribute="bottom" constant="40.666666666666686" id="lbM-IJ-Cr0"/>
+                <constraint firstItem="Mhk-pB-VRE" firstAttribute="leading" secondItem="slk-P5-tag" secondAttribute="leading" id="mIr-uV-dO9"/>
+                <constraint firstItem="Mhk-pB-VRE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="42" id="ovm-zv-CKF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jeg-nz-IFz" secondAttribute="trailing" constant="316" id="pZR-DD-bhw"/>
+                <constraint firstItem="vXb-Gn-mD4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rho-pO-q43"/>
+                <constraint firstItem="Mhk-pB-VRE" firstAttribute="centerY" secondItem="Jeg-nz-IFz" secondAttribute="centerY" id="siW-jY-Lls"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mhk-pB-VRE" secondAttribute="trailing" constant="40" id="v6x-67-aHq"/>
+                <constraint firstItem="Jeg-nz-IFz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="55" id="x9C-jU-IBG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9Lx-zf-6Ru" secondAttribute="trailing" constant="89" id="xPq-zj-VsR"/>
             </constraints>
             <point key="canvasLocation" x="46.564885496183201" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
         <image name="UAM" width="225" height="225"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="envelope" catalog="system" width="128" height="85"/>
         <image name="pencil.line" catalog="system" width="128" height="117"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -77,6 +77,7 @@ class DetailViewController: UIViewController {
                 self.scheduleTextView.text = course.schedule
                 self.txtRequierements.text = course.prerequisites
                 self.materialesTextField.text = course.materials.joined(separator: " ")
+                self.updateFavoriteButtonUI()
                 
                 Task {
                     print("Loading course image from URL: \(course.imageUrl)")
@@ -141,90 +142,14 @@ class DetailViewController: UIViewController {
         
         
     }
-    
-    
-    
-    @IBAction func deleteButtonTapped(_ sender: UIButton) {
-        guard let course = viewModel.course else {
-            print("Course not found")
-            return
-        }
-        let alert = UIAlertController(title: "Confirmar", message: "¿Estás seguro de eliminar este curso?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Eliminar", style: .destructive, handler: { [weak self] _ in
-            guard let self = self else { return }
-            self.viewModel.deleteCourse(withID: course.id)
-        }))
-        present(alert, animated: true, completion: nil)
+    // MARK: - ACTIONS
+    // MARK: - Acción para Marcar/Desmarcar Favorito
+    @IBAction func markFavoriteButtonTapped(_ sender: UIButton) {
+        viewModel.toggleFavorite()
+        updateFavoriteButtonUI()
     }
     
-    private func showAlerts(title: String, message: String, completion: (() -> Void)? = nil) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            completion?()
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    // MARK: - Configurar bindings
-    private func setupUpdateBindings() {
-        viewModel.onError = { [weak self] error in
-            DispatchQueue.main.async {
-                self?.activityIndicator.stopAnimating()
-                self?.showAlert(title: "Error", message: error)
-               
-            }
-            
-        }
-        viewModel.onUpdateSuccess = { [weak self] in
-            DispatchQueue.main.async {
-                self?.activityIndicator.stopAnimating()
-                self?.showAlert(title: "Éxito", message: "El curso se actualizó correctamente.")
-                self?.updateUIWithCourseDetails()
-            }
-           
-        }
-    }
-    
-    
-    private func setupDeleteBindings() {
-        viewModel.onDeleteSuccess = { [weak self] in
-            DispatchQueue.main.async {
-                self?.showAlert(title: "Éxito", message: "Curso eliminado exitosamente.") {
-                    self?.navigationController?.popViewController(animated: true)
-                }
-            }
-        }
-        
-        viewModel.onDeleteError = { [weak self] error in
-            DispatchQueue.main.async {
-                self?.showAlert(title: "Error", message: error.localizedDescription)
-            }
-        }
-    }
-//    descripcionTextView.isEditable.toggle()
-//    txtRequierements.isEditable.toggle()
-//    objetivesTextView.isEditable.toggle()
-//    materialesTextField.isEditable.toggle()
-//    courseNameTextView.isEditable.toggle()
-//    scheduleTextView.isEditable.toggle()
-    
-    
-    func cambiarEstados(){
-        descripcionTextView.isEditable.toggle()
-        txtRequierements.isEditable.toggle()
-        objetivesTextView.isEditable.toggle()
-        materialesTextField.isEditable.toggle()
-        courseNameTextView.isEditable.toggle()
-        scheduleTextView.isEditable.toggle()
-        saveButton.isHidden.toggle()
-        saveButton.isEnabled.toggle()
-        imagePickerButton.isHidden.toggle()
-        imagePickerButton.isEnabled.toggle()
-        
-    }
-    
-    /// MARK: - Toggle Edit Mode
+    // MARK: - Toggle Edit Mode
     @IBAction func toggleEditMode(_ sender: UIButton) {
         cambiarEstados()
         
@@ -281,7 +206,85 @@ class DetailViewController: UIViewController {
         
     }
     
-    // MARK: - Actualizar la interfaz de usuario
+    //MARK: - DELETE ACTION
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        guard let course = viewModel.course else {
+            print("Course not found")
+            return
+        }
+        let alert = UIAlertController(title: "Confirmar", message: "¿Estás seguro de eliminar este curso?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Eliminar", style: .destructive, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.viewModel.deleteCourse(withID: course.id)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Image Picker
+    @IBAction func selectImage(_ sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - Configurar bindings
+    private func setupUpdateBindings() {
+        viewModel.onError = { [weak self] error in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.showAlert(title: "Error", message: error)
+               
+            }
+            
+        }
+        viewModel.onUpdateSuccess = { [weak self] in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.showAlert(title: "Éxito", message: "El curso se actualizó correctamente.")
+                self?.updateUIWithCourseDetails()
+            }
+           
+        }
+    }
+    
+    
+    private func setupDeleteBindings() {
+        viewModel.onDeleteSuccess = { [weak self] in
+            DispatchQueue.main.async {
+                self?.showAlert(title: "Éxito", message: "Curso eliminado exitosamente.") {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+        
+        viewModel.onDeleteError = { [weak self] error in
+            DispatchQueue.main.async {
+                self?.showAlert(title: "Error", message: error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    func cambiarEstados(){
+        descripcionTextView.isEditable.toggle()
+        txtRequierements.isEditable.toggle()
+        objetivesTextView.isEditable.toggle()
+        materialesTextField.isEditable.toggle()
+        courseNameTextView.isEditable.toggle()
+        scheduleTextView.isEditable.toggle()
+        saveButton.isHidden.toggle()
+        saveButton.isEnabled.toggle()
+        imagePickerButton.isHidden.toggle()
+        imagePickerButton.isEnabled.toggle()
+        
+    }
+    
+   
+    //MARK: - Actualizar detail
+    // MARK: Actualizar la interfaz de usuario
     private func updateUIWithCourseDetails() {
         guard let course = viewModel.course else { return }
         courseNameTextView.text = course.name
@@ -295,13 +298,21 @@ class DetailViewController: UIViewController {
             courseImage.image = await viewModel.loadImage(for: course.imageUrl)
         }
     }
+    //MARK: - Actualizae estado de favorito
+    /// Actualiza la imagen del botón de favorito según el estado del curso.
+    private func updateFavoriteButtonUI() {
+        guard let course = viewModel.course else { return }
+        let imageName = course.isFavorite == true ? "heart.fill" : "heart"
+        btnMarkFavorite.setImage(UIImage(systemName: imageName), for: .normal)
+    }
     
-    // MARK: - Image Picker
-    @IBAction func selectImage(_ sender: UIButton) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+    /// Método de ayuda para mostrar alertas.
+    private func showAlerts(title: String, message: String, completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            completion?()
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
 }

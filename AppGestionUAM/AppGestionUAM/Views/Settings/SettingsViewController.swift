@@ -8,22 +8,72 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    @IBOutlet weak var stackViewButtona: UIStackView!
+    let apiClient = APIClient()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
 
-        // Do any additional setup after loading the view.
+        //Log Out Configuracion con Alerta
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - Navegation
+    
+    @IBAction func btnProfile(_ sender: Any) {
+        let navProfile = ProfileViewController()
+        navigationController?.pushViewController(navProfile, animated: true)
     }
-    */
-
+    
+    @IBAction func btnLanguage(_ sender: Any) {
+        let navLanguage = LanguagesViewController()
+        navigationController?.pushViewController(navLanguage, animated: true)
+    }
+    
+    @IBAction func btnChangePasswrod(_ sender: Any) {
+        let navChangePass = ChangePassViewController()
+        navigationController?.pushViewController(navChangePass, animated: true)
+    }
+    
+    @IBAction func btnTerCond(_ sender: Any) {
+        let navTer = PrivacyViewController()
+        navigationController?.pushViewController(navTer, animated: true)
+    }
+    
+    
+    @IBAction func btnContact(_ sender: Any) {
+        let navContact = ContactViewController()
+        navigationController?.pushViewController(navContact, animated: true)
+    }
+    @IBAction func tappedOnLogOut(_ sender: Any) {
+        
+        let navLogin = LoginViewController()
+        navigationController?.pushViewController(navLogin, animated: true)
+        apiClient.deleteToken()
+        
+    }
+    
+    //MARK: - UI
+    func setupUI() {
+        // Setup SearchBar
+        
+        
+        
+        
+        
+        // Setup StackView
+        stackViewButtona.layer.cornerRadius = 25
+        stackViewButtona.clipsToBounds = true
+        stackViewButtona.layer.shadowColor = UIColor.black.cgColor
+        stackViewButtona.layer.shadowOffset = CGSize(width: 0, height: 2)
+        stackViewButtona.layer.shadowRadius = 4
+        stackViewButtona.layer.shadowOpacity = 0.1
+        
+        navigationItem.hidesBackButton = true
+        
+        
+    }
+    
 }

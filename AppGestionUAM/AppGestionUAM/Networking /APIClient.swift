@@ -495,7 +495,7 @@ final class APIClient {
     private func getToken() -> String? {
         UserDefaults.standard.string(forKey: "token")
     }
-    private func deleteToken() {
+    func deleteToken() {
         UserDefaults.standard.removeObject(forKey: "token")
     }
     

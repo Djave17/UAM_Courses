@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangePassViewController" customModule="AppGestionUAM" customModuleProvider="target">
             <connections>
+                <outlet property="btnChange" destination="W3r-XM-ix3" id="m0O-ez-yRQ"/>
+                <outlet property="txtvwDesc" destination="VDd-bW-ttU" id="APR-4q-L93"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,49 +20,47 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tu nueva contraseña debe de ser diferente" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr4-Fn-bFz">
-                    <rect key="frame" x="49" y="216" width="305" height="19"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear nueva contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sej-Jk-9xv">
+                    <rect key="frame" x="56" y="116" width="287" height="30"/>
                     <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a la que previamente estaba " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7r1-ML-OUR">
-                    <rect key="frame" x="49" y="243" width="207" height="19"/>
-                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Crear nueva contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sej-Jk-9xv">
-                    <rect key="frame" x="58" y="160" width="286" height="30"/>
-                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="HIo-uc-2Sq"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                     <color key="textColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Actual contraseña" borderStyle="roundedRect" placeholder="Ingrese su correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vk3-JV-jId">
-                    <rect key="frame" x="44" y="295" width="301" height="45"/>
-                    <color key="backgroundColor" red="0.92941176889999999" green="0.94117647410000005" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <rect key="frame" x="42" y="262" width="301" height="45"/>
+                    <color key="backgroundColor" red="0.30588235294117649" green="1" blue="0.94901960784313721" alpha="0.1044857201986755" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="45" id="3Rx-GR-cvr"/>
+                        <constraint firstAttribute="height" constant="45" id="bWc-ex-ypk"/>
                     </constraints>
                     <color key="textColor" red="0.2588235438" green="0.27450981740000002" blue="0.2941176593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nueva contraseña" borderStyle="roundedRect" placeholder="Ingrese su correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMq-Qz-cLj">
-                    <rect key="frame" x="44" y="357" width="301" height="45"/>
-                    <color key="backgroundColor" red="0.92941176889999999" green="0.94117647410000005" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <rect key="frame" x="42" y="324" width="301" height="45"/>
+                    <color key="backgroundColor" red="0.94117647410000005" green="0.99607843159999998" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="45" id="ON4-FF-vxa"/>
+                        <constraint firstAttribute="height" constant="45" id="UZt-cL-gaz"/>
                     </constraints>
                     <color key="textColor" red="0.2588235438" green="0.27450981740000002" blue="0.2941176593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3r-XM-ix3">
-                    <rect key="frame" x="101" y="505" width="201" height="45"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tu nueva contraseña debe de ser diferente a la que previamente estaba." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VDd-bW-ttU">
+                    <rect key="frame" x="49" y="168" width="301" height="69"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="69" id="R8r-Ws-emd"/>
+                    </constraints>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3r-XM-ix3">
+                    <rect key="frame" x="106" y="410" width="180.66666666666663" height="33.333333333333314"/>
                     <color key="backgroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Button"/>
@@ -69,45 +69,34 @@
                         <color key="baseBackgroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </buttonConfiguration>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confirmar contraseña" borderStyle="roundedRect" placeholder="Ingrese su correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bxc-xs-QW4">
-                    <rect key="frame" x="44" y="419" width="301" height="45"/>
-                    <color key="backgroundColor" red="0.92941176889999999" green="0.94117647410000005" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="Dyg-44-dkh"/>
-                    </constraints>
-                    <color key="textColor" red="0.2588235438" green="0.27450981740000002" blue="0.2941176593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="sej-Jk-9xv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="101" id="1tG-lv-vN6"/>
-                <constraint firstItem="W3r-XM-ix3" firstAttribute="top" secondItem="bxc-xs-QW4" secondAttribute="bottom" constant="41" id="268-sU-7a8"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W3r-XM-ix3" secondAttribute="bottom" constant="268" id="4YU-t0-jH9"/>
-                <constraint firstItem="fMq-Qz-cLj" firstAttribute="trailing" secondItem="bxc-xs-QW4" secondAttribute="trailing" id="IXH-St-27E"/>
-                <constraint firstItem="W3r-XM-ix3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="101" id="OTG-VM-b3r"/>
-                <constraint firstItem="dr4-Fn-bFz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="49" id="Uj2-Px-TgH"/>
-                <constraint firstItem="fMq-Qz-cLj" firstAttribute="leading" secondItem="bxc-xs-QW4" secondAttribute="leading" id="ViU-5J-hmf"/>
-                <constraint firstItem="sej-Jk-9xv" firstAttribute="centerX" secondItem="dr4-Fn-bFz" secondAttribute="centerX" id="VvP-Hy-xrA"/>
-                <constraint firstItem="vk3-JV-jId" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="44" id="a2B-0o-tv3"/>
-                <constraint firstItem="dr4-Fn-bFz" firstAttribute="leading" secondItem="7r1-ML-OUR" secondAttribute="leading" id="aNZ-dV-WUB"/>
-                <constraint firstItem="vk3-JV-jId" firstAttribute="leading" secondItem="fMq-Qz-cLj" secondAttribute="leading" id="eJM-Pb-sJ7"/>
-                <constraint firstItem="fMq-Qz-cLj" firstAttribute="top" secondItem="vk3-JV-jId" secondAttribute="bottom" constant="17" id="ek4-B7-5St"/>
-                <constraint firstItem="sej-Jk-9xv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="58" id="fNp-cV-1Tw"/>
-                <constraint firstItem="bxc-xs-QW4" firstAttribute="top" secondItem="fMq-Qz-cLj" secondAttribute="bottom" constant="17" id="frI-vd-GnX"/>
-                <constraint firstItem="vk3-JV-jId" firstAttribute="top" secondItem="7r1-ML-OUR" secondAttribute="bottom" constant="33" id="hsG-JT-3HN"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vk3-JV-jId" secondAttribute="trailing" constant="48" id="lGg-SC-X3c"/>
-                <constraint firstItem="7r1-ML-OUR" firstAttribute="top" secondItem="dr4-Fn-bFz" secondAttribute="bottom" constant="8" id="mJk-JX-hkG"/>
-                <constraint firstItem="dr4-Fn-bFz" firstAttribute="centerX" secondItem="W3r-XM-ix3" secondAttribute="centerX" id="q34-GF-OxG"/>
-                <constraint firstItem="dr4-Fn-bFz" firstAttribute="top" secondItem="sej-Jk-9xv" secondAttribute="bottom" constant="26" id="sPg-FP-2VQ"/>
-                <constraint firstItem="vk3-JV-jId" firstAttribute="trailing" secondItem="fMq-Qz-cLj" secondAttribute="trailing" id="tbk-Ar-Yrp"/>
+                <constraint firstItem="fMq-Qz-cLj" firstAttribute="top" secondItem="vk3-JV-jId" secondAttribute="bottom" constant="17" id="306-rT-kxJ"/>
+                <constraint firstItem="sej-Jk-9xv" firstAttribute="trailing" secondItem="vk3-JV-jId" secondAttribute="trailing" id="5Da-FY-dZv"/>
+                <constraint firstItem="VDd-bW-ttU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="49" id="EsN-r2-Jyb"/>
+                <constraint firstItem="vk3-JV-jId" firstAttribute="top" secondItem="VDd-bW-ttU" secondAttribute="bottom" constant="25" id="G0b-j8-E79"/>
+                <constraint firstItem="vk3-JV-jId" firstAttribute="trailing" secondItem="fMq-Qz-cLj" secondAttribute="trailing" id="L8M-UZ-0Ao"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VDd-bW-ttU" secondAttribute="trailing" constant="43" id="Mx2-SF-Gv5"/>
+                <constraint firstItem="vk3-JV-jId" firstAttribute="leading" secondItem="fMq-Qz-cLj" secondAttribute="leading" id="Rks-PF-yvB"/>
+                <constraint firstItem="sej-Jk-9xv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="57" id="SqD-F4-UrT"/>
+                <constraint firstItem="W3r-XM-ix3" firstAttribute="top" secondItem="fMq-Qz-cLj" secondAttribute="bottom" constant="41" id="WW2-po-WP1"/>
+                <constraint firstItem="vk3-JV-jId" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="42" id="iEB-cC-2kv"/>
+                <constraint firstItem="VDd-bW-ttU" firstAttribute="top" secondItem="sej-Jk-9xv" secondAttribute="bottom" constant="22" id="kYo-in-kcR"/>
+                <constraint firstItem="W3r-XM-ix3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ncl-G0-7TU"/>
+                <constraint firstItem="W3r-XM-ix3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="o51-gA-omL"/>
+                <constraint firstItem="sej-Jk-9xv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="56" id="qAu-T0-PPG"/>
+                <constraint firstItem="W3r-XM-ix3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="106" id="tuY-ed-rJU"/>
+                <constraint firstItem="sej-Jk-9xv" firstAttribute="centerX" secondItem="VDd-bW-ttU" secondAttribute="centerX" id="yAd-Se-iiz"/>
             </constraints>
             <point key="canvasLocation" x="17.557251908396946" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

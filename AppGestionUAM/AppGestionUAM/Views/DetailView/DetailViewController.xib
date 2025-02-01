@@ -81,6 +81,9 @@
                                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="bold"/>
                                         <color key="baseForegroundColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </buttonConfiguration>
+                                    <connections>
+                                        <action selector="markFavoriteButtonTapped:" destination="-1" eventType="touchUpInside" id="uSu-U2-aZO"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjN-ga-NQ8">
                                     <rect key="frame" x="20" y="350" width="362" height="55"/>
