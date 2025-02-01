@@ -21,9 +21,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var bodyView: UIView!
     
     //Botones
+    @IBOutlet weak var checkbox: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
     
+    @IBOutlet weak var hidePasswordButton: UIButton!
     // ViewModel
     //private var loginViewModel = LoginViewModel()
     private var loginController = LoginController()
@@ -35,9 +37,13 @@ class LoginViewController: UIViewController {
         
         //Ocultar texto al inicio
         passwordTextField.isSecureTextEntry = true
-        emailTextField.isSecureTextEntry = true
+        
+        setupCheckbox()
+        toggleImageButton()
         
         setAllElements()
+        //toggleImageButton()
+        
         
         //Gesto para quitar 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -171,6 +177,34 @@ class LoginViewController: UIViewController {
     @IBAction func hidePassword(_ sender: Any) {
         // Cambiar el estado de isSecureTextEntry
         passwordTextField.isSecureTextEntry.toggle()
+        hidePasswordButton.isSelected = true
+        
+        
+    }
+    
+    func toggleImageButton(){
+        
+        hidePasswordButton.setImage(UIImage(named: "eye"), for: .normal)
+        
+        hidePasswordButton.setImage(UIImage(named: "eye.slash.fill"), for: .selected)
+        
+        
+    }
+    private func setupCheckbox() {
+        // Configurar la imagen del checkbox (desmarcado por defecto)
+        checkbox.setImage(UIImage(systemName: "square"), for: .normal)
+        checkbox.setImage(UIImage(systemName: "checkmark.square.fill"), for: .selected)
+
+        checkbox.tintColor = .systemTeal // Color teal para el icono
+        checkbox.addTarget(self, action: #selector(toggleCheckbox), for: .touchUpInside)
+        
+       
+        
+    }
+
+    // Acción para alternar el checkbox
+    @objc private func toggleCheckbox() {
+        checkbox.isSelected.toggle()
     }
 }
 
