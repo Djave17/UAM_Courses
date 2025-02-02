@@ -59,7 +59,7 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 ## 👥 Equipo de Desarrollo
 
 - **David Sanchez** - Desarrollador, Líder del Proyecto 🚀
-- **Khristel Villalta** - Diseñadora UI 🎨
+- **Kristel Villalta** - Diseñadora FrontEnd / UI/UX 😊
 - **Carlos** - Desarrollador
 
 ---
