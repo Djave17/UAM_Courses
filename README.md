@@ -39,7 +39,7 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 - 📂 [`ViewModels`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/ViewModels) → Lógica de negocio y conexión entre UI y Modelos.
 - 📂 [`Models`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Models) → Definición de estructuras de datos (`Course`, `User`, etc.).
 - 📂 [`Networking`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Networking%20) → Comunicación con la API REST.
-- 📂 [`Persistance`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Persistance) → Gestión de favoritos con `UserDefaults/CoreData`.
+- 📂 [`Persistance`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Persistance) → Gestión de favoritos con `UserDefaults`.
 - 📂 [`Extensiones`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Extensiones) → Métodos adicionales para mejorar `UIViewController`.
 - 📂 [`Resources`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Resources) → Imágenes, sonidos (`agua.mp3`), y videos (`vd_Onb1.mov`, `vd_Onb2.mov`, `vd_Onb3.mov`).
 - 📂 [`Tests`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAMTests) → Pruebas unitarias y de UI.
@@ -56,6 +56,13 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 - **UserDefaults** 💾 (Persistencia de datos)
 
 ---
+## 👥 Equipo de Desarrollo
+
+- **David Sanchez** - Desarrollador, Líder del Proyecto 🚀
+- **Khristel Villalta** - Diseñadora UI 🎨
+- **Carlos** - Desarrollador
+
+---
 
 ## 📸 Recursos
 
@@ -68,4 +75,7 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 
 ## 📜 Licencia
 
-Este proyecto es de uso académico y está sujeto a los términos de la Universidad Autónoma Metropolitana (UAM).
+Este proyecto está licenciado bajo la **Licencia MIT**. Puedes ver los detalles en el siguiente enlace:
+
+📄 [Licencia MIT](https://github.com/Djave17/Proyecto_Final_iOS/LICENSE)
+
