@@ -77,5 +77,5 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 
 Este proyecto está licenciado bajo la **Licencia MIT**. Puedes ver los detalles en el siguiente enlace:
 
-📄 [Licencia MIT](https://github.com/Djave17/Proyecto_Final_iOS/LICENSE)
+📄 [Licencia MIT](https://github.com/Djave17/Proyecto_Final_iOS/blob/main/LICENSE)
 
