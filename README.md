@@ -23,8 +23,8 @@ Bienvenido a **AppGestionUAM**, una aplicación iOS desarrollada en Swift con ar
 ✅ Listado y búsqueda de cursos  
 ✅ Detalle de cada curso con horarios, requisitos y materiales  
 ✅ Gestión de favoritos  
-✅ Creación y edición de cursos (para administradores)  
-✅ Persistencia de datos con **UserDefaults/Core Data**  
+✅ Creación y edición de cursos   
+✅ Persistencia de datos con **UserDefaults**  
 ✅ Soporte multimedia (videos e imágenes)  
 
 ---
@@ -51,9 +51,9 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 - **Swift** 🚀
 - **UIKit & Storyboards** 🎨
 - **MVVM Architecture** 🏗️
-- **URLSession (NO Alamofire)** 🌐
+- **URLSession** 🌐
 - **IQKeyboardManager** 🎹 (Para mejorar la interacción con el teclado)
-- **UserDefaults / CoreData** 💾 (Persistencia de datos)
+- **UserDefaults** 💾 (Persistencia de datos)
 
 ---
 
@@ -68,4 +68,4 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 
 ## 📜 Licencia
 
-Este proyecto es de uso académico y está sujeto a los términos de la Universidad Autónoma Metropolitana (UAM).
+
