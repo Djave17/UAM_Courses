@@ -33,7 +33,7 @@ final class CourseListViewModel {
             do {
                 let fetchedCourses = try await apiClient.fetchCourses(search: search)
                 
-                // Notar que ya estamos en un Task, pero por seguridad hacemos Dispatch a main
+               
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self,
                           let userId = apiClient.getUserId() else { return }

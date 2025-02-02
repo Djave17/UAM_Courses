@@ -200,26 +200,32 @@
                     <rect key="frame" x="20" y="741.66666666666663" width="353" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQS-8J-WsA" userLabel="Lista de cursos ">
-                            <rect key="frame" x="0.0" y="0.0" width="54.333333333333336" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="60"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="house.fill" catalog="system">
+                            <buttonConfiguration key="configuration" style="plain" image="house" catalog="system">
                                 <color key="baseForegroundColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="tappedOnHomeButton:" destination="-1" eventType="touchUpInside" id="7lZ-vb-uNz"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ooq-qc-WrG">
-                            <rect key="frame" x="154.33333333333334" y="0.0" width="50.666666666666657" height="60"/>
+                            <rect key="frame" x="155" y="0.0" width="50.666666666666657" height="60"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
                                 <color key="baseForegroundColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="tappedOnFavoriteButton:" destination="-1" eventType="touchUpInside" id="DTU-Mg-YIT"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyt-Ym-Lw0">
-                            <rect key="frame" x="305" y="0.0" width="48" height="60"/>
+                            <rect key="frame" x="305.66666666666669" y="0.0" width="47.333333333333314" height="60"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="person" catalog="system">
+                            <buttonConfiguration key="configuration" style="plain" image="person.fill" catalog="system">
                                 <color key="baseForegroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </buttonConfiguration>
                         </button>
@@ -299,10 +305,11 @@
         <image name="arrow.turn.up.forward.iphone.fill" catalog="system" width="128" height="94"/>
         <image name="document" catalog="system" width="115" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="house" catalog="system" width="128" height="104"/>
         <image name="lock.circle" catalog="system" width="128" height="123"/>
         <image name="network" catalog="system" width="128" height="123"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

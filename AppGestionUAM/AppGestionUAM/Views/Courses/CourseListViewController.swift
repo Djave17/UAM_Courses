@@ -157,6 +157,8 @@ class CourseListViewController: UIViewController {
     @IBAction func favoritesButtonTapped(_ sender: UIButton) {
         animateButtonSelection(sender)
         // Lógica para mostrar favoritos
+        let favoriteVC = FavoriteCoursesViewController()
+        navigationController?.pushViewController(favoriteVC, animated: true)
     }
     
     @IBAction func profileButtonTapped(_ sender: UIButton) {
@@ -246,16 +248,7 @@ extension CourseListViewController: UICollectionViewDelegate {
         let course = filteredCourses[indexPath.item]
         navigateToCourseDetail(with: course.name, with: course.id )
     }
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseCell", for: indexPath) as? CourseCell else {
-//            return UICollectionViewCell()
-//        }
-//        let course = viewModel.courses[indexPath.row]
-//        cell.configure(with: course)
-//        cell.delegate = self
-//        return cell
-//    }
-   
+
 }
 // MARK: - UISearchBarDelegate
 extension CourseListViewController: UISearchBarDelegate {

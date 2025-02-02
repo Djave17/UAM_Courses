@@ -55,13 +55,21 @@ class SettingsViewController: UIViewController {
         
     }
     
+    @IBAction func tappedOnHomeButton(_ sender: Any) {
+        
+        let courseListVC = CourseListViewController()
+        navigationController?.pushViewController(courseListVC, animated: false)
+    }
+    
+    @IBAction func tappedOnFavoriteButton(_ sender: Any) {
+        let favoriteVC = FavoriteCoursesViewController()
+        navigationController?.pushViewController(favoriteVC, animated: true)
+    }
+    
+    
     //MARK: - UI
     func setupUI() {
-        // Setup SearchBar
-        
-        
-        
-        
+        // Setup SearchBat
         
         // Setup StackView
         stackViewButtona.layer.cornerRadius = 25
