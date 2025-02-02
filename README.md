@@ -1,71 +1,71 @@
-📱 AppGestionUAM
-Aplicación iOS para gestión universitaria
-Desarrollada en Swift | Proyecto Final iOS
+# 📚 AppGestionUAM
 
-📖 Descripción
-AppGestionUAM es una aplicación iOS diseñada para facilitar la gestión académica de estudiantes y profesores de la Universidad Autónoma de Madrid (UAM). Incluye autenticación de usuarios, visualización de horarios, gestión de tareas y perfil personalizado.
+Bienvenido a **AppGestionUAM**, una aplicación iOS desarrollada en Swift con arquitectura **MVVM** para la gestión de cursos universitarios. 🚀
 
-🚀 Características Principales
-Autenticación segura (estudiantes/profesores).
+---
 
-Horarios dinámicos con actualización en tiempo real.
+## 📌 Índice
 
-Gestión de tareas (crear, completar, recordatorios).
+- [📖 Descripción](#-descripción)
+- [📂 Estructura del Proyecto](#-estructura-del-proyecto)
+- [🔧 Tecnologías Usadas](#-tecnologías-usadas)
+- [📸 Recursos](#-recursos)
+- [📜 Licencia](#-licencia)
 
-Perfil personalizado con datos académicos.
+---
 
-Comunicación con API REST para sincronización de datos.
+## 📖 Descripción
 
-🏗️ Arquitectura: MVVM + Coordinators
-El proyecto sigue una arquitectura modular con:
+**AppGestionUAM** permite a los estudiantes explorar cursos universitarios, obtener información detallada, marcar favoritos y gestionar su carga académica.
 
-Models: Entidades de datos (Codable + CoreData).
+### 🎯 Funcionalidades principales:
+✅ Autenticación de usuarios (Login, Registro)  
+✅ Listado y búsqueda de cursos  
+✅ Detalle de cada curso con horarios, requisitos y materiales  
+✅ Gestión de favoritos  
+✅ Creación y edición de cursos (para administradores)  
+✅ Persistencia de datos con **UserDefaults/Core Data**  
+✅ Soporte multimedia (videos e imágenes)  
 
-ViewModels: Lógica de negocio y preparación de datos para la UI.
+---
 
-ViewControllers: Controladores de vista (UI) con Storyboards.
+## 📂 Estructura del Proyecto
 
-Coordinators: Navegación desacoplada entre pantallas.
+La aplicación sigue una estructura organizada basada en **MVVM**:
 
-Networking: Capa de red con URLSession (nativo).
+📁 [`AppGestionUAM`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM)  *(Carpeta raíz del código fuente)*
 
-📂 Estructura del Proyecto
-Enlace al repositorio: GitHub - AppGestionUAM
+- 📂 [`ViewControllers`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/ViewControllers) → Controladores de UI y navegación.
+- 📂 [`ViewModels`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/ViewModels) → Lógica de negocio y conexión entre UI y Modelos.
+- 📂 [`Models`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Models) → Definición de estructuras de datos (`Course`, `User`, etc.).
+- 📂 [`Networking`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Networking) → Comunicación con la API REST.
+- 📂 [`Persistance`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Persistance) → Gestión de favoritos con `UserDefaults/CoreData`.
+- 📂 [`Extensiones`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Extensiones) → Métodos adicionales para mejorar `UIViewController`.
+- 📂 [`Resources`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Resources) → Imágenes, sonidos (`agua.mp3`), y videos (`vd_Onb1.mov`, `vd_Onb2.mov`, `vd_Onb3.mov`).
+- 📂 [`Tests`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAMTests) → Pruebas unitarias y de UI.
 
-plaintext
-Copy
-Proyecto_Final_iOS/
-├── 📁 Models/               # Modelos de datos y persistencia
-│   ├── User.swift          # 🧑💼 Modelo de usuario (Codable)
-│   ├── Task.swift          # 📝 Modelo de tarea académica
-│   └── CoreDataManager.swift # 🗃️ Gestor de Base de Datos local
-│
-├── 📁 ViewModels/           # Lógica de negocio
-│   ├── LoginViewModel.swift # 🔐 Validación de credenciales
-│   ├── ScheduleViewModel.swift # 🗓️ Gestión de horarios
-│   └── TaskViewModel.swift # ✅ Lógica de tareas
-│
-├── 📁 ViewControllers/      # Controladores de UI
-│   ├── LoginVC.swift       # 🖋️ Pantalla de inicio de sesión
-│   ├── ScheduleVC.swift    # 📅 Vista de horario semanal
-│   └── ProfileVC.swift     # 👤 Perfil del usuario
-│
-├── 📁 Views/                # Componentes UI reutilizables
-│   ├── CustomTextField.swift # ✏️ Campo de texto personalizado
-│   └── TaskCell.swift      # 📌 Celda para lista de tareas
-│
-├── 📁 Networking/           # Comunicación con API
-│   ├── APIClient.swift     # 🌐 Cliente HTTP (URLSession)
-│   └── Endpoints.swift     # 🔗 URLs de la API
-│
-├── 📁 Coordinators/         # Gestión de navegación
-│   ├── AppCoordinator.swift # 🧭 Coordinador principal
-│   └── AuthCoordinator.swift # 🔑 Flujo de autenticación
-│
-├── 📁 Resources/            # Assets e internacionalización
-│   ├── Assets.xcassets     # 🖼️ Íconos/Imágenes
-│   └── Localizable.strings # 🌍 Textos multi-idioma
-│
-└── 📁 Utils/                # Utilidades globales
-    ├── Extensions.swift    # 🛠️ Extensiones (UIKit/Swift)
-    └── KeyboardManager.swift # ⌨️ Gestión de teclado (IQKeyboardManager)
+---
+
+## 🔧 Tecnologías Usadas
+
+- **Swift** 🚀
+- **UIKit & Storyboards** 🎨
+- **MVVM Architecture** 🏗️
+- **URLSession (NO Alamofire)** 🌐
+- **IQKeyboardManager** 🎹 (Para mejorar la interacción con el teclado)
+- **UserDefaults / CoreData** 💾 (Persistencia de datos)
+
+---
+
+## 📸 Recursos
+
+- 🔊 [`agua.mp3`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Resources) (Efecto de sonido)
+- 🎥 [`vd_Onb1.mov`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Resources)
+- 🎥 [`vd_Onb2.mov`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Resources)
+- 🎥 [`vd_Onb3.mov`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Resources)
+
+---
+
+## 📜 Licencia
+
+Este proyecto es de uso académico y está sujeto a los términos de la Universidad Autónoma Metropolitana (UAM).
