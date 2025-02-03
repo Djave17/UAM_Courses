@@ -1,46 +1,44 @@
 import UIKit
-import AVKit
 import AVFoundation
 
-class Onboarding1ViewController: UIViewController {
+class Onboarding3ViewController: UIViewController {
+    
+    // Outlets botones
+    
+    // Outlets txtview
+    @IBOutlet weak var txtvwDesc: UITextView!
+    
+    // Crear un AVPlayerLayer para mostrar el video
+    var playerLayer: AVPlayerLayer?
     
     // Reproductor de video
     var player: AVPlayer?
     
-    // Outlets txtView
-    @IBOutlet weak var txtvwOb1: UITextView!
-    @IBOutlet weak var txtvwTitle: UITextView!
-    
-    var playerLayer: AVPlayerLayer?
-    
-    let progressBar = CircularProgressBar(frame: CGRect(x: 0, y: 0, width: 100, height: 100)) // Barra de progreso
-    
+    // Barra de progreso circular
+    let progressBar = CircularProgressBar(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Desactivando interacción con Text View Descripcion
-        txtvwOb1.isScrollEnabled = false
-        txtvwOb1.isEditable = false
-        txtvwOb1.isSelectable = false
-        
-        // Desactivando interacción con Text View Title
-        txtvwTitle.isScrollEnabled = false
-        txtvwTitle.isEditable = false
-        txtvwTitle.isSelectable = false
-
         // Configuración del video
         setupVideoPlayer()
-        hideBackButton()
-        setupProgressBar() // Configuración de la barra de progreso
         
-        // Iniciar la barra de progreso en 0 y luego animarla al 33.33%
-        progressBar.setProgress(0, animated: false) // Inicia en 0%
+        
+        //Desactivando interacción con Text View Descripción
+        txtvwDesc.isScrollEnabled = false
+        txtvwDesc.isEditable = false
+        txtvwDesc.isSelectable = false
+        
+        hideBackButton()
+        setupProgressBar() // Configurar la barra de progreso
+        
+        // Iniciar la barra de progreso en 66% y animarla a 100%
+        progressBar.setProgress(0.75, animated: false) // Inicia en 66.66%
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.progressBar.setProgress(0.3333, animated: true) // 33.33% de progreso
+            self.progressBar.setProgress(1.0, animated: true) // Avanza a 100%
         }
     }
     
-    // Configurar la barra de progreso circular
     private func setupProgressBar() {
         let screenHeight = view.bounds.height
         let yOffset = screenHeight * 0.90 // más abajo
@@ -51,18 +49,18 @@ class Onboarding1ViewController: UIViewController {
         // Crear y configurar el botón
         let button = UIButton(frame: progressBar.frame)
         button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(navigateToNextScreen), for: .touchUpInside)
+        button.addTarget(self, action: #selector(navigateToRegister), for: .touchUpInside)
         view.addSubview(button)
     }
     
-    // Navegación programática
-    @objc private func navigateToNextScreen() {
-        let onboarding2 = Onboarding2ViewController()
-        navigationController?.pushViewController(onboarding2, animated: true)
+    @objc private func navigateToRegister() {
+        let registerVC = RegisterViewController()
+        navigationController?.pushViewController(registerVC, animated: true)
     }
     
-    @IBAction func saltarTapped(_ sender: Any) {
-        let loginButton = LoginViewController()
+    
+    @IBAction func skip(_ sender: Any) {
+        let loginButton = RegisterViewController()
         navigationController?.pushViewController(loginButton, animated: true)
     }
     
@@ -73,8 +71,8 @@ class Onboarding1ViewController: UIViewController {
     
     private func setupVideoPlayer() {
         // Ruta del video en el bundle
-        guard let videoPath = Bundle.main.path(forResource: "vd_Onb1", ofType: "mov") else {
-            print("Error: No se encontró el video vd_Onb1.mov en el bundle.")
+        guard let videoPath = Bundle.main.path(forResource: "vd_Onb3", ofType: "mov") else {
+            print("Error: No se encontró el video vd_Onb3.mov en el bundle.")
             return
         }
         
@@ -83,42 +81,40 @@ class Onboarding1ViewController: UIViewController {
         
         // Crear el reproductor
         player = AVPlayer(url: videoURL)
-        player?.actionAtItemEnd = .none // Evitar detener el video al terminar
+        player?.actionAtItemEnd = .none // Evitar detener la reproducción al terminar
         
         // Inicializar el playerLayer antes de usarlo
         playerLayer = AVPlayerLayer(player: player)
         
-        // Tamaño ajustado - ancho + altura
+        // Tamaño ajustado (reducir ancho, aumentar altura)
         let videoWidth = view.frame.width * 0.4
         let videoHeight = videoWidth * 12 / 9
         
-        // centro arriba video
+        // Posicionar el video al centro pero más arriba
         let centerX = (view.frame.width - videoWidth) / 2
-        let centerY = (view.frame.height - videoHeight) / 3 // más arriba
+        let centerY = (view.frame.height - videoHeight) / 3
         
         playerLayer?.frame = CGRect(x: centerX, y: centerY, width: videoWidth, height: videoHeight)
         playerLayer?.videoGravity = .resizeAspectFill
         
-        // video subcapa
+        // Añadir el video como subcapa
         if let playerLayer = playerLayer {
             view.layer.insertSublayer(playerLayer, at: 0)
         }
         
-        // bucle cuando termina el video
+        // Reiniciar el video cuando termine
         NotificationCenter.default.addObserver(self, selector: #selector(restartVideo), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
         
         // Reproducir automáticamente
         player?.play()
     }
     
-    // Reiniciar el video cuando termine
     @objc private func restartVideo() {
         player?.seek(to: .zero)
         player?.play()
     }
     
     deinit {
-        // Eliminar el observador para evitar problemas de memoria
         NotificationCenter.default.removeObserver(self)
     }
     

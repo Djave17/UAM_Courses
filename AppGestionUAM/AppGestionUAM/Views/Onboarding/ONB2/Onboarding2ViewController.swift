@@ -35,9 +35,9 @@ class Onboarding2ViewController: UIViewController {
         setupProgressBar() // Configurar la barra de progreso
         
         // Iniciar la barra de progreso en 33% y animarla a 66%
-        progressBar.setProgress(0.3333, animated: false) // Inicia en 33.33%
+        progressBar.setProgress(0.25, animated: false) // Inicia en 33.33%
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.progressBar.setProgress(0.6666, animated: true) // Avanza a 66.66%
+            self.progressBar.setProgress(0.50, animated: true) // Avanza a 66.66%
         }
     }
     
@@ -56,7 +56,7 @@ class Onboarding2ViewController: UIViewController {
     }
     
     @objc private func navigateToNextScreen() {
-        let onboarding3 = Onboarding3ViewController()
+        let onboarding3 = Onboarding4ViewController()
         navigationController?.pushViewController(onboarding3, animated: true)
     }
     

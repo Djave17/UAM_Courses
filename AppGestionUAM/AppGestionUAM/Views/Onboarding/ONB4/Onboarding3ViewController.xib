@@ -49,14 +49,25 @@
                         <constraint firstAttribute="height" constant="59" id="cbQ-ws-kgN"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHE-zD-LJh">
+                    <rect key="frame" x="309" y="59" width="68" height="35"/>
+                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Saltar"/>
+                    <connections>
+                        <action selector="skip:" destination="-1" eventType="touchUpInside" id="j3m-kq-PpN"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="eW3-PY-xD9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="159" id="1es-kr-4mJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eW3-PY-xD9" secondAttribute="trailing" constant="171" id="8Ue-cx-76C"/>
+                <constraint firstItem="AHE-zD-LJh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="B3w-Zh-IDt"/>
                 <constraint firstItem="nq4-hM-BaE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="55" id="C6M-eT-GE1"/>
                 <constraint firstItem="nq4-hM-BaE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="55" id="Pgy-nO-s6m"/>
+                <constraint firstItem="AHE-zD-LJh" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="UWf-ye-CJa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nq4-hM-BaE" secondAttribute="trailing" constant="55" id="Wbn-Xq-tLH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ATt-RL-zgy" secondAttribute="trailing" constant="70" id="e51-c0-5So"/>
                 <constraint firstAttribute="bottom" secondItem="nq4-hM-BaE" secondAttribute="bottom" constant="303" id="iqZ-wA-oEV"/>

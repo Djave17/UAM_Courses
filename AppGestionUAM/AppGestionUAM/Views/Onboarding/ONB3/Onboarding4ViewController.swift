@@ -1,14 +1,19 @@
+//
+//  Onboarding4ViewController.swift
+//  AppGestionUAM
+//
+//  Created by Kristel Geraldine Villalta Porras on 2/2/25.
+//
+
 import UIKit
 import AVFoundation
 
-class Onboarding3ViewController: UIViewController {
+class Onboarding4ViewController: UIViewController {
     
-    // Outlets botones
-    @IBOutlet weak var btnSig: UIButton!
+    //Outlet Text View
     
-    // Outlets txtview
     @IBOutlet weak var txtvwDesc: UITextView!
-    
+    @IBOutlet weak var txtvwTitle: UITextView!
     // Crear un AVPlayerLayer para mostrar el video
     var playerLayer: AVPlayerLayer?
     
@@ -20,26 +25,29 @@ class Onboarding3ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Configuración del video
+
+        // Aqui llamo la funcion del mov
         setupVideoPlayer()
         
-        
+        //Configuracion de los Text Views
         //Desactivando interacción con Text View Descripción
         txtvwDesc.isScrollEnabled = false
         txtvwDesc.isEditable = false
         txtvwDesc.isSelectable = false
         
+        txtvwTitle.isScrollEnabled = false
+        txtvwTitle.isEditable = false
+        txtvwTitle.isSelectable = false
+        
         hideBackButton()
         setupProgressBar() // Configurar la barra de progreso
         
         // Iniciar la barra de progreso en 66% y animarla a 100%
-        progressBar.setProgress(0.6666, animated: false) // Inicia en 66.66%
+        progressBar.setProgress(0.50, animated: false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.progressBar.setProgress(1.0, animated: true) // Avanza a 100%
+            self.progressBar.setProgress(0.75, animated: true) // Avanza a 100%
         }
     }
-    
     private func setupProgressBar() {
         let screenHeight = view.bounds.height
         let yOffset = screenHeight * 0.90 // más abajo
@@ -54,10 +62,20 @@ class Onboarding3ViewController: UIViewController {
         view.addSubview(button)
     }
     
+    //MARK: - Navegation
     @objc private func navigateToRegister() {
+        let registerVC = Onboarding3ViewController()
+        navigationController?.pushViewController(registerVC, animated: true)
+    }
+    
+    
+    @IBAction func saltar(_ sender: Any) {
         let registerVC = RegisterViewController()
         navigationController?.pushViewController(registerVC, animated: true)
     }
+    
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -66,7 +84,7 @@ class Onboarding3ViewController: UIViewController {
     
     private func setupVideoPlayer() {
         // Ruta del video en el bundle
-        guard let videoPath = Bundle.main.path(forResource: "vd_Onb3", ofType: "mov") else {
+        guard let videoPath = Bundle.main.path(forResource: "vd_Onb4", ofType: "mov") else {
             print("Error: No se encontró el video vd_Onb3.mov en el bundle.")
             return
         }
