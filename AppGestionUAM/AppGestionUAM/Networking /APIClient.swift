@@ -51,7 +51,9 @@ final class APIClient {
             let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
             
             saveToken(loginResponse.token)
-            saveUserId(loginResponse.user.id)
+            saveUserInfo(loginResponse.user)
+            
+            
             print("User ID guardado: \(loginResponse.user.id)")
             
             
@@ -482,8 +484,6 @@ final class APIClient {
         return !token.isEmpty
     }
     
-    
-    
     private func saveToken(_ token: String) {
         UserDefaults.standard.set(token, forKey: "token")
     }
@@ -496,16 +496,33 @@ final class APIClient {
     func getUserId() -> String? {
         UserDefaults.standard.string(forKey: "id")
         
-        
     }
+    
+    private func saveUserInfo(_ user: User) {
+        UserDefaults.standard.set(user.id, forKey: "id")
+        UserDefaults.standard.set(user.name, forKey: "userName")
+        UserDefaults.standard.set(user.email, forKey: "userEmail")
+    }
+    
     
     func getToken() -> String? {
         UserDefaults.standard.string(forKey: "token")
     }
+    
+    
+    func getUserName() -> String? {
+        UserDefaults.standard.string(forKey: "userName")
+    }
+
+    func getUserEmail() -> String? {
+        UserDefaults.standard.string(forKey: "userEmail")
+    }
     func deleteToken() {
         UserDefaults.standard.removeObject(forKey: "token")
         UserDefaults.standard.removeObject(forKey: "id")
+        UserDefaults.standard.removeObject(forKey: "id")
+        UserDefaults.standard.removeObject(forKey: "userName")
+        UserDefaults.standard.removeObject(forKey: "userEmail")
     }
-    
     
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var stackViewButtona: UIStackView!
     let apiClient = APIClient()
 
@@ -17,6 +19,7 @@ class SettingsViewController: UIViewController {
         
         setupUI()
 
+        setNameAndEmail()
         //Log Out Configuracion con Alerta
     }
 
@@ -82,6 +85,14 @@ class SettingsViewController: UIViewController {
         navigationItem.hidesBackButton = true
         
         
+    }
+    
+    
+    func setNameAndEmail(){
+        let name = apiClient.getUserName()
+        let email = apiClient.getUserEmail()
+        nameLabel.text = name ?? "Usuario desconocido"
+        emailLabel.text = email ?? "Email no disponible"
     }
     
 }
