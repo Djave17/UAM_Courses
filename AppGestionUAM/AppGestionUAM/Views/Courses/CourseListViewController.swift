@@ -86,6 +86,7 @@ class CourseListViewController: UIViewController {
         
         
         
+        
         // Setup StackView
         stackViewButtons.layer.cornerRadius = 25
         stackViewButtons.clipsToBounds = true
@@ -134,6 +135,8 @@ class CourseListViewController: UIViewController {
         
         let width = (view.frame.width - 60) / 2
         layout.itemSize = CGSize(width: width, height: width * 1.2)
+        layout.collectionView?.backgroundColor = .white
+        view.backgroundColor = .white
         
         coursesCollectionView.setCollectionViewLayout(layout, animated: false)
     }

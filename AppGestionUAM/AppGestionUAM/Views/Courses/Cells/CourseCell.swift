@@ -40,7 +40,7 @@ class CourseCell: UICollectionViewCell {
     private let favoriteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "heart"), for: .normal)
-        button.tintColor = .systemBlue
+        button.tintColor = .UAM
         return button
     }()
     //MARK: - Propiedades
@@ -62,7 +62,7 @@ class CourseCell: UICollectionViewCell {
     
     // MARK: - UI Setup
     private func setupUI() {
-        backgroundColor = .systemBackground
+        backgroundColor = .white
         layer.cornerRadius = 12
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.1

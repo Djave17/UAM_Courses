@@ -58,7 +58,7 @@ class SettingsViewController: UIViewController {
     @IBAction func tappedOnHomeButton(_ sender: Any) {
         
         let courseListVC = CourseListViewController()
-        navigationController?.pushViewController(courseListVC, animated: false)
+        navigationController?.pushViewController(courseListVC, animated: true)
     }
     
     @IBAction func tappedOnFavoriteButton(_ sender: Any) {

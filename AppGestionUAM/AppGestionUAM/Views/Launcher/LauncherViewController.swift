@@ -15,20 +15,27 @@ class LauncherViewController: UIViewController {
     // Reproductor de audio
     var audioPlayer: AVAudioPlayer?
     
+    var apiClient = APIClient()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        mostrarAnimación()
-        rotateImage() // Comienza la rotación
-        */
-        animateImagePulse()
         
-        animateLabels()
+        let userID = apiClient.getUserId()
+        allFunc()
+        let token = apiClient.getToken()
         
-        AudioManager.shared.playSound(resourceName: "agua", fileExtension: "mp3") // Reproduce el sonido
-        navigateToOnboarding() // Navega a la siguiente vista después de 6 segundos
-                                // Reproduce el sonido
-        hideBackButton()
+        if APIClient.shared.isUserLoggedIn() {
+            // Navegar directamente a la pantalla principal
+            print("Usuario autenticado \(String(describing: userID))")
+            print("Navegando hacia courses - Token: \(String(describing: token))")
+            navigateToCourses()
+        } else {
+            // Mostrar pantalla de login
+            navigateToOnboarding()
+           
+        }
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -44,6 +51,16 @@ class LauncherViewController: UIViewController {
         
         // Reanudar el audio al volver
         audioPlayer?.play()
+    }
+    
+    func allFunc(){
+        animateImagePulse()
+        
+        animateLabels()
+        
+        AudioManager.shared.playSound(resourceName: "agua", fileExtension: "mp3")
+                                // Reproduce el sonido
+        hideBackButton()
     }
     
     func playSound() {
@@ -64,10 +81,17 @@ class LauncherViewController: UIViewController {
     }
     
     func navigateToOnboarding() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.8) {
             // Carga la vista de Onboarding1 desde un archivo XIB
             let onboarding1 = Onboarding1ViewController()
             self.navigationController?.pushViewController(onboarding1, animated: true)
+        }
+    }
+    
+    func navigateToCourses(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.8) {
+            let courseListViewController = CourseListViewController()
+            self.navigationController?.pushViewController(courseListViewController, animated: true)
         }
     }
     
@@ -118,10 +142,10 @@ class LauncherViewController: UIViewController {
     
     func animateImagePulse() {
         // Primero, la imagen debe ser más pequeña para iniciar el pulso
-        image.transform = CGAffineTransform(scaleX: 0.5, y: 0.5) // Escala inicial más pequeña
+        image.transform = CGAffineTransform(scaleX: 0.6, y: 0.6) // Escala inicial más pequeña
         
         // Animación para el "pulso" (crecer y encoger)
-        UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: [.repeat, .autoreverse], animations: {
+        UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 0.199, initialSpringVelocity: 1.1, options: [.autoreverse], animations: {
             self.image.transform = CGAffineTransform.identity // Escala normal
         })
     }

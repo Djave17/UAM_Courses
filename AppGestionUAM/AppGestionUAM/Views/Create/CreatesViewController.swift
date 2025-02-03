@@ -162,7 +162,6 @@ class CreatesViewController: UIViewController {
     
     private func setupButtons() {
         saveButton.setTitle("Guardar Curso", for: .normal)
-//        saveButton.backgroundColor = UIColor(red: 0/255, green: 150/255, blue: 156/255, alpha: 1)
         saveButton.clipsToBounds = true
         saveButton.layer.cornerRadius = 12
     }

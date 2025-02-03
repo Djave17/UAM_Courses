@@ -76,13 +76,13 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre del curso" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyJ-uX-LJe">
-                                    <rect key="frame" x="30" y="240" width="146" height="23"/>
+                                    <rect key="frame" x="30" y="240" width="146" height="22.666666666666686"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingrese el nombre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zts-L0-41c">
-                                    <rect key="frame" x="30" y="271" width="333" height="45"/>
+                                    <rect key="frame" x="30" y="270.66666666666669" width="333" height="45"/>
                                     <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="OaW-ZD-Ppj"/>
@@ -91,13 +91,13 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horario" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAR-51-c1V">
-                                    <rect key="frame" x="30" y="341" width="63" height="23"/>
+                                    <rect key="frame" x="29.999999999999996" y="340.66666666666669" width="62.666666666666657" height="22.666666666666686"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingrese el horario del curso " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xC-on-6XJ">
-                                    <rect key="frame" x="30" y="373" width="333" height="45"/>
+                                    <rect key="frame" x="30" y="372.33333333333331" width="333" height="45"/>
                                     <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="ddj-II-DIo"/>
@@ -106,31 +106,31 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0h-ya-zGQ">
-                                    <rect key="frame" x="30" y="443" width="97" height="23"/>
+                                    <rect key="frame" x="30" y="442.33333333333331" width="97" height="22.666666666666686"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Objetivos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k1-vn-dzb">
-                                    <rect key="frame" x="30" y="620" width="78" height="23"/>
+                                    <rect key="frame" x="30" y="619" width="78" height="22.666666666666629"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requisitos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aB-Wy-QhP">
-                                    <rect key="frame" x="30" y="797" width="87" height="23"/>
+                                    <rect key="frame" x="29.999999999999993" y="795.66666666666663" width="86.333333333333314" height="22.666666666666629"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Materiales" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEj-Qt-a6q">
-                                    <rect key="frame" x="30" y="974" width="87" height="23"/>
+                                    <rect key="frame" x="30" y="972.33333333333337" width="87" height="22.666666666666629"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAF-s2-lSa">
-                                    <rect key="frame" x="129" y="1176" width="135.33333333333337" height="35"/>
+                                    <rect key="frame" x="129" y="1174" width="135.33333333333337" height="35"/>
                                     <color key="tintColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Guardar Curso">
@@ -141,7 +141,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8I-0Q-fhx">
-                                    <rect key="frame" x="30" y="1251" width="333" height="121"/>
+                                    <rect key="frame" x="30" y="1249" width="333" height="121"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpx-tv-p9B">
                                             <rect key="frame" x="8" y="8" width="22" height="27"/>
@@ -173,7 +173,7 @@
                                     </constraints>
                                 </view>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f1p-Ew-fB5">
-                                    <rect key="frame" x="30" y="475" width="333" height="120"/>
+                                    <rect key="frame" x="30" y="474" width="333" height="120"/>
                                     <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="120" id="7C3-8Y-eYn"/>
@@ -183,7 +183,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TQj-B2-gp1">
-                                    <rect key="frame" x="30" y="652" width="333" height="120"/>
+                                    <rect key="frame" x="30" y="650.66666666666663" width="333" height="120"/>
                                     <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="120" id="Wik-2d-cbP"/>
@@ -193,7 +193,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="09o-rl-iK8">
-                                    <rect key="frame" x="30" y="829" width="333" height="120"/>
+                                    <rect key="frame" x="30" y="827.33333333333337" width="333" height="120"/>
                                     <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="120" id="lEL-yq-Ner"/>
@@ -203,7 +203,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dVE-wh-1Ab">
-                                    <rect key="frame" x="30" y="1006" width="333" height="120"/>
+                                    <rect key="frame" x="30" y="1004" width="333" height="120"/>
                                     <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="120" id="AwT-Yg-XjD"/>
@@ -213,7 +213,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="nEj-Qt-a6q" firstAttribute="top" secondItem="09o-rl-iK8" secondAttribute="bottom" constant="25" id="249-bC-Fnf"/>
                                 <constraint firstItem="HnF-kP-Szi" firstAttribute="leading" secondItem="Y2f-hA-jvq" secondAttribute="leading" constant="30" id="3jR-zZ-rxd"/>

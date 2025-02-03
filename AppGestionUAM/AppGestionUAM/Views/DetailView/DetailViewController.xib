@@ -45,6 +45,7 @@
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundEnviroment2" translatesAutoresizingMaskIntoConstraints="NO" id="c39-Rf-Oh2">
                                     <rect key="frame" x="20" y="70" width="362" height="190"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="190" id="SXC-db-gxc"/>
                                         <constraint firstAttribute="width" constant="362" id="oKm-IY-1d7"/>
@@ -52,6 +53,7 @@
                                 </imageView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" editable="NO" text="Nombre Del Curso. Prueba #1" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW8-Mr-o5i" userLabel="Nombre Del Curso">
                                     <rect key="frame" x="60" y="270" width="282" height="70"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="70" id="KM6-at-ctI"/>
@@ -219,7 +221,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1500" id="25X-n4-zoF"/>
                                 <constraint firstItem="tW8-Mr-o5i" firstAttribute="leading" secondItem="Y2Y-Uy-uvq" secondAttribute="leading" constant="60" id="2Z6-g7-D9U"/>

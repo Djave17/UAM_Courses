@@ -26,8 +26,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     
     @IBOutlet weak var hidePasswordButton: UIButton!
-    // ViewModel
-    //private var loginViewModel = LoginViewModel()
+    //MARK: - Activity indicator (Carga)
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+    
+    //MARK: -ViewModel
     private var loginController = LoginController()
     
     
@@ -42,10 +49,8 @@ class LoginViewController: UIViewController {
         toggleImageButton()
         
         setAllElements()
-        //toggleImageButton()
         
-        
-        //Gesto para quitar 
+        //Gesto para quitar keyborard
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
     }
@@ -60,11 +65,10 @@ class LoginViewController: UIViewController {
     @objc func hideKeyboard() {
            view.endEditing(true)
     }
-    // MARK: - Configurar Enlaces con el ViewModel
-    
-    
+
     // MARK: - Tap en Log In
     @IBAction func tapOnLogin(_ sender: UIButton) {
+        activityIndicator.startAnimating()
         guard
             let email = emailTextField.text,
             let password = passwordTextField.text
@@ -72,10 +76,13 @@ class LoginViewController: UIViewController {
         
         Task {
             let response = await loginController.login(email: email, password: password)
+            
             if response != nil {
                 navigateToCourseList()
+                self.activityIndicator.stopAnimating()
                 
             } else{
+                self.activityIndicator.stopAnimating()
                 print("Fallo en tapOnLogin")
                 handleError(APIError.validationFailed("Error al intentar loggearse"))
             }
@@ -86,7 +93,7 @@ class LoginViewController: UIViewController {
     private func handleLoginResult(_ result: Result<LoginResponse, APIError>) {
             switch result {
             case .success(let response):
-                saveToken(response.token)
+                
                 showAlert(title: "Éxito", message: "Inicio de sesión exitoso.") {
                     self.navigateToCourseList()
                 }
@@ -95,11 +102,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    // MARK: - TOKEN
-    private func saveToken(_ token: String) {
-        UserDefaults.standard.setValue(token, forKey: "authToken")
-    }
-    
+
 
     // MARK: - Validación de Campos
     private func validateFields() -> Bool {
@@ -156,6 +159,16 @@ class LoginViewController: UIViewController {
         logInButton.layer.cornerRadius = 10
         logInButton.clipsToBounds = true
         navigationItem.hidesBackButton = true
+        
+        view.addSubview(activityIndicator)
+        
+        // Constraints para centrar el indicador de carga
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        
     }
     @IBAction func forgottenTapped(_ sender: Any) {
         
@@ -163,8 +176,7 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(changePasswordViewControler, animated: true)
     }
     @IBAction func queHacerTapped(_ sender: Any) {
-//        let questionLogInViewController = QuestionLogInViewController()
-//        navigationController?.pushViewController(questionLogInViewController, animated: true)
+        
         let viewQuestion = QuestionLogInViewController(nibName: String?("QuestionLogInViewController"), bundle: nil)
         present(viewQuestion, animated: true, completion: nil)
         
