@@ -33,7 +33,7 @@ Bienvenido a **AppGestionUAM**, una aplicación iOS desarrollada en Swift con ar
 
 ## 📱 Interfaces de Usuario
 
-### La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permitirá a los administradores gestionar de manera eficiente la creación, lectura, actualización y eliminación de cursos. La interfaz contará con pantallas intuitivas y fáciles de usar:
+La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permitirá a los administradores gestionar de manera eficiente la creación, lectura, actualización y eliminación de cursos. La interfaz contará con pantallas intuitivas y fáciles de usar:
 
 ## Launcher 
 
