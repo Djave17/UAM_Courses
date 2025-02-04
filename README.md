@@ -7,6 +7,7 @@ Bienvenido a **AppGestionUAM**, una aplicación iOS desarrollada en Swift con ar
 ## 📌 Índice
 
 - [📖 Descripción](#-descripción)
+- [📱 Interfaces de Usuario](#-interfaces-de-usuario)
 - [📂 Estructura del Proyecto](#-estructura-del-proyecto)
 - [🔧 Tecnologías Usadas](#-tecnologías-usadas)
 - [📸 Recursos](#-recursos)
@@ -26,6 +27,11 @@ Bienvenido a **AppGestionUAM**, una aplicación iOS desarrollada en Swift con ar
 ✅ Creación y edición de cursos (para administradores)  
 ✅ Persistencia de datos con **UserDefaults**  
 ✅ Soporte multimedia (videos e imágenes)  
+
+
+---
+
+## 📱 Interfaces de Usuario
 
 ---
 
