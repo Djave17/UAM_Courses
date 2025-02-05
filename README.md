@@ -61,10 +61,37 @@ La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permi
 
 ---
 
-## Login
+## Agreagar curso como favorito
+
+<p align="center">
+  <img src="Images/Favoritos.gif" alt="Creacion de curso" width="300" heigth="400" />
+</p>
+
+
+---
+
+## Crear Curso
 
 <p align="center">
   <img src="Images/Crear Curso .gif" alt="Creacion de curso" width="300" heigth="400" />
+</p>
+
+
+---
+
+## Editar Curso
+
+<p align="center">
+  <img src="Images/Editar.gif" alt="Creacion de curso" width="300" heigth="400" />
+</p>
+
+
+---
+
+## Editar Curso
+
+<p align="center">
+  <img src="Images/Eliminar.gif" alt="Creacion de curso" width="300" heigth="400" />
 </p>
 
 
