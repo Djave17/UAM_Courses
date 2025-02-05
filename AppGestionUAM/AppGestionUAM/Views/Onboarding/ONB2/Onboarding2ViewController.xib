@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mulish-Regular.ttf">
+            <string>Mulish-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Onboarding2ViewController" customModule="AppGestionUAM" customModuleProvider="target">
+            <connections>
+                <outlet property="txtvwDesc" destination="Q6Z-hW-Cjh" id="svx-2o-IhX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Certifica tu éxito " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcI-XJ-h2z">
+                    <rect key="frame" x="92" y="436" width="209" height="88"/>
+                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="88" id="Jqe-T4-NxE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                    <color key="textColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q6Z-hW-Cjh">
+                    <rect key="frame" x="49" y="532" width="295" height="93"/>
+                    <string key="text">Completa los cursos y recibe certificaciones avaladas por la Universidad Americana.
+</string>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buttonNav" translatesAutoresizingMaskIntoConstraints="NO" id="jhQ-c3-8od">
+                    <rect key="frame" x="159" y="715" width="62" height="59"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="59" id="3pF-AB-jnh"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVa-YA-weg">
+                    <rect key="frame" x="309" y="59" width="68" height="33.333333333333343"/>
+                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Saltar">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="btnSkip:" destination="-1" eventType="touchUpInside" id="7cM-hV-CB6"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="CcI-XJ-h2z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="377" id="0aE-Q4-v7l"/>
+                <constraint firstItem="Q6Z-hW-Cjh" firstAttribute="top" secondItem="CcI-XJ-h2z" secondAttribute="bottom" constant="8" symbolic="YES" id="6Ir-fZ-JAG"/>
+                <constraint firstItem="jhQ-c3-8od" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="159" id="6hH-gt-bOQ"/>
+                <constraint firstItem="CcI-XJ-h2z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="E61-eV-2Ij"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jhQ-c3-8od" secondAttribute="trailing" constant="172" id="FTl-SY-nfB"/>
+                <constraint firstItem="Q6Z-hW-Cjh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="49" id="FUi-it-Sqd"/>
+                <constraint firstItem="CcI-XJ-h2z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="92" id="GiM-1V-u0Q"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jhQ-c3-8od" secondAttribute="bottom" constant="44" id="Gis-Qg-N4f"/>
+                <constraint firstItem="CcI-XJ-h2z" firstAttribute="centerX" secondItem="Q6Z-hW-Cjh" secondAttribute="centerX" id="Lmg-zh-kY9"/>
+                <constraint firstItem="nVa-YA-weg" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="NGe-3c-odH"/>
+                <constraint firstItem="nVa-YA-weg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="arp-1M-3wk"/>
+                <constraint firstItem="jhQ-c3-8od" firstAttribute="top" secondItem="Q6Z-hW-Cjh" secondAttribute="bottom" constant="90" id="hyF-JX-6tN"/>
+            </constraints>
+            <point key="canvasLocation" x="55.725190839694655" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="buttonNav" width="338" height="302"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
