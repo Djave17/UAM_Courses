@@ -37,7 +37,9 @@ La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permi
 
 ## Launcher 
 
-
+<p align="center">
+  <img src="images/mi-animacion.gif" alt="Mi Animación" width="400" />
+</p>
 ![Descripción de la animación](Images/Onboarding.gif)
 
 ---
