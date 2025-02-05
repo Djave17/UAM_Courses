@@ -82,16 +82,16 @@ La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permi
 ## Editar Curso
 
 <p align="center">
-  <img src="Images/Editar.gif" alt="Creacion de curso" width="300" heigth="400" />
+  <img src="Images/Editar.gif" alt="Edicion de curso" width="300" heigth="400" />
 </p>
 
 
 ---
 
-## Editar Curso
+## Eliminar Curso
 
 <p align="center">
-  <img src="Images/Eliminar.gif" alt="Creacion de curso" width="300" heigth="400" />
+  <img src="Images/Eliminar.gif" alt="Eliminar  curso" width="300" heigth="400" />
 </p>
 
 
