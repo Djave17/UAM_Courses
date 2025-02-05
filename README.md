@@ -37,7 +37,7 @@ La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permi
 
 ## Launcher 
 
-
+[![Onboarding - UAMCourses](https://img.youtube.com/vi/r6-SOoRERQE/hqdefault.jpg)](https://youtube.com/shorts/r6-SOoRERQE "Onboarding")
 
 ---
 
