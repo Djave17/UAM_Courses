@@ -38,7 +38,7 @@ La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permi
 ## Launcher/OnBoarding
 
 <p align="center">
-  <img src="Images/Onboarding.gif" alt="Mi Animación" width="400" heigth="500" />
+  <img src="Images/Onboarding.gif" alt="Mi Animación" width="300" heigth="400" />
 </p>
 
 
@@ -46,11 +46,29 @@ La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permi
 
 ## Register
 
+<p align="center">
+  <img src="Images/Register.gif" alt="Visualizacion de registro de usuario" width="300" heigth="400" />
+</p>
 
+
+---
+## Login
+
+<p align="center">
+  <img src="Images/Login.gif" alt="Visualizacion de login de usuario" width="300" heigth="400" />
+</p>
 
 
 ---
 
+## Login
+
+<p align="center">
+  <img src="Images/Crear Curso .gif" alt="Creacion de curso" width="300" heigth="400" />
+</p>
+
+
+---
 ## 📂 Estructura del Proyecto
 
 La aplicación sigue una estructura organizada basada en **MVVM**:
