@@ -50,6 +50,7 @@ class RegisterViewController: UIViewController {
 
                registerViewModel.registrationStatusHandler = { [weak self] isSuccess in
                    if isSuccess {
+                       self?.showSuccessMessage()
                        self?.navigateToLogin()
                    }
                }
@@ -62,31 +63,31 @@ class RegisterViewController: UIViewController {
                     let password = passwordTextField.text, !password.isEmpty else {
                     showError(message: "Please fill in all fields.")
                     return
-                }
-
+        }
+        
         registerViewModel.register(name: name, email: email, password: password)
     }
-
+    
     
     // MARK: - Helpers
     private func showError(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
-        }
-
-        private func showSuccessMessage() {
-            let alert = UIAlertController(title: "Exito", message: "Registro exitoso!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                self.navigateToLogin()
-            }))
-            present(alert, animated: true)
-        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+    
+    private func showSuccessMessage() {
+        let alert = UIAlertController(title: "Exito", message: "Registro exitoso!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.navigateToLogin()
+        }))
+        present(alert, animated: true)
+    }
     // MARK: - Navegación
     private func navigateToCourseList() {
         
         
-       // navigationController?.pushViewController(courseListViewController, animated: true)
+        // navigationController?.pushViewController(courseListViewController, animated: true)
     }
     @IBAction func tapOnLogin(_ sender: Any) {
         navigateToLogin()

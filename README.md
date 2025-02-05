@@ -1,4 +1,4 @@
-# 📚 AppGestionUAM
+## 📚 AppGestionUAM
 
 Bienvenido a **AppGestionUAM**, una aplicación iOS desarrollada en Swift con arquitectura **MVVM** para la gestión de cursos universitarios. 🚀
 
@@ -35,12 +35,67 @@ Bienvenido a **AppGestionUAM**, una aplicación iOS desarrollada en Swift con ar
 
 La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permitirá a los administradores gestionar de manera eficiente la creación, lectura, actualización y eliminación de cursos. La interfaz contará con pantallas intuitivas y fáciles de usar:
 
-## Launcher 
+## Launcher/OnBoarding
 
+<p align="center">
+  <img src="Images/Onboarding.gif" alt="Mi Animación" width="300" heigth="400" />
+</p>
 
 
 ---
 
+## Register
+
+<p align="center">
+  <img src="Images/Register.gif" alt="Visualizacion de registro de usuario" width="300" heigth="400" />
+</p>
+
+
+---
+## Login
+
+<p align="center">
+  <img src="Images/Login.gif" alt="Visualizacion de login de usuario" width="300" heigth="400" />
+</p>
+
+
+---
+
+## Agreagar curso como favorito
+
+<p align="center">
+  <img src="Images/Favoritos.gif" alt="Creacion de curso" width="300" heigth="400" />
+</p>
+
+
+---
+
+## Crear Curso
+
+<p align="center">
+  <img src="Images/Crear Curso .gif" alt="Creacion de curso" width="300" heigth="400" />
+</p>
+
+
+---
+
+## Editar Curso
+
+<p align="center">
+  <img src="Images/Editar.gif" alt="Creacion de curso" width="300" heigth="400" />
+</p>
+
+
+---
+
+## Editar Curso
+
+<p align="center">
+  <img src="Images/Eliminar.gif" alt="Creacion de curso" width="300" heigth="400" />
+</p>
+
+
+---
 ## 📂 Estructura del Proyecto
 
 La aplicación sigue una estructura organizada basada en **MVVM**:
