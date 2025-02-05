@@ -1,4 +1,4 @@
-# 📚 AppGestionUAM
+## 📚 AppGestionUAM
 
 Bienvenido a **AppGestionUAM**, una aplicación iOS desarrollada en Swift con arquitectura **MVVM** para la gestión de cursos universitarios. 🚀
 
@@ -37,7 +37,6 @@ La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permi
 
 ## Launcher 
 
-[![Onboarding - UAMCourses](https://img.youtube.com/vi/r6-SOoRERQE/hqdefault.jpg)](https://youtube.com/shorts/r6-SOoRERQE "Onboarding")
 
 ---
 
