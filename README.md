@@ -73,7 +73,7 @@ La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permi
 ## Crear Curso
 
 <p align="center">
-  <img src="Images/Crear Curso .gif" alt="Creacion de curso" width="300" heigth="400" />
+  <img src="Images/Crear Curso.gif" alt="Creacion de curso" width="300" heigth="400" />
 </p>
 
 
