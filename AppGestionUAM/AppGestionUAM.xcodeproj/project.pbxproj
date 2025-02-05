@@ -35,6 +35,118 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5193E3542D5293E4007D1DB7 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAMTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				"AudioManager /AudioManager .swift",
+				Extensiones/UIViewControllerExtensions.swift,
+				Models/APIError.swift,
+				Models/AuthResponse.swift,
+				Models/Course.swift,
+				Models/CourseResponse.swift,
+				Models/ErrorHandler.swift,
+				Models/ImageResponse.swift,
+				Models/LoginResponse.swift,
+				Models/User.swift,
+				Models/ValidationError.swift,
+				"Networking /APIClient.swift",
+				Persistance/FavoritesManager.swift,
+				ViewModels/CourseDetailViewModel.swift,
+				ViewModels/CourseListViewModel.swift,
+				ViewModels/CreateCourseViewModel.swift,
+				ViewModels/FavoriteCoursesViewModel.swift,
+				ViewModels/RegisterViewModel.swift,
+				Views/Courses/Cells/CourseCell.swift,
+				Views/Courses/Cells/CourseListCollectionViewCell.xib,
+				Views/Courses/CourseListViewController.swift,
+				Views/Create/CreatesViewController.swift,
+				Views/DetailView/DetailViewController.swift,
+				Views/Extra/CircularProgressBar.swift,
+				"Views/FavoriteCourses/Cell /FavoriteCoursesCollectionViewCell.swift",
+				"Views/FavoriteCourses/Cell /FavoriteCoursesCollectionViewCell.xib",
+				Views/FavoriteCourses/FavoriteCoursesViewController.swift,
+				Views/FavoriteCourses/FavoriteCoursesViewController.xib,
+				Views/Filter/FilterViewController.xib,
+				Views/Launcher/LauncherViewController.swift,
+				Views/Launcher/LauncherViewController.xib,
+				"Views/Login /ChangePassword/ChangePasswordViewController.swift",
+				"Views/Login /ChangePassword/ChangePasswordViewController.xib",
+				"Views/Login /Login Controller /LoginController.swift",
+				"Views/Login /LoginViewController.swift",
+				"Views/Login /QuestionLogIn/QuestionLogInViewController.swift",
+				"Views/Onboarding/ONB1 /Onboarding1ViewController.swift",
+				"Views/Onboarding/ONB1 /Onboarding1ViewController.xib",
+				Views/Onboarding/ONB2/Onboarding2ViewController.swift,
+				Views/Onboarding/ONB3/Onboarding4ViewController.swift,
+				Views/Onboarding/ONB4/Onboarding3ViewController.swift,
+				Views/Register/RegisterViewController.swift,
+				Views/Settings/ChangePass/ChangePassViewController.swift,
+				Views/Settings/Contact/ContactViewController.swift,
+				Views/Settings/Languages/LanguagesViewController.swift,
+				Views/Settings/Privacy/PrivacyViewController.swift,
+				Views/Settings/Profile/ProfileViewController.swift,
+				Views/Settings/SettingsViewController.swift,
+			);
+			target = 51CD464C2CD3CAAB000D24BF /* AppGestionUAMTests */;
+		};
+		5193E3742D52A3F4007D1DB7 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAMUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				"AudioManager /AudioManager .swift",
+				Extensiones/UIViewControllerExtensions.swift,
+				Models/APIError.swift,
+				Models/AuthResponse.swift,
+				Models/Course.swift,
+				Models/CourseResponse.swift,
+				Models/ErrorHandler.swift,
+				Models/ImageResponse.swift,
+				Models/LoginResponse.swift,
+				Models/User.swift,
+				Models/ValidationError.swift,
+				"Networking /APIClient.swift",
+				Persistance/FavoritesManager.swift,
+				ViewModels/CourseDetailViewModel.swift,
+				ViewModels/CourseListViewModel.swift,
+				ViewModels/CreateCourseViewModel.swift,
+				ViewModels/FavoriteCoursesViewModel.swift,
+				ViewModels/RegisterViewModel.swift,
+				Views/Courses/Cells/CourseCell.swift,
+				Views/Courses/Cells/CourseListCollectionViewCell.xib,
+				Views/Courses/CourseListViewController.swift,
+				Views/Courses/CourseListViewController.xib,
+				Views/Create/CreatesViewController.swift,
+				Views/Create/CreatesViewController.xib,
+				Views/DetailView/DetailViewController.swift,
+				Views/Extra/CircularProgressBar.swift,
+				"Views/FavoriteCourses/Cell /FavoriteCoursesCollectionViewCell.swift",
+				"Views/FavoriteCourses/Cell /FavoriteCoursesCollectionViewCell.xib",
+				Views/FavoriteCourses/FavoriteCoursesViewController.swift,
+				Views/FavoriteCourses/FavoriteCoursesViewController.xib,
+				Views/Filter/FilterViewController.xib,
+				Views/Launcher/LauncherViewController.swift,
+				Views/Launcher/LauncherViewController.xib,
+				"Views/Login /ChangePassword/ChangePasswordViewController.swift",
+				"Views/Login /ChangePassword/ChangePasswordViewController.xib",
+				"Views/Login /Login Controller /LoginController.swift",
+				"Views/Login /LoginViewController.swift",
+				"Views/Login /QuestionLogIn/QuestionLogInViewController.swift",
+				"Views/Onboarding/ONB1 /Onboarding1ViewController.swift",
+				"Views/Onboarding/ONB1 /Onboarding1ViewController.xib",
+				Views/Onboarding/ONB2/Onboarding2ViewController.swift,
+				Views/Onboarding/ONB3/Onboarding4ViewController.swift,
+				Views/Onboarding/ONB4/Onboarding3ViewController.swift,
+				Views/Register/RegisterViewController.swift,
+				Views/Settings/ChangePass/ChangePassViewController.swift,
+				Views/Settings/Contact/ContactViewController.swift,
+				Views/Settings/Languages/LanguagesViewController.swift,
+				Views/Settings/Privacy/PrivacyViewController.swift,
+				Views/Settings/Profile/ProfileViewController.swift,
+				Views/Settings/SettingsViewController.swift,
+			);
+			target = 51CD46562CD3CAAB000D24BF /* AppGestionUAMUITests */;
+		};
 		51E6B7DF2CE6E944004D9184 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAM" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -59,6 +171,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				51E6B7DF2CE6E944004D9184 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAM" target */,
+				5193E3542D5293E4007D1DB7 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAMTests" target */,
+				5193E3742D52A3F4007D1DB7 /* Exceptions for "AppGestionUAM" folder in "AppGestionUAMUITests" target */,
 			);
 			path = AppGestionUAM;
 			sourceTree = "<group>";
@@ -306,12 +420,14 @@
 				DEVELOPMENT_TEAM = 4A9S8YXM74;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppGestionUAM/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,12 +455,14 @@
 				DEVELOPMENT_TEAM = 4A9S8YXM74;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppGestionUAM/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

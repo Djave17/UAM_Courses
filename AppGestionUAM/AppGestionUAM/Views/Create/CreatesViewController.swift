@@ -185,7 +185,7 @@ class CreatesViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.activityIndicator.stopAnimating()
                 self?.enableSaveButton()
-                self?.showAlert(message: "Curso creado con éxito.")
+                self?.showAlertWithNavigation(message: "Curso creado con éxito.")
                 
                 
                 
@@ -215,13 +215,21 @@ class CreatesViewController: UIViewController {
         
     }
     
-    private func showAlert(message: String) {
+    private func showAlertWithNavigation(message: String) {
         let alert = UIAlertController(title: "Crear Curso", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             self.navegateToCourseList()
         }))
         present(alert, animated: true)
     }
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Crear Curso", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            
+        }))
+        present(alert, animated: true)
+    }
+    
     
     private func navegateToCourseList(){
         let courseVC = CourseListViewController()

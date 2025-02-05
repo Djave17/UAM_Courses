@@ -5,17 +5,11 @@
 //  Created by David Sanchez on 14/11/24.
 //
 
-//
-//  APIClient.swift
-//  AppGestionUAM
-//
-//  Updated by OpenAI Assistant
-//
 
 import Foundation
 import UIKit
 
-final class APIClient {
+class APIClient {
     static let shared = APIClient()
     let host = "https://uam-server.up.railway.app/api/v1"
     private let imageCache = NSCache<NSString, UIImage>() //CACHE DE IMAGEN

@@ -54,8 +54,19 @@ class DetailViewController: UIViewController {
         loadCourseDetails(name: name)
         setupDeleteBindings()
         setupUpdateBindings()
+        text()
         
+    }
+    
+    func text(){
+        title = "Detalles del Curso"
+        view.accessibilityIdentifier = "DetailView"
         
+        let titleLabel = UILabel()
+        titleLabel.text = "Detalles del Curso"
+        titleLabel.accessibilityIdentifier = "courseDetailTitle" // Agregar identificador accesible
+        titleLabel.isHidden = true
+        view.addSubview(titleLabel)
     }
     
     private func loadCourseDetails(name: String) {
@@ -96,7 +107,7 @@ class DetailViewController: UIViewController {
     }
     func setButtons() {
         
-        title = "Detalles del Curso"
+        //title = "Detalles del Curso"
         // Configuración de los botones y vistas
         recursosButton.clipsToBounds = true
         recursosButton.layer.cornerRadius = 12

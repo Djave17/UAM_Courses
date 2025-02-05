@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class LoginController {
+
+class LoginController {
     private let apiDataSource = APIClient()
 
     func login(email: String, password: String) async -> LoginResponse?{

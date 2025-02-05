@@ -20,11 +20,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         
-        // Establecer CourseListViewController como el controlador raíz
-        let courseListViewController = LauncherViewController()
-        let navigationController = UINavigationController(rootViewController: courseListViewController)
-        window.rootViewController = navigationController
-        
+        // Verificar si hay una sesión activa en UserDefaults
+        if let token = UserDefaults.standard.string(forKey: "token"), !token.isEmpty {
+            // Usuario autenticado -> Ir directamente a CourseListViewController
+            let courseListVC = UINavigationController(rootViewController: LauncherViewController())
+            window.rootViewController = courseListVC
+        } else {
+            // Usuario no autenticado -> Mostrar LoginViewController
+            let loginVC = UINavigationController(rootViewController: LauncherViewController())
+            window.rootViewController = loginVC
+        }
         // Hacer visible la ventana
         self.window = window
         window.makeKeyAndVisible()
