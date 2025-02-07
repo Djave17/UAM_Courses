@@ -118,7 +118,6 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 
 ```plaintext
 UAMCourses/
-UAMCourses/
 ├── ui/           
 │
 ├── ui/              
@@ -130,7 +129,9 @@ UAMCourses/
 │   ├── Evento.cs             # Definición general de eventos
 │   ├── Partido.cs            # Modelo especializado para partidos
 │   ├── SolicitudAsistencia.cs  # Gestión de solicitudes de asistencia
-│   ├── SesionActual.cs       # Representación del usuario en sesión
+│   ├── Settings              # Almacena todas las vistas de Settings
+│      ├── Profile
+
 │   ├── Metodos.cs            # Métodos auxiliares para lógica compartida
 │
 ├── Program.cs                # Punto de entrada principal
