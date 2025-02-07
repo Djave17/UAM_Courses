@@ -113,6 +113,32 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 
 ---
 
+
+## 🏗️ Estructura del Proyecto (Detallada)
+
+```plaintext
+UAMCourses/
+UAMCourses/
+├── ui/           
+│
+├── ui/              
+│
+├── Views/             
+│   ├── Administrador.cs      # Modelo para datos del administrador
+│   ├── Asistencia.cs         # Modelo para gestionar asistencias
+│   ├── Estudiante.cs         # Modelo para datos del estudiante
+│   ├── Evento.cs             # Definición general de eventos
+│   ├── Partido.cs            # Modelo especializado para partidos
+│   ├── SolicitudAsistencia.cs  # Gestión de solicitudes de asistencia
+│   ├── SesionActual.cs       # Representación del usuario en sesión
+│   ├── Metodos.cs            # Métodos auxiliares para lógica compartida
+│
+├── Program.cs                # Punto de entrada principal
+└── README.md                 # Documentación principal del proyecto
+
+```
+---
+
 ## 🔧 Tecnologías Usadas
 
 - **Swift** 🚀
