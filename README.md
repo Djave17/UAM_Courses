@@ -118,20 +118,49 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 
 ```plaintext
 UAMCourses/
-├── ui/           
+├── AudioManager/           
 │
-├── ui/              
+├── Extensiones/           
 │
-├── Views/             
+├── Models/
+│
+├── Networking/           
+│
+├── Persistance/
+│
+├── Resources/           
+│
+├── ViewModels/              
+│
+├── Views/
+│   ├── Courses              # Almacena todas las vistas de Settings
+│   ├── Create              # Almacena todas las vistas de Settings
+│   ├── DetailView              # Almacena todas las vistas de Settings
+│   ├── Extra              # Almacena todas las vistas de Settings
+│   ├── FavoriteCourses              # Almacena todas las vistas de Settings
+│   ├── Filter              # Almacena todas las vistas de Settings
+│   ├── Launcher              # Almacena todas las vistas de Settings
+│   ├── Login              # Almacena todas las vistas de Settings
+│   ├── Onbording              # Almacena todas las vistas de Settings
+│   ├── Register              # Almacena todas las vistas de Settings
+│   ├── Settings              # Almacena todas las vistas de Settings
+│   ├── Update              # Almacena todas las vistas de Settings
+│      ├── Profile
+│      ├── Profile
+│      ├── Profile
+│      ├── Profile
+│      ├── Profile
+│      ├── Profile   
+│      ├── Profile
+│      ├── Profile   
+│      ├── Profile
+│      ├── Profile   
 │   ├── Administrador.cs      # Modelo para datos del administrador
 │   ├── Asistencia.cs         # Modelo para gestionar asistencias
 │   ├── Estudiante.cs         # Modelo para datos del estudiante
 │   ├── Evento.cs             # Definición general de eventos
 │   ├── Partido.cs            # Modelo especializado para partidos
 │   ├── SolicitudAsistencia.cs  # Gestión de solicitudes de asistencia
-│   ├── Settings              # Almacena todas las vistas de Settings
-│      ├── Profile
-
 │   ├── Metodos.cs            # Métodos auxiliares para lógica compartida
 │
 ├── Program.cs                # Punto de entrada principal
