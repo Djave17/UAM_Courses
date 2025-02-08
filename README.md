@@ -144,10 +144,7 @@ UAMCourses/
 │   ├── Login               # Almacena el controlador y vista del Inicio de Sesion
 │   ├── Onbording           # Almacena los Onboardings Iniciales de la Aplicacion
 │   ├── Register            # Almacena el controlador y vista del Registro de Usuarios
-│   ├── Settings            # Almacena los controladores y las vistas de Ajustes
-│       ├── Profile         # Almacena la Vista Previa y el Editor de Mi Perfil
-│       ├── ChangePassword  # Almacena la vista y controlador de Cambiar Mi Contraseña
-│
+│   ├── Settings            # Almacena los controladores y las vistas de Ajustes│
 └── README.md                 # Documentación principal del proyecto
 
 ```
