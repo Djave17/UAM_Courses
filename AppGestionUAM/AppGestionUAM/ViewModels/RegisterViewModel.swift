@@ -39,8 +39,10 @@ class RegisterViewModel {
                     print("Registration successful: \(response.user.name)")
                 }
             } catch let apiError as APIError {
+                let mappedAuthError = mapAPIErrorToAuthError(apiError)
                 DispatchQueue.main.async {
                     self.errorMessageHandler?(apiError.localizedDescription)
+                    self.errorMessageHandler?(mappedAuthError.localizedDescription)
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -69,5 +71,16 @@ class RegisterViewModel {
         let emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$"
         let predicate = NSPredicate(format: "SELF MATCHES[c] %@", emailRegex)
         return predicate.evaluate(with: email)
+    }
+    
+    private func mapAPIErrorToAuthError(_ apiError: APIError) -> AuthError {
+        switch apiError {
+        case .invalidCredentials:
+            return .invalidCredentials
+        case .validationFailed(let message):
+            return .serverError(message: message)
+        default:
+            return .unknown
+        }
     }
 }
