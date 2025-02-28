@@ -1,11 +1,11 @@
+<<<<<<< HEAD
 ## 📚 AppGestionUAM
 
 Bienvenido a **AppGestionUAM**, una aplicación iOS desarrollada en Swift con arquitectura **MVVM** para la gestión de cursos universitarios. 🚀
 
 **UAMCourses** es una aplicación para gestionar el catálogo de cursos de la Universidad Americana (UAM). Permite a los estudiantes y personal académico consultar, organizar y acceder a información actualizada sobre los cursos ofrecidos en la universidad. 
 
----
-
+=======
 ## 📌 Índice
 
 - [📖 Descripción](#-descripción)
@@ -37,6 +37,7 @@ Bienvenido a **AppGestionUAM**, una aplicación iOS desarrollada en Swift con ar
 
 La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permitirá a los administradores gestionar de manera eficiente la creación, lectura, actualización y eliminación de cursos. La interfaz contará con pantallas intuitivas y fáciles de usar:
 
+<<<<<<< HEAD
 ## Launcher/OnBoarding
 
 <p align="center">
@@ -98,6 +99,14 @@ La aplicación UAMCourses para la Universidad Americana (UAM) de Nicaragua permi
 
 
 ---
+=======
+## Launcher 
+
+
+
+---
+
+>>>>>>> dce9c3027fa47f300a24374d5b0b5b30e07151f1
 ## 📂 Estructura del Proyecto
 
 La aplicación sigue una estructura organizada basada en **MVVM**:
@@ -110,11 +119,16 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 - 📂 [`Networking`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Networking%20) → Comunicación con la API REST.
 - 📂 [`Persistance`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Persistance) → Gestión de favoritos con `UserDefaults`.
 - 📂 [`Extensiones`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Extensiones) → Métodos adicionales para mejorar `UIViewController`.
+<<<<<<< HEAD
 - 📂 [`Resources`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Resources) → Imágenes, sonidos (`agua.mp3`), y videos (`vd_Onb1.mov`, `vd_Onb2.mov`, `vd_Onb3.mov`, `vd_Onb4.mov`).
+=======
+- 📂 [`Resources`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Resources) → Imágenes, sonidos (`agua.mp3`), y videos (`vd_Onb1.mov`, `vd_Onb2.mov`, `vd_Onb3.mov`).
+>>>>>>> dce9c3027fa47f300a24374d5b0b5b30e07151f1
 - 📂 [`Tests`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAMTests) → Pruebas unitarias y de UI.
 
 ---
 
+<<<<<<< HEAD
 
 ## 🏗️ Estructura del Proyecto (Detallada)
 
@@ -152,6 +166,8 @@ UAMCourses/
 ```
 ---
 
+=======
+>>>>>>> dce9c3027fa47f300a24374d5b0b5b30e07151f1
 ## 🔧 Tecnologías Usadas
 
 - **Swift** 🚀
