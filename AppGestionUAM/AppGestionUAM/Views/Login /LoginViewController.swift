@@ -94,23 +94,38 @@ class LoginViewController: UIViewController {
 
     // MARK: - Tap en Log In
     @IBAction func tapOnLogin(_ sender: UIButton) {
-            activityIndicator.startAnimating()
-            guard
-                let email = emailTextField.text,
-                let password = passwordTextField.text
-            else{ return }
+        // Inicia el activity indicator
+        activityIndicator.startAnimating()
+        
+        // Aquí podrías llamar a tu método validateFields() antes,
+        // o confiar en las validaciones que pusimos en LoginController.
+        // Por ejemplo:
+        /*
+         guard validateFields() else {
+         activityIndicator.stopAnimating()
+         return
+         }
+         */
+        
+        Task {
+            // Retornará un .success o .failure con AuthError
+            let result = await loginController.login(email: emailTextField.text ?? "",
+                                                     password: passwordTextField.text ?? "")
             
-            Task {
-                let response = await loginController.login(email: email, password: password)
+            // Detén el indicador de carga
+            activityIndicator.stopAnimating()
+            
+            switch result {
+            case .success(let loginResponse):
+                // Ejemplo: Muestra alerta o ve directo a la siguiente pantalla
+                print("Login exitoso: \(loginResponse)")
+                navigateToCourseList()
                 
-                if response != nil {
-                    navigateToCourseList()
-                    self.activityIndicator.stopAnimating()
-                    
-                } else{
-                    self.activityIndicator.stopAnimating()
-                print("Fallo en tapOnLogin")
-                handleError(APIError.validationFailed("Error al intentar loggearse"))
+            case .failure(let error):
+                // Muestra alerta con la descripción local
+                showAlert(title: "Error de Login", message: error.localizedDescription)
+                
+                // Opcional: Aplica animación de borde rojo a tus TextFields
                 showErrorAnimationn(for: emailTextField)
                 showErrorAnimationn(for: passwordTextField)
             }
