@@ -25,11 +25,6 @@ class SettingsViewController: UIViewController {
 
     //MARK: - Navegation
     
-    @IBAction func btnProfile(_ sender: Any) {
-        let navProfile = ProfileViewController()
-        navigationController?.pushViewController(navProfile, animated: true)
-    }
-    
     @IBAction func btnLanguage(_ sender: Any) {
         let navLanguage = LanguagesViewController()
         navigationController?.pushViewController(navLanguage, animated: true)
@@ -39,11 +34,7 @@ class SettingsViewController: UIViewController {
         let navChangePass = ChangePassViewController()
         navigationController?.pushViewController(navChangePass, animated: true)
     }
-    
-    @IBAction func btnTerCond(_ sender: Any) {
-        let navTer = PrivacyViewController()
-        navigationController?.pushViewController(navTer, animated: true)
-    }
+  
     
     
     @IBAction func btnContact(_ sender: Any) {

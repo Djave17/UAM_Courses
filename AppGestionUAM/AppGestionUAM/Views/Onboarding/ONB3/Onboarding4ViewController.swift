@@ -85,7 +85,7 @@ class Onboarding4ViewController: UIViewController {
     private func setupVideoPlayer() {
         // Ruta del video en el bundle
         guard let videoPath = Bundle.main.path(forResource: "vd_Onb4", ofType: "mov") else {
-            debugPrint("Error: No se encontró el video vd_Onb4.mov en el bundle.")
+            print("Error: No se encontró el video vd_Onb4.mov en el bundle.")
             return
         }
         

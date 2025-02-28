@@ -25,24 +25,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Con cada curso que completes, estarás más alcanzar tus metas." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nq4-hM-BaE">
-                    <rect key="frame" x="55" y="481" width="283" height="68"/>
+                    <rect key="frame" x="55" y="529" width="283" height="68"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="68" id="dT9-vm-Ybm"/>
+                        <constraint firstAttribute="height" constant="68" id="Up2-Ec-Ie9"/>
                     </constraints>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tu futuro inicia hoy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATt-RL-zgy">
-                    <rect key="frame" x="70" y="426" width="253" height="35"/>
-                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="kEO-ot-6wQ"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                    <color key="textColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buttonNav" translatesAutoresizingMaskIntoConstraints="NO" id="eW3-PY-xD9">
                     <rect key="frame" x="159" y="716" width="63" height="59"/>
                     <constraints>
@@ -58,6 +48,16 @@
                         <action selector="skip:" destination="-1" eventType="touchUpInside" id="j3m-kq-PpN"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tu futuro inicia hoy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATt-RL-zgy">
+                    <rect key="frame" x="70" y="464" width="253" height="35"/>
+                    <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="KVy-Au-RRc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                    <color key="textColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -65,15 +65,14 @@
                 <constraint firstItem="eW3-PY-xD9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="159" id="1es-kr-4mJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eW3-PY-xD9" secondAttribute="trailing" constant="171" id="8Ue-cx-76C"/>
                 <constraint firstItem="AHE-zD-LJh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="B3w-Zh-IDt"/>
-                <constraint firstItem="nq4-hM-BaE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="55" id="C6M-eT-GE1"/>
-                <constraint firstItem="nq4-hM-BaE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="55" id="Pgy-nO-s6m"/>
+                <constraint firstItem="nq4-hM-BaE" firstAttribute="top" secondItem="ATt-RL-zgy" secondAttribute="bottom" constant="30" id="LCF-Vi-88j"/>
                 <constraint firstItem="AHE-zD-LJh" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="UWf-ye-CJa"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nq4-hM-BaE" secondAttribute="trailing" constant="55" id="Wbn-Xq-tLH"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ATt-RL-zgy" secondAttribute="trailing" constant="70" id="e51-c0-5So"/>
-                <constraint firstAttribute="bottom" secondItem="nq4-hM-BaE" secondAttribute="bottom" constant="303" id="iqZ-wA-oEV"/>
-                <constraint firstItem="ATt-RL-zgy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="mze-J5-vh2"/>
+                <constraint firstItem="ATt-RL-zgy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vbo-Z1-S7t"/>
+                <constraint firstItem="nq4-hM-BaE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="55" id="YXj-Dz-KtZ"/>
+                <constraint firstAttribute="bottom" secondItem="nq4-hM-BaE" secondAttribute="bottom" constant="255" id="Zj6-zN-60W"/>
+                <constraint firstItem="ATt-RL-zgy" firstAttribute="centerX" secondItem="nq4-hM-BaE" secondAttribute="centerX" id="dHh-f3-BBy"/>
+                <constraint firstItem="ATt-RL-zgy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="dhj-eX-eTx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eW3-PY-xD9" secondAttribute="bottom" constant="43" id="sfx-6g-TjY"/>
-                <constraint firstItem="nq4-hM-BaE" firstAttribute="top" secondItem="ATt-RL-zgy" secondAttribute="bottom" constant="20" id="vF7-Gf-yOn"/>
             </constraints>
             <point key="canvasLocation" x="55.725190839694655" y="19.718309859154932"/>
         </view>

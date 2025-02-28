@@ -41,7 +41,7 @@ class FavoriteCoursesCollectionViewCell: UICollectionViewCell {
     private let favoriteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "heart"), for: .normal)
-        button.tintColor = .systemBlue
+        button.tintColor = .systemRed
         return button
     }()
     //MARK: - Propiedades

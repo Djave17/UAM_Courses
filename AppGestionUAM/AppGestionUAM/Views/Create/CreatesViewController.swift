@@ -66,6 +66,24 @@ class CreatesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        // Establecer el título en la barra de navegación
+            self.title = "Añadir Cursos"
+        
+        // Configurar la apariencia de la barra de navegación
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        
+        // Cambiar el color del título de la vista
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.systemTeal]
+        
+        // Cambiar el color del botón Back y su flecha
+        appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.systemTeal]
+        navigationController?.navigationBar.tintColor = .systemTeal
+        
+        // Aplicar la configuración a la barra de navegación
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
     private func setupUI() {
@@ -213,6 +231,7 @@ class CreatesViewController: UIViewController {
         viewModel.createCourse()
         
         
+        
     }
     
     private func showAlertWithNavigation(message: String) {
@@ -284,4 +303,6 @@ extension CreatesViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
     }
+    
+    
 }

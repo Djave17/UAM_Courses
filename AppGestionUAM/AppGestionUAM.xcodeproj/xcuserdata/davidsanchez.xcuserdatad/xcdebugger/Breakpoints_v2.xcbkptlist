@@ -752,8 +752,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "196"
             endingLineNumber = "196"
-            landmarkName = "LoginViewController"
-            landmarkType = "3">
+            landmarkName = "setAllElements()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -768,7 +768,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "200"
             endingLineNumber = "200"
-            landmarkName = "toggleImageButton()"
+            landmarkName = "setAllElements()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

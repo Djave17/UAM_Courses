@@ -47,6 +47,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let name = name else { return }
+        // Cambiar el color del botón Back y su flecha
+        navigationController?.navigationBar.tintColor = .systemTeal
        
         print("DetailViewController cargado, courseID: \(courseID ?? "nil")")
         setButtons()
@@ -114,23 +116,23 @@ class DetailViewController: UIViewController {
         
         // Configuración de los textViews
         descripcionTextView.isEditable = false
-        descripcionTextView.isScrollEnabled = true
+        descripcionTextView.isScrollEnabled = false
         
         txtRequierements.isEditable = false
-        txtRequierements.isScrollEnabled = true
+        txtRequierements.isScrollEnabled = false
         
         materialesTextField.isEditable = false
-        materialesTextField.isScrollEnabled = true
+        materialesTextField.isScrollEnabled = false
         
         objetivesTextView.isEditable = false
-        objetivesTextView.isScrollEnabled = true
+        objetivesTextView.isScrollEnabled = false
         
         // Personalización del título del curso
         courseNameTextView.isEditable = false
-        courseNameTextView.isScrollEnabled = true
+        courseNameTextView.isScrollEnabled = false
         
         scheduleTextView.isEditable = false
-        scheduleTextView.isScrollEnabled = true
+        scheduleTextView.isScrollEnabled = false
         
         courseImage.clipsToBounds = true
         courseImage.layer.cornerRadius = 20

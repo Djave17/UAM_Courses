@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class ChangePassViewController: UIViewController {
+class ChangePassViewController2: UIViewController {
     
     // Reproductor de video
     var player: AVPlayer?
@@ -26,16 +26,21 @@ class ChangePassViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.hidesBackButton = true
+        
         // LLamo la funcion de configuracion del vd
         setupVideoPlayer()
 
         // Desactivando interacción con Text View Descripcion
         //txtvwDesc.isScrollEnabled = false
-        //txtvwDesc.isEditable = false
-       // txtvwDesc.isSelectable = false
+        txtvwDesc.isEditable = false
+        txtvwDesc.isSelectable = false
         
         //Custom Button
         btnChange.layer.cornerRadius = 10
+        
+        // Ocultar botón Back
+            self.navigationItem.hidesBackButton = true
         
         //Custom Button Back
         // Establecer el título en la barra de navegación
@@ -47,10 +52,6 @@ class ChangePassViewController: UIViewController {
             
             // Cambiar el color del título de la vista
             appearance.titleTextAttributes = [.foregroundColor: UIColor.systemTeal]
-            
-            // Cambiar el color del botón Back y su flecha
-            appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.systemTeal]
-            navigationController?.navigationBar.tintColor = .systemTeal
             
             // Aplicar la configuración a la barra de navegación
             navigationController?.navigationBar.standardAppearance = appearance

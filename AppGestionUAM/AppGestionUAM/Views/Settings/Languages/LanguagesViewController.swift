@@ -12,18 +12,24 @@ class LanguagesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Custom Button Back
+        // Establecer el título en la barra de navegación
+            self.title = "Idiomas"
+        
+        // Configurar la apariencia de la barra de navegación
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        
+        // Cambiar el color del título de la vista
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.systemTeal]
+        
+        // Cambiar el color del botón Back y su flecha
+        appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.systemTeal]
+        navigationController?.navigationBar.tintColor = .systemTeal
+        
+        // Aplicar la configuración a la barra de navegación
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
