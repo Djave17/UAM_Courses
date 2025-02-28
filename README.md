@@ -108,9 +108,46 @@ La aplicación sigue una estructura organizada basada en **MVVM**:
 - 📂 [`Networking`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Networking%20) → Comunicación con la API REST.
 - 📂 [`Persistance`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Persistance) → Gestión de favoritos con `UserDefaults`.
 - 📂 [`Extensiones`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAM/Extensiones) → Métodos adicionales para mejorar `UIViewController`.
-- 📂 [`Resources`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Resources) → Imágenes, sonidos (`agua.mp3`), y videos (`vd_Onb1.mov`, `vd_Onb2.mov`, `vd_Onb3.mov`).
+- 📂 [`Resources`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/Resources) → Imágenes, sonidos (`agua.mp3`), y videos (`vd_Onb1.mov`, `vd_Onb2.mov`, `vd_Onb3.mov`, `vd_Onb4.mov`).
 - 📂 [`Tests`](https://github.com/Djave17/Proyecto_Final_iOS/tree/main/AppGestionUAM/AppGestionUAMTests) → Pruebas unitarias y de UI.
 
+---
+
+
+## 🏗️ Estructura del Proyecto (Detallada)
+
+```plaintext
+UAMCourses/
+├── AudioManager/           
+│
+├── Extensiones/           
+│
+├── Models/
+│
+├── Networking/           
+│
+├── Persistance/
+│
+├── Resources/              # Almacena todo los archivos en formato mov, mp3 y static
+│   ├── Mulish              # Almacena todos los tipos de letra de la fuente Mulish        
+│
+├── ViewModels/              
+│
+├── Views/
+│   ├── Courses             # Almacena el Home Page de los cursos 
+│   ├── Create              # Almacena la Vista para añadir cursos
+│   ├── DetailView          # Almacena la Vista Previa y Editor de Cursos
+│   ├── Extra               # Almacena el controlador del CircularProgressBar
+│   ├── FavoriteCourses     # Almacena el controlador y la vista de Mis Favoritos
+│   ├── Filter              # Almacena la controlador y vista del filtro inicial de los cursos de interes del usuario
+│   ├── Launcher            # Almacena el controlador y vista del Launcher
+│   ├── Login               # Almacena el controlador y vista del Inicio de Sesion
+│   ├── Onbording           # Almacena los Onboardings Iniciales de la Aplicacion
+│   ├── Register            # Almacena el controlador y vista del Registro de Usuarios
+│   ├── Settings            # Almacena los controladores y las vistas de Ajustes│
+└── README.md                 # Documentación principal del proyecto
+
+```
 ---
 
 ## 🔧 Tecnologías Usadas
