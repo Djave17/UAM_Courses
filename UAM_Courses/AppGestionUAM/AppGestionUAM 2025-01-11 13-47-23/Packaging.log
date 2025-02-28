@@ -1,0 +1,197 @@
+2025-01-11 19:46:34 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x32f9cc570; archive(resolved)="<IDEArchive: 0x6000092060d0>", distributionTask(resolved)="2", distributionDestination(resolved)="2", distributionMethod(resolved)="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	Chain (17, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x32f9cc570; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x10a647100; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x10a61c0e0; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3361b6840; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3343d7680; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x10fe229c0; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x10a7165e0; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x10fe21840; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x14fa17ee0; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x32556d0f0; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x336f7b7d0; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x336f87f50; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000020e5d00; teamID='4A9S8YXM74', teamName='All-Win Solutions LLC', teamType='Company', username='dsancheza@uamv.edu.ni', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x336fcc150; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="(null)">
+	<IDEDistributionContext: 0x3343d5050; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600003a58d80>", team="(null)">
+	<IDEDistributionContext: 0x10fe21020; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x14f918cc0; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x10fe1ba20; archive = "<IDEArchive: 0x6000092060d0>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x32f9cc570>
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionCreateDestRootStep
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionCopyItemStep
+2025-01-11 19:46:34 +0000  Running /usr/bin/ditto '-V' '/Users/davidsanchez/Library/Developer/Xcode/Archives/2025-01-11/AppGestionUAM 11-1-25, 1.43 PM.xcarchive/Products/Applications/AppGestionUAM.app' '/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Root/Payload/AppGestionUAM.app'
+2025-01-11 19:46:34 +0000  >>> Copying /Users/davidsanchez/Library/Developer/Xcode/Archives/2025-01-11/AppGestionUAM 11-1-25, 1.43 PM.xcarchive/Products/Applications/AppGestionUAM.app 
+2025-01-11 19:46:34 +0000  copying file ./_CodeSignature/CodeResources ... 
+2025-01-11 19:46:34 +0000  5981 bytes for ./_CodeSignature/CodeResources
+2025-01-11 19:46:34 +0000  copying file ./CourseListViewController.nib ... 
+2025-01-11 19:46:34 +0000  1256 bytes for ./CourseListViewController.nib
+2025-01-11 19:46:34 +0000  copying file ./AppIcon60x60@2x.png ... 
+2025-01-11 19:46:34 +0000  11779 bytes for ./AppIcon60x60@2x.png
+copying file ./UpdateViewController.nib ... 
+2025-01-11 19:46:34 +0000  1256 bytes for ./UpdateViewController.nib
+2025-01-11 19:46:34 +0000  copying file ./Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib ... 
+2025-01-11 19:46:34 +0000  1004 bytes for ./Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib
+2025-01-11 19:46:34 +0000  copying file ./Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib ... 
+2025-01-11 19:46:34 +0000  3726 bytes for ./Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib
+2025-01-11 19:46:34 +0000  copying file ./Base.lproj/Main.storyboardc/Info.plist ... 
+2025-01-11 19:46:34 +0000  258 bytes for ./Base.lproj/Main.storyboardc/Info.plist
+2025-01-11 19:46:34 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2025-01-11 19:46:34 +0000  1225 bytes for ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2025-01-11 19:46:34 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2025-01-11 19:46:34 +0000  924 bytes for ./Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2025-01-11 19:46:34 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2025-01-11 19:46:34 +0000  258 bytes for ./Base.lproj/LaunchScreen.storyboardc/Info.plist
+2025-01-11 19:46:34 +0000  copying file ./Assets.car ... 
+2025-01-11 19:46:34 +0000  428431 bytes for ./Assets.car
+2025-01-11 19:46:34 +0000  copying file ./AppIcon76x76@2x~ipad.png ... 
+2025-01-11 19:46:34 +0000  17071 bytes for ./AppIcon76x76@2x~ipad.png
+2025-01-11 19:46:34 +0000  copying file ./LoginViewController.nib ... 
+2025-01-11 19:46:34 +0000  10433 bytes for ./LoginViewController.nib
+2025-01-11 19:46:34 +0000  copying file ./RegisterViewController.nib ... 
+2025-01-11 19:46:34 +0000  9153 bytes for ./RegisterViewController.nib
+2025-01-11 19:46:34 +0000  copying file ./CreateViewController.nib ... 
+2025-01-11 19:46:34 +0000  11767 bytes for ./CreateViewController.nib
+2025-01-11 19:46:34 +0000  copying file ./AppGestionUAM ... 
+2025-01-11 19:46:34 +0000  212192 bytes for ./AppGestionUAM
+2025-01-11 19:46:34 +0000  copying file ./embedded.mobileprovision ... 
+2025-01-11 19:46:34 +0000  28830 bytes for ./embedded.mobileprovision
+2025-01-11 19:46:34 +0000  copying file ./CourseCollectionViewCell.nib ... 
+2025-01-11 19:46:34 +0000  2046 bytes for ./CourseCollectionViewCell.nib
+2025-01-11 19:46:34 +0000  copying file ./Info.plist ... 
+2025-01-11 19:46:34 +0000  1682 bytes for ./Info.plist
+2025-01-11 19:46:34 +0000  copying file ./PkgInfo ... 
+2025-01-11 19:46:34 +0000  8 bytes for ./PkgInfo
+2025-01-11 19:46:34 +0000  /usr/bin/ditto exited with 0
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionEmbedProfileStep
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionInfoPlistStep
+2025-01-11 19:46:34 +0000  Skipping setting DTXcodeBuildDistribution because toolsBuildVersionName was nil.
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionItemRemovalStep
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2025-01-11 19:46:34 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionSymbolsStep
+2025-01-11 19:46:34 +0000  Writing /var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Symbols/C31D3255-9656-3B95-AC0E-E9BCFCCBDA23.symbols
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionCopyAppleProvidedContentStep
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionAppThinningStep
+2025-01-11 19:46:34 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionArchThinningStep
+2025-01-11 19:46:34 +0000  Item /Users/davidsanchez/Library/Developer/Xcode/Archives/2025-01-11/AppGestionUAM 11-1-25, 1.43 PM.xcarchive/Products/Applications/AppGestionUAM.app doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-01-11 19:46:34 +0000  Archs to thin for item /Users/davidsanchez/Library/Developer/Xcode/Archives/2025-01-11/AppGestionUAM 11-1-25, 1.43 PM.xcarchive/Products/Applications/AppGestionUAM.app are ["arm64e"]
+2025-01-11 19:46:34 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Root/Payload/AppGestionUAM.app/AppGestionUAM' '-verify_arch' 'arm64e'
+2025-01-11 19:46:34 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-01-11 19:46:34 +0000  Skipping architecture thinning for item "AppGestionUAM" because arch "arm64e" wasn't found
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionODRStep
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionStripXattrsStep
+2025-01-11 19:46:34 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-01-11 19:46:34 +0000  Processing step: IDEDistributionCodesignStep
+2025-01-11 19:46:34 +0000  Entitlements for <IDEDistributionItem: 0x60000936a760; bundleID='com.allwinsolutions.uam-demo-app', path='<DVTFilePath:0x60000924fe90:'/Users/davidsanchez/Library/Developer/Xcode/Archives/2025-01-11/AppGestionUAM 11-1-25, 1.43 PM.xcarchive/Products/Applications/AppGestionUAM.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60000da9b1b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600000cf1500; name='Apple Development: David Sanchez (DW4AHSN39G)', hash='813B2C8B638E62A0C14AE10729ACB4189FFC900F', serialNumber='20548F30480FF1C6601BF0C78041D000', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-01-11 19:29:38 +0000''>', entitlements='{
+    "application-identifier" = "4A9S8YXM74.com.allwinsolutions.uam-demo-app";
+    "com.apple.developer.team-identifier" = 4A9S8YXM74;
+    "get-task-allow" = 1;
+}', teamID='4A9S8YXM74', identifier='com.allwinsolutions.uam-demo-app', executablePath='<DVTFilePath:0x600009cc6100:'/Users/davidsanchez/Library/Developer/Xcode/Archives/2025-01-11/AppGestionUAM 11-1-25, 1.43 PM.xcarchive/Products/Applications/AppGestionUAM.app/AppGestionUAM'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "4A9S8YXM74.com.allwinsolutions.uam-demo-app";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 4A9S8YXM74;
+    "get-task-allow" = 0;
+}
+2025-01-11 19:46:34 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-01-11 19:46:34 +0000  Entitlements for <IDEDistributionItem: 0x60000936a760; bundleID='com.allwinsolutions.uam-demo-app', path='<DVTFilePath:0x60000924fe90:'/Users/davidsanchez/Library/Developer/Xcode/Archives/2025-01-11/AppGestionUAM 11-1-25, 1.43 PM.xcarchive/Products/Applications/AppGestionUAM.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60000da9b1b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000003ed740; name='Apple Development: David Sanchez (DW4AHSN39G)', hash='813B2C8B638E62A0C14AE10729ACB4189FFC900F', serialNumber='20548F30480FF1C6601BF0C78041D000', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-01-11 19:29:38 +0000''>', entitlements='{
+    "application-identifier" = "4A9S8YXM74.com.allwinsolutions.uam-demo-app";
+    "com.apple.developer.team-identifier" = 4A9S8YXM74;
+    "get-task-allow" = 1;
+}', teamID='4A9S8YXM74', identifier='com.allwinsolutions.uam-demo-app', executablePath='<DVTFilePath:0x600009cc6100:'/Users/davidsanchez/Library/Developer/Xcode/Archives/2025-01-11/AppGestionUAM 11-1-25, 1.43 PM.xcarchive/Products/Applications/AppGestionUAM.app/AppGestionUAM'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "4A9S8YXM74.com.allwinsolutions.uam-demo-app";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 4A9S8YXM74;
+    "get-task-allow" = 0;
+}
+2025-01-11 19:46:34 +0000  Writing entitlements for <IDEDistributionItem: 0x60000936a760; bundleID='com.allwinsolutions.uam-demo-app', path='<DVTFilePath:0x60000924fe90:'/Users/davidsanchez/Library/Developer/Xcode/Archives/2025-01-11/AppGestionUAM 11-1-25, 1.43 PM.xcarchive/Products/Applications/AppGestionUAM.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60000da9b1b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000003cc9c0; name='Apple Development: David Sanchez (DW4AHSN39G)', hash='813B2C8B638E62A0C14AE10729ACB4189FFC900F', serialNumber='20548F30480FF1C6601BF0C78041D000', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-01-11 19:29:38 +0000''>', entitlements='{
+    "application-identifier" = "4A9S8YXM74.com.allwinsolutions.uam-demo-app";
+    "com.apple.developer.team-identifier" = 4A9S8YXM74;
+    "get-task-allow" = 1;
+}', teamID='4A9S8YXM74', identifier='com.allwinsolutions.uam-demo-app', executablePath='<DVTFilePath:0x600009cc6100:'/Users/davidsanchez/Library/Developer/Xcode/Archives/2025-01-11/AppGestionUAM 11-1-25, 1.43 PM.xcarchive/Products/Applications/AppGestionUAM.app/AppGestionUAM'>', hardenedRuntime='0'>'> to: /var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/entitlements~~~MOzhsN
+2025-01-11 19:46:34 +0000  invoking codesign: <NSConcreteTask: 0x60000da38dc0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    88F678F97B276CD3B4383AD76ED46AAE30B3D772,
+    "--entitlements",
+    "/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/entitlements~~~MOzhsN",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Root/Payload/AppGestionUAM.app"
+)'>
+2025-01-11 19:46:46 +0000  codesign output: /var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Root/Payload/AppGestionUAM.app: replacing existing signature
+/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Root/Payload/AppGestionUAM.app: signed app bundle with Mach-O thin (arm64) [com.allwinsolutions.uam-demo-app]
+2025-01-11 19:46:46 +0000  Processing step: IDEDistributionZipODRItemStep
+2025-01-11 19:46:46 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-01-11 19:46:46 +0000  Processing step: IDEDistributionCreateIPAStep
+2025-01-11 19:46:46 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Symbols' '--link-dest' '/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh' '/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Root'
+2025-01-11 19:46:46 +0000  building file list ... 
+2025-01-11 19:46:46 +0000   0 files...2025-01-11 19:46:46 +0000  2 files to consider
+2025-01-11 19:46:46 +0000  Symbols/
+2025-01-11 19:46:46 +0000  
+2025-01-11 19:46:46 +0000  sent 149 bytes  received 26 bytes  350.00 bytes/sec
+total size is 207.31K  speedup is 1213.05
+2025-01-11 19:46:46 +0000  /usr/bin/rsync exited with 0
+2025-01-11 19:46:46 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Root' '/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Packages/AppGestionUAM.ipa'
+2025-01-11 19:46:46 +0000  >>> Copying /var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Root 
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/_CodeSignature/CodeResources ... 
+2025-01-11 19:46:46 +0000  5981 bytes for ./Payload/AppGestionUAM.app/_CodeSignature/CodeResources
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/CourseListViewController.nib ... 
+2025-01-11 19:46:46 +0000  1256 bytes for ./Payload/AppGestionUAM.app/CourseListViewController.nib
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/AppIcon60x60@2x.png ... 
+2025-01-11 19:46:46 +0000  11779 bytes for ./Payload/AppGestionUAM.app/AppIcon60x60@2x.png
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/UpdateViewController.nib ... 
+2025-01-11 19:46:46 +0000  1256 bytes for ./Payload/AppGestionUAM.app/UpdateViewController.nib
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib ... 
+2025-01-11 19:46:46 +0000  1004 bytes for ./Payload/AppGestionUAM.app/Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib ... 
+2025-01-11 19:46:46 +0000  3726 bytes for ./Payload/AppGestionUAM.app/Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/Base.lproj/Main.storyboardc/Info.plist ... 
+2025-01-11 19:46:46 +0000  258 bytes for ./Payload/AppGestionUAM.app/Base.lproj/Main.storyboardc/Info.plist
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2025-01-11 19:46:46 +0000  1225 bytes for ./Payload/AppGestionUAM.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2025-01-11 19:46:46 +0000  924 bytes for ./Payload/AppGestionUAM.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2025-01-11 19:46:46 +0000  258 bytes for ./Payload/AppGestionUAM.app/Base.lproj/LaunchScreen.storyboardc/Info.plist
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/Assets.car ... 
+2025-01-11 19:46:46 +0000  428431 bytes for ./Payload/AppGestionUAM.app/Assets.car
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/AppIcon76x76@2x~ipad.png ... 
+2025-01-11 19:46:46 +0000  17071 bytes for ./Payload/AppGestionUAM.app/AppIcon76x76@2x~ipad.png
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/LoginViewController.nib ... 
+2025-01-11 19:46:46 +0000  10433 bytes for ./Payload/AppGestionUAM.app/LoginViewController.nib
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/RegisterViewController.nib ... 
+2025-01-11 19:46:46 +0000  9153 bytes for ./Payload/AppGestionUAM.app/RegisterViewController.nib
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/CreateViewController.nib ... 
+2025-01-11 19:46:46 +0000  11767 bytes for ./Payload/AppGestionUAM.app/CreateViewController.nib
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/AppGestionUAM ... 
+2025-01-11 19:46:46 +0000  212272 bytes for ./Payload/AppGestionUAM.app/AppGestionUAM
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/embedded.mobileprovision ... 
+2025-01-11 19:46:46 +0000  14438 bytes for ./Payload/AppGestionUAM.app/embedded.mobileprovision
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/CourseCollectionViewCell.nib ... 
+2025-01-11 19:46:46 +0000  2046 bytes for ./Payload/AppGestionUAM.app/CourseCollectionViewCell.nib
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/Info.plist ... 
+2025-01-11 19:46:46 +0000  1713 bytes for ./Payload/AppGestionUAM.app/Info.plist
+2025-01-11 19:46:46 +0000  copying file ./Payload/AppGestionUAM.app/PkgInfo ... 
+2025-01-11 19:46:46 +0000  8 bytes for ./Payload/AppGestionUAM.app/PkgInfo
+2025-01-11 19:46:46 +0000  copying file ./Symbols/C31D3255-9656-3B95-AC0E-E9BCFCCBDA23.symbols ... 
+2025-01-11 19:46:46 +0000  212284 bytes for ./Symbols/C31D3255-9656-3B95-AC0E-E9BCFCCBDA23.symbols
+2025-01-11 19:46:46 +0000  /usr/bin/ditto exited with 0
+2025-01-11 19:46:46 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2025-01-11 19:46:46 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2025-01-11 19:46:46 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2025-01-11 19:46:46 +0000  IDEDistributionItem init <DVTFilePath:0x6000092adf80:'/var/folders/4v/kk5r396x0j7b42fhm4lptrj00000gp/T/XcodeDistPipeline.~~~UTvYjh/Root/Payload/AppGestionUAM.app'>
+2025-01-11 19:46:46 +0000  Processing step: IDEDistributionCreateManifestStep
+2025-01-11 19:46:46 +0000  Skipping step: IDEDistributionCreateManifestStep because it said so
