@@ -230,7 +230,7 @@
                         </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="Tme-q7-IMU"/>
-                    <color key="backgroundColor" red="0.99215686319999996" green="0.99215686319999996" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.075533948838710785" green="0.19215786457061768" blue="0.28617402911186218" alpha="0.074289006290000001" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="FBo-gR-AQP"/>

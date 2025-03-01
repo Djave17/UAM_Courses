@@ -31,8 +31,8 @@
                     <color key="highlightedColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="shadowColor" red="0.40703098780000002" green="0.67418047049999996" blue="0.79266672039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
-                <searchBar clipsSubviews="YES" contentMode="redraw" verticalHuggingPriority="251" barStyle="black" searchBarStyle="minimal" placeholder="Busca un curso" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-Sz-7FU">
-                    <rect key="frame" x="0.0" y="95.333333333333329" width="393" height="55.999999999999986"/>
+                <searchBar clipsSubviews="YES" contentMode="redraw" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" barStyle="black" searchBarStyle="minimal" placeholder="Busca un curso" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-Sz-7FU">
+                    <rect key="frame" x="0.0" y="98" width="393" height="56"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -42,7 +42,7 @@
                     </connections>
                 </searchBar>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cursos disponibles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRH-WX-bR3">
-                    <rect key="frame" x="20" y="161.33333333333334" width="151.66666666666666" height="20.333333333333343"/>
+                    <rect key="frame" x="20" y="164" width="151.66666666666666" height="17.666666666666657"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <color key="textColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,7 +114,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.086299039423465729" green="0.23670816421508789" blue="0.37860739231109619" alpha="0.10820874550359712" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.075533948838710785" green="0.19215786457061768" blue="0.28617402911186218" alpha="0.07428900629496403" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="RUh-6E-KYE"/>
@@ -133,6 +133,7 @@
                 <constraint firstItem="imf-NC-fwJ" firstAttribute="top" secondItem="dFq-j0-WFq" secondAttribute="top" id="OzY-ST-8Vo"/>
                 <constraint firstItem="WRH-WX-bR3" firstAttribute="leading" secondItem="dFq-j0-WFq" secondAttribute="leading" constant="20" id="ULl-RY-djf"/>
                 <constraint firstItem="ekO-Xn-8t8" firstAttribute="top" secondItem="dFq-j0-WFq" secondAttribute="top" id="ZMD-2C-GmR"/>
+                <constraint firstItem="3vw-Sz-7FU" firstAttribute="top" secondItem="ekO-Xn-8t8" secondAttribute="bottom" constant="4" id="ZaW-wG-PiO"/>
                 <constraint firstItem="WRH-WX-bR3" firstAttribute="top" secondItem="3vw-Sz-7FU" secondAttribute="bottom" constant="10" id="dUa-nT-n2F"/>
                 <constraint firstItem="dFq-j0-WFq" firstAttribute="trailing" secondItem="Gz2-0n-fVf" secondAttribute="trailing" constant="20" id="emy-Ij-7l6"/>
                 <constraint firstItem="dof-GC-GCh" firstAttribute="top" secondItem="595-wU-mg8" secondAttribute="bottom" constant="16.329999999999998" id="jwR-IJ-FZX"/>

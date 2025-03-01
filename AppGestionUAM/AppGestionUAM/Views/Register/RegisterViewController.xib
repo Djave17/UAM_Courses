@@ -76,6 +76,7 @@
                             <rect key="frame" x="51.666666666666657" y="94" width="290" height="161"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="161" id="2XM-Eg-9V5"/>
+                                <constraint firstAttribute="width" constant="290" id="Z0v-1w-GQN"/>
                             </constraints>
                         </imageView>
                     </subviews>
