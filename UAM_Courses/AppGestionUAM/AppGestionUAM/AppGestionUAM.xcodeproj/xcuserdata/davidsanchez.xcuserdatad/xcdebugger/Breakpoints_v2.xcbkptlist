@@ -750,10 +750,17 @@
             filePath = "AppGestionUAM/Views/Login /LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "211"
             endingLineNumber = "211"
             landmarkName = "setAllElements()"
             landmarkType = "7">
+=======
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "LoginViewController"
+            landmarkType = "3">
+>>>>>>> 6826bfd54f4d9c02fe04748269267d6e7d9d2acb
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -766,9 +773,15 @@
             filePath = "AppGestionUAM/Views/Login /LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "215"
             endingLineNumber = "215"
             landmarkName = "setAllElements()"
+=======
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "toggleImageButton()"
+>>>>>>> 6826bfd54f4d9c02fe04748269267d6e7d9d2acb
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
