@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CourseListViewController" customModule="AppGestionUAM" customModuleProvider="target">
+            <connections>
+                <outlet property="addCourse" destination="ekO-Xn-8t8" id="nDs-Jw-ZyS"/>
+                <outlet property="coursesCollectionView" destination="Gz2-0n-fVf" id="AIu-64-Kys"/>
+                <outlet property="favoritesButton" destination="CZR-8L-xep" id="48s-dk-VOu"/>
+                <outlet property="homeButton" destination="faW-Er-TF9" id="yoF-pf-xSK"/>
+                <outlet property="profileButton" destination="S7F-fg-7OE" id="KsE-ue-urw"/>
+                <outlet property="searchBar" destination="3vw-Sz-7FU" id="JBH-Ft-9Tp"/>
+                <outlet property="stackViewButtons" destination="595-wU-mg8" id="7dY-un-p79"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Cursos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imf-NC-fwJ">
+                    <rect key="frame" x="20" y="58.999999999999993" width="80" height="29.666666666666664"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <color key="textColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.40703098780000002" green="0.67418047049999996" blue="0.79266672039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </label>
+                <searchBar clipsSubviews="YES" contentMode="redraw" verticalHuggingPriority="251" barStyle="black" searchBarStyle="minimal" placeholder="Busca un curso" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-Sz-7FU">
+                    <rect key="frame" x="0.0" y="95.333333333333329" width="393" height="55.999999999999986"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Ngk-h4-xpD"/>
+                    </connections>
+                </searchBar>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cursos disponibles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRH-WX-bR3">
+                    <rect key="frame" x="20" y="161.33333333333334" width="151.66666666666666" height="20.333333333333343"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-0n-fVf">
+                    <rect key="frame" x="20" y="191.66666666666663" width="353" height="530"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="530" id="l2e-vY-qfa"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sxe-vu-q0H">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekO-Xn-8t8">
+                    <rect key="frame" x="338" y="59" width="47" height="34.333333333333343"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
+                        <color key="baseForegroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="addCourseTapped:" destination="-1" eventType="touchUpInside" id="SLe-B1-BUA"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="595-wU-mg8">
+                    <rect key="frame" x="16.666666666666657" y="741.66666666666663" width="356.33333333333337" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faW-Er-TF9" userLabel="Lista de cursos ">
+                            <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="60"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="house.fill" catalog="system">
+                                <color key="baseForegroundColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="homeButtonTapped:" destination="-1" eventType="touchUpInside" id="yb2-Rv-YpX"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZR-8L-xep">
+                            <rect key="frame" x="154.66666666666669" y="0.0" width="50.666666666666657" height="60"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                <color key="baseForegroundColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="favoritesButtonTapped:" destination="-1" eventType="touchUpInside" id="WtQ-ZT-h1a"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7F-fg-7OE">
+                            <rect key="frame" x="305.33333333333331" y="0.0" width="51" height="60"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system">
+                                <color key="baseForegroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="profileButtonTapped:" destination="-1" eventType="touchUpInside" id="58U-my-T11"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="RUh-6E-KYE"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="dFq-j0-WFq"/>
+            <keyboardLayoutGuide key="keyboard" id="dof-GC-GCh"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" red="0.0" green="0.44037383419999998" blue="0.51810469390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="595-wU-mg8" firstAttribute="top" secondItem="Gz2-0n-fVf" secondAttribute="bottom" constant="20" id="3A0-AT-5c7"/>
+                <constraint firstItem="dFq-j0-WFq" firstAttribute="trailing" secondItem="595-wU-mg8" secondAttribute="trailing" constant="20" id="7eC-hq-B61"/>
+                <constraint firstItem="imf-NC-fwJ" firstAttribute="leading" secondItem="dFq-j0-WFq" secondAttribute="leading" constant="20" id="IO3-sp-57g"/>
+                <constraint firstItem="3vw-Sz-7FU" firstAttribute="leading" secondItem="dFq-j0-WFq" secondAttribute="leading" id="LoG-2Z-5fX"/>
+                <constraint firstItem="imf-NC-fwJ" firstAttribute="top" secondItem="dFq-j0-WFq" secondAttribute="top" id="OzY-ST-8Vo"/>
+                <constraint firstItem="WRH-WX-bR3" firstAttribute="leading" secondItem="dFq-j0-WFq" secondAttribute="leading" constant="20" id="ULl-RY-djf"/>
+                <constraint firstItem="3vw-Sz-7FU" firstAttribute="top" secondItem="ekO-Xn-8t8" secondAttribute="bottom" constant="2" id="VZC-x6-O5U"/>
+                <constraint firstItem="ekO-Xn-8t8" firstAttribute="top" secondItem="dFq-j0-WFq" secondAttribute="top" id="ZMD-2C-GmR"/>
+                <constraint firstItem="WRH-WX-bR3" firstAttribute="top" secondItem="3vw-Sz-7FU" secondAttribute="bottom" constant="10" id="dUa-nT-n2F"/>
+                <constraint firstItem="dFq-j0-WFq" firstAttribute="trailing" secondItem="Gz2-0n-fVf" secondAttribute="trailing" constant="20" id="emy-Ij-7l6"/>
+                <constraint firstItem="dof-GC-GCh" firstAttribute="top" secondItem="595-wU-mg8" secondAttribute="bottom" constant="16.329999999999998" id="jwR-IJ-FZX"/>
+                <constraint firstItem="dFq-j0-WFq" firstAttribute="trailing" secondItem="ekO-Xn-8t8" secondAttribute="trailing" constant="8" id="qHg-UU-cY3"/>
+                <constraint firstItem="3vw-Sz-7FU" firstAttribute="trailing" secondItem="dFq-j0-WFq" secondAttribute="trailing" id="tVh-AL-8br"/>
+                <constraint firstItem="Gz2-0n-fVf" firstAttribute="leading" secondItem="dFq-j0-WFq" secondAttribute="leading" constant="20" id="v0q-nx-En8"/>
+                <constraint firstItem="Gz2-0n-fVf" firstAttribute="top" secondItem="WRH-WX-bR3" secondAttribute="bottom" constant="10" id="wkG-N3-CxJ"/>
+            </constraints>
+            <variation key="heightClass=regular-widthClass=regular" preservesSuperviewLayoutMargins="YES"/>
+            <point key="canvasLocation" x="57.251908396946561" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
+</document>

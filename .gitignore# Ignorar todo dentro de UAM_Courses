@@ -1,0 +1,7 @@
+#UAM_Courses/
+# Ignorar todo dentro de UAM_Courses
+UAM_Courses/*
+
+# Exceptuar la carpeta AppGestionUAM
+!UAM_Courses/AppGestionUAM/
+
