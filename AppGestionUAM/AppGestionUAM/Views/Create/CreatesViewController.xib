@@ -141,7 +141,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8I-0Q-fhx">
-                                    <rect key="frame" x="30" y="1249" width="333" height="121"/>
+                                    <rect key="frame" x="30" y="1249" width="333" height="100"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpx-tv-p9B">
                                             <rect key="frame" x="8" y="8" width="22" height="27"/>
@@ -154,8 +154,12 @@
                                                 <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debes rellenar todos los campos para crear el curso. Crear un curso puede tardar unos momentos. " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noZ-sW-7Et">
-                                            <rect key="frame" x="38" y="8" width="282" height="65"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debes rellenar todos los campos para crear el curso. Crear un curso puede tardar unos momentos. " lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noZ-sW-7Et">
+                                            <rect key="frame" x="38" y="8" width="282" height="72"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="282" id="VW2-4J-zRC"/>
+                                                <constraint firstAttribute="height" constant="72" id="tdD-b3-D5y"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="757677"/>
                                             <nil key="highlightedColor"/>
@@ -163,13 +167,12 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="121" id="19N-Zi-WM4"/>
                                         <constraint firstItem="Bpx-tv-p9B" firstAttribute="top" secondItem="d8I-0Q-fhx" secondAttribute="top" constant="8" id="A42-Fk-Wp5"/>
-                                        <constraint firstAttribute="trailing" secondItem="noZ-sW-7Et" secondAttribute="trailing" constant="13" id="BvP-vt-odS"/>
-                                        <constraint firstItem="noZ-sW-7Et" firstAttribute="top" secondItem="d8I-0Q-fhx" secondAttribute="top" constant="8" id="O6u-ip-yJU"/>
-                                        <constraint firstItem="noZ-sW-7Et" firstAttribute="leading" secondItem="Bpx-tv-p9B" secondAttribute="trailing" constant="8" symbolic="YES" id="Quq-AU-TAU"/>
+                                        <constraint firstAttribute="height" constant="100" id="SVL-5E-HHx"/>
                                         <constraint firstItem="Bpx-tv-p9B" firstAttribute="leading" secondItem="d8I-0Q-fhx" secondAttribute="leading" constant="8" id="Zmy-Dc-5VR"/>
-                                        <constraint firstAttribute="bottom" secondItem="noZ-sW-7Et" secondAttribute="bottom" constant="48" id="fj4-b1-PHc"/>
+                                        <constraint firstItem="noZ-sW-7Et" firstAttribute="top" secondItem="d8I-0Q-fhx" secondAttribute="top" constant="8" id="dPc-yU-tul"/>
+                                        <constraint firstAttribute="trailing" secondItem="noZ-sW-7Et" secondAttribute="trailing" constant="13" id="fP7-XF-3so"/>
+                                        <constraint firstItem="noZ-sW-7Et" firstAttribute="leading" secondItem="Bpx-tv-p9B" secondAttribute="trailing" constant="8" symbolic="YES" id="i8W-SN-R35"/>
                                     </constraints>
                                 </view>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f1p-Ew-fB5">

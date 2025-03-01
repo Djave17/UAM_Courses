@@ -139,9 +139,6 @@
                     <color key="tintColor" red="0.1725490093" green="0.1725490093" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Tu Perfil"/>
-                    <connections>
-                        <action selector="btnProfile:" destination="-1" eventType="touchUpInside" id="c0O-i3-lC7"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D11-QF-2ql">
                     <rect key="frame" x="61" y="355.66666666666669" width="180" height="34.333333333333314"/>
@@ -149,7 +146,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Cambiar Contraseña"/>
                     <connections>
-                        <action selector="btnChangePasswrod:" destination="-1" eventType="touchUpInside" id="Xxp-Sv-lPJ"/>
+                        <action selector="btnChangePasswrod:" destination="-1" eventType="touchUpInside" id="XB5-uy-9hY"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkC-Ym-zKx">
@@ -157,9 +154,6 @@
                     <color key="tintColor" red="0.1725490093" green="0.1725490093" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Términos y Condiciones"/>
-                    <connections>
-                        <action selector="btnTerCond:" destination="-1" eventType="touchUpInside" id="hKw-rZ-d3P"/>
-                    </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hoX-tG-Z3s">
                     <rect key="frame" x="31" y="361.33333333333337" width="19.666666666666671" height="22"/>
@@ -306,7 +300,7 @@
         </view>
     </objects>
     <resources>
-        <image name="UAM" width="225" height="225"/>
+        <image name="UAM" width="1500" height="1500"/>
         <image name="arrow.turn.up.forward.iphone.fill" catalog="system" width="128" height="94"/>
         <image name="document" catalog="system" width="115" height="128"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>

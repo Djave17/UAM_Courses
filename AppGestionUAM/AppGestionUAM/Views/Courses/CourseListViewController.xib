@@ -63,8 +63,12 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekO-Xn-8t8">
-                    <rect key="frame" x="338" y="59" width="47" height="34.333333333333343"/>
+                    <rect key="frame" x="345" y="59" width="40" height="35"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Vn9-q3-arG"/>
+                        <constraint firstAttribute="width" constant="40" id="hQb-RV-rCp"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
                         <color key="baseForegroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,7 +114,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="0.16838265728476823" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.086299039423465729" green="0.23670816421508789" blue="0.37860739231109619" alpha="0.10820874550359712" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="RUh-6E-KYE"/>
@@ -128,7 +132,6 @@
                 <constraint firstItem="3vw-Sz-7FU" firstAttribute="leading" secondItem="dFq-j0-WFq" secondAttribute="leading" id="LoG-2Z-5fX"/>
                 <constraint firstItem="imf-NC-fwJ" firstAttribute="top" secondItem="dFq-j0-WFq" secondAttribute="top" id="OzY-ST-8Vo"/>
                 <constraint firstItem="WRH-WX-bR3" firstAttribute="leading" secondItem="dFq-j0-WFq" secondAttribute="leading" constant="20" id="ULl-RY-djf"/>
-                <constraint firstItem="3vw-Sz-7FU" firstAttribute="top" secondItem="ekO-Xn-8t8" secondAttribute="bottom" constant="2" id="VZC-x6-O5U"/>
                 <constraint firstItem="ekO-Xn-8t8" firstAttribute="top" secondItem="dFq-j0-WFq" secondAttribute="top" id="ZMD-2C-GmR"/>
                 <constraint firstItem="WRH-WX-bR3" firstAttribute="top" secondItem="3vw-Sz-7FU" secondAttribute="bottom" constant="10" id="dUa-nT-n2F"/>
                 <constraint firstItem="dFq-j0-WFq" firstAttribute="trailing" secondItem="Gz2-0n-fVf" secondAttribute="trailing" constant="20" id="emy-Ij-7l6"/>

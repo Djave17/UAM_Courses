@@ -53,7 +53,6 @@
 				Models/ValidationError.swift,
 				"Networking /APIClient.swift",
 				Persistance/FavoritesManager.swift,
-				Resources/vd_Onb4.mov,
 				ViewModels/CourseDetailViewModel.swift,
 				ViewModels/CourseListViewModel.swift,
 				ViewModels/CreateCourseViewModel.swift,
@@ -128,7 +127,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				Resources/vd_Onb4.mov,
 			);
 			target = 51CD46362CD3CAAA000D24BF /* AppGestionUAM */;
 		};

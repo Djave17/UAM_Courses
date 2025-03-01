@@ -40,6 +40,10 @@ class FavoriteCoursesViewController: UIViewController, CourseCellDelegate {
         loadCourses()
         gestosKeyboard()
         
+        stackViewButtonsFavorite.layer.borderWidth = 1  // Grosor del borde
+        stackViewButtonsFavorite.layer.borderColor = UIColor.gray.withAlphaComponent(0.2).cgColor  // Color gris sutil con opacidad baja
+        stackViewButtonsFavorite.layer.cornerRadius = 20  // Bordes redondeados (opcional)
+
         
     }
     

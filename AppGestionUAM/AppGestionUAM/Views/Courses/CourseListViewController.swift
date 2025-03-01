@@ -46,6 +46,10 @@ class CourseListViewController: UIViewController {
         setupLongPressGesture()
         loadCourses()
         //refreshFavorites()
+        stackViewButtons.layer.borderWidth = 1  // Grosor del borde
+        stackViewButtons.layer.borderColor = UIColor.gray.withAlphaComponent(0.2).cgColor  // Color gris sutil con opacidad baja
+        stackViewButtons.layer.cornerRadius = 20  // Bordes redondeados (opcional)
+
         
         
     }

@@ -17,6 +17,11 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        stackViewButtona.layer.borderWidth = 1  // Grosor del borde
+        stackViewButtona.layer.borderColor = UIColor.gray.withAlphaComponent(0.2).cgColor  // Color gris sutil con opacidad baja
+        stackViewButtona.layer.cornerRadius = 20  // Bordes redondeados (opcional)
+
+        
         setupUI()
 
         setNameAndEmail()
@@ -31,8 +36,10 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func btnChangePasswrod(_ sender: Any) {
-        let navChangePass = ChangePassViewController()
-        navigationController?.pushViewController(navChangePass, animated: true)
+        // En SettingsViewController
+        let passVC = PassViewController()
+        passVC.isFromLogin = false  // Establecer que venimos de Settings
+        navigationController?.pushViewController(passVC, animated: true)
     }
   
     
