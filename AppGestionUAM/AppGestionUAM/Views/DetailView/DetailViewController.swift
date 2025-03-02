@@ -114,6 +114,15 @@ class DetailViewController: UIViewController {
         recursosButton.clipsToBounds = true
         recursosButton.layer.cornerRadius = 12
         
+        editButton.layer.cornerRadius = 12
+        editButton.clipsToBounds = true
+        
+        saveButton.layer.cornerRadius = 12
+        saveButton.clipsToBounds = true
+        
+        deleteButton.layer.cornerRadius = 12
+        deleteButton.clipsToBounds = true 
+        
         // Configuración de los textViews
         descripcionTextView.isEditable = false
         descripcionTextView.isScrollEnabled = false
@@ -142,6 +151,8 @@ class DetailViewController: UIViewController {
         
         imagePickerButton.isHidden = true
         imagePickerButton.isEnabled = false
+        
+        
         
         view.addSubview(activityIndicator)
         
@@ -292,6 +303,10 @@ class DetailViewController: UIViewController {
         saveButton.isEnabled.toggle()
         imagePickerButton.isHidden.toggle()
         imagePickerButton.isEnabled.toggle()
+        editButton.isEnabled.toggle()
+        deleteButton.isEnabled.toggle()
+        editButton.isHidden.toggle()
+        deleteButton.isHidden.toggle()
         
     }
     

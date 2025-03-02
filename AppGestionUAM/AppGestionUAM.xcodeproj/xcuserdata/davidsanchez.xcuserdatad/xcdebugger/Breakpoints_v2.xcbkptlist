@@ -608,7 +608,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
             endingLineNumber = "109"
-            landmarkName = "setButtons()"
+            landmarkName = "loadCourseDetails(name:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
