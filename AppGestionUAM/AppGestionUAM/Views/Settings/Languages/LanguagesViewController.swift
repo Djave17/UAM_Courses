@@ -26,7 +26,8 @@ class LanguagesViewController: UIViewController {
         // Cambiar el color del botón Back y su flecha
         appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.systemTeal]
         navigationController?.navigationBar.tintColor = .systemTeal
-        
+        navigationController?.navigationBar.standardAppearance = { let appearance = UINavigationBarAppearance(); appearance.configureWithOpaqueBackground(); appearance.backgroundColor = .systemBackground; return appearance }()
+
         // Aplicar la configuración a la barra de navegación
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance

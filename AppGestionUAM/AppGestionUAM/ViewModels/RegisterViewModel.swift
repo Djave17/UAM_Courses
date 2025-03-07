@@ -55,12 +55,12 @@ class RegisterViewModel {
     // MARK: - Privados
     private func validateFields() -> Bool {
         if name.isEmpty || email.isEmpty || password.isEmpty {
-            errorMessageHandler?("All fields are required.")
+            errorMessageHandler?("Todos los campos son obligatorios.")
             return false
         }
 
         guard isValidEmail(email) else {
-            errorMessageHandler?("Please enter a valid email address.")
+            errorMessageHandler?("Ingresa un correo electronico valido.")
             return false
         }
 

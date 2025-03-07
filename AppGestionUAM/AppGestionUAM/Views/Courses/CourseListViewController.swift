@@ -21,12 +21,15 @@ class CourseListViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var coursesCollectionView: UICollectionView!
     
+    @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var stackViewButtons: UIStackView!
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
     
     @IBOutlet weak var addCourse: UIButton!
+    
+    let apiClient = APIClient()
     
     // MARK: - Properties
     private let viewModel = CourseListViewModel()
@@ -49,8 +52,20 @@ class CourseListViewController: UIViewController {
         stackViewButtons.layer.borderWidth = 1  // Grosor del borde
         stackViewButtons.layer.borderColor = UIColor.gray.withAlphaComponent(0.2).cgColor  // Color gris sutil con opacidad baja
         stackViewButtons.layer.cornerRadius = 20  // Bordes redondeados (opcional)
+        // Obtener el nombre del usuario desde la API
+        let name = apiClient.getUserName()
 
+        // Crear el mensaje de bienvenida, con un valor por defecto si el nombre es nulo o vacío
+        let welcomeMessage = "Bienvenid@ \(name?.isEmpty == false ? name ?? "Usuario" : "Usuario")"
+
+
+        // Actualizar el texto del UILabel
+        lblName.text = welcomeMessage
         
+        
+        navigationController?.navigationBar.shadowImage = UIImage()
+           navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+
         
     }
     
@@ -82,10 +97,18 @@ class CourseListViewController: UIViewController {
     func setupUI() {
         // Setup SearchBar
         searchBar.delegate = self
-        searchBar.tintColor = .black
-        if let textField = searchBar.value(forKey: "searchField") as? UITextField {
-            textField.textColor = UIColor.black
-        }
+          searchBar.tintColor = .black
+          
+          if let textField = searchBar.value(forKey: "searchField") as? UITextField {
+              textField.textColor = UIColor.systemTeal
+              textField.backgroundColor = .white // Fondo blanco para el campo de texto
+          }
+          
+          // Establecer fondo blanco para la barra de búsqueda
+          searchBar.backgroundImage = UIImage() // Elimina la imagen de fondo
+          searchBar.barTintColor = .white // Fondo blanco para la barra de búsqueda
+          searchBar.isTranslucent = false // No translucidez, solo fondo blanco
+          searchBar.layer.masksToBounds = true
         
         
         
@@ -133,27 +156,32 @@ class CourseListViewController: UIViewController {
     
     private func setupCoursesLayout() {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 12
-        layout.minimumInteritemSpacing = 12
+        // Márgenes superior, inferior, izquierdo y derecho
+        let horizontalInset: CGFloat = 6
+        layout.sectionInset = UIEdgeInsets(top: 10, left: horizontalInset, bottom: 10, right: horizontalInset)
+
+        // Distancia entre filas y columnas
+        layout.minimumLineSpacing = 16
+        layout.minimumInteritemSpacing = 16
         
-        let width = (view.frame.width - 60) / 2
-        layout.itemSize = CGSize(width: width, height: width * 1.2)
-        layout.collectionView?.backgroundColor = .white
-        view.backgroundColor = .white
+        // Ancho disponible en el CollectionView
+        let collectionWidth = coursesCollectionView.bounds.width
         
+        // Espacio total ocupado por márgenes y la separación entre 2 celdas:
+        //   margen izquierdo + margen derecho + separación entre columnas
+        let totalSpacing = layout.sectionInset.left + layout.sectionInset.right + layout.minimumInteritemSpacing
+        
+        // Cálculo de ancho para 2 celdas por fila
+        let itemWidth = (collectionWidth - totalSpacing) / 2
+        
+        // Ajusta el alto a la proporción que desees (por ejemplo 1.2)
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth * 1.5)
+        
+        // Configura el layout en el CollectionView
         coursesCollectionView.setCollectionViewLayout(layout, animated: false)
     }
     
-    //    private func setupFiltersLayout() {
-    //        let layout = UICollectionViewFlowLayout()
-    //        layout.scrollDirection = .horizontal
-    //        layout.minimumInteritemSpacing = 10
-    //        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-    //
-    //        filtersCollectionView.setCollectionViewLayout(layout, animated: false)
-    //    }
-    
+
     // MARK: - Button Actions
     @IBAction func homeButtonTapped(_ sender: UIButton) {
         // Animación de selección

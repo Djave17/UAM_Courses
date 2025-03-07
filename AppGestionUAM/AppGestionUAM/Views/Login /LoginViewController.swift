@@ -1,513 +1,523 @@
-//
-//  LoginViewController.swift
-//  AppGestionUAM
-//
-//  Created by David Sanchez on 31/10/24.
-//
+    //
+    //  LoginViewController.swift
+    //  AppGestionUAM
+    //
+    //  Created by David Sanchez on 31/10/24.
+    //
 
-import UIKit
-import Combine
+    import UIKit
+    import Combine
 
-class LoginViewController: UIViewController {
-    
-    private var btnCreate: UIButton!
-    private var btnLogIn: UIButton!
-    private let customColor = UIColor(red: 68/255, green: 153/255, blue: 167/255, alpha: 1.0)
-    
-    //MARK: OUTLETS
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    
-    
-    //View
-    @IBOutlet var viewH: UIView!
-    @IBOutlet weak var bodyView: UIView!
-    
-    //Botones
-    @IBOutlet weak var btnQuestions: UIButton!
-    @IBOutlet weak var checkbox: UIButton!
-    
-    @IBOutlet weak var logInButton: UIButton!
-    
-    
-    //MARK: - Activity indicator (Carga)
-    private let activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .medium)
-        indicator.hidesWhenStopped = true
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        return indicator
-    }()
-    
-    //MARK: -ViewModel
-    private var loginController = LoginController()
-    
-    
-    // MARK: - Ciclo de Vida
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    class LoginViewController: UIViewController {
         
-        //Ocultar texto al inicio
-        passwordTextField.isSecureTextEntry = true
-        setupCheckbox()
-        setupTextField()
-        setAllElements()
+        private var btnCreate: UIButton!
+        private var btnLogIn: UIButton!
+        private let customColor = UIColor(red: 68/255, green: 153/255, blue: 167/255, alpha: 1.0)
         
-        //Custom Border
-        logInButton.layer.cornerRadius = 10
+        //MARK: OUTLETS
+        @IBOutlet weak var passwordTextField: UITextField!
+        @IBOutlet weak var emailTextField: UITextField!
         
-        btnQuestions.layer.cornerRadius = 10
         
-        //Gesto para quitar keyborard
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapGesture)
+        //View
+        @IBOutlet var viewH: UIView!
+        @IBOutlet weak var bodyView: UIView!
         
-        //Animation Email
-        // Configura el borde inicial del text field
-        emailTextField.layer.borderWidth = 1
-        emailTextField.layer.borderColor = UIColor.gray.withAlphaComponent(0.05).cgColor
-        emailTextField.layer.cornerRadius = 5
-        //Animacion Password
-        passwordTextField.layer.borderWidth = 1
-        passwordTextField.layer.borderColor = UIColor.gray.withAlphaComponent(0.05).cgColor
-        passwordTextField.layer.cornerRadius = 5
+        //Botones
+        @IBOutlet weak var btnQuestions: UIButton!
+        @IBOutlet weak var checkbox: UIButton!
         
-        // Configura los eventos de inicio y fin de edición
-        emailTextField.addTarget(self, action: #selector(emailTextFieldEditingDidBegin(_:)), for: .editingDidBegin)
-        emailTextField.addTarget(self, action: #selector(emailTextFieldEditingDidEnd(_:)), for: .editingDidEnd)
+        @IBOutlet weak var logInButton: UIButton!
         
-        // Configura los eventos de inicio y fin de edición para passwordTextField
-        passwordTextField.addTarget(self, action: #selector(passwordTextFieldEditingDidBegin(_:)), for: .editingDidBegin)
-        passwordTextField.addTarget(self, action: #selector(passwordTextFieldEditingDidEnd(_:)), for: .editingDidEnd)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Limpiar los campos de texto para usuario y contraseña
-        emailTextField.text = ""
-        passwordTextField.text = ""
-    }
-    //MARK: - Hide keyboard
-    @objc func hideKeyboard() {
-        view.endEditing(true)
-    }
-    
-    // MARK: - Tap en Log In
-    @IBAction func tapOnLogin(_ sender: UIButton) {
-        // Inicia el activity indicator
-        activityIndicator.startAnimating()
+        //MARK: - Activity indicator (Carga)
+        private let activityIndicator: UIActivityIndicatorView = {
+            let indicator = UIActivityIndicatorView(style: .medium)
+            indicator.hidesWhenStopped = true
+            indicator.translatesAutoresizingMaskIntoConstraints = false
+            return indicator
+        }()
         
-        // Aquí podrías llamar a tu método validateFields() antes,
-        // o confiar en las validaciones que pusimos en LoginController.
-        // Por ejemplo:
-        /*
-         guard validateFields() else {
-         activityIndicator.stopAnimating()
-         return
-         }
-         */
+        //MARK: -ViewModel
+        private var loginController = LoginController()
         
-        Task {
-            // Retornará un .success o .failure con AuthError
-            let result = await loginController.login(email: emailTextField.text ?? "",
-                                                     password: passwordTextField.text ?? "")
+        
+        // MARK: - Ciclo de Vida
+        override func viewDidLoad() {
+            super.viewDidLoad()
             
-            // Detén el indicador de carga
-            activityIndicator.stopAnimating()
             
+            btnQuestions.layer.cornerRadius = 10
+            //Ocultar texto al inicio
+            passwordTextField.isSecureTextEntry = true
+            setupCheckbox()
+            setupTextField()
+            setAllElements()
+            
+            //Custom Border
+            logInButton.layer.cornerRadius = 10
+            
+            btnQuestions.layer.cornerRadius = 10
+            
+            //Gesto para quitar keyborard
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+            view.addGestureRecognizer(tapGesture)
+            
+            //Animation Email
+            // Configura el borde inicial del text field
+            emailTextField.layer.borderWidth = 1
+            emailTextField.layer.borderColor = UIColor.gray.withAlphaComponent(0.05).cgColor
+            emailTextField.layer.cornerRadius = 5
+            //Animacion Password
+            passwordTextField.layer.borderWidth = 1
+            passwordTextField.layer.borderColor = UIColor.gray.withAlphaComponent(0.05).cgColor
+            passwordTextField.layer.cornerRadius = 5
+            
+            // Configura los eventos de inicio y fin de edición
+            emailTextField.addTarget(self, action: #selector(emailTextFieldEditingDidBegin(_:)), for: .editingDidBegin)
+            emailTextField.addTarget(self, action: #selector(emailTextFieldEditingDidEnd(_:)), for: .editingDidEnd)
+            
+            // Configura los eventos de inicio y fin de edición para passwordTextField
+            passwordTextField.addTarget(self, action: #selector(passwordTextFieldEditingDidBegin(_:)), for: .editingDidBegin)
+            passwordTextField.addTarget(self, action: #selector(passwordTextFieldEditingDidEnd(_:)), for: .editingDidEnd)
+            
+        }
+        
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            // Limpiar los campos de texto para usuario y contraseña
+            emailTextField.text = ""
+            passwordTextField.text = ""
+        }
+        //MARK: - Hide keyboard
+        @objc func hideKeyboard() {
+            view.endEditing(true)
+        }
+        
+        // MARK: - Tap en Log In
+        @IBAction func tapOnLogin(_ sender: UIButton) {
+            // Inicia el activity indicator
+                activityIndicator.startAnimating()
+                
+                Task {
+                    // Retornará un .success o .failure con AuthError
+                    let result = await loginController.login(email: emailTextField.text ?? "",
+                                                             password: passwordTextField.text ?? "")
+                    
+                    // Detén el indicador de carga
+                    activityIndicator.stopAnimating()
+                    
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(_):
+                            // Alerta personalizada de éxito con icono verde
+                            self.showCustomSuccessAlert(title: "Éxito", message: "Inicio de sesión exitoso.") {
+                                self.navigateToCourseList()
+                            }
+                            
+                        case .failure(let error):
+                                       // Alerta personalizada de error con icono rojo
+                                       self.showCustomErrorAlert(title: "Error de Login", message: error.localizedDescription, completion: {
+                                           // Opcional: Aplica animación de borde rojo a los campos de texto
+                                           self.showErrorAnimationn(for: self.emailTextField)
+                                           self.showErrorAnimationn(for: self.passwordTextField)
+                                       })
+                                   }
+                               }
+                           }
+                       }
+        
+        private func showCustomErrorAlert(title: String, message: String, completion: (() -> Void)? = nil) {
+            let alert = UIAlertController(title: "\n\n\(title)", message: message, preferredStyle: .alert)
+
+            let errorImage = UIImage(systemName: "xmark.circle.fill")?
+                .withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+            let imageView = UIImageView(image: errorImage)
+            imageView.contentMode = .scaleAspectFit
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+
+            alert.view.addSubview(imageView)
+
+            NSLayoutConstraint.activate([
+                imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15),
+                imageView.widthAnchor.constraint(equalToConstant: 40),
+                imageView.heightAnchor.constraint(equalToConstant: 40)
+            ])
+
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                completion?()
+            }
+            okAction.setValue(UIColor.systemRed, forKey: "titleTextColor")
+            alert.addAction(okAction)
+
+            present(alert, animated: true)
+        }
+
+        
+        
+        
+        private func handleLoginResult(_ result: Result<LoginResponse, APIError>) {
             switch result {
-            case .success(let loginResponse):
-                // Ejemplo: Muestra alerta o ve directo a la siguiente pantalla
-                print("Login exitoso: \(loginResponse)")
-                
-                // Crear la alerta personalizada para éxito
-                let alert = createCustomAlert(title: "Éxito", message: "Login exitoso") {
-                    self.navigateToCourseList()
-                }
-                
-                DispatchQueue.main.async {
-                    if let topVC = UIApplication.shared.connectedScenes
-                        .compactMap({ $0 as? UIWindowScene })
-                        .flatMap({ $0.windows })
-                        .first(where: { $0.isKeyWindow })?.rootViewController {
-                        topVC.present(alert, animated: true, completion: nil)
-                    }
-                }
-                
+            case .success(_):
+                showCustomSuccessAlert(title: "Éxito", message: "Inicio de sesión exitoso.") {
+                       self.navigateToCourseList()
+                   }
             case .failure(let error):
-                // Crear la alerta personalizada para error
-                let alert = createCustomAlert(title: "Error de Login", message: error.localizedDescription) {
-                    // Opcional: Aplica animación de borde rojo a tus TextFields si lo deseas
-                    self.showErrorAnimationn(for: self.emailTextField)
-                    self.showErrorAnimationn(for: self.passwordTextField)
-                }
+                  showCustomErrorAlert(title: "Error", message: error.errorDescription ?? "Error desconocido.")
+              }
+          }
+        
+        private func showCustomSuccessAlert(title: String, message: String, completion: (() -> Void)? = nil) {
+            let alert = UIAlertController(title: "\n\n\(title)", message: message, preferredStyle: .alert)
+
+            // Crear el icono de éxito
+            let successImage = UIImage(systemName: "checkmark.circle.fill")?
+                .withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+            let imageView = UIImageView(image: successImage)
+            imageView.contentMode = .scaleAspectFit
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+
+            // Agregar el icono a la vista del alerta
+            alert.view.addSubview(imageView)
+
+            // Aplicar restricciones para el icono (centrado arriba)
+            NSLayoutConstraint.activate([
+                imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15),
+                imageView.widthAnchor.constraint(equalToConstant: 40),
+                imageView.heightAnchor.constraint(equalToConstant: 40)
+            ])
+
+            // Botón OK con color verde
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                completion?()
+            }
+            okAction.setValue(UIColor.systemTeal, forKey: "titleTextColor")
+            alert.addAction(okAction)
+
+            present(alert, animated: true)
+        }
+        
+        
+        
+        // MARK: - Validación de Campos
+        private func validateFields() -> Bool {
+            guard let email = emailTextField.text, !email.isEmpty,
+                     let password = passwordTextField.text, !password.isEmpty else {
+                   showCustomErrorAlert(title: "Campos Vacíos", message: "Por favor, completa todos los campos.")
+                   showErrorAnimationn(for: emailTextField)
+                   showErrorAnimationn(for: passwordTextField)
+                   return false
+               }
+
+               guard isValidEmail(email) else {
+                   showCustomErrorAlert(title: "Correo Inválido", message: "Por favor, ingresa un correo válido.")
+                   showErrorAnimationn(for: emailTextField)
+                   return false
+               }
+
+               return true
+           }
+        
+        private func showCustomErrorAlert(title: String, message: String) {
+            let alert = UIAlertController(title: "\n\n\(title)", message: message, preferredStyle: .alert)
+            let errorImage = UIImage(systemName: "xmark.circle.fill")?
+                .withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+            let imageView = UIImageView(image: errorImage)
+            imageView.contentMode = .scaleAspectFit
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            alert.view.addSubview(imageView)
+            NSLayoutConstraint.activate([
+                imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15),
+                imageView.widthAnchor.constraint(equalToConstant: 40),
+                imageView.heightAnchor.constraint(equalToConstant: 40)
+            ])
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            okAction.setValue(UIColor.systemRed, forKey: "titleTextColor")
+            alert.addAction(okAction)
+
+            present(alert, animated: true)
+        }
+
+            
+          
+        private func isValidEmail(_ email: String) -> Bool {
+            let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+            return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+        }
+        
+        
+        
+        // MARK: - Navegación
+        private func navigateToCourseList() {
+            let courseListViewController = CourseListViewController()
+            navigationController?.pushViewController(courseListViewController, animated: true)
+        }
+        
+        @IBAction func btnForgotPassword(_ sender: Any) {
+            let passVC = PassViewController()
+            passVC.isFromLogin = true
+            navigationController?.pushViewController(passVC, animated: true)
+     }
+        
+        
+        
+        // MARK: - Alert Helper
+        
+        
+        
+        private func setAllElements(){
+            //Configuracion de Botones de Navegacion  en StackView
+            // Botón "Crear Cuenta" activo con borde
+            btnCreate = createButton(title: "Crear Cuenta", backgroundColor: .white, textColor: customColor)
+            
+            btnCreate.layer.borderWidth = 2
+            btnCreate.layer.borderColor = customColor.cgColor
+            btnCreate.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+            btnCreate.addTarget(self, action: #selector(goToRegister(_:)), for: .touchUpInside)
+            
+            
+            
+            // Botón "Iniciar Sesión" inactivo
+            btnLogIn = createButton(title: "Iniciar Sesión", backgroundColor: self.customColor, textColor: .white)
+            btnLogIn.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+            btnLogIn.layer.borderWidth = 2
+            btnLogIn.layer.borderColor = customColor.cgColor
+            
+            
+            
+            
+            let stackView = UIStackView(arrangedSubviews: [btnCreate, btnLogIn])
+            stackView.axis = .horizontal
+            stackView.distribution = .fillEqually
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(stackView)
+            
+            NSLayoutConstraint.activate([
+                stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -70),
+                stackView.widthAnchor.constraint(equalToConstant: 340),
+                stackView.heightAnchor.constraint(equalToConstant: 50)
+            ])
+            
+            //Email textfield
+            emailTextField.borderStyle = .roundedRect
+            emailTextField.layer.cornerRadius = 5
+            emailTextField.clipsToBounds = true
+            
+            //Password Textfield
+            passwordTextField.borderStyle = .roundedRect
+            passwordTextField.layer.cornerRadius = 5
+            passwordTextField.clipsToBounds = true
+            
+            //Login Button
+            logInButton.layer.cornerRadius = 10
+            logInButton.clipsToBounds = true
+            navigationItem.hidesBackButton = true
+            
+            view.addSubview(activityIndicator)
+            
+            // Constraints para centrar el indicador de carga
+            NSLayoutConstraint.activate([
+                activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
+            
+            NSLayoutConstraint.activate([
+                stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
+                stackView.widthAnchor.constraint(equalToConstant: 340),
+                stackView.heightAnchor.constraint(equalToConstant: 50)
+            ])
+            
+            
+        }
+        
+        private func animateButton() {
+            // Animación para cambiar el color de fondo y el borde
+            UIView.animate(withDuration: 0.8, delay: 0, options: .curveEaseInOut, animations: {
+                // Cambia el color de fondo y el texto
+                self.btnCreate.backgroundColor = self.customColor // Cambia el color de fondo a customColor
+                self.btnCreate.setTitleColor(.white, for: .normal) // Cambia el color del texto a blanco
+                self.btnCreate.layer.borderColor = self.customColor.cgColor // Cambia el color del borde
                 
-                DispatchQueue.main.async {
-                    if let topVC = UIApplication.shared.connectedScenes
-                        .compactMap({ $0 as? UIWindowScene })
-                        .flatMap({ $0.windows })
-                        .first(where: { $0.isKeyWindow })?.rootViewController {
-                        topVC.present(alert, animated: true, completion: nil)
-                    }
+                // También puedes hacer lo mismo con el botón de login si es necesario
+                self.btnLogIn.backgroundColor = .white
+                self.btnLogIn.setTitleColor(self.customColor, for: .normal)
+                self.view.layoutIfNeeded() // Refresca la vista
+            })
+        }
+        
+        
+        private func createButton(title: String, backgroundColor: UIColor, textColor: UIColor) -> UIButton {
+            let button = UIButton(type: .system)
+            button.setTitle(title, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+            button.backgroundColor = backgroundColor
+            button.setTitleColor(textColor, for: .normal)
+            button.layer.cornerRadius = 10
+            return button
+        }
+        
+        // MARK: - Acciones de navegación de botones
+        @objc private func goToRegister(_ sender: UIButton) {
+            
+            //aqui desactivo el boton para evitar multiples toques
+            // Desactiva el botón para evitar múltiples toques
+            sender.isEnabled = false
+            
+            // Llama a animateButton para realizar la animación al presionar
+            animateButton()
+            
+            // Después de la animación, realiza la navegación
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                self.navigateToLogin()
+                // Vuelve a habilitar el botón después de un retraso
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    sender.isEnabled = true
                 }
             }
         }
-    }
-    
-    // Función para crear alertas personalizadas
-    func createCustomAlert(title: String, message: String, okActionHandler: @escaping () -> Void) -> UIAlertController {
-        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         
-        // Color personalizado
-        let customColor = UIColor(red: 68/255, green: 153/255, blue: 167/255, alpha: 1.0)
         
-        // Personalizar el título
-        let titleFont = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18),
-                         NSAttributedString.Key.foregroundColor: customColor]
-        let attributedTitle = NSAttributedString(string: title, attributes: titleFont)
-        alert.setValue(attributedTitle, forKey: "attributedTitle")
         
-        // Personalizar el mensaje
-        let messageFont = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
-                           NSAttributedString.Key.foregroundColor: customColor]
-        let attributedMessage = NSAttributedString(string: message, attributes: messageFont)
-        alert.setValue(attributedMessage, forKey: "attributedMessage")
-        
-        // Botón "OK" con color personalizado
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            okActionHandler()  // Llamar al handler cuando se presiona "OK"
-        }
-        alert.addAction(okAction)
-        
-        // Cambiar el color del texto del botón
-        okAction.setValue(customColor, forKey: "titleTextColor")
-        
-        // Aplicar borde personalizado a la alerta
-        if let alertView = alert.view.subviews.first?.subviews.first?.subviews.first {
-            alertView.layer.cornerRadius = 10
-            alertView.layer.borderWidth = 2
-            alertView.layer.borderColor = customColor.cgColor
+        func navigateToLogin(){
+            let loginViewController = RegisterViewController()
+            // Bloqueamos la animación del push (animated: false)
+            navigationController?.pushViewController(loginViewController, animated: false)
         }
         
-        return alert
-    }
-    
-    
-    
-    private func handleLoginResult(_ result: Result<LoginResponse, APIError>) {
-        switch result {
-        case .success(_):
+        @IBAction func queHacerTapped(_ sender: Any) {
             
-            showAlert(title: "Éxito", message: "Inicio de sesión exitoso.") {
-                self.navigateToCourseList()
-            }
-        case .failure(let error):
-            showAlert(title: "Error", message: error.errorDescription ?? "Error desconocido.")
-        }
-    }
-    
-    
-    
-    // MARK: - Validación de Campos
-    private func validateFields() -> Bool {
-        guard let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else {
-            showAlert(title: "Campos Vacíos", message: "Por favor, completa todos los campos.")
-            showErrorAnimationn(for: emailTextField)
-            showErrorAnimationn(for: passwordTextField)
+            let viewQuestion = QuestionLogInViewController(nibName: String?("QuestionLogInViewController"), bundle: nil)
+            present(viewQuestion, animated: true, completion: nil)
             
-            return false
         }
         
-        guard isValidEmail(email) else {
-            showAlert(title: "Correo Inválido", message: "Por favor, ingresa un correo válido.")
-            showErrorAnimationn(for: emailTextField)
-            return false
-        }
-        
-        return true
-    }
-    
-    private func isValidEmail(_ email: String) -> Bool {
-        let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
-        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
-    }
-    
-    
-    
-    // MARK: - Navegación
-    private func navigateToCourseList() {
-        let courseListViewController = CourseListViewController()
-        navigationController?.pushViewController(courseListViewController, animated: true)
-    }
-    
-    @IBAction func btnForgotPassword(_ sender: Any) {
-        // Crear una instancia de PassViewController
-           let passVC = PassViewController()
-           
-           // Establecer la variable isFromLogin a true para indicar que venimos del Login
-           passVC.isFromLogin = true
-           
-           // Navegar a PassViewController
-           navigationController?.pushViewController(passVC, animated: true)
-    }
-    
-    
-    
-    // MARK: - Alert Helper
-    
-    
-    
-    private func setAllElements(){
-        //Configuracion de Botones de Navegacion  en StackView
-        // Botón "Crear Cuenta" activo con borde
-        btnCreate = createButton(title: "Crear Cuenta", backgroundColor: .white, textColor: customColor)
-        
-        btnCreate.layer.borderWidth = 2
-        btnCreate.layer.borderColor = customColor.cgColor
-        btnCreate.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        btnCreate.addTarget(self, action: #selector(goToRegister(_:)), for: .touchUpInside)
-        
-        
-        
-        // Botón "Iniciar Sesión" inactivo
-        btnLogIn = createButton(title: "Iniciar Sesión", backgroundColor: self.customColor, textColor: .white)
-        btnLogIn.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-        btnLogIn.layer.borderWidth = 2
-        btnLogIn.layer.borderColor = customColor.cgColor
-        
-        
-        
-        
-        let stackView = UIStackView(arrangedSubviews: [btnCreate, btnLogIn])
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stackView)
-        
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -70),
-            stackView.widthAnchor.constraint(equalToConstant: 340),
-            stackView.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        //Email textfield
-        emailTextField.borderStyle = .roundedRect
-        emailTextField.layer.cornerRadius = 5
-        emailTextField.clipsToBounds = true
-        
-        //Password Textfield
-        passwordTextField.borderStyle = .roundedRect
-        passwordTextField.layer.cornerRadius = 5
-        passwordTextField.clipsToBounds = true
-        
-        //Login Button
-        logInButton.layer.cornerRadius = 10
-        logInButton.clipsToBounds = true
-        navigationItem.hidesBackButton = true
-        
-        view.addSubview(activityIndicator)
-        
-        // Constraints para centrar el indicador de carga
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
-            stackView.widthAnchor.constraint(equalToConstant: 340),
-            stackView.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        
-    }
-    
-    private func animateButton() {
-        // Animación para cambiar el color de fondo y el borde
-        UIView.animate(withDuration: 0.8, delay: 0, options: .curveEaseInOut, animations: {
-            // Cambia el color de fondo y el texto
-            self.btnCreate.backgroundColor = self.customColor // Cambia el color de fondo a customColor
-            self.btnCreate.setTitleColor(.white, for: .normal) // Cambia el color del texto a blanco
-            self.btnCreate.layer.borderColor = self.customColor.cgColor // Cambia el color del borde
+        //MARK: - Configuracion de Text Field
+        func setupTextField() {
             
-            // También puedes hacer lo mismo con el botón de login si es necesario
-            self.btnLogIn.backgroundColor = .white
-            self.btnLogIn.setTitleColor(self.customColor, for: .normal)
-            self.view.layoutIfNeeded() // Refresca la vista
-        })
-    }
-    
-    
-    private func createButton(title: String, backgroundColor: UIColor, textColor: UIColor) -> UIButton {
-        let button = UIButton(type: .system)
-        button.setTitle(title, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        button.backgroundColor = backgroundColor
-        button.setTitleColor(textColor, for: .normal)
-        button.layer.cornerRadius = 10
-        return button
-    }
-    
-    // MARK: - Acciones de navegación de botones
-    @objc private func goToRegister(_ sender: UIButton) {
-        
-        //aqui desactivo el boton para evitar multiples toques
-        // Desactiva el botón para evitar múltiples toques
-        sender.isEnabled = false
-        
-        // Llama a animateButton para realizar la animación al presionar
-        animateButton()
-        
-        // Después de la animación, realiza la navegación
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-            self.navigateToLogin()
-            // Vuelve a habilitar el botón después de un retraso
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                sender.isEnabled = true
-            }
+            let lockIcon = UIImageView(image: UIImage(systemName: "lock"))
+            lockIcon.tintColor = .systemTeal
+            lockIcon.contentMode = .scaleAspectFit
+            
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: passwordTextField.frame.height))
+            lockIcon.frame = CGRect(x: 10, y: (paddingView.frame.height - 20) / 2, width: 20, height: 20)
+            
+            paddingView.addSubview(lockIcon)
+            
+            passwordTextField.leftView = paddingView
+            passwordTextField.leftViewMode = .always
+            
+            let emailIcon = UIImageView(image: UIImage(systemName: "envelope"))
+            emailIcon.tintColor = .systemTeal
+            emailIcon.contentMode = .scaleAspectFit
+            
+            let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: emailTextField.frame.height))
+            emailIcon.frame = CGRect(x: 10, y: (leftPaddingView.frame.height - 20) / 2, width: 20, height: 20)
+            leftPaddingView.addSubview(emailIcon)
+            
+            emailTextField.leftView = leftPaddingView
+            emailTextField.leftViewMode = .always
+            
+            // ojo derecha
+            let hidePasswordButton = UIButton(type: .system)
+            hidePasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+            hidePasswordButton.tintColor = .systemTeal
+            hidePasswordButton.frame = CGRect(x: -5, y: 0, width: 28, height: passwordTextField.frame.height)  // Aumentar un poco el ancho
+            
+            // ojo derecha
+            let rightPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: emailTextField.frame.height))
+            rightPaddingView.addSubview(hidePasswordButton)
+            
+            passwordTextField.rightView = rightPaddingView
+            passwordTextField.rightViewMode = .always
+            
+            // hide/show tapped password
+            hidePasswordButton.addAction(UIAction(handler: { [weak self] _ in
+                self?.togglePasswordVisibility(for: self?.passwordTextField, button: hidePasswordButton)
+            }), for: .touchUpInside)
         }
-    }
-    
-    
-    
-    func navigateToLogin(){
-        let loginViewController = RegisterViewController()
-        // Bloqueamos la animación del push (animated: false)
-        navigationController?.pushViewController(loginViewController, animated: false)
-    }
-    
-    @IBAction func queHacerTapped(_ sender: Any) {
         
-        let viewQuestion = QuestionLogInViewController(nibName: String?("QuestionLogInViewController"), bundle: nil)
-        present(viewQuestion, animated: true, completion: nil)
-        
-    }
-    
-    //MARK: - Configuracion de Text Field
-    func setupTextField() {
-        
-        let lockIcon = UIImageView(image: UIImage(systemName: "lock"))
-        lockIcon.tintColor = .systemTeal
-        lockIcon.contentMode = .scaleAspectFit
-        
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: passwordTextField.frame.height))
-        lockIcon.frame = CGRect(x: 10, y: (paddingView.frame.height - 20) / 2, width: 20, height: 20)
-        
-        paddingView.addSubview(lockIcon)
-        
-        passwordTextField.leftView = paddingView
-        passwordTextField.leftViewMode = .always
-        
-        let emailIcon = UIImageView(image: UIImage(systemName: "envelope"))
-        emailIcon.tintColor = .systemTeal
-        emailIcon.contentMode = .scaleAspectFit
-        
-        let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: emailTextField.frame.height))
-        emailIcon.frame = CGRect(x: 10, y: (leftPaddingView.frame.height - 20) / 2, width: 20, height: 20)
-        leftPaddingView.addSubview(emailIcon)
-        
-        emailTextField.leftView = leftPaddingView
-        emailTextField.leftViewMode = .always
-        
-        // ojo derecha
-        let hidePasswordButton = UIButton(type: .system)
-        hidePasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
-        hidePasswordButton.tintColor = .systemTeal
-        hidePasswordButton.frame = CGRect(x: -5, y: 0, width: 28, height: passwordTextField.frame.height)  // Aumentar un poco el ancho
-        
-        // ojo derecha
-        let rightPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: emailTextField.frame.height))
-        rightPaddingView.addSubview(hidePasswordButton)
-        
-        passwordTextField.rightView = rightPaddingView
-        passwordTextField.rightViewMode = .always
-        
-        // hide/show tapped password
-        hidePasswordButton.addAction(UIAction(handler: { [weak self] _ in
-            self?.togglePasswordVisibility(for: self?.passwordTextField, button: hidePasswordButton)
-        }), for: .touchUpInside)
-    }
-    
-    func togglePasswordVisibility(for textField: UITextField?, button: UIButton) {
-        guard let textField = textField else { return }
-        
-        //cambiar vis car
-        textField.isSecureTextEntry.toggle()
-        
-        // change tapped
-        let eyeImage = UIImage(systemName: textField.isSecureTextEntry ? "eye" : "eye.fill")
-        button.setImage(eyeImage, for: .normal)
-    }
-    
-    //MARK: - Configuracion Animaciones Text Field
-    @objc func emailTextFieldEditingDidBegin(_ sender: UITextField) {
-        // Cuando el campo es tocado, cambiamos el borde a teal con animación
-        UIView.animate(withDuration: 0.3) {
-            sender.layer.borderColor = UIColor.systemTeal.cgColor
+        func togglePasswordVisibility(for textField: UITextField?, button: UIButton) {
+            guard let textField = textField else { return }
+            
+            //cambiar vis car
+            textField.isSecureTextEntry.toggle()
+            
+            // change tapped
+            let eyeImage = UIImage(systemName: textField.isSecureTextEntry ? "eye" : "eye.fill")
+            button.setImage(eyeImage, for: .normal)
         }
-    }
-    
-    @objc func emailTextFieldEditingDidEnd(_ sender: UITextField) {
-        // Cuando el campo deja de ser tocado, se valida si el campo está vacío
-        if sender.text?.isEmpty ?? true {
-            // Si el campo está vacío, lo marcamos con color rojo para indicar un error
-            showErrorAnimation(for: sender)
-        } else {
-            // Si el campo no está vacío, restauramos el borde al color gris predeterminado
+        
+        //MARK: - Configuracion Animaciones Text Field
+        @objc func emailTextFieldEditingDidBegin(_ sender: UITextField) {
+            // Cuando el campo es tocado, cambiamos el borde a teal con animación
             UIView.animate(withDuration: 0.3) {
-                sender.layer.borderColor = UIColor.gray.withAlphaComponent(0.05).cgColor  // Borde gris por defecto
+                sender.layer.borderColor = UIColor.systemTeal.cgColor
             }
         }
-    }
-    
-    // Animación para passwordTextField cuando se toca
-    @objc func passwordTextFieldEditingDidBegin(_ sender: UITextField) {
-        UIView.animate(withDuration: 0.3) {
-            sender.layer.borderColor = UIColor.systemTeal.cgColor
-        }
-    }
-    
-    // Animación para passwordTextField cuando deja de ser tocado
-    @objc func passwordTextFieldEditingDidEnd(_ sender: UITextField) {
-        if sender.text?.isEmpty ?? true {
-            // Si el campo está vacío, lo marcamos con color rojo para indicar un error
-            showErrorAnimation(for: sender)
-        } else {
-            // Si el campo no está vacío, restauramos el borde al color gris predeterminado
-            UIView.animate(withDuration: 0.3) {
-                sender.layer.borderColor = UIColor.gray.withAlphaComponent(0.05).cgColor  // Borde gris muy tenue
-            }
-        }
-    }
-    
-    private func showErrorAnimation(for textField: UITextField) {
-        UIView.animate(withDuration: 0.3) {
-            textField.layer.borderColor = UIColor.red.cgColor
-        }
-    }
-    
-    
-    // Función para mostrar animación de error (borde rojo)
-    private func showErrorAnimationn(for textField: UITextField) {
-        UIView.animate(withDuration: 0.3) {
-            textField.layer.borderColor = UIColor.red.cgColor // Borde rojo para error
-            textField.layer.borderWidth = 2.0 // Ancho de borde para hacer más visible el error
-        }
-    }
-    
-    private func setupCheckbox() {
-        checkbox.setImage(UIImage(systemName: "square"), for: .normal)
-        checkbox.setImage(UIImage(systemName: "checkmark.square.fill"), for: .selected)
         
-        checkbox.tintColor = .systemTeal // Color teal para el icono
-        checkbox.addTarget(self, action: #selector(toggleCheckbox), for: .touchUpInside)
+        @objc func emailTextFieldEditingDidEnd(_ sender: UITextField) {
+            // Cuando el campo deja de ser tocado, se valida si el campo está vacío
+            if sender.text?.isEmpty ?? true {
+                // Si el campo está vacío, lo marcamos con color rojo para indicar un error
+                showErrorAnimation(for: sender)
+            } else {
+                // Si el campo no está vacío, restauramos el borde al color gris predeterminado
+                UIView.animate(withDuration: 0.3) {
+                    sender.layer.borderColor = UIColor.gray.withAlphaComponent(0.05).cgColor  // Borde gris por defecto
+                }
+            }
+        }
+        
+        // Animación para passwordTextField cuando se toca
+        @objc func passwordTextFieldEditingDidBegin(_ sender: UITextField) {
+            UIView.animate(withDuration: 0.3) {
+                sender.layer.borderColor = UIColor.systemTeal.cgColor
+            }
+        }
+        
+        // Animación para passwordTextField cuando deja de ser tocado
+        @objc func passwordTextFieldEditingDidEnd(_ sender: UITextField) {
+            if sender.text?.isEmpty ?? true {
+                // Si el campo está vacío, lo marcamos con color rojo para indicar un error
+                showErrorAnimation(for: sender)
+            } else {
+                // Si el campo no está vacío, restauramos el borde al color gris predeterminado
+                UIView.animate(withDuration: 0.3) {
+                    sender.layer.borderColor = UIColor.gray.withAlphaComponent(0.05).cgColor  // Borde gris muy tenue
+                }
+            }
+        }
+        
+        private func showErrorAnimation(for textField: UITextField) {
+            UIView.animate(withDuration: 0.3) {
+                textField.layer.borderColor = UIColor.red.cgColor
+            }
+        }
+        
+        
+        // Función para mostrar animación de error (borde rojo)
+        private func showErrorAnimationn(for textField: UITextField) {
+            UIView.animate(withDuration: 0.3) {
+                textField.layer.borderColor = UIColor.red.cgColor // Borde rojo para error
+                textField.layer.borderWidth = 2.0 // Ancho de borde para hacer más visible el error
+            }
+        }
+        
+        private func setupCheckbox() {
+            checkbox.setImage(UIImage(systemName: "square"), for: .normal)
+            checkbox.setImage(UIImage(systemName: "checkmark.square.fill"), for: .selected)
+            
+            checkbox.tintColor = .systemTeal // Color teal para el icono
+            checkbox.addTarget(self, action: #selector(toggleCheckbox), for: .touchUpInside)
+        }
+        
+        // Acción para alternar el checkbox
+        @objc private func toggleCheckbox() {
+            checkbox.isSelected.toggle()
+        }
     }
-    
-    // Acción para alternar el checkbox
-    @objc private func toggleCheckbox() {
-        checkbox.isSelected.toggle()
-    }
-}

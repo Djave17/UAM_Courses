@@ -140,7 +140,6 @@ class RegisterViewController: UIViewController {
         registerViewModel.registrationStatusHandler = { [weak self] isSuccess in
             if isSuccess {
                 self?.showSuccessMessage()
-                self?.navigateToLogin()
             }
         }
     }
@@ -148,25 +147,130 @@ class RegisterViewController: UIViewController {
     // MARK: - Tap en "Register"
     @IBAction func tapOnRegister(_ sender: UIButton) {
         guard let name = nameTextField.text, !name.isEmpty,
-              let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else {
-            showCustomAlert(title: "Error", message: "Complete todos los campos.")
-            return
-        }
-        registerViewModel.register(name: name, email: email, password: password)
-    }
+                 let email = emailTextField.text, !email.isEmpty,
+                 let password = passwordTextField.text, !password.isEmpty else {
+               // Crear alerta de error con icono personalizado
+               let alert = UIAlertController(title: "\n\nError", message: "Complete todos los campos.", preferredStyle: .alert)
+               
+               // Crear el icono de error
+               let errorImage = UIImage(systemName: "xmark.circle.fill")?
+                   .withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+               let imageView = UIImageView(image: errorImage)
+               imageView.contentMode = .scaleAspectFit
+               imageView.translatesAutoresizingMaskIntoConstraints = false
+               
+               // Agregar el icono a la vista del alert
+               alert.view.addSubview(imageView)
+               
+               // Aplicar restricciones para el icono
+               NSLayoutConstraint.activate([
+                   imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                   imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15), // Ícono más arriba
+                   imageView.widthAnchor.constraint(equalToConstant: 40),
+                   imageView.heightAnchor.constraint(equalToConstant: 40)
+               ])
+               
+               // Botón "OK" con color personalizado
+               let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+               alert.addAction(okAction)
+               
+               // Cambiar el color del texto del botón
+               okAction.setValue(UIColor.systemRed, forKey: "titleTextColor")
+               
+               // Presentar la alerta
+               DispatchQueue.main.async {
+                   if let topVC = UIApplication.shared.connectedScenes
+                       .compactMap({ $0 as? UIWindowScene })
+                       .flatMap({ $0.windows })
+                       .first(where: { $0.isKeyWindow })?.rootViewController {
+                       topVC.present(alert, animated: true, completion: nil)
+                   }
+               }
+               
+               return
+           }
+           
+           // Si todos los campos están completos, proceder con el registro
+           registerViewModel.register(name: name, email: email, password: password)
+       }
     
     // MARK: - Helpers
     private func showError(message: String) {
-        showCustomAlert(title: "Error", message: "Todos los campos son obligatorios.")
-    }
-    
+        let alert = UIAlertController(title: "\n\nError", message: message, preferredStyle: .alert)
+
+            // Crear el icono de error
+            let errorImage = UIImage(systemName: "xmark.circle.fill")?
+                .withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+            let imageView = UIImageView(image: errorImage)
+            imageView.contentMode = .scaleAspectFit
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            // Agregar el icono a la vista del alert
+            alert.view.addSubview(imageView)
+            
+            // Aplicar restricciones para el icono
+            NSLayoutConstraint.activate([
+                imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15), // Ícono más arriba
+                imageView.widthAnchor.constraint(equalToConstant: 40),
+                imageView.heightAnchor.constraint(equalToConstant: 40)
+            ])
+            
+            // Botón "OK" con color personalizado
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            // Cambiar el color del texto del botón
+            okAction.setValue(UIColor.systemRed, forKey: "titleTextColor")
+            
+            // Presentar la alerta
+            DispatchQueue.main.async {
+                if let topVC = UIApplication.shared.connectedScenes
+                    .compactMap({ $0 as? UIWindowScene })
+                    .flatMap({ $0.windows })
+                    .first(where: { $0.isKeyWindow })?.rootViewController {
+                    topVC.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     private func showSuccessMessage() {
-        showCustomAlert(title: "Éxito", message: "Registro exitoso")
-        // Acción cuando se presiona el botón OK
-        self.navigateToLogin()
-        
-    }
+        let alert = UIAlertController(title: "\n\nÉxito", message: "Registro exitoso", preferredStyle: .alert)
+
+            // Crear el icono de éxito (checkmark)
+            let successImage = UIImage(systemName: "checkmark.circle.fill")?
+                .withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+            let imageView = UIImageView(image: successImage)
+            imageView.contentMode = .scaleAspectFit
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            // Agregar el icono a la vista del alert
+            alert.view.addSubview(imageView)
+            
+            // Aplicar restricciones para el icono
+            NSLayoutConstraint.activate([
+                imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15), // Ícono más arriba
+                imageView.widthAnchor.constraint(equalToConstant: 40),
+                imageView.heightAnchor.constraint(equalToConstant: 40)
+            ])
+            
+        // Botón "OK" con color personalizado
+           let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)  // Sin navegación
+           alert.addAction(okAction)
+           
+           // Cambiar el color del texto del botón
+           okAction.setValue(UIColor.systemTeal, forKey: "titleTextColor")
+           
+           // Presentar la alerta
+           DispatchQueue.main.async {
+               if let topVC = UIApplication.shared.connectedScenes
+                   .compactMap({ $0 as? UIWindowScene })
+                   .flatMap({ $0.windows })
+                   .first(where: { $0.isKeyWindow })?.rootViewController {
+                   topVC.present(alert, animated: true, completion: nil)
+               }
+           }
+       }
     
     // Función para crear alertas personalizadas
     func showCustomAlert(title: String, message: String) {
@@ -214,7 +318,6 @@ class RegisterViewController: UIViewController {
     
     func navigateToLogin(){
         let loginViewController = LoginViewController()
-        // Bloqueamos la animación del push (animated: false)
         navigationController?.pushViewController(loginViewController, animated: false)
     }
     
@@ -239,23 +342,11 @@ class RegisterViewController: UIViewController {
         // Configuración del botón de registro (ya configurado en Storyboard)
         registerButton.layer.cornerRadius = 15
         registerButton.clipsToBounds = true
-        
-        
-        
-        
-        // --- Configuración de los botones de navegación (Crear Cuenta e Iniciar Sesión) ---
-        // Se replica la posición y medidas del Login:
-        // StackView centrado horizontalmente y a 70 puntos arriba del centro vertical,
-        // con ancho 340 y altura 50.
-        
-        // Botón "Crear Cuenta" activo con borde
         btnCreate = createButton(title: "Crear Cuenta", backgroundColor: customColor, textColor: .white)
         btnCreate.layer.borderWidth = 2
         btnCreate.layer.borderColor = customColor.cgColor
         btnCreate.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         btnCreate.addTarget(self, action: #selector(goToRegister(_:)), for: .touchUpInside)
-        
-        // Botón "Iniciar Sesión" inactivo
         btnLogIn = createButton(title: "Iniciar Sesión", backgroundColor: .white, textColor: customColor)
         btnLogIn.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         btnLogIn.layer.borderWidth = 2

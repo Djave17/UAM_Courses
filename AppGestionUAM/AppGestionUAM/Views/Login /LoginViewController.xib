@@ -29,10 +29,11 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHE-Mk-dE6">
                             <rect key="frame" x="53.333333333333343" y="765" width="286.66666666666663" height="45"/>
+                            <color key="backgroundColor" red="0.2470588088" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="VhM-UX-zuy"/>
                             </constraints>
-                            <color key="tintColor" red="0.093835078179836273" green="0.59303444623947144" blue="0.60708534717559814" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="¿Que hacer si no puedes acceder?"/>
                             <connections>

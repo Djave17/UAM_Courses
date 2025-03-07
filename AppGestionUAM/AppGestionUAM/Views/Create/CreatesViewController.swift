@@ -18,6 +18,7 @@ class CreatesViewController: UIViewController {
     
     //MARK: - Outlets
     //@IBOutlet var principalView: UIView!
+    @IBOutlet weak var vwInfo: UIView!
     @IBOutlet weak var views: UIView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var imageButton: UIButton!
@@ -67,6 +68,25 @@ class CreatesViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
+        descriptionTextView.layer.borderWidth = 1
+        descriptionTextView.layer.borderColor = UIColor.gray.withAlphaComponent(0.1).cgColor
+        descriptionTextView.layer.cornerRadius = 5
+        
+        objectivesTextView.layer.borderWidth = 1
+        objectivesTextView.layer.borderColor = UIColor.gray.withAlphaComponent(0.1).cgColor
+        objectivesTextView.layer.cornerRadius = 5
+        
+        prerequisitesTextView.layer.borderWidth = 1
+        prerequisitesTextView.layer.borderColor = UIColor.gray.withAlphaComponent(0.1).cgColor
+        prerequisitesTextView.layer.cornerRadius = 5
+        
+        materialsTextView.layer.borderWidth = 1
+        materialsTextView.layer.borderColor = UIColor.gray.withAlphaComponent(0.1).cgColor
+        materialsTextView.layer.cornerRadius = 5
+        
+        vwInfo.layer.cornerRadius = 5
+        vwInfo.clipsToBounds = true
+        
         // Establecer el título en la barra de navegación
             self.title = "Añadir Cursos"
         
@@ -86,6 +106,7 @@ class CreatesViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
+    
     private func setupUI() {
         setupHeaderView()
         setupTextFields()
@@ -104,6 +125,12 @@ class CreatesViewController: UIViewController {
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+    
+  
+    
+    
+   
+       
     
     func gestosKeyboard(){
         //Gesto para quitar
@@ -179,9 +206,14 @@ class CreatesViewController: UIViewController {
     }
     
     private func setupButtons() {
-        saveButton.setTitle("Guardar Curso", for: .normal)
-        saveButton.clipsToBounds = true
-        saveButton.layer.cornerRadius = 12
+        let checkImage = UIImage(systemName: "checkmark") // Solo el check sin círculo
+          saveButton.setImage(checkImage, for: .normal)
+          saveButton.clipsToBounds = true
+          saveButton.layer.cornerRadius = 12
+         saveButton.translatesAutoresizingMaskIntoConstraints = false
+         saveButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+         saveButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+
     }
     
     private func setupImagePicker() {
@@ -195,7 +227,37 @@ class CreatesViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.activityIndicator.stopAnimating()
                 self?.enableSaveButton()
-                self?.showAlert(message: error)
+
+                // Crear el alerta con personalización
+                let alert = UIAlertController(title: "\n\nError", message: error, preferredStyle: .alert)
+
+                // Crear el icono de error (puedes usar un icono de error en lugar de checkmark)
+                let errorImage = UIImage(systemName: "xmark.circle.fill")?
+                    .withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+                let imageView = UIImageView(image: errorImage)
+                imageView.contentMode = .scaleAspectFit
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+
+                // Agregar el icono a la vista del alert
+                alert.view.addSubview(imageView)
+
+                // Aplicar restricciones para el icono (más arriba)
+                NSLayoutConstraint.activate([
+                    imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                    imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15), // Ícono más arriba
+                    imageView.widthAnchor.constraint(equalToConstant: 40),  // Tamaño de ícono
+                    imageView.heightAnchor.constraint(equalToConstant: 40)
+                ])
+
+                // Botón OK con color personalizado
+                let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                    // Aquí puedes agregar alguna acción si es necesario, como recargar la vista o similar
+                }
+                okAction.setValue(UIColor.systemRed, forKey: "titleTextColor")
+                alert.addAction(okAction)
+
+                // Presentar en el hilo principal
+                self?.present(alert, animated: true)
             }
         }
         
@@ -203,13 +265,11 @@ class CreatesViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.activityIndicator.stopAnimating()
                 self?.enableSaveButton()
-                self?.showAlertWithNavigation(message: "Curso creado con éxito.")
-                
-                
-                
+                self?.showAlertWithNavigation(message: "Nuevo curso disponible.")
             }
         }
     }
+
     
     // MARK: - Button Actions
     @IBAction func addImageButtonTapped(_ sender: UIButton) {
@@ -217,9 +277,9 @@ class CreatesViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        
         sender.isEnabled = false
         activityIndicator.startAnimating()
-        
         viewModel.name = nameTextField.text ?? ""
         viewModel.description = descriptionTextView.text
         viewModel.learningObjectives = objectivesTextView.text
@@ -235,12 +295,43 @@ class CreatesViewController: UIViewController {
     }
     
     private func showAlertWithNavigation(message: String) {
-        let alert = UIAlertController(title: "Crear Curso", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+        let alert = UIAlertController(title: "\n\nÉxito", message: message, preferredStyle: .alert)
+
+        // Crear el icono de check
+        let checkImage = UIImage(systemName: "checkmark.circle.fill")?
+            .withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+        let imageView = UIImageView(image: checkImage)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        // Agregar el icono a la vista del alert
+        alert.view.addSubview(imageView)
+
+        // Aplicar restricciones para el icono (más arriba)
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15), // Ícono más arriba
+            imageView.widthAnchor.constraint(equalToConstant: 40),  // Tamaño de ícono
+            imageView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+
+        // Botón OK con color personalizado
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             self.navegateToCourseList()
-        }))
-        present(alert, animated: true)
+        }
+        okAction.setValue(UIColor.systemTeal, forKey: "titleTextColor")
+        alert.addAction(okAction)
+
+        // Presentar en el hilo principal
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
     }
+
+    
+    
+    
+    
     private func showAlert(message: String) {
         let alert = UIAlertController(title: "Crear Curso", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in

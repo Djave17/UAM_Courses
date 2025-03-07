@@ -15,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Onboarding4ViewController" customModule="AppGestionUAM" customModuleProvider="target">
             <connections>
-                <outlet property="txtvwDesc" destination="B8o-Pn-SoJ" id="AsZ-X6-kin"/>
+                <outlet property="txtvwDesc" destination="cz4-PL-fWD" id="Vmm-9c-hSO"/>
                 <outlet property="txtvwTitle" destination="XVq-w0-8ub" id="sYu-uL-oAb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,17 +25,8 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Con nuestra app puedes agregar, editar y eliminar cursos, manteniendo tu información actualizada." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B8o-Pn-SoJ">
-                    <rect key="frame" x="53" y="532" width="295" height="105"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="105" id="S0k-He-n1v"/>
-                    </constraints>
-                    <color key="textColor" systemColor="labelColor"/>
-                    <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9N9-4Q-yx9">
-                    <rect key="frame" x="309" y="59" width="68" height="33.333333333333343"/>
+                    <rect key="frame" x="309" y="59" width="68" height="32"/>
                     <color key="tintColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Saltar">
@@ -49,7 +40,7 @@
                     <rect key="frame" x="53" y="448" width="297" height="76"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="76" id="J2X-yP-hkM"/>
+                        <constraint firstAttribute="height" constant="76" id="NyM-2A-icb"/>
                     </constraints>
                     <color key="textColor" red="0.26666668059999998" green="0.59607845540000004" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
@@ -58,24 +49,46 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buttonNav" translatesAutoresizingMaskIntoConstraints="NO" id="rXV-ye-3J6">
                     <rect key="frame" x="160" y="715" width="62" height="59"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="59" id="Skb-dp-OH6"/>
+                        <constraint firstAttribute="height" constant="59" id="ppP-KB-pWx"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" preservesSuperviewLayoutMargins="YES" text="UAMCourses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jT1-mq-KMo">
+                    <rect key="frame" x="28" y="63" width="115" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="fEq-08-sX6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                    <color key="textColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.40703098780000002" green="0.67418047049999996" blue="0.79266672039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Organiza y gestiona tus cursos de manera fácil, rápida y eficiente, todo en un solo lugar." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="cz4-PL-fWD">
+                    <rect key="frame" x="55" y="547" width="295" height="93"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="93" id="tBe-dg-vzG"/>
+                    </constraints>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="rXV-ye-3J6" firstAttribute="top" secondItem="B8o-Pn-SoJ" secondAttribute="bottom" constant="78" id="4P9-Ae-4Wg"/>
-                <constraint firstItem="9N9-4Q-yx9" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="Awq-dm-rK6"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="B8o-Pn-SoJ" secondAttribute="trailing" constant="45" id="OWL-3U-Xcr"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XVq-w0-8ub" secondAttribute="trailing" constant="43" id="UEy-1Z-O1e"/>
-                <constraint firstItem="B8o-Pn-SoJ" firstAttribute="top" secondItem="XVq-w0-8ub" secondAttribute="bottom" constant="8" symbolic="YES" id="bO5-Ou-bXy"/>
-                <constraint firstItem="XVq-w0-8ub" firstAttribute="leading" secondItem="B8o-Pn-SoJ" secondAttribute="leading" id="fAA-ap-DAc"/>
-                <constraint firstItem="9N9-4Q-yx9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="nGu-eI-2oU"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rXV-ye-3J6" secondAttribute="bottom" constant="44" id="pTL-4Q-eCc"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rXV-ye-3J6" secondAttribute="trailing" constant="171" id="pTP-Z2-baU"/>
-                <constraint firstItem="rXV-ye-3J6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="160" id="r9F-iu-2fk"/>
-                <constraint firstItem="XVq-w0-8ub" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="53" id="uJq-T5-y26"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rXV-ye-3J6" secondAttribute="bottom" constant="44" id="7zS-k0-8aE"/>
+                <constraint firstItem="9N9-4Q-yx9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="8AG-ug-5b0"/>
+                <constraint firstItem="9N9-4Q-yx9" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="Aaq-Qe-kGj"/>
+                <constraint firstItem="jT1-mq-KMo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="4" id="GDu-k2-Xuz"/>
+                <constraint firstItem="jT1-mq-KMo" firstAttribute="centerY" secondItem="9N9-4Q-yx9" secondAttribute="centerY" id="JRp-qm-pkD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XVq-w0-8ub" secondAttribute="trailing" constant="43" id="TPJ-pr-PZI"/>
+                <constraint firstItem="XVq-w0-8ub" firstAttribute="trailing" secondItem="cz4-PL-fWD" secondAttribute="trailing" id="YJq-32-9HA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rXV-ye-3J6" secondAttribute="trailing" constant="171" id="Yob-jJ-XXv"/>
+                <constraint firstItem="rXV-ye-3J6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="160" id="fzO-2k-AxL"/>
+                <constraint firstItem="rXV-ye-3J6" firstAttribute="top" secondItem="cz4-PL-fWD" secondAttribute="bottom" constant="75" id="khN-Wx-60m"/>
+                <constraint firstItem="cz4-PL-fWD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="55" id="lH1-1d-vSo"/>
+                <constraint firstItem="cz4-PL-fWD" firstAttribute="top" secondItem="XVq-w0-8ub" secondAttribute="bottom" constant="23" id="scR-uQ-BTx"/>
+                <constraint firstItem="XVq-w0-8ub" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="53" id="yUc-UW-wO5"/>
+                <constraint firstItem="jT1-mq-KMo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="28" id="z9B-4f-uf0"/>
             </constraints>
             <point key="canvasLocation" x="70.992366412213741" y="20.422535211267608"/>
         </view>

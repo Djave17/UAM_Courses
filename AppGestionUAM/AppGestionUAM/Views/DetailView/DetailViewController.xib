@@ -207,7 +207,7 @@
                                         <color key="baseBackgroundColor" red="0.25098040700000002" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </buttonConfiguration>
                                     <connections>
-                                        <action selector="toggleEditMode:" destination="-1" eventType="touchUpInside" id="apo-Db-bvG"/>
+                                        <action selector="toggleEditMode:" destination="-1" eventType="touchUpInside" id="zAl-7C-J6X"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jf-HO-Z1y">
@@ -233,7 +233,7 @@
                                         <constraint firstAttribute="height" constant="45" id="pas-mi-FbU"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" image="checkmark.icloud.fill" catalog="system">
+                                    <buttonConfiguration key="configuration" style="filled" image="checkmark" catalog="system">
                                         <color key="baseBackgroundColor" red="0.25098040700000002" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </buttonConfiguration>
                                     <connections>
@@ -319,7 +319,7 @@
     </objects>
     <resources>
         <image name="backgroundEnviroment2" width="1200" height="800"/>
-        <image name="checkmark.icloud.fill" catalog="system" width="128" height="90"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="photo.fill" catalog="system" width="128" height="93"/>

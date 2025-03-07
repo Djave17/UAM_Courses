@@ -11,7 +11,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteCoursesViewController" customModule="AppGestionUAM" customModuleProvider="target">
             <connections>
                 <outlet property="SettingsButton" destination="UhE-fI-RP6" id="qxo-aT-84g"/>
-                <outlet property="addCourseButton" destination="6kT-Ek-Wnu" id="9QR-jW-Ywl"/>
                 <outlet property="favoriteCoursesCollectionView" destination="NnK-RC-Tv1" id="7EG-07-OT4"/>
                 <outlet property="homeButton" destination="urg-aQ-CYQ" id="eau-ge-MAU"/>
                 <outlet property="searchFavoritesUIBar" destination="yLV-Fv-0cW" id="0iM-YK-4Tn"/>
@@ -64,20 +63,6 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
-                        <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kT-Ek-Wnu">
-                            <rect key="frame" x="345" y="59" width="40" height="35"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="MR9-VK-rv0"/>
-                                <constraint firstAttribute="height" constant="35" id="Txz-yy-zhp"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
-                                <color key="baseForegroundColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </buttonConfiguration>
-                            <connections>
-                                <action selector="addCourseTapped:" destination="-1" eventType="touchUpInside" id="IWe-7q-bWr"/>
-                            </connections>
-                        </button>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="6ps-LU-4Qo">
                             <rect key="frame" x="20" y="742.33333333333337" width="353" height="60"/>
                             <subviews>
@@ -112,7 +97,6 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.075533948838710785" green="0.19215786457061768" blue="0.28617402911186218" alpha="0.074289006290000001" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="veG-YO-1QX"/>
@@ -124,15 +108,13 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="6ps-LU-4Qo" firstAttribute="top" secondItem="NnK-RC-Tv1" secondAttribute="bottom" constant="20" id="0YL-SN-v9q"/>
-                        <constraint firstItem="6kT-Ek-Wnu" firstAttribute="top" secondItem="MZ0-FS-p7n" secondAttribute="top" id="2uR-A7-fX1"/>
+                        <constraint firstItem="yLV-Fv-0cW" firstAttribute="top" secondItem="kfF-Ra-7pA" secondAttribute="bottom" constant="7.3333333333333428" id="2ct-9N-NWp"/>
                         <constraint firstItem="NnK-RC-Tv1" firstAttribute="leading" secondItem="MZ0-FS-p7n" secondAttribute="leading" constant="20" id="Bp3-gc-dUJ"/>
                         <constraint firstItem="MZ0-FS-p7n" firstAttribute="trailing" secondItem="6ps-LU-4Qo" secondAttribute="trailing" constant="20" id="CpJ-Iq-Itv"/>
                         <constraint firstItem="kfF-Ra-7pA" firstAttribute="leading" secondItem="MZ0-FS-p7n" secondAttribute="leading" constant="20" id="GNd-c9-GF5"/>
-                        <constraint firstItem="yLV-Fv-0cW" firstAttribute="top" secondItem="6kT-Ek-Wnu" secondAttribute="bottom" constant="2" id="OJi-MW-a32"/>
                         <constraint firstItem="Azw-jd-34R" firstAttribute="top" secondItem="yLV-Fv-0cW" secondAttribute="bottom" constant="10" id="PFC-Ui-IB1"/>
                         <constraint firstItem="NnK-RC-Tv1" firstAttribute="top" secondItem="Azw-jd-34R" secondAttribute="bottom" constant="10" id="TlT-Ix-1xT"/>
                         <constraint firstItem="6ps-LU-4Qo" firstAttribute="leading" secondItem="MZ0-FS-p7n" secondAttribute="leading" constant="20" id="VMj-d3-x6A"/>
-                        <constraint firstItem="MZ0-FS-p7n" firstAttribute="trailing" secondItem="6kT-Ek-Wnu" secondAttribute="trailing" constant="8" id="khX-wK-R1T"/>
                         <constraint firstItem="yLV-Fv-0cW" firstAttribute="leading" secondItem="MZ0-FS-p7n" secondAttribute="leading" id="l8f-nQ-WJC"/>
                         <constraint firstItem="Azw-jd-34R" firstAttribute="leading" secondItem="MZ0-FS-p7n" secondAttribute="leading" constant="20" id="lEM-zl-gsN"/>
                         <constraint firstItem="MZ0-FS-p7n" firstAttribute="trailing" secondItem="NnK-RC-Tv1" secondAttribute="trailing" constant="20" id="nHH-qq-Pve"/>
@@ -151,7 +133,6 @@
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

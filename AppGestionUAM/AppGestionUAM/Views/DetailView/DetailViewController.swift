@@ -30,6 +30,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     
+    
     //MARK: - Activity indicator (Carga)
     private let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
@@ -56,19 +57,49 @@ class DetailViewController: UIViewController {
         loadCourseDetails(name: name)
         setupDeleteBindings()
         setupUpdateBindings()
-        text()
         
+        self.title = "Detalles del Curso"
+           let appearance = UINavigationBarAppearance()
+           
+           // Cambiar el color del título de la vista
+           appearance.titleTextAttributes = [.foregroundColor: UIColor.systemTeal]
+           
+           appearance.configureWithOpaqueBackground() // Configura el fondo opaco
+           appearance.backgroundColor = .white // Si deseas que el fondo sea blanco
+           appearance.shadowColor = .clear
+           
+           // Asegúrate de aplicar los cambios tanto en el estándar como en el scrollEdgeAppearance
+           navigationController?.navigationBar.standardAppearance = appearance
+           navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
-    func text(){
-        title = "Detalles del Curso"
-        view.accessibilityIdentifier = "DetailView"
-        
-        let titleLabel = UILabel()
-        titleLabel.text = "Detalles del Curso"
-        titleLabel.accessibilityIdentifier = "courseDetailTitle" // Agregar identificador accesible
-        titleLabel.isHidden = true
-        view.addSubview(titleLabel)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let hairline = findHairlineImageViewUnder(navigationController?.navigationBar) {
+            hairline.isHidden = true
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // Asegurarse de que la "hairline" se mantenga oculta después del layout
+        if let hairline = findHairlineImageViewUnder(navigationController?.navigationBar) {
+            hairline.isHidden = true
+        }
+    }
+
+    // Función recursiva para encontrar la "hairline"
+    private func findHairlineImageViewUnder(_ view: UIView?) -> UIImageView? {
+        guard let view = view else { return nil }
+        if let imageView = view as? UIImageView, imageView.bounds.height <= 1.0 {
+            return imageView
+        }
+        for subview in view.subviews {
+            if let found = findHairlineImageViewUnder(subview) {
+                return found
+            }
+        }
+        return nil
     }
     
     private func loadCourseDetails(name: String) {
@@ -173,15 +204,47 @@ class DetailViewController: UIViewController {
         updateFavoriteButtonUI()
     }
     
+    // Función separada para mostrar alertas con el icono de lápiz
+    private func showAlertWithPencilIcon(title: String, message: String, completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: "\n\nModo Editar", message: message, preferredStyle: .alert)
+
+           // Crear el icono de lápiz
+           let pencilImage = UIImage(systemName: "pencil.circle.fill")?
+               .withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+           let imageView = UIImageView(image: pencilImage)
+           imageView.contentMode = .scaleAspectFit
+           imageView.translatesAutoresizingMaskIntoConstraints = false
+
+           // Agregar el icono a la vista del alert
+           alert.view.addSubview(imageView)
+
+           // Aplicar restricciones para el icono
+           NSLayoutConstraint.activate([
+               imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+               imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15), // Ícono más arriba
+               imageView.widthAnchor.constraint(equalToConstant: 40),  // Tamaño del ícono
+               imageView.heightAnchor.constraint(equalToConstant: 40)
+           ])
+
+           // Botón OK con color personalizado
+           let okAction = UIAlertAction(title: "OK", style: .default)
+           okAction.setValue(UIColor.systemTeal, forKey: "titleTextColor")
+           alert.addAction(okAction)
+
+           // Presentar en el hilo principal
+           DispatchQueue.main.async {
+               self.present(alert, animated: true)
+           }
+       }
+
     // MARK: - Toggle Edit Mode
     @IBAction func toggleEditMode(_ sender: UIButton) {
         cambiarEstados()
         
-        showAlerts(title: "Modo editar", message: "Presione guardar luego de realizar los cambios. Puede cambiarlo en cualquier momento")
-        
-
-        
+        // Llamar al método de alerta con el título y mensaje que necesites
+        showAlertWithPencilIcon(title: "Modo Editar", message: "Presione guardar luego de realizar los cambios.")
     }
+
     
     //MARK: - BOTON DE GUARDAR
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -223,11 +286,49 @@ class DetailViewController: UIViewController {
             print("Ejecutandose actualizacion") //Este print no se ejecuta
             await viewModel.updateCourse(courseID: courseID, updatedCourse: updatedCourse, image: selectedImage)
             print("Task Actualizada")
+            
+            // Detener animación y reactivar botón
+                    DispatchQueue.main.async {
+                        sender.isEnabled = true
+                        self.activityIndicator.stopAnimating()
+                        
+                        // Mostrar la alerta de éxito
+                        self.showSaveSuccessAlert(message: "Los cambios se han guardado correctamente.")
+                    }
+                }
+            }
+        
+
+private func showSaveSuccessAlert(message: String) {
+    let alert = UIAlertController(title: "\n\nÉxito", message: message, preferredStyle: .alert)
+
+        // Crear el icono de check
+        let checkImage = UIImage(systemName: "checkmark.circle.fill")?
+            .withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+        let imageView = UIImageView(image: checkImage)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        // Agregar el icono a la vista del alert
+        alert.view.addSubview(imageView)
+
+        // Aplicar restricciones para el icono
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15),
+            imageView.widthAnchor.constraint(equalToConstant: 40),
+            imageView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+
+        // Botón OK sin acción, solo cierra la alerta
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        okAction.setValue(UIColor.systemTeal, forKey: "titleTextColor")
+        alert.addAction(okAction)
+
+        // Presentar en el hilo principal
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
         }
-        
-        
-        
-        
     }
     
     //MARK: - DELETE ACTION
@@ -236,14 +337,43 @@ class DetailViewController: UIViewController {
             print("Course not found")
             return
         }
-        let alert = UIAlertController(title: "Confirmar", message: "¿Estás seguro de eliminar este curso?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Eliminar", style: .destructive, handler: { [weak self] _ in
-            guard let self = self else { return }
-            self.viewModel.deleteCourse(withID: course.id)
-        }))
-        present(alert, animated: true, completion: nil)
-    }
+        // Crear el alerta con icono de basura para la confirmación
+           let alert = UIAlertController(title: "\n\nConfirmar", message: "¿Estás seguro de eliminar este curso?", preferredStyle: .alert)
+
+           // Crear el icono de basura
+           let trashImage = UIImage(systemName: "trash.circle.fill")?
+               .withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+           let imageView = UIImageView(image: trashImage)
+           imageView.contentMode = .scaleAspectFit
+           imageView.translatesAutoresizingMaskIntoConstraints = false
+
+           // Agregar el icono a la vista del alert
+           alert.view.addSubview(imageView)
+
+           // Aplicar restricciones para el icono
+           NSLayoutConstraint.activate([
+               imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+               imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15),
+               imageView.widthAnchor.constraint(equalToConstant: 40),
+               imageView.heightAnchor.constraint(equalToConstant: 40)
+           ])
+
+        // Acción de cancelar con color teal
+           let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+           cancelAction.setValue(UIColor.systemTeal, forKey: "titleTextColor")
+           alert.addAction(cancelAction)
+
+           // Acción de eliminar con estilo destructivo y color teal
+           let deleteAction = UIAlertAction(title: "Eliminar", style: .destructive, handler: { [weak self] _ in
+               guard let self = self else { return }
+               self.viewModel.deleteCourse(withID: course.id)
+           })
+           deleteAction.setValue(UIColor.systemTeal, forKey: "titleTextColor")
+           alert.addAction(deleteAction)
+
+           // Presentar la alerta en el hilo principal
+           present(alert, animated: true, completion: nil)
+       }
     
     // MARK: - Image Picker
     @IBAction func selectImage(_ sender: UIButton) {
@@ -257,39 +387,126 @@ class DetailViewController: UIViewController {
     // MARK: - Configurar bindings
     private func setupUpdateBindings() {
         viewModel.onError = { [weak self] error in
-            DispatchQueue.main.async {
-                self?.activityIndicator.stopAnimating()
-                self?.showAlert(title: "Error", message: error)
-               
+                DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
+                    
+                    // Crear el alerta con personalización para el error
+                    let alert = UIAlertController(title: "\n\nError", message: error, preferredStyle: .alert)
+
+                    // Crear el icono de error
+                    let errorImage = UIImage(systemName: "xmark.circle.fill")?
+                        .withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+                    let imageView = UIImageView(image: errorImage)
+                    imageView.contentMode = .scaleAspectFit
+                    imageView.translatesAutoresizingMaskIntoConstraints = false
+
+                    // Agregar el icono a la vista del alert
+                    alert.view.addSubview(imageView)
+
+                    // Aplicar restricciones para el icono
+                    NSLayoutConstraint.activate([
+                        imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                        imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15), // Ícono más arriba
+                        imageView.widthAnchor.constraint(equalToConstant: 40),  // Tamaño de ícono
+                        imageView.heightAnchor.constraint(equalToConstant: 40)
+                    ])
+
+                    // Botón OK con color personalizado
+                    let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                        // Aquí puedes agregar alguna acción si es necesario
+                    }
+                    okAction.setValue(UIColor.systemRed, forKey: "titleTextColor")
+                    alert.addAction(okAction)
+
+                    // Presentar en el hilo principal
+                    self?.present(alert, animated: true)
+                }
             }
             
-        }
-        viewModel.onUpdateSuccess = { [weak self] in
-            DispatchQueue.main.async {
-                self?.activityIndicator.stopAnimating()
-                self?.showAlert(title: "Éxito", message: "El curso se actualizó correctamente.")
-                self?.updateUIWithCourseDetails()
-            }
-           
-        }
-    }
+           viewModel.onUpdateSuccess = { [weak self] in
+               DispatchQueue.main.async {
+                   self?.activityIndicator.stopAnimating()
+                   self?.showSaveSuccessAlert(message: "El curso se actualizó correctamente.") // Usa la alerta personalizada
+                   self?.updateUIWithCourseDetails()
+               }
+           }
+       }
     
     
     private func setupDeleteBindings() {
         viewModel.onDeleteSuccess = { [weak self] in
-            DispatchQueue.main.async {
-                self?.showAlert(title: "Éxito", message: "Curso eliminado exitosamente.") {
-                    self?.navigationController?.popViewController(animated: true)
+               DispatchQueue.main.async {
+                   // Crear el alerta con icono de basura para la eliminación exitosa
+                   let alert = UIAlertController(title: "\n\nÉxito", message: "Curso eliminado exitosamente.", preferredStyle: .alert)
+
+                   // Crear el icono de basura
+                   let trashImage = UIImage(systemName: "trash.circle.fill")?
+                       .withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+                   let imageView = UIImageView(image: trashImage)
+                   imageView.contentMode = .scaleAspectFit
+                   imageView.translatesAutoresizingMaskIntoConstraints = false
+
+                   // Agregar el icono a la vista del alert
+                   alert.view.addSubview(imageView)
+
+                   // Aplicar restricciones para el icono
+                   NSLayoutConstraint.activate([
+                       imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                       imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15), // Ícono más arriba
+                       imageView.widthAnchor.constraint(equalToConstant: 40),  // Tamaño de ícono
+                       imageView.heightAnchor.constraint(equalToConstant: 40)
+                   ])
+
+                   // Botón OK con color personalizado
+                   let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                       // Navegar atrás después de la eliminación exitosa
+                       self?.navigationController?.popViewController(animated: true)
+                   }
+                   okAction.setValue(UIColor.systemTeal, forKey: "titleTextColor")
+                   alert.addAction(okAction)
+
+                   // Presentar la alerta en el hilo principal
+                   self?.present(alert, animated: true)
+               }
+           }
+        
+        viewModel.onDeleteError = { [weak self] error in
+                DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
+                    
+                    // Crear el alerta con personalización para el error
+                    let alert = UIAlertController(title: "\n\nError", message: error.localizedDescription, preferredStyle: .alert)
+
+                    // Crear el icono de error
+                    let errorImage = UIImage(systemName: "xmark.circle.fill")?
+                        .withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+                    let imageView = UIImageView(image: errorImage)
+                    imageView.contentMode = .scaleAspectFit
+                    imageView.translatesAutoresizingMaskIntoConstraints = false
+
+                    // Agregar el icono a la vista del alert
+                    alert.view.addSubview(imageView)
+
+                    // Aplicar restricciones para el icono
+                    NSLayoutConstraint.activate([
+                        imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                        imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 15), // Ícono más arriba
+                        imageView.widthAnchor.constraint(equalToConstant: 40),  // Tamaño de ícono
+                        imageView.heightAnchor.constraint(equalToConstant: 40)
+                    ])
+
+                    // Botón OK con color personalizado
+                    let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                        // Aquí puedes agregar alguna acción si es necesario
+                    }
+                    okAction.setValue(UIColor.systemRed, forKey: "titleTextColor")
+                    alert.addAction(okAction)
+
+                    // Presentar en el hilo principal
+                    self?.present(alert, animated: true)
                 }
             }
         }
-        
-        viewModel.onDeleteError = { [weak self] error in
-            DispatchQueue.main.async {
-                self?.showAlert(title: "Error", message: error.localizedDescription)
-            }
-        }
-    }
     
     
     func cambiarEstados(){

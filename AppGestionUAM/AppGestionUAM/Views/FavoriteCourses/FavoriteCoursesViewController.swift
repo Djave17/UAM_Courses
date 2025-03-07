@@ -43,17 +43,56 @@ class FavoriteCoursesViewController: UIViewController, CourseCellDelegate {
         stackViewButtonsFavorite.layer.borderWidth = 1  // Grosor del borde
         stackViewButtonsFavorite.layer.borderColor = UIColor.gray.withAlphaComponent(0.2).cgColor  // Color gris sutil con opacidad baja
         stackViewButtonsFavorite.layer.cornerRadius = 20  // Bordes redondeados (opcional)
-
         
     }
     
-    //Cargar los cursos si se navega hacia atras:
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        applySnapshot(filteredCourses)
-        loadCourses()
-        setupBindings()
-    }
+            super.viewWillAppear(animated)
+            configureNavigationBarAppearance()
+            // Ocultar la hairline recursivamente
+            if let hairline = findHairlineImageViewUnder(navigationController?.navigationBar) {
+                hairline.isHidden = true
+            }
+        }
+        
+        override func viewDidLayoutSubviews() {
+            super.viewDidLayoutSubviews()
+            // Reafirmar que la hairline esté oculta después del layout
+            if let hairline = findHairlineImageViewUnder(navigationController?.navigationBar) {
+                hairline.isHidden = true
+            }
+        }
+        
+        // Configuración para iOS 13+
+        private func configureNavigationBarAppearance() {
+            if #available(iOS 13.0, *) {
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithOpaqueBackground()  // O usa configureWithTransparentBackground() si prefieres transparencia
+                appearance.shadowColor = .clear  // Elimina la sombra
+                // Si necesitas, también puedes configurar un color de fondo:
+                // appearance.backgroundColor = UIColor.white
+                navigationController?.navigationBar.standardAppearance = appearance
+                navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            } else {
+                // Para iOS anteriores
+                navigationController?.navigationBar.shadowImage = UIImage()
+                navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            }
+        }
+        
+        // Función recursiva para encontrar la hairline
+        private func findHairlineImageViewUnder(_ view: UIView?) -> UIImageView? {
+            guard let view = view else { return nil }
+            if let imageView = view as? UIImageView, imageView.bounds.height <= 1.0 {
+                return imageView
+            }
+            for subview in view.subviews {
+                if let found = findHairlineImageViewUnder(subview) {
+                    return found
+                }
+            }
+            return nil
+        }
     
     //MARK: - Gestos KeyBoard
     func gestosKeyboard(){

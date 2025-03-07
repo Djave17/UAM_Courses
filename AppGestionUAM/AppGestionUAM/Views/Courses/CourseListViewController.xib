@@ -13,6 +13,7 @@
                 <outlet property="coursesCollectionView" destination="Gz2-0n-fVf" id="AIu-64-Kys"/>
                 <outlet property="favoritesButton" destination="CZR-8L-xep" id="48s-dk-VOu"/>
                 <outlet property="homeButton" destination="faW-Er-TF9" id="yoF-pf-xSK"/>
+                <outlet property="lblName" destination="imf-NC-fwJ" id="qvS-Ja-T9i"/>
                 <outlet property="profileButton" destination="S7F-fg-7OE" id="KsE-ue-urw"/>
                 <outlet property="searchBar" destination="3vw-Sz-7FU" id="JBH-Ft-9Tp"/>
                 <outlet property="stackViewButtons" destination="595-wU-mg8" id="7dY-un-p79"/>
@@ -25,15 +26,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" preservesSuperviewLayoutMargins="YES" text="Cursos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imf-NC-fwJ">
-                    <rect key="frame" x="20" y="58.999999999999993" width="80" height="29.666666666666664"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <rect key="frame" x="20" y="58.999999999999993" width="76" height="29.666666666666664"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                     <color key="textColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="0.0031666669529999999" green="0.60265469549999995" blue="0.66218900680000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="shadowColor" red="0.40703098780000002" green="0.67418047049999996" blue="0.79266672039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
                 <searchBar clipsSubviews="YES" contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Busca un curso" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-Sz-7FU">
                     <rect key="frame" x="0.0" y="96" width="393" height="56"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textInputTraits key="textInputTraits"/>
@@ -114,7 +114,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.075533948838710785" green="0.19215786457061768" blue="0.28617402911186218" alpha="0.07428900629496403" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="Gdr-3N-9yi"/>

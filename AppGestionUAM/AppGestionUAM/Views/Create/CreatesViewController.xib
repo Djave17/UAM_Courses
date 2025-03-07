@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,6 +27,7 @@
                 <outlet property="scheduleTextField" destination="2xC-on-6XJ" id="Veg-pt-ADh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="adN-ts-xVd"/>
                 <outlet property="views" destination="Y2f-hA-jvq" id="Eln-ne-e1Z"/>
+                <outlet property="vwInfo" destination="d8I-0Q-fhx" id="kVW-We-ZOH"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -78,12 +78,11 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre del curso" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyJ-uX-LJe">
                                     <rect key="frame" x="30" y="240" width="146" height="22.666666666666686"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.2470588088" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingrese el nombre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zts-L0-41c">
                                     <rect key="frame" x="30" y="270.66666666666669" width="333" height="45"/>
-                                    <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="OaW-ZD-Ppj"/>
                                     </constraints>
@@ -93,12 +92,11 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horario" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAR-51-c1V">
                                     <rect key="frame" x="29.999999999999996" y="340.66666666666669" width="62.666666666666657" height="22.666666666666686"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.2470588088" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingrese el horario del curso " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xC-on-6XJ">
                                     <rect key="frame" x="30" y="372.33333333333331" width="333" height="45"/>
-                                    <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="ddj-II-DIo"/>
                                     </constraints>
@@ -108,40 +106,39 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0h-ya-zGQ">
                                     <rect key="frame" x="30" y="442.33333333333331" width="97" height="22.666666666666686"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.2470588088" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Objetivos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k1-vn-dzb">
                                     <rect key="frame" x="30" y="619" width="78" height="22.666666666666629"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.2470588088" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requisitos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aB-Wy-QhP">
                                     <rect key="frame" x="29.999999999999993" y="795.66666666666663" width="86.333333333333314" height="22.666666666666629"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.2470588088" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Materiales" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEj-Qt-a6q">
                                     <rect key="frame" x="30" y="972.33333333333337" width="87" height="22.666666666666629"/>
                                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="18"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.2470588088" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAF-s2-lSa">
-                                    <rect key="frame" x="129" y="1174" width="135.33333333333337" height="35"/>
-                                    <color key="tintColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <rect key="frame" x="172.66666666666666" y="1174" width="47.666666666666657" height="34.333333333333258"/>
+                                    <color key="backgroundColor" red="0.2470588088" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Guardar Curso">
-                                        <color key="baseForegroundColor" red="0.0" green="0.56666393400000004" blue="0.66668639519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </buttonConfiguration>
+                                    <buttonConfiguration key="configuration" style="plain" image="checkmark" catalog="system"/>
                                     <connections>
                                         <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="3ka-mY-RNh"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8I-0Q-fhx">
-                                    <rect key="frame" x="30" y="1249" width="333" height="100"/>
+                                    <rect key="frame" x="30" y="1248.3333333333333" width="333" height="100"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpx-tv-p9B">
                                             <rect key="frame" x="8" y="8" width="22" height="27"/>
@@ -151,21 +148,21 @@
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system" title="">
-                                                <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debes rellenar todos los campos para crear el curso. Crear un curso puede tardar unos momentos. " lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noZ-sW-7Et">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debes rellenar todos los campos para crear el curso. Crear un curso puede tardar unos momentos. " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noZ-sW-7Et">
                                             <rect key="frame" x="38" y="8" width="282" height="72"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="282" id="VW2-4J-zRC"/>
                                                 <constraint firstAttribute="height" constant="72" id="tdD-b3-D5y"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" name="757677"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.2470588088" green="0.56078433989999998" blue="0.6549019814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="Bpx-tv-p9B" firstAttribute="top" secondItem="d8I-0Q-fhx" secondAttribute="top" constant="8" id="A42-Fk-Wp5"/>
                                         <constraint firstAttribute="height" constant="100" id="SVL-5E-HHx"/>
@@ -177,7 +174,6 @@
                                 </view>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f1p-Ew-fB5">
                                     <rect key="frame" x="30" y="474" width="333" height="120"/>
-                                    <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="120" id="7C3-8Y-eYn"/>
                                     </constraints>
@@ -187,7 +183,6 @@
                                 </textView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TQj-B2-gp1">
                                     <rect key="frame" x="30" y="650.66666666666663" width="333" height="120"/>
-                                    <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="120" id="Wik-2d-cbP"/>
                                     </constraints>
@@ -197,7 +192,6 @@
                                 </textView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="09o-rl-iK8">
                                     <rect key="frame" x="30" y="827.33333333333337" width="333" height="120"/>
-                                    <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="120" id="lEL-yq-Ner"/>
                                     </constraints>
@@ -207,7 +201,6 @@
                                 </textView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dVE-wh-1Ab">
                                     <rect key="frame" x="30" y="1004" width="333" height="120"/>
-                                    <color key="backgroundColor" red="0.94493135279999996" green="0.94493135279999996" blue="0.94493135279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="120" id="AwT-Yg-XjD"/>
                                     </constraints>
@@ -283,11 +276,9 @@
         </view>
     </objects>
     <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <namedColor name="757677">
-            <color red="0.45882352941176469" green="0.46274509803921571" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

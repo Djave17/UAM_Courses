@@ -1,14 +1,13 @@
 //
-//  PassViewController.swift
+//  PasswordViewController.swift
 //  AppGestionUAM
 //
-//  Created by Kristel Geraldine Villalta Porras on 28/2/25.
+//  Created by Kristel Geraldine Villalta Porras on 6/3/25.
 //
 
 import UIKit
 import AVFoundation
-
-class PassViewController: UIViewController {
+class PasswordViewController: UIViewController {
     private let customColor = UIColor(red: 68/255, green: 153/255, blue: 167/255, alpha: 1.0)
     var player: AVPlayer?
     private var cameFromSettings = false
@@ -23,11 +22,6 @@ class PassViewController: UIViewController {
     var isFromLogin: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        if isFromLogin {
-            self.navigationItem.hidesBackButton = true
-        } else {
-            self.navigationItem.hidesBackButton = false
-        }
         txtvwDesc.isScrollEnabled = false
         txtvwDesc.isEditable = false
         txtvwDesc.isSelectable = false
@@ -173,13 +167,10 @@ class PassViewController: UIViewController {
                 }
                 return
             }
-            self.cameFromSettings = false
             showAlertWithNavigation(message: "Contraseña modificada con éxito.")
             
             // Solo ir al login si no vino de settings
-            if !cameFromSettings {
-                irALoginViewController()
-            }
+           
         }
 
     
@@ -198,7 +189,6 @@ class PassViewController: UIViewController {
             imageView.heightAnchor.constraint(equalToConstant: 40)
         ])
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.irALoginViewController()
         }
         okAction.setValue(UIColor.systemTeal, forKey: "titleTextColor")
         alert.addAction(okAction)
